@@ -1,6 +1,6 @@
 # Metadata — verified description
 
-*Stage 1, 2026-09-22. Generated from `scripts/promoted/metadata_characterize.py` → `results/metadata/` and confirmed by the scientist at the Stage-1 checkpoint. Regenerate from those; never edit into inconsistency with the data.*
+*Stage 1, 2026-09-22. Generated from `scripts/promoted/metadata_characterize.py` (commit 536281b) → `results/metadata/` and confirmed by the scientist at the Stage-1 checkpoint. Regenerate from those; never edit into inconsistency with the data.*
 
 **Data version:** `sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74`
 (combined sha256 over the six `data/` files, keyed by role; per-file hashes in `results/metadata/data_version.json`).
@@ -60,8 +60,8 @@ Run layout (`results/metadata/run_layout.tsv`):
 
 ## Imbalances, skews, confounds (caveat findings)
 
-- **Run order is aliased with condition** (H4). If the sequence numbers are injection order, any drift over the run (instrument sensitivity, LC column, carry-over) coincides exactly with the treatment contrast and can't be separated from it. There are no pooled QC injections to measure drift. → caveat finding **0001** (to be recorded).
-- **Batch structure** (H2). Condition is balanced within each batch, so batch doesn't bias the contrast. But batch sizes are unequal (6 vs. 2), the batch meaning is unknown (prep + acquisition, or acquisition only), and a ten-month gap between acquisitions can bring a large batch effect. That effect would add variance and could dominate PCA and clustering. The later batch contains a single pair, so a batch effect can't be estimated apart from that one pair's own variation. Batch should enter differential models as a covariate and be checked in QC. → caveat finding **0002** (to be recorded).
+- **Run order is aliased with condition** (H4). If the sequence numbers are injection order, any drift over the run (instrument sensitivity, LC column, carry-over) coincides exactly with the treatment contrast and can't be separated from it. There are no pooled QC injections to measure drift. → caveat finding [**0001**](../findings/0001-run-order-aliased-with-condition.md).
+- **Batch structure** (H2). Condition is balanced within each batch, so batch doesn't bias the contrast. But batch sizes are unequal (6 vs. 2), the batch meaning is unknown (prep + acquisition, or acquisition only), and a ten-month gap between acquisitions can bring a large batch effect. That effect would add variance and could dominate PCA and clustering. The later batch contains a single pair, so a batch effect can't be estimated apart from that one pair's own variation. Batch should enter differential models as a covariate and be checked in QC. → caveat finding [**0002**](../findings/0002-two-acquisition-batches-6-vs-2.md).
 - **Candidate pairing** (H3). Not a confound, but a possible blocking factor. Stage 4 should treat a paired analysis (pair as a covariate) as a sensitivity analysis next to the default unpaired one.
 - **Small n.** With 4 vs. 4, all differential results are exploratory. Stage 0 records this dataset as a near-null test (little true difference expected).
 
