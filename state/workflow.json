@@ -1,9 +1,9 @@
 {
   "schema_version": "1",
-  "current_stage": 2,
+  "current_stage": 3,
   "science_done": true,
   "metadata_done": true,
-  "data_done": false,
+  "data_done": true,
   "integrity_gate": {
     "passed": false,
     "signed_off_by": null,
