@@ -30,6 +30,7 @@ from hypothesis import strategies as st
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import metadata_characterize as mc
+from common import design
 
 # ---------------------------------------------------------------------------
 # parse_filename: good + malformed filenames
@@ -892,6 +893,30 @@ def test_hypothesis_h4_inconclusive_when_batch_has_lt2_of_one_condition() -> Non
     assert "No information on its own" in batch_row.note
 
 
+def test_hypothesis_h4_stratified_passed_none_when_every_batch_single_condition() -> (
+    None
+):
+    """A1: every batch is single-condition (u_max == 0 overall) -> the stratified
+    row must be inconclusive (``passed is None``), NOT a (trivially true, since
+    u_observed == u_max == 0) "fully separated" pass."""
+    df = _samples_df(
+        [
+            {"batch": "B1", "seq_number": 1, "condition": "control"},
+            {"batch": "B1", "seq_number": 2, "condition": "control"},
+            {"batch": "B2", "seq_number": 3, "condition": "raloxifene-d0"},
+            {"batch": "B2", "seq_number": 4, "condition": "raloxifene-d0"},
+        ]
+    )
+    rows = mc.hypothesis_h4(df, max_total_permutations=1000)
+    strat_row = next(r for r in rows if r.scope == "stratified_across_batches")
+    assert strat_row.passed is None
+    assert strat_row.direction is None
+    assert strat_row.p_one_sided_observed_direction is None
+    assert strat_row.p_two_sided is None
+    assert "no information" in strat_row.note
+    assert "u_max=0" in strat_row.note
+
+
 def test_hypothesis_h5_order_matches() -> None:
     df = _samples_df(
         [
@@ -974,6 +999,7 @@ def test_h4_planted_truth_fully_confounded_run_order_is_flagged(
     batch_row = next(r for r in h4_rows if r.scope.startswith("batch="))
     assert batch_row.passed is True
     assert batch_row.p_one_sided_observed_direction == pytest.approx(1 / 6)
+    assert batch_row.p_two_sided == pytest.approx(2 / 6)
     assert batch_row.direction == "control_earlier"
 
 
@@ -1029,37 +1055,12 @@ def test_h4_interleaved_design_not_flagged(tmp_path: Path) -> None:
 
 
 # ---------------------------------------------------------------------------
-# Data-version stamp (role-keyed)
+# Data-version stamp (role-keyed) — the implementation itself now lives in, and
+# is fully unit-tested in, common/hashing.py (see test_common_hashing.py); the
+# checks here are limited to metadata_characterize actually using it, which the
+# end-to-end main() tests below cover (data_version.json / summary.json are
+# role-keyed).
 # ---------------------------------------------------------------------------
-
-
-def test_compute_file_hashes_and_data_version_role_order_independent(
-    tmp_path: Path,
-) -> None:
-    f1 = tmp_path / "a.txt"
-    f1.write_text("hello", encoding="utf-8")
-    f2 = tmp_path / "b.txt"
-    f2.write_text("world", encoding="utf-8")
-
-    hashes_1 = mc.compute_file_hashes([("role_a", f1), ("role_b", f2)])
-    hashes_2 = mc.compute_file_hashes([("role_b", f2), ("role_a", f1)])
-
-    assert hashes_1["role_a"]["path"] == str(f1)
-    assert hashes_1["role_a"]["sha256"] == mc.sha256_of_file(f1)
-    # Order of the (role, path) pairs must not affect the combined stamp.
-    assert mc.compute_data_version(hashes_1) == mc.compute_data_version(hashes_2)
-    assert mc.compute_data_version(hashes_1).startswith("sha256:")
-
-    f1.write_text("HELLO", encoding="utf-8")
-    hashes_3 = mc.compute_file_hashes([("role_a", f1), ("role_b", f2)])
-    assert mc.compute_data_version(hashes_3) != mc.compute_data_version(hashes_1)
-
-
-def test_compute_file_hashes_rejects_duplicate_roles(tmp_path: Path) -> None:
-    f1 = tmp_path / "a.txt"
-    f1.write_text("hello", encoding="utf-8")
-    with pytest.raises(ValueError, match="Duplicate"):
-        mc.compute_file_hashes([("role_a", f1), ("role_a", f1)])
 
 
 # ---------------------------------------------------------------------------
@@ -1101,11 +1102,21 @@ def test_assert_output_dir_not_under_data_allows_sibling_dir(tmp_path: Path) -> 
 
 
 def test_metadata_with_only_header_fails_gracefully(tmp_path: Path) -> None:
+    """A metadata.tsv with zero data rows must fail the *pipeline*, not just be
+    silently accepted as an empty (degenerate) cohort."""
     path = tmp_path / "metadata.tsv"
     path.write_text("Replicate\tcondition\n", encoding="utf-8")
     header, rows = mc.read_tsv_rows(path)
     assert header == ["Replicate", "condition"]
     assert rows == []
+
+    # An empty cohort has no mapping entries either -> the mapping file (which
+    # must contain at least one "<id> (<file>)" entry) is empty, and loading
+    # raises loud rather than the pipeline silently proceeding with zero
+    # samples.
+    paths = _write_fixture_files(tmp_path, metadata_rows=[], mapping_text="")
+    with pytest.raises(ValueError, match="empty"):
+        mc.load_raw_inputs(**paths)
 
 
 def test_single_sample_batch_cannot_run_h4_single_batch_test() -> None:
@@ -1172,8 +1183,8 @@ def test_main_end_to_end_writes_expected_outputs_and_is_byte_identical(
         bytes2 = (out2 / filename).read_bytes()
         assert bytes1 == bytes2, f"{filename} differs between two identical runs"
 
-    assert not (out1 / mc.FAILURE_MARKER_NAME).exists()
-    assert not (out2 / mc.FAILURE_MARKER_NAME).exists()
+    assert not (out1 / design.FAILURE_MARKER_NAME).exists()
+    assert not (out2 / design.FAILURE_MARKER_NAME).exists()
 
     summary = json.loads((out1 / "summary.json").read_text(encoding="utf-8"))
     assert "output_dir" not in summary["params"]
@@ -1193,8 +1204,8 @@ def test_main_writes_failure_marker_and_raises_and_no_other_outputs(
     with pytest.raises(ValueError, match="validity check"):
         mc.main(_argv_from_paths(paths, out))
 
-    assert (out / mc.FAILURE_MARKER_NAME).is_file()
-    marker = json.loads((out / mc.FAILURE_MARKER_NAME).read_text(encoding="utf-8"))
+    assert (out / design.FAILURE_MARKER_NAME).is_file()
+    marker = json.loads((out / design.FAILURE_MARKER_NAME).read_text(encoding="utf-8"))
     assert marker["failed"] is True
     assert "condition_in_allowed_set" in marker["error"]
 
@@ -1213,7 +1224,7 @@ def test_main_clears_stale_failure_marker_on_a_subsequent_success(
     out = tmp_path / "out"
     with pytest.raises(ValueError):
         mc.main(_argv_from_paths(bad_paths, out))
-    assert (out / mc.FAILURE_MARKER_NAME).is_file()
+    assert (out / design.FAILURE_MARKER_NAME).is_file()
 
     good_paths = _write_fixture_files(
         tmp_path / "good",
@@ -1221,7 +1232,7 @@ def test_main_clears_stale_failure_marker_on_a_subsequent_success(
         mapping_text=_two_sample_mapping(),
     )
     mc.main(_argv_from_paths(good_paths, out))
-    assert not (out / mc.FAILURE_MARKER_NAME).exists()
+    assert not (out / design.FAILURE_MARKER_NAME).exists()
     assert (out / "samples.tsv").is_file()
 
 

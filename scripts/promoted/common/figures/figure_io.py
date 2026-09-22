@@ -1,9 +1,19 @@
 """Save figures the way the workflow requires: dual export + a separate legend image.
 
-Project module seeded verbatim from the plugin ``lib/figures`` template
-``figure-io`` v0.3 (only this header and ``__script_meta__`` were adapted). Held to
-the correctness charter (conventions/correctness.md): **assume nothing, verify
-everything, fail loud.**
+Project module seeded from the plugin ``lib/figures`` template ``figure-io`` v0.3.
+Held to the correctness charter (conventions/correctness.md): **assume nothing,
+verify everything, fail loud.**
+
+DEVIATION FROM THE TEMPLATE (beyond the header/``__script_meta__``): :func:`save_figure`
+now pins ``svg.hashsalt`` to a fixed value and passes ``metadata={"Date": None}`` to
+every SVG ``savefig`` call. Upstream matplotlib's SVG writer embeds a random
+per-process hash salt (used to namespace element ids like clip paths) and the
+current wall-clock time in a ``<dc:date>`` tag; both make two SVG renders of the
+*exact same figure* byte-different, which breaks any downstream "is this
+reproducible" diff (e.g. the two-runs-are-byte-identical check this project's
+scripts are held to). Neither field carries information the project needs, so
+both are pinned/suppressed here. PNG output is unaffected (Agg's PNG writer does
+not embed either field).
 
 Encodes three visualization conventions mechanically (conventions/visualization.md), so
 every figure starts compliant instead of relying on each script to remember:
@@ -53,12 +63,22 @@ __script_meta__: dict[str, object] = {
         "Figure save helpers enforcing the visualization conventions: dual export "
         "(SVG vector + 300-DPI PNG) plus an optional companion legend figure exported "
         "as <base>.legend.{svg,png} (kept out of the plot so it cannot overlap the "
-        "data), and a shared publication matplotlib style. Study-agnostic; fail-loud."
+        "data), and a shared publication matplotlib style. Deviation from "
+        "figure-io@0.3: SVG output is byte-deterministic (fixed svg.hashsalt, no Date "
+        "metadata), and save_figure must be called inside publication_style(). "
+        "Study-agnostic; fail-loud."
     ),
 }
 
 # Default raster resolution (DPI) for the PNG export — the convention's 300 DPI.
 DEFAULT_DPI = 300
+
+# Fixed (not None/random) so repeated renders of the *same* figure produce a
+# byte-identical SVG. matplotlib's default ``svg.hashsalt`` is a fresh random
+# value per process, used only to namespace internal element ids (e.g. clip
+# paths) — it carries no information, but its randomness alone makes two SVGs
+# of the same figure byte-different across runs. See the module docstring.
+_SVG_HASHSALT = "findings-workflow-metadata-figures"
 
 # Shared publication style. Sizes are tuned for legibility at print scale; spines are
 # trimmed to reduce chartjunk. A script applies it via ``with publication_style():`` so
@@ -110,12 +130,16 @@ def publication_style() -> Iterator[None]:
     """Apply :data:`PUBLICATION_RCPARAMS` for the duration of the ``with`` block.
 
     Uses :func:`matplotlib.rc_context`, so the changes are scoped and the caller's
-    global rcParams are restored on exit (even if the body raises). Build the figure
-    *inside* the block so the style is active while the artists are created::
+    global rcParams are restored on exit (even if the body raises). Build AND save the
+    figure *inside* the block: the style must be active while the artists are created
+    and at ``savefig`` time (``svg.fonttype``, the SVG hash salt and metadata are read
+    when saving)::
 
         with publication_style():
             fig = make_figure(...)
-        save_figure(fig, "figures/qc/pca", "pca_by_genotype", legend_fig=legend)
+            save_figure(fig, "figures/qc/pca", "pca_by_genotype", legend_fig=legend)
+
+    (Deviation from the figure-io@0.3 template, whose example saved after the block.)
     """
     # rc_context() with no argument snapshots the current rcParams and restores them on
     # exit; we mutate inside it so the override is scoped and exception-safe.
@@ -192,16 +216,29 @@ def save_figure(
 
         svg_path = out / f"{base_name}.svg"
         png_path = out / f"{base_name}.png"
-        fig.savefig(svg_path, format="svg", bbox_inches="tight")
-        fig.savefig(png_path, format="png", dpi=dpi, bbox_inches="tight")
+        # Pin the hash salt and suppress the embedded render date for the SVG
+        # exports only (see module docstring) so re-rendering the same figure
+        # is byte-identical; PNG is unaffected by either setting.
+        with mpl.rc_context({"svg.hashsalt": _SVG_HASHSALT}):
+            fig.savefig(
+                svg_path, format="svg", bbox_inches="tight", metadata={"Date": None}
+            )
+            fig.savefig(png_path, format="png", dpi=dpi, bbox_inches="tight")
 
-        legend_svg: Path | None = None
-        legend_png: Path | None = None
-        if legend_fig is not None:
-            legend_svg = out / f"{base_name}.legend.svg"
-            legend_png = out / f"{base_name}.legend.png"
-            legend_fig.savefig(legend_svg, format="svg", bbox_inches="tight")
-            legend_fig.savefig(legend_png, format="png", dpi=dpi, bbox_inches="tight")
+            legend_svg: Path | None = None
+            legend_png: Path | None = None
+            if legend_fig is not None:
+                legend_svg = out / f"{base_name}.legend.svg"
+                legend_png = out / f"{base_name}.legend.png"
+                legend_fig.savefig(
+                    legend_svg,
+                    format="svg",
+                    bbox_inches="tight",
+                    metadata={"Date": None},
+                )
+                legend_fig.savefig(
+                    legend_png, format="png", dpi=dpi, bbox_inches="tight"
+                )
 
         return FigureArtifacts(
             svg=svg_path, png=png_path, legend_svg=legend_svg, legend_png=legend_png

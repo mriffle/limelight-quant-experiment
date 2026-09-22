@@ -117,7 +117,7 @@
       "description": "Stratified exact permutation test: condition permuted independently within each batch; combined statistic = sum of per-batch U.",
       "direction": "control_earlier",
       "hypothesis_id": "H4",
-      "note": "n=8 across 2 batch(es), 40 joint exact permutations enumerated. This is the primary evidence for run-order confounding (the single 1-vs-1 2022 batch carries no information alone but contributes to the joint enumeration). direction='control_earlier' was NOT pre-specified before inspecting the data \u2014 p_one_sided_observed_direction is for reference only; p_two_sided is the primary, pre-specification-honest value.",
+      "note": "n=8 across 2 batch(es), 40 joint exact permutations enumerated. This is the primary evidence for run-order confounding (a batch with fewer than 2 samples of one condition carries no information alone but contributes to the joint enumeration). direction='control_earlier' was NOT pre-specified before inspecting the data \u2014 p_one_sided_observed_direction is for reference only; p_two_sided is the primary, pre-specification-honest value.",
       "p_one_sided_observed_direction": 0.025,
       "p_two_sided": 0.05,
       "passed": true,

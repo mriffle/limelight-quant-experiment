@@ -38,13 +38,13 @@ from __future__ import annotations
 
 import argparse
 import csv
-import hashlib
 import itertools
 import json
 import logging
 import math
 import re
-from collections.abc import Iterable, Sequence
+import sys
+from collections.abc import Sequence
 from dataclasses import dataclass
 from datetime import date
 from pathlib import Path
@@ -52,11 +52,16 @@ from typing import Any
 
 import pandas as pd
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from common.design import FAILURE_MARKER_NAME, run_half_label
+from common.hashing import compute_data_version, compute_file_hashes, duplicates
+
 __script_meta__: dict[str, object] = {
     "task": "metadata-characterize",
     "kind": "analysis",
     "provides": [],
-    "uses": [],
+    "uses": ["common.hashing", "common.design"],
     "seeded_from": {"template": "batch-correct-combat", "version": "0.2"},
     "description": (
         "Stage-1 metadata validity checks, design-invariant hypothesis tests "
@@ -285,7 +290,7 @@ def _check_quant_header_ids(
     if len(ids) != expected_n:
         problems.append(f"found {len(ids)} matching column(s), expected {expected_n}")
 
-    dup_ids = _duplicates(str(i) for i in ids)
+    dup_ids = duplicates(str(i) for i in ids)
     if dup_ids:
         problems.append(f"duplicate id(s) across columns: {dup_ids}")
 
@@ -318,58 +323,6 @@ def extract_family_labels(header: Sequence[str]) -> dict[str, list[str]]:
         family = col[: match.start()].strip()
         families.setdefault(family, []).append(label)
     return families
-
-
-def sha256_of_file(path: Path, *, chunk_size: int = 1 << 20) -> str:
-    """Stream-hash ``path`` (raw bytes; never parsed/interpreted) with sha256."""
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for chunk in iter(lambda: handle.read(chunk_size), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
-
-
-def compute_file_hashes(
-    data_files: Sequence[tuple[str, Path]],
-) -> dict[str, dict[str, str]]:
-    """Hash each ``(role, path)`` pair; returns ``{role: {"path": ..., "sha256": ..}}``.
-
-    Keyed by ROLE (``metadata_file``, ``mapping_file``, ...), not by filename, so
-    two data files that happen to share a basename cannot collide/overwrite each
-    other's hash. Raises if a role appears more than once (the combined stamp below
-    assumes exactly one hash per role).
-    """
-    roles = [role for role, _ in data_files]
-    dup_roles = _duplicates(roles)
-    if dup_roles:
-        raise ValueError(f"Duplicate data-file role(s): {dup_roles}")
-    return {
-        role: {"path": str(path), "sha256": sha256_of_file(path)}
-        for role, path in data_files
-    }
-
-
-def compute_data_version(file_hashes: dict[str, dict[str, str]]) -> str:
-    """Combine per-role hashes into one ``sha256:<hex>`` data-version stamp.
-
-    The combined stamp is computed over sorted ``"<role>:<sha256>"`` lines (role,
-    not path/filename, so the stamp is stable regardless of where the input files
-    happen to live on disk).
-    """
-    lines = sorted(f"{role}:{info['sha256']}\n" for role, info in file_hashes.items())
-    combined = hashlib.sha256("".join(lines).encode("utf-8")).hexdigest()
-    return f"sha256:{combined}"
-
-
-def _duplicates(items: Iterable[str]) -> list[str]:
-    """Return the values that appear more than once in ``items`` (sorted, unique)."""
-    seen: set[str] = set()
-    dupes: set[str] = set()
-    for item in items:
-        if item in seen:
-            dupes.add(item)
-        seen.add(item)
-    return sorted(dupes)
 
 
 # ---------------------------------------------------------------------------
@@ -473,7 +426,7 @@ def run_validity_checks(raw: RawInputs) -> list[CheckResult]:
     )
 
     replicates = [row[0] for row in raw.metadata_rows if len(row) > 0]
-    dup_replicates = _duplicates(replicates)
+    dup_replicates = duplicates(replicates)
     results.append(
         _check(
             "replicate_unique",
@@ -532,7 +485,7 @@ def run_validity_checks(raw: RawInputs) -> list[CheckResult]:
 
     if not parse_errors and not date_errors:
         sample_ids = [p.sample_id for p in parsed_by_replicate.values()]
-        dup_sample_ids = _duplicates(sample_ids)
+        dup_sample_ids = duplicates(sample_ids)
         results.append(
             _check(
                 "sample_id_unique",
@@ -547,7 +500,7 @@ def run_validity_checks(raw: RawInputs) -> list[CheckResult]:
         for parsed in parsed_by_replicate.values():
             seq_by_date.setdefault(parsed.acq_date, []).append(parsed.seq_number)
         seq_dupes = {
-            d: _duplicates(str(s) for s in seqs)
+            d: duplicates(str(s) for s in seqs)
             for d, seqs in seq_by_date.items()
             if len(seqs) != len(set(seqs))
         }
@@ -572,8 +525,8 @@ def run_validity_checks(raw: RawInputs) -> list[CheckResult]:
     expected_n = len(replicates)
     mapping_ids = [e.search_scan_file_id for e in raw.mapping_entries]
     mapping_files = [e.file_name for e in raw.mapping_entries]
-    dup_ids = _duplicates(str(i) for i in mapping_ids)
-    dup_files = _duplicates(mapping_files)
+    dup_ids = duplicates(str(i) for i in mapping_ids)
+    dup_files = duplicates(mapping_files)
     results.append(
         _check(
             "mapping_exactly_n_unique_ids_and_files",
@@ -701,6 +654,21 @@ def raise_on_any_failure(checks: list[CheckResult]) -> None:
 def build_samples_table(raw: RawInputs) -> pd.DataFrame:
     """Build the tidy per-sample table. Assumes ``run_validity_checks`` all passed."""
     mapping_by_file = {e.file_name: e.search_scan_file_id for e in raw.mapping_entries}
+    # Precondition (fail loud, not an assumption): the dict comprehension above
+    # silently collapses a duplicate file_name to its LAST id, which would
+    # silently mis-assign search_scan_file_id for the earlier duplicate's row(s).
+    # run_validity_checks normally catches duplicate mapping files first (and
+    # main() never reaches here if it did), but this function is also called
+    # directly (e.g. in tests), so assert the invariant here too rather than
+    # trust the caller.
+    if len(mapping_by_file) != len(raw.mapping_entries):
+        file_names = [e.file_name for e in raw.mapping_entries]
+        dupes = duplicates(file_names)
+        raise ValueError(
+            f"raw.mapping_entries has duplicate file_name value(s) {dupes}; "
+            f"build_samples_table requires a unique mapping entry per file "
+            f"(run_validity_checks should have been called and passed first)."
+        )
 
     records: list[dict[str, Any]] = []
     for replicate, condition in ((row[0], row[1]) for row in raw.metadata_rows):
@@ -741,13 +709,18 @@ def build_samples_table(raw: RawInputs) -> pd.DataFrame:
         samples.groupby("batch")["seq_number"].rank(method="first").astype(int)
     )
     batch_size = samples.groupby("batch")["batch"].transform("size")
-    # ceil(size / 2): for an ODD-sized batch, the extra (middle) sample goes to
-    # "early", not "late" — a deliberate, documented tie-break (also called out in
-    # the condition x run_half association's output note), not an accident of
-    # integer division.
-    half_size = -(-batch_size // 2)
-    is_early = samples["run_position_within_batch"] <= half_size
-    samples["run_half"] = is_early.map({True: "early", False: "late"})
+    # The ONE run-half rule (common.design.run_half_label): ceil(batch_size / 2)
+    # positions are "early" — for an ODD-sized batch the extra (middle) sample
+    # goes to "early", not "late". metadata_figures.py re-derives the same value
+    # from run_position_within_batch/batch size via the identical function and
+    # cross-checks it against this column, so the two can never silently
+    # disagree on the tie-break.
+    samples["run_half"] = [
+        run_half_label(int(pos), int(size))
+        for pos, size in zip(
+            samples["run_position_within_batch"], batch_size, strict=True
+        )
+    ]
 
     column_order = [
         "file",
@@ -1191,6 +1164,41 @@ def hypothesis_h4(
     stratified = exact_stratified_permutation_test(
         batches_for_stratified, max_total_permutations=max_total_permutations
     )
+    strat_passed: bool | None
+    strat_direction: str | None
+    strat_p_one: float | None
+    strat_p_two: float | None
+    if stratified.u_max == 0:
+        # Every batch is single-condition: no within-batch comparison is possible
+        # ANYWHERE, so (unlike the fully-separated case) there is genuinely no
+        # information here — inconclusive, matching the per-batch branch above,
+        # not a (trivially true) "fully separated" pass.
+        strat_passed = None
+        strat_direction = None
+        strat_p_one = None
+        strat_p_two = None
+        strat_note = (
+            f"n={stratified.n_total} across {len(batches_for_stratified)} "
+            "batch(es): no within-batch comparison is possible in ANY batch "
+            "(every batch is single-condition), so this test carries no "
+            "information (u_max=0)."
+        )
+    else:
+        strat_passed = stratified.u_observed in (0, stratified.u_max)
+        strat_direction = stratified.direction
+        strat_p_one = stratified.p_one_sided_observed_direction
+        strat_p_two = stratified.p_two_sided
+        strat_note = (
+            f"n={stratified.n_total} across {len(batches_for_stratified)} "
+            f"batch(es), {stratified.n_permutations} joint exact permutations "
+            "enumerated. This is the primary evidence for run-order confounding "
+            "(a batch with fewer than 2 samples of one condition carries no "
+            "information alone but contributes to the joint enumeration). "
+            f"direction={strat_direction!r} was NOT pre-specified before "
+            "inspecting the data — p_one_sided_observed_direction is for "
+            "reference only; p_two_sided is the primary, "
+            "pre-specification-honest value."
+        )
     rows.append(
         HypothesisRow(
             hypothesis_id="H4",
@@ -1199,25 +1207,15 @@ def hypothesis_h4(
                 "Stratified exact permutation test: condition permuted independently "
                 "within each batch; combined statistic = sum of per-batch U."
             ),
-            passed=stratified.u_observed in (0, stratified.u_max),
+            passed=strat_passed,
             statistic_name="U_observed/U_max,rank_biserial",
             statistic_value=(
                 f"{stratified.u_observed}/{stratified.u_max},{stratified.rank_biserial:.4f}"
             ),
-            direction=stratified.direction,
-            p_one_sided_observed_direction=stratified.p_one_sided_observed_direction,
-            p_two_sided=stratified.p_two_sided,
-            note=(
-                f"n={stratified.n_total} across {len(batches_for_stratified)} "
-                f"batch(es), {stratified.n_permutations} joint exact permutations "
-                "enumerated. This is the primary evidence for run-order confounding "
-                "(the single 1-vs-1 2022 batch carries no information alone but "
-                "contributes to the joint enumeration). "
-                f"direction={stratified.direction!r} was NOT pre-specified before "
-                "inspecting the data — p_one_sided_observed_direction is for "
-                "reference only; p_two_sided is the primary, "
-                "pre-specification-honest value."
-            ),
+            direction=strat_direction,
+            p_one_sided_observed_direction=strat_p_one,
+            p_two_sided=strat_p_two,
+            note=strat_note,
         )
     )
     return rows
@@ -1375,7 +1373,7 @@ def parse_args(argv: Sequence[str] | None = None) -> Args:
         help="Refuse the stratified H4 test rather than enumerate more than this many "
         "joint permutations.",
     )
-    parser.add_argument("--log-level", default="INFO")
+    parser.add_argument("--log-level", type=str.upper, default="INFO")
     ns = parser.parse_args(argv)
     return Args(
         metadata_file=ns.metadata_file,
@@ -1453,9 +1451,6 @@ def _assert_output_dir_not_under_data(
                 "project convention. Choose an output directory outside the data "
                 "directory (e.g. results/metadata)."
             )
-
-
-FAILURE_MARKER_NAME = "FAILED.json"
 
 
 def main(argv: Sequence[str] | None = None) -> None:

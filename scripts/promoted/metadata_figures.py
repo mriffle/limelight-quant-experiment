@@ -16,15 +16,23 @@ raw data and recomputes no statistic:
    figure of caveat finding 0001, run order aliased with condition).
 
 Every figure is dual-exported (SVG + 300-DPI PNG) with a separate legend image
-``<stem>.legend.{svg,png}`` through the project's seeded ``figures.figure_io``; every
-categorical color is read from ``state/color_registry.json`` through the seeded
-``figures.colors`` (read-only here: a level missing from the registry raises rather than
-being assigned a new color). The precomputed crosstabs and run layout are cross-checked
-against ``samples.tsv`` before anything is drawn (fail loud on any disagreement).
+``<stem>.legend.{svg,png}`` through the project's ``common.figures.figure_io``; every
+categorical color is read from ``state/color_registry.json`` through
+``common.figures.colors`` (read-only here: a level missing from the registry raises
+rather than being assigned a new color). The precomputed crosstabs and run layout are
+cross-checked against ``samples.tsv`` before anything is drawn (fail loud on any
+disagreement), using the SAME run-half rule (``common.design.run_half_label``) that
+``metadata_characterize.py`` used to write it, so the two can never silently disagree.
+
+This script refuses to render at all if ``results/metadata/FAILED.json`` is present —
+that marker means the upstream ``metadata_characterize.py`` run failed, so anything
+already in ``results/metadata/`` may be stale/inconsistent leftovers from an earlier,
+different run.
 
 Per-figure provenance (script path + sha256, git commit if any, data_version, input
-table hashes, parameters, artifact paths) is written to a JSON file (default
-``results/metadata/figure_provenance.json``).
+table hashes — including the color registry and the figure-code modules that shaped the
+render, not just the data tables — parameters, artifact paths) is written to a JSON file
+(default ``results/metadata/figure_provenance.json``).
 
 No stochastic step (no RNG, no seed). No processing state applies (metadata only).
 
@@ -35,7 +43,6 @@ Run (from the project root):
 from __future__ import annotations
 
 import argparse
-import hashlib
 import json
 import logging
 import subprocess
@@ -59,20 +66,33 @@ from matplotlib.patches import Patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from figures.colors import DEFAULT_REGISTRY_PATH, assign_colors, load_registry
-from figures.figure_io import FigureArtifacts, publication_style, save_figure
+from common.design import FAILURE_MARKER_NAME, run_half_label
+from common.figures import colors as colors_module
+from common.figures import figure_io as figure_io_module
+from common.figures.colors import DEFAULT_REGISTRY_PATH, assign_colors, load_registry
+from common.figures.figure_io import FigureArtifacts, publication_style, save_figure
+from common.hashing import sha256_of_file
 
 __script_meta__: dict[str, object] = {
     "task": "metadata-figures",
     "kind": "analysis",
     "provides": [],
-    "uses": ["figures.colors", "figures.figure_io"],
-    "seeded_from": {"template": "figure-io", "version": "0.3"},
+    "uses": [
+        "common.design",
+        "common.hashing",
+        "common.figures.colors",
+        "common.figures.figure_io",
+    ],
+    # Written from scratch for this project; it only *uses* the seeded figure-io /
+    # okabe-ito-colors modules (imports above), it was not itself seeded from either
+    # template.
+    "seeded_from": None,
     "description": (
         "Stage-1 cohort figures (level counts, condition x batch, condition x run "
         "half, within-batch run layout) rendered from the precomputed "
         "results/metadata tables; registry colors, dual export + separate legend, "
-        "per-figure provenance JSON."
+        "per-figure provenance JSON. Refuses to render if the upstream run failed "
+        "(FAILED.json present)."
     ),
 }
 
@@ -120,6 +140,16 @@ class MetadataConsistencyError(ValueError):
     """A precomputed table disagrees with ``samples.tsv`` (or is malformed)."""
 
 
+class UpstreamRunFailedError(RuntimeError):
+    """``metadata_dir`` carries a ``FAILED.json`` marker from a failed upstream run.
+
+    Anything else in ``metadata_dir`` may be stale/inconsistent leftovers from an
+    earlier, different (successful) run — rendering from it would silently show
+    figures that do not correspond to the latest attempt. Refuse outright rather
+    than render from possibly-stale tables.
+    """
+
+
 # --------------------------------------------------------------------------- #
 # Loading + validation
 # --------------------------------------------------------------------------- #
@@ -156,10 +186,6 @@ class MetadataTables:
     input_hashes: dict[str, str]
 
 
-def _sha256(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
-
-
 def _read_crosstab(path: Path) -> pd.DataFrame:
     table = pd.read_csv(path, sep="\t", dtype={"condition": str})
     if "condition" not in table.columns:
@@ -170,14 +196,23 @@ def _read_crosstab(path: Path) -> pd.DataFrame:
 
 
 def _read_stratified_p(path: Path) -> float:
-    hyp = pd.read_csv(path, sep="\t", dtype=str)
+    hyp = pd.read_csv(path, sep="\t", dtype=str, keep_default_na=False)
     rows = hyp[(hyp["hypothesis_id"] == "H4") & (hyp["scope"] == STRATIFIED_SCOPE)]
     if len(rows) != 1:
         raise MetadataConsistencyError(
             f"{path}: expected exactly one H4 row with scope {STRATIFIED_SCOPE!r}, "
             f"found {len(rows)}."
         )
-    p = float(rows["p_two_sided"].iloc[0])
+    raw_p = rows["p_two_sided"].iloc[0]
+    if not str(raw_p).strip():
+        raise MetadataConsistencyError(
+            f"{path}: the stratified H4 row's p_two_sided is blank. This happens "
+            "when every batch is single-condition (u_max=0, no within-batch "
+            "comparison is possible anywhere) — a degenerate design this figure "
+            "cannot meaningfully summarize with a single p-value; it is not "
+            "rendered rather than shown with a fabricated number."
+        )
+    p = float(raw_p)
     if not 0.0 <= p <= 1.0:
         raise MetadataConsistencyError(f"{path}: stratified p = {p} is not in [0, 1].")
     return p
@@ -185,10 +220,23 @@ def _read_stratified_p(path: Path) -> float:
 
 def load_tables(metadata_dir: Path) -> MetadataTables:
     """Read and structurally validate the precomputed tables in ``metadata_dir``."""
+    marker = metadata_dir / FAILURE_MARKER_NAME
+    if marker.is_file():
+        raise UpstreamRunFailedError(
+            f"{marker} is present: the upstream metadata_characterize.py run "
+            f"that should have populated {metadata_dir} failed. Refusing to "
+            f"render figures from a directory that may hold stale/inconsistent "
+            f"tables from an earlier run. Fix the upstream failure (see "
+            f"{marker} for the recorded error) and re-run it before rendering."
+        )
     for name in INPUT_FILES:
         if not (metadata_dir / name).is_file():
             raise FileNotFoundError(f"Required input {metadata_dir / name} is missing.")
     samples = pd.read_csv(metadata_dir / "samples.tsv", sep="\t", dtype=str)
+    if samples.empty:
+        raise MetadataConsistencyError(
+            f"{metadata_dir / 'samples.tsv'} has no rows; there is no cohort to plot."
+        )
     missing = [c for c in REQUIRED_SAMPLE_COLUMNS if c not in samples.columns]
     if missing:
         raise MetadataConsistencyError(f"samples.tsv lacks columns {missing}.")
@@ -207,7 +255,9 @@ def load_tables(metadata_dir: Path) -> MetadataTables:
     if bad_half:
         raise MetadataConsistencyError(f"Unexpected run_half levels {bad_half}.")
 
-    version_raw: Any = json.loads((metadata_dir / "data_version.json").read_text())
+    version_raw: Any = json.loads(
+        (metadata_dir / "data_version.json").read_text(encoding="utf-8")
+    )
     if not isinstance(version_raw, dict) or not isinstance(
         version_raw.get("data_version"), str
     ):
@@ -231,7 +281,7 @@ def load_tables(metadata_dir: Path) -> MetadataTables:
         run_layout=run_layout,
         data_version=str(version_raw["data_version"]),
         stratified_p_two_sided=_read_stratified_p(metadata_dir / "hypotheses.tsv"),
-        input_hashes={n: _sha256(metadata_dir / n) for n in INPUT_FILES},
+        input_hashes={n: sha256_of_file(metadata_dir / n) for n in INPUT_FILES},
     )
 
 
@@ -278,7 +328,7 @@ def verify_consistency(tables: MetadataTables) -> None:
                 f"rank 1..{len(grp)}."
             )
         halves = [
-            "early" if pos <= len(grp) / 2 else "late"
+            run_half_label(int(pos), len(grp))
             for pos in ordered["run_position_within_batch"]
         ]
         if halves != ordered["run_half"].tolist():
@@ -508,7 +558,10 @@ def plot_condition_crosstab(
     )
     n = int(table.to_numpy().sum())
     width = 0.36
-    offsets = [(i - (len(CONDITION_ORDER) - 1) / 2) * width for i in range(2)]
+    offsets = [
+        (i - (len(CONDITION_ORDER) - 1) / 2) * width
+        for i in range(len(CONDITION_ORDER))
+    ]
     fig, ax = plt.subplots(figsize=(1.6 + 1.6 * len(column_levels), 3.8))
     for cond, off in zip(CONDITION_ORDER, offsets, strict=True):
         counts = [int(table.loc[cond, lv]) for lv in column_levels]
@@ -548,20 +601,6 @@ def plot_condition_crosstab(
 # --------------------------------------------------------------------------- #
 # Figure 4 - run layout
 # --------------------------------------------------------------------------- #
-
-
-def separation_boundary(conditions_by_position: Mapping[int, str]) -> float | None:
-    """Midpoint between the last control and first raloxifene run, if fully separated.
-
-    Returns ``None`` when the batch lacks one of the conditions or the two conditions
-    interleave (so no boundary line is drawn — the figure never asserts a separation
-    the data do not show).
-    """
-    ctrl = [p for p, c in conditions_by_position.items() if c == CONDITION_ORDER[0]]
-    trt = [p for p, c in conditions_by_position.items() if c == CONDITION_ORDER[1]]
-    if not ctrl or not trt or max(ctrl) >= min(trt):
-        return None
-    return (max(ctrl) + min(trt)) / 2
 
 
 def plot_run_layout(
@@ -622,23 +661,6 @@ def plot_run_layout(
                 fontsize=8,
                 color="#555555",
             )
-        boundary = separation_boundary(
-            {
-                int(p): str(c)
-                for p, c in zip(
-                    grp["run_position_within_batch"], grp["condition"], strict=True
-                )
-            }
-        )
-        if boundary is not None:
-            ax.plot(
-                [boundary, boundary],
-                [y - 0.38, y + 0.38],
-                linestyle="--",
-                color="#444444",
-                linewidth=1.0,
-                zorder=1,
-            )
     ax.set_yticks([y_of[b] for b in batch_levels])
     ax.set_yticklabels(
         [f"{b}\n(n = {int((samples['batch'] == b).sum())})" for b in batch_levels]
@@ -657,7 +679,7 @@ def plot_run_layout(
     ax.text(
         0.5,
         1.03,
-        f"Exact permutation p = {p_two_sided:.3g} (two-sided)",
+        f"Stratified-by-batch exact permutation p = {p_two_sided:.3g} (two-sided)",
         transform=ax.transAxes,
         ha="center",
         va="bottom",
@@ -711,10 +733,18 @@ def provenance_entry(
     description: str,
     tables: MetadataTables,
     inputs_used: Sequence[str],
+    code_hashes: Mapping[str, str],
     params: Mapping[str, object],
     project_root: Path,
 ) -> dict[str, object]:
-    """Per-figure provenance record (JSON-serializable)."""
+    """Per-figure provenance record (JSON-serializable).
+
+    ``inputs`` always includes ``code_hashes`` (the color registry + the two
+    figure-code modules that shaped every render — colors.py picks the hex
+    values, figure_io.py controls the actual bytes written) IN ADDITION TO the
+    ``inputs_used`` data tables for this specific figure, since the registry and
+    code apply to every figure, not just some.
+    """
     script = Path(__file__).resolve()
     return {
         "description": description,
@@ -728,12 +758,19 @@ def provenance_entry(
         else None,
         "script": {
             "path": _rel(script, project_root),
-            "sha256": _sha256(script),
+            "sha256": sha256_of_file(script),
+            # HEAD commit of the project repo AT RENDER TIME (i.e. when this
+            # script ran) — not necessarily the commit that produced the
+            # results/metadata tables being rendered (that is a separate,
+            # earlier script run); None if the project is not a git repository.
             "git_commit": _git_commit(project_root),
             "seeded_from": __script_meta__["seeded_from"],
         },
         "data_version": tables.data_version,
-        "inputs": {name: tables.input_hashes[name] for name in inputs_used},
+        "inputs": {
+            **{name: tables.input_hashes[name] for name in inputs_used},
+            **dict(code_hashes),
+        },
         "params": dict(params),
         "processing_state": None,
     }
@@ -779,8 +816,29 @@ def render_all(
         "registry_path": _rel(registry_path, root),
         "dpi": dpi,
     }
+    # Code/config that shaped EVERY render (not figure-specific data): the color
+    # registry (which hex each level got) and the two figure-code modules
+    # (colors.py picks the values; figure_io.py controls the bytes actually
+    # written). Located via the imported modules' own __file__ so this is
+    # correct regardless of whether this script is running from scripts/scratch
+    # or (post-promotion) scripts/promoted.
+    code_hashes: dict[str, str] = {
+        _rel(registry_path, root): sha256_of_file(registry_path),
+        _rel(Path(colors_module.__file__).resolve(), root): sha256_of_file(
+            Path(colors_module.__file__).resolve()
+        ),
+        _rel(Path(figure_io_module.__file__).resolve(), root): sha256_of_file(
+            Path(figure_io_module.__file__).resolve()
+        ),
+    }
     records: dict[str, dict[str, object]] = {}
 
+    # save_figure() runs INSIDE publication_style()'s `with` block (not after
+    # it): several PUBLICATION_RCPARAMS entries (svg.fonttype, savefig.dpi,
+    # savefig.bbox) only take effect at the moment matplotlib actually draws
+    # and serializes the figure (i.e. at savefig time), not at figure/Artist
+    # construction time — calling save_figure() after the block exited would
+    # silently apply matplotlib's global defaults instead.
     with publication_style():
         fig, leg = plot_cohort_counts(
             s,
@@ -790,12 +848,13 @@ def render_all(
                 ("candidate_pair", "Candidate pair", pair_levels, pair_colors),
             ],
         )
-    art = save_figure(fig, out.distributions, STEM_COUNTS, legend_fig=leg, dpi=dpi)
+        art = save_figure(fig, out.distributions, STEM_COUNTS, legend_fig=leg, dpi=dpi)
     records[STEM_COUNTS] = provenance_entry(
         art,
         description="Sample counts per level: condition, batch, candidate_pair.",
         tables=tables,
         inputs_used=["samples.tsv", "data_version.json"],
+        code_hashes=code_hashes,
         params={**common_params, "output_dir": _rel(out.distributions, root)},
         project_root=root,
     )
@@ -808,7 +867,7 @@ def render_all(
             title="Condition \u00d7 batch",
             xlabel="Batch (acquisition date)",
         )
-    art = save_figure(fig, out.crosstabs, STEM_BATCH, legend_fig=leg, dpi=dpi)
+        art = save_figure(fig, out.crosstabs, STEM_BATCH, legend_fig=leg, dpi=dpi)
     records[STEM_BATCH] = provenance_entry(
         art,
         description="Condition x batch sample counts (grouped bars).",
@@ -818,6 +877,7 @@ def render_all(
             "samples.tsv",
             "data_version.json",
         ],
+        code_hashes=code_hashes,
         params={**common_params, "output_dir": _rel(out.crosstabs, root)},
         project_root=root,
     )
@@ -828,9 +888,12 @@ def render_all(
             RUN_HALF_ORDER,
             cond_colors,
             title="Condition \u00d7 within-batch run half",
-            xlabel="Within-batch run half (by file sequence number)",
+            xlabel=(
+                "Within-batch run half (by file sequence number, presumed "
+                "acquisition order)"
+            ),
         )
-    art = save_figure(fig, out.crosstabs, STEM_RUN_HALF, legend_fig=leg, dpi=dpi)
+        art = save_figure(fig, out.crosstabs, STEM_RUN_HALF, legend_fig=leg, dpi=dpi)
     records[STEM_RUN_HALF] = provenance_entry(
         art,
         description="Condition x within-batch run half (early/late) sample counts.",
@@ -840,6 +903,7 @@ def render_all(
             "samples.tsv",
             "data_version.json",
         ],
+        code_hashes=code_hashes,
         params={**common_params, "output_dir": _rel(out.crosstabs, root)},
         project_root=root,
     )
@@ -848,7 +912,7 @@ def render_all(
         fig, leg = plot_run_layout(
             s, batch_levels, cond_colors, tables.stratified_p_two_sided
         )
-    art = save_figure(fig, out.run_layout, STEM_RUN_LAYOUT, legend_fig=leg, dpi=dpi)
+        art = save_figure(fig, out.run_layout, STEM_RUN_LAYOUT, legend_fig=leg, dpi=dpi)
     records[STEM_RUN_LAYOUT] = provenance_entry(
         art,
         description=(
@@ -862,6 +926,7 @@ def render_all(
             "hypotheses.tsv",
             "data_version.json",
         ],
+        code_hashes=code_hashes,
         params={
             **common_params,
             "output_dir": _rel(out.run_layout, root),
@@ -873,7 +938,9 @@ def render_all(
     )
 
     provenance_file.parent.mkdir(parents=True, exist_ok=True)
-    provenance_file.write_text(json.dumps(records, indent=2, sort_keys=True) + "\n")
+    provenance_file.write_text(
+        json.dumps(records, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    )
     LOGGER.info("Wrote provenance for %d figures to %s", len(records), provenance_file)
     return records
 
@@ -899,14 +966,15 @@ def parse_args(argv: Sequence[str] | None = None) -> argparse.Namespace:
         default=Path("results/metadata/figure_provenance.json"),
     )
     parser.add_argument("--dpi", type=int, default=300)
+    parser.add_argument("--log-level", type=str.upper, default="INFO")
     return parser.parse_args(argv)
 
 
 def main(argv: Sequence[str] | None = None) -> int:
-    logging.basicConfig(
-        level=logging.INFO, format="%(levelname)s %(name)s: %(message)s"
-    )
     args = parse_args(argv)
+    logging.basicConfig(
+        level=args.log_level, format="%(levelname)s %(name)s: %(message)s"
+    )
     LOGGER.info("Parameters: %s", vars(args))
     records = render_all(
         args.metadata_dir,

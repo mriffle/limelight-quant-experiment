@@ -5,7 +5,10 @@
     "inputs": {
       "crosstab_condition_run_half.tsv": "f78e166de436264bd9437e7395e350b07acbe135118cb7c96051b8b80ea5a48a",
       "data_version.json": "76f933e949777d4e9bf75b30027f69ccf25a20b5d1cd407252febab9b914d683",
-      "samples.tsv": "91ca28eb608267da9f647ce687025c2b75347af65341e97ee07a0e01825af453"
+      "samples.tsv": "91ca28eb608267da9f647ce687025c2b75347af65341e97ee07a0e01825af453",
+      "scripts/promoted/common/figures/colors.py": "86831758f035b5f1d8184a0f26787bf7de7860b011509e1cd003ef76e0a93199",
+      "scripts/promoted/common/figures/figure_io.py": "e32b379a8cde19457de847abe98d30d415722a22108fdf89fe67559fbaf10af1",
+      "state/color_registry.json": "89f983ffb697fef8b5954a6aabf62bef25157fd4ec95ea14dcedea737f1c7db4"
     },
     "legend_png": "figures/metadata/crosstabs/0001-condition-by-run-half.legend.png",
     "legend_svg": "figures/metadata/crosstabs/0001-condition-by-run-half.legend.svg",
@@ -18,13 +21,10 @@
     "png": "figures/metadata/crosstabs/0001-condition-by-run-half.png",
     "processing_state": null,
     "script": {
-      "git_commit": null,
-      "path": "scripts/scratch/metadata_figures.py",
-      "seeded_from": {
-        "template": "figure-io",
-        "version": "0.3"
-      },
-      "sha256": "79a8ad2aab488fdeef489996cf713378e255fa09007291a184201a3203cf6152"
+      "git_commit": "0f300492ba8586c88154ad9945f8f697d4679c52",
+      "path": "scripts/promoted/metadata_figures.py",
+      "seeded_from": null,
+      "sha256": "1363426490a2e9162b4eefcb9fa034130ca2113c5a2e3b89a406fbd94d18074e"
     },
     "svg": "figures/metadata/crosstabs/0001-condition-by-run-half.svg"
   },
@@ -33,9 +33,12 @@
     "description": "Within-batch run layout: one row per batch, runs at their within-batch position, colored/shaped by condition, labeled with sample id.",
     "inputs": {
       "data_version.json": "76f933e949777d4e9bf75b30027f69ccf25a20b5d1cd407252febab9b914d683",
-      "hypotheses.tsv": "f9ba3a0dc1800fab05f62e74be0c6cfa75bcfcfcc77ae9e40e0ad9bf1d88c49a",
+      "hypotheses.tsv": "ee9f8bc0bb754600a9fa615cdd96d0cc5988f350496348f96d9a88fa216ad1f4",
       "run_layout.tsv": "9f5ef7a8bcfd0a58341f8c37eefa9a8324df117a2020bf26dee37bb8d10bea0a",
-      "samples.tsv": "91ca28eb608267da9f647ce687025c2b75347af65341e97ee07a0e01825af453"
+      "samples.tsv": "91ca28eb608267da9f647ce687025c2b75347af65341e97ee07a0e01825af453",
+      "scripts/promoted/common/figures/colors.py": "86831758f035b5f1d8184a0f26787bf7de7860b011509e1cd003ef76e0a93199",
+      "scripts/promoted/common/figures/figure_io.py": "e32b379a8cde19457de847abe98d30d415722a22108fdf89fe67559fbaf10af1",
+      "state/color_registry.json": "89f983ffb697fef8b5954a6aabf62bef25157fd4ec95ea14dcedea737f1c7db4"
     },
     "legend_png": "figures/metadata/run-layout/0001-run-layout.legend.png",
     "legend_svg": "figures/metadata/run-layout/0001-run-layout.legend.svg",
@@ -49,13 +52,10 @@
     "png": "figures/metadata/run-layout/0001-run-layout.png",
     "processing_state": null,
     "script": {
-      "git_commit": null,
-      "path": "scripts/scratch/metadata_figures.py",
-      "seeded_from": {
-        "template": "figure-io",
-        "version": "0.3"
-      },
-      "sha256": "79a8ad2aab488fdeef489996cf713378e255fa09007291a184201a3203cf6152"
+      "git_commit": "0f300492ba8586c88154ad9945f8f697d4679c52",
+      "path": "scripts/promoted/metadata_figures.py",
+      "seeded_from": null,
+      "sha256": "1363426490a2e9162b4eefcb9fa034130ca2113c5a2e3b89a406fbd94d18074e"
     },
     "svg": "figures/metadata/run-layout/0001-run-layout.svg"
   },
@@ -65,7 +65,10 @@
     "inputs": {
       "crosstab_condition_batch.tsv": "1a2bf501ae290e2fd3468e252fae3ff43a78a0b5f9439d1eae268fd9558480eb",
       "data_version.json": "76f933e949777d4e9bf75b30027f69ccf25a20b5d1cd407252febab9b914d683",
-      "samples.tsv": "91ca28eb608267da9f647ce687025c2b75347af65341e97ee07a0e01825af453"
+      "samples.tsv": "91ca28eb608267da9f647ce687025c2b75347af65341e97ee07a0e01825af453",
+      "scripts/promoted/common/figures/colors.py": "86831758f035b5f1d8184a0f26787bf7de7860b011509e1cd003ef76e0a93199",
+      "scripts/promoted/common/figures/figure_io.py": "e32b379a8cde19457de847abe98d30d415722a22108fdf89fe67559fbaf10af1",
+      "state/color_registry.json": "89f983ffb697fef8b5954a6aabf62bef25157fd4ec95ea14dcedea737f1c7db4"
     },
     "legend_png": "figures/metadata/crosstabs/0002-condition-by-batch.legend.png",
     "legend_svg": "figures/metadata/crosstabs/0002-condition-by-batch.legend.svg",
@@ -78,13 +81,10 @@
     "png": "figures/metadata/crosstabs/0002-condition-by-batch.png",
     "processing_state": null,
     "script": {
-      "git_commit": null,
-      "path": "scripts/scratch/metadata_figures.py",
-      "seeded_from": {
-        "template": "figure-io",
-        "version": "0.3"
-      },
-      "sha256": "79a8ad2aab488fdeef489996cf713378e255fa09007291a184201a3203cf6152"
+      "git_commit": "0f300492ba8586c88154ad9945f8f697d4679c52",
+      "path": "scripts/promoted/metadata_figures.py",
+      "seeded_from": null,
+      "sha256": "1363426490a2e9162b4eefcb9fa034130ca2113c5a2e3b89a406fbd94d18074e"
     },
     "svg": "figures/metadata/crosstabs/0002-condition-by-batch.svg"
   },
@@ -93,7 +93,10 @@
     "description": "Sample counts per level: condition, batch, candidate_pair.",
     "inputs": {
       "data_version.json": "76f933e949777d4e9bf75b30027f69ccf25a20b5d1cd407252febab9b914d683",
-      "samples.tsv": "91ca28eb608267da9f647ce687025c2b75347af65341e97ee07a0e01825af453"
+      "samples.tsv": "91ca28eb608267da9f647ce687025c2b75347af65341e97ee07a0e01825af453",
+      "scripts/promoted/common/figures/colors.py": "86831758f035b5f1d8184a0f26787bf7de7860b011509e1cd003ef76e0a93199",
+      "scripts/promoted/common/figures/figure_io.py": "e32b379a8cde19457de847abe98d30d415722a22108fdf89fe67559fbaf10af1",
+      "state/color_registry.json": "89f983ffb697fef8b5954a6aabf62bef25157fd4ec95ea14dcedea737f1c7db4"
     },
     "legend_png": "figures/metadata/distributions/cohort-counts.legend.png",
     "legend_svg": "figures/metadata/distributions/cohort-counts.legend.svg",
@@ -106,13 +109,10 @@
     "png": "figures/metadata/distributions/cohort-counts.png",
     "processing_state": null,
     "script": {
-      "git_commit": null,
-      "path": "scripts/scratch/metadata_figures.py",
-      "seeded_from": {
-        "template": "figure-io",
-        "version": "0.3"
-      },
-      "sha256": "79a8ad2aab488fdeef489996cf713378e255fa09007291a184201a3203cf6152"
+      "git_commit": "0f300492ba8586c88154ad9945f8f697d4679c52",
+      "path": "scripts/promoted/metadata_figures.py",
+      "seeded_from": null,
+      "sha256": "1363426490a2e9162b4eefcb9fa034130ca2113c5a2e3b89a406fbd94d18074e"
     },
     "svg": "figures/metadata/distributions/cohort-counts.svg"
   }
