@@ -21,7 +21,7 @@
     "png": "figures/metadata/crosstabs/0001-condition-by-run-half.png",
     "processing_state": null,
     "script": {
-      "git_commit": "0f300492ba8586c88154ad9945f8f697d4679c52",
+      "git_commit": "536281b19d36d10a32d6920ede7e2f7e01944f52",
       "path": "scripts/promoted/metadata_figures.py",
       "seeded_from": null,
       "sha256": "1363426490a2e9162b4eefcb9fa034130ca2113c5a2e3b89a406fbd94d18074e"
@@ -52,7 +52,7 @@
     "png": "figures/metadata/run-layout/0001-run-layout.png",
     "processing_state": null,
     "script": {
-      "git_commit": "0f300492ba8586c88154ad9945f8f697d4679c52",
+      "git_commit": "536281b19d36d10a32d6920ede7e2f7e01944f52",
       "path": "scripts/promoted/metadata_figures.py",
       "seeded_from": null,
       "sha256": "1363426490a2e9162b4eefcb9fa034130ca2113c5a2e3b89a406fbd94d18074e"
@@ -81,7 +81,7 @@
     "png": "figures/metadata/crosstabs/0002-condition-by-batch.png",
     "processing_state": null,
     "script": {
-      "git_commit": "0f300492ba8586c88154ad9945f8f697d4679c52",
+      "git_commit": "536281b19d36d10a32d6920ede7e2f7e01944f52",
       "path": "scripts/promoted/metadata_figures.py",
       "seeded_from": null,
       "sha256": "1363426490a2e9162b4eefcb9fa034130ca2113c5a2e3b89a406fbd94d18074e"
@@ -109,7 +109,7 @@
     "png": "figures/metadata/distributions/cohort-counts.png",
     "processing_state": null,
     "script": {
-      "git_commit": "0f300492ba8586c88154ad9945f8f697d4679c52",
+      "git_commit": "536281b19d36d10a32d6920ede7e2f7e01944f52",
       "path": "scripts/promoted/metadata_figures.py",
       "seeded_from": null,
       "sha256": "1363426490a2e9162b4eefcb9fa034130ca2113c5a2e3b89a406fbd94d18074e"
