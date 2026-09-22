@@ -1,0 +1,9 @@
+file	condition	acq_date	batch	seq_number	run_position_within_batch	run_half	sample_id	sample_number	candidate_pair	sample_role	search_scan_file_id	intensity_column	detection_type_column
+UWPRExp480_2021_0506_AZ_034_AZ905_AZ_complex.mzML	control	2021-05-06	B2021-05-06	34	1	early	AZ905	905	P905_906	experimental	18461	Intensity_search_scan_file_id_18461	Detection Type_search_scan_file_id_18461
+UWPRExp480_2021_0506_AZ_039_AZ907_AZ_complex.mzML	control	2021-05-06	B2021-05-06	39	2	early	AZ907	907	P907_908	experimental	18459	Intensity_search_scan_file_id_18459	Detection Type_search_scan_file_id_18459
+UWPRExp480_2021_0506_AZ_041_AZ909_AZ_complex.mzML	control	2021-05-06	B2021-05-06	41	3	early	AZ909	909	P909_910	experimental	18454	Intensity_search_scan_file_id_18454	Detection Type_search_scan_file_id_18454
+UWPRExp480_2021_0506_AZ_045_AZ906_AZ_complex.mzML	raloxifene-d0	2021-05-06	B2021-05-06	45	4	late	AZ906	906	P905_906	experimental	18460	Intensity_search_scan_file_id_18460	Detection Type_search_scan_file_id_18460
+UWPRExp480_2021_0506_AZ_047_AZ908_AZ_complex.mzML	raloxifene-d0	2021-05-06	B2021-05-06	47	5	late	AZ908	908	P907_908	experimental	18456	Intensity_search_scan_file_id_18456	Detection Type_search_scan_file_id_18456
+UWPRExp480_2021_0506_AZ_049_AZ910_AZ_complex.mzML	raloxifene-d0	2021-05-06	B2021-05-06	49	6	late	AZ910	910	P909_910	experimental	18457	Intensity_search_scan_file_id_18457	Detection Type_search_scan_file_id_18457
+UWPRExp480_2022_0318_AZ_017_AZ941_AZ_complex.mzML	control	2022-03-18	B2022-03-18	17	1	early	AZ941	941	P941_942	experimental	18455	Intensity_search_scan_file_id_18455	Detection Type_search_scan_file_id_18455
+UWPRExp480_2022_0318_AZ_019_AZ942_AZ_complex.mzML	raloxifene-d0	2022-03-18	B2022-03-18	19	2	late	AZ942	942	P941_942	experimental	18458	Intensity_search_scan_file_id_18458	Detection Type_search_scan_file_id_18458

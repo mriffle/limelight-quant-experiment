@@ -1,0 +1,24 @@
+{
+  "schema_version": "1",
+  "current_stage": 1,
+  "science_done": true,
+  "metadata_done": false,
+  "data_done": false,
+  "integrity_gate": {
+    "passed": false,
+    "signed_off_by": null,
+    "date": null,
+    "data_version": null,
+    "qc_report": null
+  },
+  "figures_layout": "structured",
+  "environment": {
+    "mode": "project-uv",
+    "python_min": "3.11",
+    "interpreter": ".venv/bin/python",
+    "configured": true,
+    "declined": false,
+    "updated": "2026-09-22"
+  },
+  "updated": "2026-09-22"
+}

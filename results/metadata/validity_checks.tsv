@@ -1,0 +1,18 @@
+name	passed	detail
+metadata_header_exact	True	expected ['Replicate', 'condition'], got ['Replicate', 'condition']
+metadata_no_blank_cells	True	no blank cells
+metadata_row_width_consistent	True	all 8 rows have 2 cells
+replicate_unique	True	all Replicate values unique
+replicate_matches_filename_regex	True	all Replicate values match the filename pattern
+replicate_dates_valid_calendar_dates	True	all encoded dates are valid calendar dates
+condition_in_allowed_set	True	all conditions in ['control', 'raloxifene-d0']
+sample_id_unique	True	all sample_id values unique
+seq_number_unique_within_date	True	seq_number unique within each acquisition date
+mapping_exactly_n_unique_ids_and_files	True	expected 8 (from metadata row count); got 8 ids (8 unique), 8 files (8 unique)
+mapping_bijection_with_metadata_replicates	True	mapping file names == metadata Replicate values
+protein_quants_intensity_ids_match_mapping	True	OK
+peptide_quants_intensity_ids_match_mapping	True	OK
+peptide_quants_detection_type_ids_match_mapping	True	OK
+protein_limelight_n_distinct_labels_per_family_consistent	True	expected 8 distinct labels per family (from metadata row count); families=['PSMs', 'NSAF', 'Quant (FlashLFQ)', 'Quant (Limelight)']; per-family label counts={'PSMs': 8, 'NSAF': 8, 'Quant (FlashLFQ)': 8, 'Quant (Limelight)': 8}; consistent across families=True
+peptide_limelight_n_distinct_labels_per_family_consistent	True	expected 8 distinct labels per family (from metadata row count); families=['PSMs', 'Quant', 'MBR', 'Shared group [column content string: (SHARED GROUP)]']; per-family label counts={'PSMs': 8, 'Quant': 8, 'MBR': 8, 'Shared group [column content string: (SHARED GROUP)]': 8}; consistent across families=True
+limelight_label_sets_match_across_files	True	protein labels=['1_0', '1_05', '1_050', '1_0506', '1_0506_', '1_0506_A', '2_0318_', '2_0318_A']; peptide labels=['1_0', '1_05', '1_050', '1_0506', '1_0506_', '1_0506_A', '2_0318_', '2_0318_A']

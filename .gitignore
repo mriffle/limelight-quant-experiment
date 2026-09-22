@@ -1,0 +1,9 @@
+# Findings Workflow — project-local Python environment (regenerable; not committed)
+.uv/
+.venv/
+__pycache__/
+*.pyc
+
+# Raw data — immutable inputs, not tracked (identified by sha256 data_version stamps)
+data/*
+!data/README.md

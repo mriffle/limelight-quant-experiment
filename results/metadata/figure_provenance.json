@@ -1,0 +1,119 @@
+{
+  "0001-condition-by-run-half": {
+    "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+    "description": "Condition x within-batch run half (early/late) sample counts.",
+    "inputs": {
+      "crosstab_condition_run_half.tsv": "f78e166de436264bd9437e7395e350b07acbe135118cb7c96051b8b80ea5a48a",
+      "data_version.json": "76f933e949777d4e9bf75b30027f69ccf25a20b5d1cd407252febab9b914d683",
+      "samples.tsv": "91ca28eb608267da9f647ce687025c2b75347af65341e97ee07a0e01825af453"
+    },
+    "legend_png": "figures/metadata/crosstabs/0001-condition-by-run-half.legend.png",
+    "legend_svg": "figures/metadata/crosstabs/0001-condition-by-run-half.legend.svg",
+    "params": {
+      "dpi": 300,
+      "metadata_dir": "results/metadata",
+      "output_dir": "figures/metadata/crosstabs",
+      "registry_path": "state/color_registry.json"
+    },
+    "png": "figures/metadata/crosstabs/0001-condition-by-run-half.png",
+    "processing_state": null,
+    "script": {
+      "git_commit": null,
+      "path": "scripts/scratch/metadata_figures.py",
+      "seeded_from": {
+        "template": "figure-io",
+        "version": "0.3"
+      },
+      "sha256": "79a8ad2aab488fdeef489996cf713378e255fa09007291a184201a3203cf6152"
+    },
+    "svg": "figures/metadata/crosstabs/0001-condition-by-run-half.svg"
+  },
+  "0001-run-layout": {
+    "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+    "description": "Within-batch run layout: one row per batch, runs at their within-batch position, colored/shaped by condition, labeled with sample id.",
+    "inputs": {
+      "data_version.json": "76f933e949777d4e9bf75b30027f69ccf25a20b5d1cd407252febab9b914d683",
+      "hypotheses.tsv": "f9ba3a0dc1800fab05f62e74be0c6cfa75bcfcfcc77ae9e40e0ad9bf1d88c49a",
+      "run_layout.tsv": "9f5ef7a8bcfd0a58341f8c37eefa9a8324df117a2020bf26dee37bb8d10bea0a",
+      "samples.tsv": "91ca28eb608267da9f647ce687025c2b75347af65341e97ee07a0e01825af453"
+    },
+    "legend_png": "figures/metadata/run-layout/0001-run-layout.legend.png",
+    "legend_svg": "figures/metadata/run-layout/0001-run-layout.legend.svg",
+    "params": {
+      "dpi": 300,
+      "metadata_dir": "results/metadata",
+      "output_dir": "figures/metadata/run-layout",
+      "p_two_sided_source": "hypotheses.tsv H4 scope=stratified_across_batches column p_two_sided",
+      "registry_path": "state/color_registry.json"
+    },
+    "png": "figures/metadata/run-layout/0001-run-layout.png",
+    "processing_state": null,
+    "script": {
+      "git_commit": null,
+      "path": "scripts/scratch/metadata_figures.py",
+      "seeded_from": {
+        "template": "figure-io",
+        "version": "0.3"
+      },
+      "sha256": "79a8ad2aab488fdeef489996cf713378e255fa09007291a184201a3203cf6152"
+    },
+    "svg": "figures/metadata/run-layout/0001-run-layout.svg"
+  },
+  "0002-condition-by-batch": {
+    "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+    "description": "Condition x batch sample counts (grouped bars).",
+    "inputs": {
+      "crosstab_condition_batch.tsv": "1a2bf501ae290e2fd3468e252fae3ff43a78a0b5f9439d1eae268fd9558480eb",
+      "data_version.json": "76f933e949777d4e9bf75b30027f69ccf25a20b5d1cd407252febab9b914d683",
+      "samples.tsv": "91ca28eb608267da9f647ce687025c2b75347af65341e97ee07a0e01825af453"
+    },
+    "legend_png": "figures/metadata/crosstabs/0002-condition-by-batch.legend.png",
+    "legend_svg": "figures/metadata/crosstabs/0002-condition-by-batch.legend.svg",
+    "params": {
+      "dpi": 300,
+      "metadata_dir": "results/metadata",
+      "output_dir": "figures/metadata/crosstabs",
+      "registry_path": "state/color_registry.json"
+    },
+    "png": "figures/metadata/crosstabs/0002-condition-by-batch.png",
+    "processing_state": null,
+    "script": {
+      "git_commit": null,
+      "path": "scripts/scratch/metadata_figures.py",
+      "seeded_from": {
+        "template": "figure-io",
+        "version": "0.3"
+      },
+      "sha256": "79a8ad2aab488fdeef489996cf713378e255fa09007291a184201a3203cf6152"
+    },
+    "svg": "figures/metadata/crosstabs/0002-condition-by-batch.svg"
+  },
+  "cohort-counts": {
+    "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+    "description": "Sample counts per level: condition, batch, candidate_pair.",
+    "inputs": {
+      "data_version.json": "76f933e949777d4e9bf75b30027f69ccf25a20b5d1cd407252febab9b914d683",
+      "samples.tsv": "91ca28eb608267da9f647ce687025c2b75347af65341e97ee07a0e01825af453"
+    },
+    "legend_png": "figures/metadata/distributions/cohort-counts.legend.png",
+    "legend_svg": "figures/metadata/distributions/cohort-counts.legend.svg",
+    "params": {
+      "dpi": 300,
+      "metadata_dir": "results/metadata",
+      "output_dir": "figures/metadata/distributions",
+      "registry_path": "state/color_registry.json"
+    },
+    "png": "figures/metadata/distributions/cohort-counts.png",
+    "processing_state": null,
+    "script": {
+      "git_commit": null,
+      "path": "scripts/scratch/metadata_figures.py",
+      "seeded_from": {
+        "template": "figure-io",
+        "version": "0.3"
+      },
+      "sha256": "79a8ad2aab488fdeef489996cf713378e255fa09007291a184201a3203cf6152"
+    },
+    "svg": "figures/metadata/distributions/cohort-counts.svg"
+  }
+}

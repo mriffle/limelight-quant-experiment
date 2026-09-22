@@ -1,0 +1,3 @@
+condition	n	batch_counts	seq_number_min	seq_number_max	median_run_position	sample_ids	note
+control	4	B2021-05-06=3; B2022-03-18=1	17	41	1.5	AZ905,AZ907,AZ909,AZ941	No covariates (e.g. donor, sex, age) are recorded in the metadata.
+raloxifene-d0	4	B2021-05-06=3; B2022-03-18=1	19	49	4.5	AZ906,AZ908,AZ910,AZ942	No covariates (e.g. donor, sex, age) are recorded in the metadata.

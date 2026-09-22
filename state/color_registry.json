@@ -1,0 +1,52 @@
+{
+  "_comment": "Category -> color registry (spec doc 06.5). Keys starting with '_' are reserved metadata; every other top-level key is a category dimension with {scope, values}. Universal defaults ship with the plugin; project-specific categories are added after METADATA.md exists. Every plotting script reads this file so a given category value uses the SAME color in every figure.",
+  "_palette": {
+    "name": "Okabe-Ito",
+    "scope": "universal",
+    "colors": [
+      "#E69F00",
+      "#56B4E9",
+      "#009E73",
+      "#F0E442",
+      "#0072B2",
+      "#D55E00",
+      "#CC79A7",
+      "#000000"
+    ],
+    "max_categorical": 8,
+    "note": "Color-blind-friendly categorical palette. Color encodes at most 8 categories; beyond 8, change the encoding strategy (facet, second channel, group the tail, or position/sequential) rather than adding colors (doc 06.6)."
+  },
+  "sex": {
+    "scope": "universal",
+    "values": {
+      "male": "#0072B2",
+      "female": "#D55E00"
+    }
+  },
+  "condition": {
+    "scope": "project",
+    "values": {
+      "control": "#0072B2",
+      "raloxifene-d0": "#D55E00"
+    },
+    "note": "Treatment arm (the variable of interest). raloxifene-d0 = unlabeled raloxifene."
+  },
+  "batch": {
+    "scope": "project",
+    "values": {
+      "B2021-05-06": "#009E73",
+      "B2022-03-18": "#CC79A7"
+    },
+    "note": "Proxy batch = acquisition date parsed from the run file name (prep vs acquisition-only batch unknown)."
+  },
+  "candidate_pair": {
+    "scope": "project",
+    "values": {
+      "P905_906": "#E69F00",
+      "P907_908": "#56B4E9",
+      "P909_910": "#F0E442",
+      "P941_942": "#000000"
+    },
+    "note": "Consecutive control/raloxifene sample-ID pairs; whether they are matched is unknown."
+  }
+}
