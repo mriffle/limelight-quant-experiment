@@ -5,7 +5,7 @@ status: candidate
 phase: exploratory
 kind: caveat
 created: 2026-09-22
-updated: 2026-09-22
+updated: 2026-09-23
 
 summary: "The runs fall into two acquisition batches (proxied by file-name date): B2021-05-06 with 6 runs (3 control + 3 raloxifene-d0) and B2022-03-18 with 2 runs (1 + 1), about 10 months later. Condition is balanced within each batch (Cramér's V = 0.00), so batch does not bias the contrast directly. However, the batch effect could be large, it is of unknown nature (prep and acquisition, or acquisition only), and it can be estimated from only one pair."
 verdict: "Design caveat, recorded as a candidate. Batch does not confound condition, but a 10-month gap may carry a large technical effect. That effect would add within-group variance and could dominate PCA or clustering. With a single sample per arm in the later batch, it is confounded with that pair's own biology. Include batch as a covariate in differential models, run a sensitivity analysis with and without the 2022 pair, and check in Stage 3 QC whether the 2022 runs separate."
@@ -14,6 +14,7 @@ entities: []
 
 relationships:
   - { type: relates_to, target: 1, note: "Both describe acquisition structure. The run-order aliasing in 0001 is tested stratified by these batches, and the 2022 pair also ran control-first." }
+  - { type: relates_to, target: 3, note: "Batch is nested in candidate pair: the 2022 batch is exactly pair P941_942, so a pair blocking term (0003) absorbs batch." }
 
 provenance:
   data_version: "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74"
@@ -89,7 +90,7 @@ validation:
   analytic_replication:       { status: not_attempted }
   data_replication:           { status: not_attempted }
 
-integrity_signoff: false
+integrity_signoff: true
 ---
 
 # Unequal two-batch structure of unknown nature: 6 runs on 2021-05-06 vs 2 runs on 2022-03-18
@@ -122,6 +123,8 @@ Within each batch group, the blue and orange bars are the same height (3 and 3 o
 
 The left panel shows the balanced 4/4 condition split. The middle panel shows the 6-vs-2 batch imbalance, a tall 2021 bar against a short 2022 bar. The right panel shows four candidate pairs of 2 samples each. The last pair, P941_942, makes up the entire 2022 batch, which is why its batch effect and that pair's biology cannot be told apart. This panel shows pair sizes, not the within-pair condition split; that split is supported by the table (H3).
 
+**Stage 3 QC confirms the 2022 batch is technically distinct.** Both 2022 runs (AZ941, AZ942) are shallower, with about 20–25% fewer identified protein groups and peptides than the 2021 runs, and after median normalization the 2022 pair forms PC1 (`reports/qc-report.md` §2, §8).
+
 ## Methods / how to produce
 The numbers come from `scripts/promoted/metadata_characterize.py` at commit `536281b19d36d10a32d6920ede7e2f7e01944f52` on data `sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74`. The environment is `pyproject.toml` + `uv.lock` on Python 3.12.3. Outputs are `results/metadata/crosstab_condition_batch.tsv`, `results/metadata/associations.tsv` (condition × batch, condition × candidate_pair) and `results/metadata/hypotheses.tsv` (H2, H3). Batch is the acquisition date parsed from the mzML file name (`UWPRExp480_<YYYY>_<MMDD>_…`), and candidate pair comes from consecutive `AZnnn` sample IDs. Figures come from `scripts/promoted/metadata_figures.py` at the same commit. The sample set is all 8 runs, all experimental; no QC or pool controls exist, so none are excluded.
 
@@ -133,7 +136,7 @@ A balanced batch does not bias the treatment estimate, but it still costs precis
 - **Batch effect not estimable independently.** The 2022 batch is a single pair, so a batch effect cannot be separated from that pair's own biological variation.
 - **Small n.** Cramér's V (0.00) is unstable at n = 8 and is descriptive only.
 - **Multiplicity context.** This is one of the design hypotheses (H1–H5) examined during Stage 1 characterization (`state/METADATA.md`). It is descriptive and makes no held-out claim.
-- **Integrity gate not yet passed.** `integrity_signoff: false` until Stage 3 certifies the sample↔metadata pairing.
+- **Integrity gate passed.** Stage 3 certified the sample↔metadata pairing (signed off 2026-09-23 for data `sha256:bc6b73d3…1ba74`; `reports/qc-report.md`), so `integrity_signoff: true`.
 
 ## Follow-ups
 - **Stage 3 QC:** check whether the 2022 runs (AZ941, AZ942) separate from the 2021 runs on PCA and sample–sample correlation, at both protein and peptide level.
@@ -143,6 +146,7 @@ A balanced batch does not bias the treatment estimate, but it still costs precis
 
 ## Related findings
 - [Finding 0001 (run order aliased with condition)](0001-run-order-aliased-with-condition.md) — `relates_to`. Both caveats describe acquisition structure. The run-order test in 0001 is stratified by the batches defined here, and the 2022 pair also ran control-first (AZ941 seq 017, then AZ942 seq 019).
+- [Finding 0003 (samples structured by matched pairs)](0003-samples-structured-by-matched-pairs.md) — `relates_to`. Batch is nested in candidate pair: the 2022 batch is exactly pair P941_942. A pair blocking term therefore absorbs batch, and 0003 recommends revisiting the batch-covariate plan in favour of pair.
 
 ## References
 None yet. The interpretive statements on LC-MS batch effects are general domain background and do not yet have citations.

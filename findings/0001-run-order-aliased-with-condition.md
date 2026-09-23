@@ -5,7 +5,7 @@ status: candidate
 phase: exploratory
 kind: caveat
 created: 2026-09-22
-updated: 2026-09-22
+updated: 2026-09-23
 
 summary: "Within both acquisition batches, every control run precedes every raloxifene-d0 run by file sequence number (presumed injection order). This is the most extreme separation possible (stratified exact permutation, U = 10/10, rank-biserial = 1.00, p = 0.05 two-sided). Any within-run instrument drift therefore lines up exactly with the treatment contrast."
 verdict: "Design caveat, recorded as a candidate. If sequence number is injection order, run-order effects (sensitivity loss, column aging, carry-over) cannot be separated from the raloxifene effect. With no pooled-QC injections, drift cannot be measured independently. Treat any differential signal, especially a global shift, with suspicion until QC shows no per-run trend with run position."
@@ -80,7 +80,7 @@ validation:
   analytic_replication:       { status: not_attempted }
   data_replication:           { status: not_attempted }
 
-integrity_signoff: false
+integrity_signoff: true
 ---
 
 # Run order is aliased with condition: every control was run before every raloxifene-d0 sample within each batch
@@ -124,7 +124,7 @@ Suppose the sequence numbers reflect injection order. Then the treatment contras
 - **Drift cannot be measured independently.** There are no pooled-QC or reference injections, so a run-order trend cannot be estimated separately from treatment. Any within-condition trend can be examined only across 3 runs, or 1 in the 2022 batch.
 - **Small n.** At n = 8, p = 0.05 is the smallest two-sided p the stratified test can reach. Cramér's V is unstable in both forms.
 - **Multiplicity context.** This is one of five design hypotheses (H1–H5) checked during Stage 1 characterization (`state/METADATA.md`). It is descriptive of the cohort and makes no held-out claim. No correction was applied because it is a caveat, not a discovery.
-- **Integrity gate not yet passed.** `integrity_signoff: false` until Stage 3 certifies the sample↔metadata pairing this rests on.
+- **Integrity gate passed.** Stage 3 certified the sample↔metadata pairing this rests on (signed off 2026-09-23 for data `sha256:bc6b73d3…1ba74`; `reports/qc-report.md`), so `integrity_signoff: true`.
 
 ## Follow-ups
 - Confirm injection order from mzML acquisition start timestamps.
