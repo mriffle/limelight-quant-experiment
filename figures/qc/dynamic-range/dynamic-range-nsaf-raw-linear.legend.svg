@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="261.594pt" height="110.8656pt" viewBox="0 0 261.594 110.8656" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 110.8656 
+L 261.594 110.8656 
+L 261.594 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="legend_1">
+    <g id="line2d_1">
+     <path d="M 17.910359 37.939792 
+L 28.910359 37.939792 
+L 39.910359 37.939792 
+" style="fill: none; stroke: #333333; stroke-width: 2; stroke-linecap: square"/>
+    </g>
+    <g id="text_1">
+     <text style="font-size: 11px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start" x="48.710359" y="41.789792" transform="rotate(-0 48.710359 41.789792)">median of detected values</text>
+    </g>
+    <g id="patch_2">
+     <path d="M 17.910359 58.290652 
+L 39.910359 58.290652 
+L 39.910359 50.590652 
+L 17.910359 50.590652 
+z
+" style="fill: #bdbdbd; opacity: 0.55"/>
+    </g>
+    <g id="text_2">
+     <text style="font-size: 11px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start" x="48.710359" y="58.290652" transform="rotate(-0 48.710359 58.290652)">IQR across samples (25th-75th pct)</text>
+    </g>
+    <g id="line2d_2">
+     <defs>
+      <path id="m09bbc054e0" d="M 0 3.5 
+C 0.928211 3.5 1.81853 3.131218 2.474874 2.474874 
+C 3.131218 1.81853 3.5 0.928211 3.5 0 
+C 3.5 -0.928211 3.131218 -1.81853 2.474874 -2.474874 
+C 1.81853 -3.131218 0.928211 -3.5 0 -3.5 
+C -0.928211 -3.5 -1.81853 -3.131218 -2.474874 -2.474874 
+C -3.131218 -1.81853 -3.5 -0.928211 -3.5 0 
+C -3.5 0.928211 -3.131218 1.81853 -2.474874 2.474874 
+C -1.81853 3.131218 -0.928211 3.5 0 3.5 
+z
+" style="stroke: #000000; stroke-width: 0.5"/>
+     </defs>
+     <g>
+      <use xlink:href="#m09bbc054e0" x="28.910359" y="70.941511" style="fill: #e69f00; stroke: #000000; stroke-width: 0.5"/>
+     </g>
+    </g>
+    <g id="text_3">
+     <text style="font-size: 11px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start" x="48.710359" y="74.791511" transform="rotate(-0 48.710359 74.791511)">contaminant</text>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

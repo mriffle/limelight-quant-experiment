@@ -1,0 +1,208 @@
+{
+  "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+  "expected_data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+  "file_hashes": {
+    "mapping_file": {
+      "path": "data/scan-file-search-id-mapping.txt",
+      "sha256": "7de38fd9211af128db82e15253cc0049830f22893dc43d25e636baa240bdc859"
+    },
+    "metadata_file": {
+      "path": "data/metadata.tsv",
+      "sha256": "1a3be50017b63e2d6a9f0c4cfeb96c0dc8f5240d475122634abe8ef50757b2dd"
+    },
+    "peptide_limelight_file": {
+      "path": "data/peptide-limelight-table-dump.txt",
+      "sha256": "aacb9a4da8837a0602ff9d794f91e6c4a2fc50b526cb541dd23473544b6a82c1"
+    },
+    "peptide_quants_file": {
+      "path": "data/peptide-quants.tsv",
+      "sha256": "9528b45ea79a6dbe6171be1abcc9419d1da6a3cc5a2a2c1ee211dbd888682041"
+    },
+    "protein_limelight_file": {
+      "path": "data/protein-limelight-table-dump.txt",
+      "sha256": "22e0c0efc905cc987fc8742994871e6fcc435084a1dd2703526365dd4b001b60"
+    },
+    "protein_quants_file": {
+      "path": "data/protein-quants.tsv",
+      "sha256": "ca604c844d85fbf46c63c22fd8b79dadee20dfe050b7c67b41cd4ad49585531a"
+    }
+  },
+  "levels": {
+    "nsaf": {
+      "batch_correction": null,
+      "missing_value_handling": {
+        "impute": null,
+        "max_missing_fraction": 0.0,
+        "n_dropped": 2143,
+        "n_features_in": 4311,
+        "n_features_out": 2168
+      },
+      "n_contaminant_features_excluded": 33,
+      "normalization": null,
+      "note": "NSAF is already normalized (scientist decision); no normalize/ComBat step for this level.",
+      "psms_reference_file": "results/qc_states/nsaf/psms.tsv",
+      "states": {
+        "raw_linear": {
+          "n_features": 4344,
+          "n_samples": 8,
+          "scale": "linear"
+        },
+        "raw_linear_complete": {
+          "n_features": 2168,
+          "n_samples": 8,
+          "scale": "linear"
+        },
+        "raw_log": {
+          "n_features": 2168,
+          "n_samples": 8,
+          "scale": "log2"
+        }
+      }
+    },
+    "peptide": {
+      "missing_value_handling": {
+        "impute": null,
+        "max_missing_fraction": 0.0,
+        "n_dropped": 22680,
+        "n_features_in": 32909,
+        "n_features_out": 10229
+      },
+      "n_contaminant_features_excluded": 449,
+      "normalization": {
+        "method": "median",
+        "note": "Median normalization (pronoms MedianNormalizer): divide each sample by its median, rescaled to the mean of medians. Computed over non-contaminant features quantified in all 8 runs."
+      },
+      "states": {
+        "batch_corrected_linear": {
+          "n_features": 10229,
+          "n_samples": 8,
+          "scale": "linear",
+          "warnings": []
+        },
+        "batch_corrected_log": {
+          "n_features": 10229,
+          "n_samples": 8,
+          "scale": "log2",
+          "warnings": []
+        },
+        "normalized_linear": {
+          "n_features": 10229,
+          "n_samples": 8,
+          "scale": "linear"
+        },
+        "normalized_log": {
+          "n_features": 10229,
+          "n_samples": 8,
+          "scale": "log2"
+        },
+        "raw_linear": {
+          "n_features": 33358,
+          "n_samples": 8,
+          "scale": "linear"
+        },
+        "raw_linear_complete": {
+          "n_features": 10229,
+          "n_samples": 8,
+          "scale": "linear"
+        },
+        "raw_log": {
+          "n_features": 10229,
+          "n_samples": 8,
+          "scale": "log2"
+        }
+      }
+    },
+    "protein": {
+      "missing_value_handling": {
+        "impute": null,
+        "max_missing_fraction": 0.0,
+        "n_dropped": 2510,
+        "n_features_in": 4311,
+        "n_features_out": 1801
+      },
+      "n_contaminant_features_excluded": 33,
+      "normalization": {
+        "method": "median",
+        "note": "Median normalization (pronoms MedianNormalizer): divide each sample by its median, rescaled to the mean of medians. Computed over non-contaminant features quantified in all 8 runs."
+      },
+      "states": {
+        "batch_corrected_linear": {
+          "n_features": 1801,
+          "n_samples": 8,
+          "scale": "linear",
+          "warnings": []
+        },
+        "batch_corrected_log": {
+          "n_features": 1801,
+          "n_samples": 8,
+          "scale": "log2",
+          "warnings": []
+        },
+        "normalized_linear": {
+          "n_features": 1801,
+          "n_samples": 8,
+          "scale": "linear"
+        },
+        "normalized_log": {
+          "n_features": 1801,
+          "n_samples": 8,
+          "scale": "log2"
+        },
+        "raw_linear": {
+          "n_features": 4344,
+          "n_samples": 8,
+          "scale": "linear"
+        },
+        "raw_linear_complete": {
+          "n_features": 1801,
+          "n_samples": 8,
+          "scale": "linear"
+        },
+        "raw_log": {
+          "n_features": 1801,
+          "n_samples": 8,
+          "scale": "log2"
+        }
+      }
+    },
+    "psm": {
+      "batch_correction": null,
+      "log_transform": null,
+      "missing_value_handling": {
+        "impute": null,
+        "max_missing_fraction": 0.0,
+        "n_dropped": 2143,
+        "n_features_in": 4311,
+        "n_features_out": 2168
+      },
+      "n_contaminant_features_excluded": 33,
+      "normalization": null,
+      "note": "PSM counts used as-is (scientist's explicit choice): no normalize/ComBat/log2 step for this level. raw_linear_complete's feature set is asserted identical to the nsaf level's (PSM>=1 in all 8 runs coincides exactly with NSAF>0 in all 8 runs).",
+      "states": {
+        "raw_linear": {
+          "n_features": 4344,
+          "n_samples": 8,
+          "scale": "linear"
+        },
+        "raw_linear_complete": {
+          "n_features": 2168,
+          "n_samples": 8,
+          "scale": "linear"
+        }
+      }
+    }
+  },
+  "params": {
+    "batch_column": "batch",
+    "cross_check_file": "results/stage2/limelight_label_map.tsv",
+    "mapping_file": "data/scan-file-search-id-mapping.txt",
+    "metadata_file": "data/metadata.tsv",
+    "normalization_method": "median",
+    "nsaf_log_pseudocount": 1e-09,
+    "peptide_limelight_file": "data/peptide-limelight-table-dump.txt",
+    "peptide_quants_file": "data/peptide-quants.tsv",
+    "protein_limelight_file": "data/protein-limelight-table-dump.txt",
+    "protein_quants_file": "data/protein-quants.tsv",
+    "samples_file": "results/metadata/samples.tsv"
+  }
+}

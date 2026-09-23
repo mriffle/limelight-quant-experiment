@@ -1,0 +1,99 @@
+{
+  "scripts": {
+    "runner": {
+      "path": "scripts/scratch/qc_fig_missingness.py",
+      "sha256": "sha256:869c57bc5f1575cd80892446005d6c0b550e023d9f5e8ae5844ed2f05c5aef28"
+    },
+    "module": {
+      "path": "scripts/scratch/qc_figures/missingness.py",
+      "sha256": "sha256:f4bbc58216557f415e271f000f325f8f4f20e2b8da0f39e22ee19a01ba544212",
+      "seeded_from": {
+        "template": "missingness",
+        "version": "0.1"
+      }
+    }
+  },
+  "commit": null,
+  "commit_note": "project is not a git repository; script sha256 pinned instead",
+  "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+  "params": {
+    "state": "raw_linear",
+    "levels": [
+      "protein",
+      "peptide"
+    ],
+    "color_by": "batch",
+    "min_intensity": 0.0,
+    "registry": "state/color_registry.json",
+    "dpi": 300,
+    "detection_rule": "finite and > min_intensity"
+  },
+  "figures": {
+    "missingness-protein-raw-linear": {
+      "input": "results/qc_states/protein/raw_linear",
+      "n_samples": 8,
+      "n_features": 4344,
+      "n_contaminant_features_included": 33,
+      "n_never_detected": 921,
+      "mnar_pearson_r": 0.6792236197991665,
+      "n_mnar_features": 3423,
+      "features_retained": {
+        "all runs": {
+          "1.0": 1805,
+          "0.5": 2887
+        },
+        "B2021-05-06": {
+          "1.0": 2280,
+          "0.5": 2967
+        },
+        "B2022-03-18": {
+          "1.0": 2047,
+          "0.5": 2465
+        }
+      },
+      "color_map": {
+        "B2021-05-06": "#009E73",
+        "B2022-03-18": "#CC79A7"
+      },
+      "artifacts": {
+        "svg": "figures/qc/missingness/missingness-protein-raw-linear.svg",
+        "png": "figures/qc/missingness/missingness-protein-raw-linear.png",
+        "legend_svg": "figures/qc/missingness/missingness-protein-raw-linear.legend.svg",
+        "legend_png": "figures/qc/missingness/missingness-protein-raw-linear.legend.png"
+      }
+    },
+    "missingness-peptide-raw-linear": {
+      "input": "results/qc_states/peptide/raw_linear",
+      "n_samples": 8,
+      "n_features": 33358,
+      "n_contaminant_features_included": 449,
+      "n_never_detected": 1723,
+      "mnar_pearson_r": 0.5112774772258362,
+      "n_mnar_features": 31635,
+      "features_retained": {
+        "all runs": {
+          "1.0": 10392,
+          "0.5": 24495
+        },
+        "B2021-05-06": {
+          "1.0": 15626,
+          "0.5": 25585
+        },
+        "B2022-03-18": {
+          "1.0": 15090,
+          "0.5": 20289
+        }
+      },
+      "color_map": {
+        "B2021-05-06": "#009E73",
+        "B2022-03-18": "#CC79A7"
+      },
+      "artifacts": {
+        "svg": "figures/qc/missingness/missingness-peptide-raw-linear.svg",
+        "png": "figures/qc/missingness/missingness-peptide-raw-linear.png",
+        "legend_svg": "figures/qc/missingness/missingness-peptide-raw-linear.legend.svg",
+        "legend_png": "figures/qc/missingness/missingness-peptide-raw-linear.legend.png"
+      }
+    }
+  }
+}

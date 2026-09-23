@@ -1,0 +1,200 @@
+{
+  "color_registry": "state/color_registry.json",
+  "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+  "figures": {
+    "cv-experimental-peptide-raw-normalized-batchcorrected-linear": {
+      "artifacts": {
+        "legend_png": "figures/qc/cv/cv-experimental-peptide-raw-normalized-batchcorrected-linear.legend.png",
+        "legend_svg": "figures/qc/cv/cv-experimental-peptide-raw-normalized-batchcorrected-linear.legend.svg",
+        "png": "figures/qc/cv/cv-experimental-peptide-raw-normalized-batchcorrected-linear.png",
+        "svg": "figures/qc/cv/cv-experimental-peptide-raw-normalized-batchcorrected-linear.svg"
+      },
+      "color_map": {
+        "ComBat batch-corrected": "#009E73",
+        "Median-normalized": "#56B4E9",
+        "Raw": "#E69F00"
+      },
+      "inputs": {
+        "batch_corrected_linear": {
+          "abundances.npy": {
+            "path": "results/qc_states/peptide/batch_corrected_linear/abundances.npy",
+            "sha256": "c22d2fe7333dc74ae35106916f38eed137778a05acfe5ea8e0797672c0d5a0fa"
+          },
+          "dataset.json": {
+            "path": "results/qc_states/peptide/batch_corrected_linear/dataset.json",
+            "sha256": "a8d4829c2a2198a3d0ffa4a5e72597cf4fdbfc4740cfe3a5b0452693bee4c48e"
+          },
+          "feature_metadata.parquet": {
+            "path": "results/qc_states/peptide/batch_corrected_linear/feature_metadata.parquet",
+            "sha256": "766367a046158d49ef62e2b6b15a768fb63038aea0a92cbde4372d8a5cd249b0"
+          },
+          "metadata.parquet": {
+            "path": "results/qc_states/peptide/batch_corrected_linear/metadata.parquet",
+            "sha256": "b324fa8fcda5b22863ddd482d737d9f3f9966b1c8b200f6f3d1d1dce61f108ad"
+          }
+        },
+        "normalized_linear": {
+          "abundances.npy": {
+            "path": "results/qc_states/peptide/normalized_linear/abundances.npy",
+            "sha256": "53a585ecd8180fb39b0b0d7be880bc5ff5022db22d1aecaf45c902e21df6823e"
+          },
+          "dataset.json": {
+            "path": "results/qc_states/peptide/normalized_linear/dataset.json",
+            "sha256": "a8d4829c2a2198a3d0ffa4a5e72597cf4fdbfc4740cfe3a5b0452693bee4c48e"
+          },
+          "feature_metadata.parquet": {
+            "path": "results/qc_states/peptide/normalized_linear/feature_metadata.parquet",
+            "sha256": "766367a046158d49ef62e2b6b15a768fb63038aea0a92cbde4372d8a5cd249b0"
+          },
+          "metadata.parquet": {
+            "path": "results/qc_states/peptide/normalized_linear/metadata.parquet",
+            "sha256": "b324fa8fcda5b22863ddd482d737d9f3f9966b1c8b200f6f3d1d1dce61f108ad"
+          }
+        },
+        "raw_linear_complete": {
+          "abundances.npy": {
+            "path": "results/qc_states/peptide/raw_linear_complete/abundances.npy",
+            "sha256": "443847f48fb15840d33e44518167f6e44e72a0c751653f500c7cd8c8545e672e"
+          },
+          "dataset.json": {
+            "path": "results/qc_states/peptide/raw_linear_complete/dataset.json",
+            "sha256": "a8d4829c2a2198a3d0ffa4a5e72597cf4fdbfc4740cfe3a5b0452693bee4c48e"
+          },
+          "feature_metadata.parquet": {
+            "path": "results/qc_states/peptide/raw_linear_complete/feature_metadata.parquet",
+            "sha256": "766367a046158d49ef62e2b6b15a768fb63038aea0a92cbde4372d8a5cd249b0"
+          },
+          "metadata.parquet": {
+            "path": "results/qc_states/peptide/raw_linear_complete/metadata.parquet",
+            "sha256": "b324fa8fcda5b22863ddd482d737d9f3f9966b1c8b200f6f3d1d1dce61f108ad"
+          }
+        }
+      },
+      "level": "peptide",
+      "median_cv": {
+        "ComBat batch-corrected": 0.20936345023425643,
+        "Median-normalized": 0.34282257224784796,
+        "Raw": 0.4519563974580991
+      },
+      "n_features": 10229,
+      "n_finite_cv": {
+        "ComBat batch-corrected": 10229,
+        "Median-normalized": 10229,
+        "Raw": 10229
+      },
+      "n_samples": 8
+    },
+    "cv-experimental-protein-raw-normalized-batchcorrected-linear": {
+      "artifacts": {
+        "legend_png": "figures/qc/cv/cv-experimental-protein-raw-normalized-batchcorrected-linear.legend.png",
+        "legend_svg": "figures/qc/cv/cv-experimental-protein-raw-normalized-batchcorrected-linear.legend.svg",
+        "png": "figures/qc/cv/cv-experimental-protein-raw-normalized-batchcorrected-linear.png",
+        "svg": "figures/qc/cv/cv-experimental-protein-raw-normalized-batchcorrected-linear.svg"
+      },
+      "color_map": {
+        "ComBat batch-corrected": "#009E73",
+        "Median-normalized": "#56B4E9",
+        "Raw": "#E69F00"
+      },
+      "inputs": {
+        "batch_corrected_linear": {
+          "abundances.npy": {
+            "path": "results/qc_states/protein/batch_corrected_linear/abundances.npy",
+            "sha256": "7532c6af826685b5bc9a01bffddeda605520b2204739979275566b85eb999934"
+          },
+          "dataset.json": {
+            "path": "results/qc_states/protein/batch_corrected_linear/dataset.json",
+            "sha256": "3cb67e8b9b4eefb7ac9b2a315353a9df4d8af037f09e275d2c55eacc63ff2b60"
+          },
+          "feature_metadata.parquet": {
+            "path": "results/qc_states/protein/batch_corrected_linear/feature_metadata.parquet",
+            "sha256": "b4d388c3a7871528631de6d1ba93a254fe79b2d6859feeb605f7c2c94011ddca"
+          },
+          "metadata.parquet": {
+            "path": "results/qc_states/protein/batch_corrected_linear/metadata.parquet",
+            "sha256": "b324fa8fcda5b22863ddd482d737d9f3f9966b1c8b200f6f3d1d1dce61f108ad"
+          }
+        },
+        "normalized_linear": {
+          "abundances.npy": {
+            "path": "results/qc_states/protein/normalized_linear/abundances.npy",
+            "sha256": "ea517bc2ba2954c649d0e844018dbef8bc2ce0913ba159c7e4493e5a4378a339"
+          },
+          "dataset.json": {
+            "path": "results/qc_states/protein/normalized_linear/dataset.json",
+            "sha256": "3cb67e8b9b4eefb7ac9b2a315353a9df4d8af037f09e275d2c55eacc63ff2b60"
+          },
+          "feature_metadata.parquet": {
+            "path": "results/qc_states/protein/normalized_linear/feature_metadata.parquet",
+            "sha256": "b4d388c3a7871528631de6d1ba93a254fe79b2d6859feeb605f7c2c94011ddca"
+          },
+          "metadata.parquet": {
+            "path": "results/qc_states/protein/normalized_linear/metadata.parquet",
+            "sha256": "b324fa8fcda5b22863ddd482d737d9f3f9966b1c8b200f6f3d1d1dce61f108ad"
+          }
+        },
+        "raw_linear_complete": {
+          "abundances.npy": {
+            "path": "results/qc_states/protein/raw_linear_complete/abundances.npy",
+            "sha256": "72da127e7fb6569ff7edbb478b0dd2cc3d45dfb0f4c673218bf7283456fbd07f"
+          },
+          "dataset.json": {
+            "path": "results/qc_states/protein/raw_linear_complete/dataset.json",
+            "sha256": "3cb67e8b9b4eefb7ac9b2a315353a9df4d8af037f09e275d2c55eacc63ff2b60"
+          },
+          "feature_metadata.parquet": {
+            "path": "results/qc_states/protein/raw_linear_complete/feature_metadata.parquet",
+            "sha256": "b4d388c3a7871528631de6d1ba93a254fe79b2d6859feeb605f7c2c94011ddca"
+          },
+          "metadata.parquet": {
+            "path": "results/qc_states/protein/raw_linear_complete/metadata.parquet",
+            "sha256": "b324fa8fcda5b22863ddd482d737d9f3f9966b1c8b200f6f3d1d1dce61f108ad"
+          }
+        }
+      },
+      "level": "protein",
+      "median_cv": {
+        "ComBat batch-corrected": 0.17115611661411073,
+        "Median-normalized": 0.2679564578304048,
+        "Raw": 0.39660699952816664
+      },
+      "n_features": 1801,
+      "n_finite_cv": {
+        "ComBat batch-corrected": 1801,
+        "Median-normalized": 1801,
+        "Raw": 1801
+      },
+      "n_samples": 8
+    }
+  },
+  "git_commit": null,
+  "module": {
+    "path": "/home/mriffle/data-analysis/limelight-quant-experiment/scripts/promoted/qc_figures/cv.py",
+    "seeded_from": {
+      "template": "cv-plot",
+      "version": "0.1"
+    },
+    "sha256": "68ef5bfc547fb28d77bdf6dae1d08c8c5aeb3689f0bad932c81d8b360c6a9830"
+  },
+  "params": {
+    "category": "NormalizationState",
+    "cv": "std(ddof=1)/mean per feature across all 8 samples, linear scale",
+    "max_cv": null,
+    "n_bins": 60,
+    "states": [
+      "raw_linear_complete",
+      "normalized_linear",
+      "batch_corrected_linear"
+    ],
+    "x_upper": "99.5th percentile of pooled CVs"
+  },
+  "qc_states_manifest": {
+    "path": "results/qc_states/manifest.json",
+    "sha256": "2d0bb2a17c94e5f76f16808cb8a2af70bffa0a79a91d2b854ef067caf1f31006"
+  },
+  "sample_subset": "all 8 samples (all experimental; no control/QC samples)",
+  "script": {
+    "path": "/home/mriffle/data-analysis/limelight-quant-experiment/scripts/promoted/qc_fig_cv.py",
+    "sha256": "f19fb508e4202abc8d89d608a0363f947eb925a2d1fdc8acd95595f36a3d4c95"
+  }
+}

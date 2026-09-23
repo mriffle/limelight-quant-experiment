@@ -1,0 +1,662 @@
+{
+  "pca-by-batch-protein-raw-normalized-batchcorrected-log2": {
+    "svg": "figures/qc/pca/pca-by-batch-protein-raw-normalized-batchcorrected-log2.svg",
+    "png": "figures/qc/pca/pca-by-batch-protein-raw-normalized-batchcorrected-log2.png",
+    "legend_svg": "figures/qc/pca/pca-by-batch-protein-raw-normalized-batchcorrected-log2.legend.svg",
+    "legend_png": "figures/qc/pca/pca-by-batch-protein-raw-normalized-batchcorrected-log2.legend.png",
+    "script": {
+      "path": "scripts/promoted/qc_fig_pca.py",
+      "sha256": "30813ff6e5e848cd7a14b940ac51a19a600f9babd56d55acef231f58bd019d52",
+      "module": "scripts/promoted/qc_figures/pca.py",
+      "module_sha256": "128c677e5679d655cdc15ff0f1aabc5a24d5c50932d071adcafefe64791ba878",
+      "git_commit": "cc249d2974e4cbf91b737f3f4ab4ad4a29372d76",
+      "seeded_from": "lib/figures/pca.py (pca-plot v0.3)"
+    },
+    "registry_sha256": "0d75c4bb87e4e85b77b36fb464fe11a4cf33a551da538592e9ab4be4dde627df",
+    "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+    "inputs": {
+      "results/qc_states/protein/raw_log/abundances.npy": "c97c6daf346cdbdc98a03f914f3461b27d05a69ac2674940f76b9f77fd025826",
+      "results/qc_states/protein/raw_log/metadata.parquet": "b324fa8fcda5b22863ddd482d737d9f3f9966b1c8b200f6f3d1d1dce61f108ad",
+      "results/qc_states/protein/raw_log/dataset.json": "b124734952ab311a6588632413c4161aad163211520be094319d45fc789e2d64",
+      "results/qc_states/protein/normalized_log/abundances.npy": "593cd40bff680f476e264788a14e7db2ef965bdba60d0c278e821fa0aac1b0bd",
+      "results/qc_states/protein/normalized_log/metadata.parquet": "b324fa8fcda5b22863ddd482d737d9f3f9966b1c8b200f6f3d1d1dce61f108ad",
+      "results/qc_states/protein/normalized_log/dataset.json": "b124734952ab311a6588632413c4161aad163211520be094319d45fc789e2d64",
+      "results/qc_states/protein/batch_corrected_log/abundances.npy": "2864249826f91d7d111f4e30b0e9aa90082290b9447eb549f0b2140c94182bea",
+      "results/qc_states/protein/batch_corrected_log/metadata.parquet": "b324fa8fcda5b22863ddd482d737d9f3f9966b1c8b200f6f3d1d1dce61f108ad",
+      "results/qc_states/protein/batch_corrected_log/dataset.json": "b124734952ab311a6588632413c4161aad163211520be094319d45fc789e2d64"
+    },
+    "params": {
+      "level": "protein",
+      "color_by": "batch",
+      "label_by": "sample_id",
+      "states": [
+        "raw_log",
+        "normalized_log",
+        "batch_corrected_log"
+      ],
+      "standardize": true,
+      "n_components": 2,
+      "svd_solver": "full",
+      "dpi": 300
+    },
+    "color_map": {
+      "B2021-05-06": "#009E73",
+      "B2022-03-18": "#CC79A7"
+    },
+    "processing_state": "raw_log | normalized_log | batch_corrected_log",
+    "summary": {
+      "Raw (log2)": {
+        "pc1_pct": 55.19,
+        "pc2_pct": 24.18,
+        "n_features": 1801,
+        "scores": {
+          "AZ905": [
+            55.403,
+            8.288
+          ],
+          "AZ907": [
+            -2.012,
+            -20.27
+          ],
+          "AZ909": [
+            0.493,
+            -13.932
+          ],
+          "AZ906": [
+            45.56,
+            7.275
+          ],
+          "AZ908": [
+            -27.944,
+            -26.075
+          ],
+          "AZ910": [
+            -13.055,
+            -15.756
+          ],
+          "AZ941": [
+            -20.742,
+            30.714
+          ],
+          "AZ942": [
+            -37.703,
+            29.756
+          ]
+        }
+      },
+      "Median-normalized (log2)": {
+        "pc1_pct": 43.27,
+        "pc2_pct": 21.8,
+        "n_features": 1801,
+        "scores": {
+          "AZ905": [
+            -2.314,
+            6.349
+          ],
+          "AZ907": [
+            26.323,
+            22.497
+          ],
+          "AZ909": [
+            19.83,
+            -30.025
+          ],
+          "AZ906": [
+            -2.587,
+            4.503
+          ],
+          "AZ908": [
+            28.237,
+            26.031
+          ],
+          "AZ910": [
+            19.479,
+            -31.469
+          ],
+          "AZ941": [
+            -43.66,
+            2.021
+          ],
+          "AZ942": [
+            -45.308,
+            0.093
+          ]
+        }
+      },
+      "Batch-corrected, ComBat batch-only (log2)": {
+        "pc1_pct": 34.72,
+        "pc2_pct": 31.67,
+        "n_features": 1801,
+        "scores": {
+          "AZ905": [
+            -40.506,
+            -3.914
+          ],
+          "AZ907": [
+            17.382,
+            32.887
+          ],
+          "AZ909": [
+            24.97,
+            -30.041
+          ],
+          "AZ906": [
+            -37.561,
+            -5.157
+          ],
+          "AZ908": [
+            16.671,
+            39.381
+          ],
+          "AZ910": [
+            26.786,
+            -31.3
+          ],
+          "AZ941": [
+            -3.577,
+            0.669
+          ],
+          "AZ942": [
+            -4.164,
+            -2.525
+          ]
+        }
+      }
+    }
+  },
+  "pca-by-condition-protein-raw-normalized-batchcorrected-log2": {
+    "svg": "figures/qc/pca/pca-by-condition-protein-raw-normalized-batchcorrected-log2.svg",
+    "png": "figures/qc/pca/pca-by-condition-protein-raw-normalized-batchcorrected-log2.png",
+    "legend_svg": "figures/qc/pca/pca-by-condition-protein-raw-normalized-batchcorrected-log2.legend.svg",
+    "legend_png": "figures/qc/pca/pca-by-condition-protein-raw-normalized-batchcorrected-log2.legend.png",
+    "script": {
+      "path": "scripts/promoted/qc_fig_pca.py",
+      "sha256": "30813ff6e5e848cd7a14b940ac51a19a600f9babd56d55acef231f58bd019d52",
+      "module": "scripts/promoted/qc_figures/pca.py",
+      "module_sha256": "128c677e5679d655cdc15ff0f1aabc5a24d5c50932d071adcafefe64791ba878",
+      "git_commit": "cc249d2974e4cbf91b737f3f4ab4ad4a29372d76",
+      "seeded_from": "lib/figures/pca.py (pca-plot v0.3)"
+    },
+    "registry_sha256": "0d75c4bb87e4e85b77b36fb464fe11a4cf33a551da538592e9ab4be4dde627df",
+    "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+    "inputs": {
+      "results/qc_states/protein/raw_log/abundances.npy": "c97c6daf346cdbdc98a03f914f3461b27d05a69ac2674940f76b9f77fd025826",
+      "results/qc_states/protein/raw_log/metadata.parquet": "b324fa8fcda5b22863ddd482d737d9f3f9966b1c8b200f6f3d1d1dce61f108ad",
+      "results/qc_states/protein/raw_log/dataset.json": "b124734952ab311a6588632413c4161aad163211520be094319d45fc789e2d64",
+      "results/qc_states/protein/normalized_log/abundances.npy": "593cd40bff680f476e264788a14e7db2ef965bdba60d0c278e821fa0aac1b0bd",
+      "results/qc_states/protein/normalized_log/metadata.parquet": "b324fa8fcda5b22863ddd482d737d9f3f9966b1c8b200f6f3d1d1dce61f108ad",
+      "results/qc_states/protein/normalized_log/dataset.json": "b124734952ab311a6588632413c4161aad163211520be094319d45fc789e2d64",
+      "results/qc_states/protein/batch_corrected_log/abundances.npy": "2864249826f91d7d111f4e30b0e9aa90082290b9447eb549f0b2140c94182bea",
+      "results/qc_states/protein/batch_corrected_log/metadata.parquet": "b324fa8fcda5b22863ddd482d737d9f3f9966b1c8b200f6f3d1d1dce61f108ad",
+      "results/qc_states/protein/batch_corrected_log/dataset.json": "b124734952ab311a6588632413c4161aad163211520be094319d45fc789e2d64"
+    },
+    "params": {
+      "level": "protein",
+      "color_by": "condition",
+      "label_by": "sample_id",
+      "states": [
+        "raw_log",
+        "normalized_log",
+        "batch_corrected_log"
+      ],
+      "standardize": true,
+      "n_components": 2,
+      "svd_solver": "full",
+      "dpi": 300
+    },
+    "color_map": {
+      "control": "#0072B2",
+      "raloxifene-d0": "#D55E00"
+    },
+    "processing_state": "raw_log | normalized_log | batch_corrected_log",
+    "summary": {
+      "Raw (log2)": {
+        "pc1_pct": 55.19,
+        "pc2_pct": 24.18,
+        "n_features": 1801,
+        "scores": {
+          "AZ905": [
+            55.403,
+            8.288
+          ],
+          "AZ907": [
+            -2.012,
+            -20.27
+          ],
+          "AZ909": [
+            0.493,
+            -13.932
+          ],
+          "AZ906": [
+            45.56,
+            7.275
+          ],
+          "AZ908": [
+            -27.944,
+            -26.075
+          ],
+          "AZ910": [
+            -13.055,
+            -15.756
+          ],
+          "AZ941": [
+            -20.742,
+            30.714
+          ],
+          "AZ942": [
+            -37.703,
+            29.756
+          ]
+        }
+      },
+      "Median-normalized (log2)": {
+        "pc1_pct": 43.27,
+        "pc2_pct": 21.8,
+        "n_features": 1801,
+        "scores": {
+          "AZ905": [
+            -2.314,
+            6.349
+          ],
+          "AZ907": [
+            26.323,
+            22.497
+          ],
+          "AZ909": [
+            19.83,
+            -30.025
+          ],
+          "AZ906": [
+            -2.587,
+            4.503
+          ],
+          "AZ908": [
+            28.237,
+            26.031
+          ],
+          "AZ910": [
+            19.479,
+            -31.469
+          ],
+          "AZ941": [
+            -43.66,
+            2.021
+          ],
+          "AZ942": [
+            -45.308,
+            0.093
+          ]
+        }
+      },
+      "Batch-corrected, ComBat batch-only (log2)": {
+        "pc1_pct": 34.72,
+        "pc2_pct": 31.67,
+        "n_features": 1801,
+        "scores": {
+          "AZ905": [
+            -40.506,
+            -3.914
+          ],
+          "AZ907": [
+            17.382,
+            32.887
+          ],
+          "AZ909": [
+            24.97,
+            -30.041
+          ],
+          "AZ906": [
+            -37.561,
+            -5.157
+          ],
+          "AZ908": [
+            16.671,
+            39.381
+          ],
+          "AZ910": [
+            26.786,
+            -31.3
+          ],
+          "AZ941": [
+            -3.577,
+            0.669
+          ],
+          "AZ942": [
+            -4.164,
+            -2.525
+          ]
+        }
+      }
+    }
+  },
+  "pca-by-batch-peptide-raw-normalized-batchcorrected-log2": {
+    "svg": "figures/qc/pca/pca-by-batch-peptide-raw-normalized-batchcorrected-log2.svg",
+    "png": "figures/qc/pca/pca-by-batch-peptide-raw-normalized-batchcorrected-log2.png",
+    "legend_svg": "figures/qc/pca/pca-by-batch-peptide-raw-normalized-batchcorrected-log2.legend.svg",
+    "legend_png": "figures/qc/pca/pca-by-batch-peptide-raw-normalized-batchcorrected-log2.legend.png",
+    "script": {
+      "path": "scripts/promoted/qc_fig_pca.py",
+      "sha256": "30813ff6e5e848cd7a14b940ac51a19a600f9babd56d55acef231f58bd019d52",
+      "module": "scripts/promoted/qc_figures/pca.py",
+      "module_sha256": "128c677e5679d655cdc15ff0f1aabc5a24d5c50932d071adcafefe64791ba878",
+      "git_commit": "cc249d2974e4cbf91b737f3f4ab4ad4a29372d76",
+      "seeded_from": "lib/figures/pca.py (pca-plot v0.3)"
+    },
+    "registry_sha256": "0d75c4bb87e4e85b77b36fb464fe11a4cf33a551da538592e9ab4be4dde627df",
+    "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+    "inputs": {
+      "results/qc_states/peptide/raw_log/abundances.npy": "9054c13a807b2530307c9ef9fb7d42aa129a7fed0f6187b9ee34a62d891830c7",
+      "results/qc_states/peptide/raw_log/metadata.parquet": "b324fa8fcda5b22863ddd482d737d9f3f9966b1c8b200f6f3d1d1dce61f108ad",
+      "results/qc_states/peptide/raw_log/dataset.json": "22153a9a18f92941221a300d48b80288ce391923ef74895aa9b960c5cc556f8d",
+      "results/qc_states/peptide/normalized_log/abundances.npy": "cba37dedef5e2863d1ff91abe919ebc7244462aeb743bca2031673dc8bf13912",
+      "results/qc_states/peptide/normalized_log/metadata.parquet": "b324fa8fcda5b22863ddd482d737d9f3f9966b1c8b200f6f3d1d1dce61f108ad",
+      "results/qc_states/peptide/normalized_log/dataset.json": "22153a9a18f92941221a300d48b80288ce391923ef74895aa9b960c5cc556f8d",
+      "results/qc_states/peptide/batch_corrected_log/abundances.npy": "76996fcc80c9aa6a5dbfde853e4d8d5dc9261f9dcb253fbf15577610aaec13a2",
+      "results/qc_states/peptide/batch_corrected_log/metadata.parquet": "b324fa8fcda5b22863ddd482d737d9f3f9966b1c8b200f6f3d1d1dce61f108ad",
+      "results/qc_states/peptide/batch_corrected_log/dataset.json": "22153a9a18f92941221a300d48b80288ce391923ef74895aa9b960c5cc556f8d"
+    },
+    "params": {
+      "level": "peptide",
+      "color_by": "batch",
+      "label_by": "sample_id",
+      "states": [
+        "raw_log",
+        "normalized_log",
+        "batch_corrected_log"
+      ],
+      "standardize": true,
+      "n_components": 2,
+      "svd_solver": "full",
+      "dpi": 300
+    },
+    "color_map": {
+      "B2021-05-06": "#009E73",
+      "B2022-03-18": "#CC79A7"
+    },
+    "processing_state": "raw_log | normalized_log | batch_corrected_log",
+    "summary": {
+      "Raw (log2)": {
+        "pc1_pct": 49.52,
+        "pc2_pct": 25.65,
+        "n_features": 10229,
+        "scores": {
+          "AZ905": [
+            117.628,
+            31.562
+          ],
+          "AZ907": [
+            10.136,
+            -46.295
+          ],
+          "AZ909": [
+            9.115,
+            -27.754
+          ],
+          "AZ906": [
+            97.49,
+            29.19
+          ],
+          "AZ908": [
+            -48.798,
+            -79.22
+          ],
+          "AZ910": [
+            -21.929,
+            -37.851
+          ],
+          "AZ941": [
+            -62.57,
+            68.69
+          ],
+          "AZ942": [
+            -101.072,
+            61.678
+          ]
+        }
+      },
+      "Median-normalized (log2)": {
+        "pc1_pct": 42.49,
+        "pc2_pct": 23.04,
+        "n_features": 10229,
+        "scores": {
+          "AZ905": [
+            -8.564,
+            -48.316
+          ],
+          "AZ907": [
+            -55.968,
+            -28.535
+          ],
+          "AZ909": [
+            -36.882,
+            74.232
+          ],
+          "AZ906": [
+            -4.409,
+            -31.974
+          ],
+          "AZ908": [
+            -72.979,
+            -48.874
+          ],
+          "AZ910": [
+            -37.638,
+            82.36
+          ],
+          "AZ941": [
+            104.85,
+            0.628
+          ],
+          "AZ942": [
+            111.591,
+            0.478
+          ]
+        }
+      },
+      "Batch-corrected, ComBat batch-only (log2)": {
+        "pc1_pct": 33.41,
+        "pc2_pct": 29.57,
+        "n_features": 10229,
+        "scores": {
+          "AZ905": [
+            66.219,
+            -68.043
+          ],
+          "AZ907": [
+            26.606,
+            74.345
+          ],
+          "AZ909": [
+            -89.024,
+            -6.017
+          ],
+          "AZ906": [
+            45.482,
+            -70.401
+          ],
+          "AZ908": [
+            48.163,
+            93.284
+          ],
+          "AZ910": [
+            -99.653,
+            -7.26
+          ],
+          "AZ941": [
+            0.842,
+            1.105
+          ],
+          "AZ942": [
+            1.363,
+            -17.012
+          ]
+        }
+      }
+    }
+  },
+  "pca-by-condition-peptide-raw-normalized-batchcorrected-log2": {
+    "svg": "figures/qc/pca/pca-by-condition-peptide-raw-normalized-batchcorrected-log2.svg",
+    "png": "figures/qc/pca/pca-by-condition-peptide-raw-normalized-batchcorrected-log2.png",
+    "legend_svg": "figures/qc/pca/pca-by-condition-peptide-raw-normalized-batchcorrected-log2.legend.svg",
+    "legend_png": "figures/qc/pca/pca-by-condition-peptide-raw-normalized-batchcorrected-log2.legend.png",
+    "script": {
+      "path": "scripts/promoted/qc_fig_pca.py",
+      "sha256": "30813ff6e5e848cd7a14b940ac51a19a600f9babd56d55acef231f58bd019d52",
+      "module": "scripts/promoted/qc_figures/pca.py",
+      "module_sha256": "128c677e5679d655cdc15ff0f1aabc5a24d5c50932d071adcafefe64791ba878",
+      "git_commit": "cc249d2974e4cbf91b737f3f4ab4ad4a29372d76",
+      "seeded_from": "lib/figures/pca.py (pca-plot v0.3)"
+    },
+    "registry_sha256": "0d75c4bb87e4e85b77b36fb464fe11a4cf33a551da538592e9ab4be4dde627df",
+    "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+    "inputs": {
+      "results/qc_states/peptide/raw_log/abundances.npy": "9054c13a807b2530307c9ef9fb7d42aa129a7fed0f6187b9ee34a62d891830c7",
+      "results/qc_states/peptide/raw_log/metadata.parquet": "b324fa8fcda5b22863ddd482d737d9f3f9966b1c8b200f6f3d1d1dce61f108ad",
+      "results/qc_states/peptide/raw_log/dataset.json": "22153a9a18f92941221a300d48b80288ce391923ef74895aa9b960c5cc556f8d",
+      "results/qc_states/peptide/normalized_log/abundances.npy": "cba37dedef5e2863d1ff91abe919ebc7244462aeb743bca2031673dc8bf13912",
+      "results/qc_states/peptide/normalized_log/metadata.parquet": "b324fa8fcda5b22863ddd482d737d9f3f9966b1c8b200f6f3d1d1dce61f108ad",
+      "results/qc_states/peptide/normalized_log/dataset.json": "22153a9a18f92941221a300d48b80288ce391923ef74895aa9b960c5cc556f8d",
+      "results/qc_states/peptide/batch_corrected_log/abundances.npy": "76996fcc80c9aa6a5dbfde853e4d8d5dc9261f9dcb253fbf15577610aaec13a2",
+      "results/qc_states/peptide/batch_corrected_log/metadata.parquet": "b324fa8fcda5b22863ddd482d737d9f3f9966b1c8b200f6f3d1d1dce61f108ad",
+      "results/qc_states/peptide/batch_corrected_log/dataset.json": "22153a9a18f92941221a300d48b80288ce391923ef74895aa9b960c5cc556f8d"
+    },
+    "params": {
+      "level": "peptide",
+      "color_by": "condition",
+      "label_by": "sample_id",
+      "states": [
+        "raw_log",
+        "normalized_log",
+        "batch_corrected_log"
+      ],
+      "standardize": true,
+      "n_components": 2,
+      "svd_solver": "full",
+      "dpi": 300
+    },
+    "color_map": {
+      "control": "#0072B2",
+      "raloxifene-d0": "#D55E00"
+    },
+    "processing_state": "raw_log | normalized_log | batch_corrected_log",
+    "summary": {
+      "Raw (log2)": {
+        "pc1_pct": 49.52,
+        "pc2_pct": 25.65,
+        "n_features": 10229,
+        "scores": {
+          "AZ905": [
+            117.628,
+            31.562
+          ],
+          "AZ907": [
+            10.136,
+            -46.295
+          ],
+          "AZ909": [
+            9.115,
+            -27.754
+          ],
+          "AZ906": [
+            97.49,
+            29.19
+          ],
+          "AZ908": [
+            -48.798,
+            -79.22
+          ],
+          "AZ910": [
+            -21.929,
+            -37.851
+          ],
+          "AZ941": [
+            -62.57,
+            68.69
+          ],
+          "AZ942": [
+            -101.072,
+            61.678
+          ]
+        }
+      },
+      "Median-normalized (log2)": {
+        "pc1_pct": 42.49,
+        "pc2_pct": 23.04,
+        "n_features": 10229,
+        "scores": {
+          "AZ905": [
+            -8.564,
+            -48.316
+          ],
+          "AZ907": [
+            -55.968,
+            -28.535
+          ],
+          "AZ909": [
+            -36.882,
+            74.232
+          ],
+          "AZ906": [
+            -4.409,
+            -31.974
+          ],
+          "AZ908": [
+            -72.979,
+            -48.874
+          ],
+          "AZ910": [
+            -37.638,
+            82.36
+          ],
+          "AZ941": [
+            104.85,
+            0.628
+          ],
+          "AZ942": [
+            111.591,
+            0.478
+          ]
+        }
+      },
+      "Batch-corrected, ComBat batch-only (log2)": {
+        "pc1_pct": 33.41,
+        "pc2_pct": 29.57,
+        "n_features": 10229,
+        "scores": {
+          "AZ905": [
+            66.219,
+            -68.043
+          ],
+          "AZ907": [
+            26.606,
+            74.345
+          ],
+          "AZ909": [
+            -89.024,
+            -6.017
+          ],
+          "AZ906": [
+            45.482,
+            -70.401
+          ],
+          "AZ908": [
+            48.163,
+            93.284
+          ],
+          "AZ910": [
+            -99.653,
+            -7.26
+          ],
+          "AZ941": [
+            0.842,
+            1.105
+          ],
+          "AZ942": [
+            1.363,
+            -17.012
+          ]
+        }
+      }
+    }
+  }
+}

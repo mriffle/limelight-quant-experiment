@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="248.76pt" height="116.964pt" viewBox="0 0 248.76 116.964" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 116.964 
+L 248.76 116.964 
+L 248.76 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="legend_1">
+    <g id="patch_2">
+     <path d="M 31.8075 96.783914 
+L 216.9525 96.783914 
+Q 219.3525 96.783914 219.3525 94.383914 
+L 219.3525 22.580086 
+Q 219.3525 20.180086 216.9525 20.180086 
+L 31.8075 20.180086 
+Q 29.4075 20.180086 29.4075 22.580086 
+L 29.4075 94.383914 
+Q 29.4075 96.783914 31.8075 96.783914 
+z
+" style="fill: #ffffff; opacity: 0.8; stroke: #cccccc; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_1">
+     <text style="font-size: 13px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start" x="45.61625" y="34.858055" transform="rotate(-0 45.61625 34.858055)">Processing state (linear)</text>
+    </g>
+    <g id="line2d_1">
+     <path d="M 34.2075 48.899227 
+L 46.2075 48.899227 
+L 58.2075 48.899227 
+" style="fill: none; stroke: #e69f00; stroke-width: 2.5; stroke-linecap: square"/>
+    </g>
+    <g id="text_2">
+     <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start" x="67.8075" y="53.099227" transform="rotate(-0 67.8075 53.099227)">Raw</text>
+    </g>
+    <g id="line2d_2">
+     <path d="M 34.2075 66.900164 
+L 46.2075 66.900164 
+L 58.2075 66.900164 
+" style="fill: none; stroke: #56b4e9; stroke-width: 2.5; stroke-linecap: square"/>
+    </g>
+    <g id="text_3">
+     <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start" x="67.8075" y="71.100164" transform="rotate(-0 67.8075 71.100164)">Median-normalized</text>
+    </g>
+    <g id="line2d_3">
+     <path d="M 34.2075 84.901102 
+L 46.2075 84.901102 
+L 58.2075 84.901102 
+" style="fill: none; stroke: #009e73; stroke-width: 2.5; stroke-linecap: square"/>
+    </g>
+    <g id="text_4">
+     <text style="font-size: 12px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start" x="67.8075" y="89.101102" transform="rotate(-0 67.8075 89.101102)">ComBat batch-corrected</text>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

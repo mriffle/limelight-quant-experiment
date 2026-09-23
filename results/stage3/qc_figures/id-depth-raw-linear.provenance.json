@@ -1,0 +1,95 @@
+{
+  "figure": "id-depth-raw-linear",
+  "svg": "figures/qc/id-depth/id-depth-raw-linear.svg",
+  "png": "figures/qc/id-depth/id-depth-raw-linear.png",
+  "legend_svg": "figures/qc/id-depth/id-depth-raw-linear.legend.svg",
+  "legend_png": "figures/qc/id-depth/id-depth-raw-linear.legend.png",
+  "script": {
+    "runner": "scripts/promoted/qc_fig_id_depth.py",
+    "runner_sha256": "39ea286afcec330cd9da2af60656bd5353d816dca169040b7ca5cdaf204f0648",
+    "module": "scripts/promoted/qc_figures/id_depth.py",
+    "module_sha256": "74c21259d497b8c8da630ae4e8a9fabfa9b19315d5f31986e49ec0ad2cd6c1a2",
+    "git_commit": "cc249d2974e4cbf91b737f3f4ab4ad4a29372d76",
+    "seeded_from": "lib/figures/id_depth.py (id-depth v0.1)"
+  },
+  "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+  "processing_state": "raw_linear",
+  "inputs": {
+    "protein": "results/qc_states/protein/raw_linear",
+    "peptide": "results/qc_states/peptide/raw_linear"
+  },
+  "color_registry_sha256": "0d75c4bb87e4e85b77b36fb464fe11a4cf33a551da538592e9ab4be4dde627df",
+  "params": {
+    "color_by": "condition",
+    "divider_by": "batch",
+    "reference_subset": "sample_role == 'experimental'",
+    "min_intensity": 0.0,
+    "dpi": 300,
+    "order": [
+      "batch",
+      "run_position_within_batch"
+    ]
+  },
+  "color_map": {
+    "control": "#0072B2",
+    "raloxifene-d0": "#D55E00"
+  },
+  "sample_ids": [
+    "AZ905",
+    "AZ907",
+    "AZ909",
+    "AZ906",
+    "AZ908",
+    "AZ910",
+    "AZ941",
+    "AZ942"
+  ],
+  "counts": {
+    "Protein groups": [
+      2972,
+      2886,
+      2895,
+      2909,
+      2682,
+      2798,
+      2262,
+      2250
+    ],
+    "Peptides": [
+      25195,
+      24235,
+      24179,
+      24276,
+      21742,
+      22677,
+      17672,
+      17707
+    ]
+  },
+  "reference_median": {
+    "Protein groups": 2842.0,
+    "Peptides": 23428.0
+  },
+  "counts_non_contaminant": {
+    "Protein groups": [
+      2965,
+      2878,
+      2890,
+      2903,
+      2674,
+      2793,
+      2256,
+      2246
+    ],
+    "Peptides": [
+      24867,
+      23890,
+      23842,
+      23952,
+      21419,
+      22364,
+      17428,
+      17441
+    ]
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "batch_column": "batch",
+  "covariates": [
+    "condition",
+    "candidate_pair"
+  ],
+  "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+  "reports": [
+    {
+      "batch_column": "batch",
+      "covariate_column": "condition",
+      "cramers_v": 0.0,
+      "crosstab": {
+        "control": {
+          "B2021-05-06": 3,
+          "B2022-03-18": 1
+        },
+        "raloxifene-d0": {
+          "B2021-05-06": 3,
+          "B2022-03-18": 1
+        }
+      },
+      "message": "'batch' vs 'condition': Cramer's V=0.00 (below the 0.5 warn threshold; within-batch variation in 'condition' largely survives batch correction).",
+      "perfectly_confounded": false
+    },
+    {
+      "batch_column": "batch",
+      "covariate_column": "candidate_pair",
+      "cramers_v": 0.816496580927726,
+      "crosstab": {
+        "P905_906": {
+          "B2021-05-06": 2,
+          "B2022-03-18": 0
+        },
+        "P907_908": {
+          "B2021-05-06": 2,
+          "B2022-03-18": 0
+        },
+        "P909_910": {
+          "B2021-05-06": 2,
+          "B2022-03-18": 0
+        },
+        "P941_942": {
+          "B2021-05-06": 0,
+          "B2022-03-18": 2
+        }
+      },
+      "message": "'batch' is STRONGLY confounded with 'candidate_pair' (Cramer's V=0.82 >= 0.5). Batch correction will attenuate this covariate's signal; report corrected AND uncorrected results and carry the confound into the caveats.",
+      "perfectly_confounded": false
+    }
+  ],
+  "warnings_raised": [
+    "'batch' is STRONGLY confounded with 'candidate_pair' (Cramer's V=0.82 >= 0.5). Batch correction will attenuate this covariate's signal; report corrected AND uncorrected results and carry the confound into the caveats."
+  ]
+}

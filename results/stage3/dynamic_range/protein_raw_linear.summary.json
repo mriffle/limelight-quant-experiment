@@ -1,0 +1,258 @@
+{
+  "figure": {
+    "svg": "figures/qc/dynamic-range/dynamic-range-protein-raw-linear.svg",
+    "png": "figures/qc/dynamic-range/dynamic-range-protein-raw-linear.png",
+    "legend_svg": "figures/qc/dynamic-range/dynamic-range-protein-raw-linear.legend.svg",
+    "legend_png": "figures/qc/dynamic-range/dynamic-range-protein-raw-linear.legend.png"
+  },
+  "color_map": {
+    "contaminant": "#E69F00"
+  },
+  "n_samples": 8,
+  "n_features_total": 4344,
+  "n_features_detected": 3423,
+  "dynamic_range_orders": 4.731,
+  "log2_median_max": 31.663,
+  "log2_median_min": 15.947,
+  "n_detected_all_samples": 1805,
+  "n_detected_single_sample": 157,
+  "top20": [
+    {
+      "rank": 1,
+      "entry": "BIP_HUMAN",
+      "feature": "psvid_56562_sp|P11021|BIP_HUMAN",
+      "contaminant": false,
+      "log2_median": 31.663,
+      "n_detected": 8
+    },
+    {
+      "rank": 2,
+      "entry": "PDIA1_HUMAN",
+      "feature": "psvid_33235_sp|P07237|PDIA1_HUMAN",
+      "contaminant": false,
+      "log2_median": 31.298,
+      "n_detected": 8
+    },
+    {
+      "rank": 3,
+      "entry": "PDIA3_HUMAN",
+      "feature": "psvid_68778_sp|P30101|PDIA3_HUMAN",
+      "contaminant": false,
+      "log2_median": 31.212,
+      "n_detected": 8
+    },
+    {
+      "rank": 4,
+      "entry": "HPT_HUMAN",
+      "feature": "psvid_50866_sp|P00738|HPT_HUMAN",
+      "contaminant": false,
+      "log2_median": 31.167,
+      "n_detected": 8
+    },
+    {
+      "rank": 5,
+      "entry": "PDIA4_HUMAN",
+      "feature": "psvid_28028_sp|P13667|PDIA4_HUMAN",
+      "contaminant": false,
+      "log2_median": 31.157,
+      "n_detected": 8
+    },
+    {
+      "rank": 6,
+      "entry": "ACSL1_HUMAN",
+      "feature": "psvid_68886_sp|P33121|ACSL1_HUMAN",
+      "contaminant": false,
+      "log2_median": 31.136,
+      "n_detected": 8
+    },
+    {
+      "rank": 7,
+      "entry": "NCPR_HUMAN",
+      "feature": "psvid_60158_sp|P16435|NCPR_HUMAN",
+      "contaminant": false,
+      "log2_median": 30.995,
+      "n_detected": 8
+    },
+    {
+      "rank": 8,
+      "entry": "ATPB_HUMAN",
+      "feature": "psvid_44001_sp|P06576|ATPB_HUMAN",
+      "contaminant": false,
+      "log2_median": 30.977,
+      "n_detected": 8
+    },
+    {
+      "rank": 9,
+      "entry": "S27A5_HUMAN",
+      "feature": "psvid_39274_sp|Q9Y2P5|S27A5_HUMAN",
+      "contaminant": false,
+      "log2_median": 30.918,
+      "n_detected": 8
+    },
+    {
+      "rank": 10,
+      "entry": "ENPL_HUMAN",
+      "feature": "psvid_24290_sp|P14625|ENPL_HUMAN",
+      "contaminant": false,
+      "log2_median": 30.83,
+      "n_detected": 8
+    },
+    {
+      "rank": 11,
+      "entry": "CPSM_HUMAN",
+      "feature": "psvid_70920_sp|P31327|CPSM_HUMAN",
+      "contaminant": false,
+      "log2_median": 30.695,
+      "n_detected": 8
+    },
+    {
+      "rank": 12,
+      "entry": "FMO3_HUMAN",
+      "feature": "psvid_72482_sp|P31513|FMO3_HUMAN",
+      "contaminant": false,
+      "log2_median": 30.685,
+      "n_detected": 8
+    },
+    {
+      "rank": 13,
+      "entry": "EST1_HUMAN",
+      "feature": "psvid_33457_sp|P23141|EST1_HUMAN",
+      "contaminant": false,
+      "log2_median": 30.638,
+      "n_detected": 8
+    },
+    {
+      "rank": 14,
+      "entry": "ECHA_HUMAN",
+      "feature": "psvid_56092_sp|P40939|ECHA_HUMAN",
+      "contaminant": false,
+      "log2_median": 30.604,
+      "n_detected": 8
+    },
+    {
+      "rank": 15,
+      "entry": "GANAB_HUMAN",
+      "feature": "psvid_54848_sp|Q14697|GANAB_HUMAN",
+      "contaminant": false,
+      "log2_median": 30.533,
+      "n_detected": 8
+    },
+    {
+      "rank": 16,
+      "entry": "ATPA_HUMAN",
+      "feature": "psvid_64446_sp|P25705|ATPA_HUMAN",
+      "contaminant": false,
+      "log2_median": 30.529,
+      "n_detected": 8
+    },
+    {
+      "rank": 17,
+      "entry": "PDIA6_HUMAN",
+      "feature": "psvid_88475_sp|Q15084|PDIA6_HUMAN",
+      "contaminant": false,
+      "log2_median": 30.409,
+      "n_detected": 8
+    },
+    {
+      "rank": 18,
+      "entry": "GDE_HUMAN",
+      "feature": "psvid_41656_sp|P35573|GDE_HUMAN",
+      "contaminant": false,
+      "log2_median": 30.322,
+      "n_detected": 8
+    },
+    {
+      "rank": 19,
+      "entry": "HYEP_HUMAN",
+      "feature": "psvid_64636_sp|P07099|HYEP_HUMAN",
+      "contaminant": false,
+      "log2_median": 30.317,
+      "n_detected": 8
+    },
+    {
+      "rank": 20,
+      "entry": "CO3_HUMAN",
+      "feature": "psvid_39326_sp|P01024|CO3_HUMAN",
+      "contaminant": false,
+      "log2_median": 30.209,
+      "n_detected": 8
+    }
+  ],
+  "contaminants": {
+    "n_flagged": 33,
+    "n_marked": 9,
+    "n_in_top10": 0,
+    "n_in_top50": 0,
+    "n_in_top100": 1,
+    "n_in_top_decile": 1,
+    "median_rank": 1170.0,
+    "ranks": [
+      80,
+      740,
+      856,
+      991,
+      1170,
+      1351,
+      2045,
+      2125,
+      2635
+    ],
+    "labelled": [
+      {
+        "rank": 80,
+        "entry": "TRYP_PIG",
+        "feature": "psvid_41_sp|TRYP_PIG|",
+        "contaminant": true,
+        "log2_median": 28.463,
+        "n_detected": 8
+      },
+      {
+        "rank": 740,
+        "entry": "PPIA_HUMAN",
+        "feature": "psvid_155912_sp|PPIA_HUMAN|",
+        "contaminant": true,
+        "log2_median": 24.944,
+        "n_detected": 8
+      },
+      {
+        "rank": 856,
+        "entry": "ALBU_BOVIN",
+        "feature": "psvid_26885_sp|ALBU_BOVIN|",
+        "contaminant": true,
+        "log2_median": 24.562,
+        "n_detected": 4
+      },
+      {
+        "rank": 991,
+        "entry": "HBA_HUMAN",
+        "feature": "psvid_155044_sp|HBA_HUMAN|",
+        "contaminant": true,
+        "log2_median": 24.195,
+        "n_detected": 3
+      },
+      {
+        "rank": 1170,
+        "entry": "HBB_HUMAN",
+        "feature": "psvid_159084_sp|HBB_HUMAN|",
+        "contaminant": true,
+        "log2_median": 23.809,
+        "n_detected": 8
+      }
+    ]
+  },
+  "provenance": {
+    "script": "scripts/promoted/qc_fig_dynamic_range.py",
+    "script_sha256": "f26899f1c5a54f9d28ea880e0c9221cde55abe9c58ec8f599da4e47a6dc51fef",
+    "module": "scripts/promoted/qc_figures/dynamic_range.py",
+    "module_sha256": "c3ea673a14d1ee45bf6328018b5d83adef4220e8ae894d0970a155a27e59a858",
+    "git_commit": null,
+    "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+    "params": {
+      "state_dir": "results/qc_states/protein/raw_linear",
+      "label_top_n": 5,
+      "min_intensity": 0.0,
+      "highlight": "feature_metadata.is_contaminant (detected in >=1 sample)",
+      "mode": "whole-cohort median + IQR band"
+    }
+  }
+}

@@ -1,15 +1,15 @@
 {
   "schema_version": "1",
-  "current_stage": 3,
+  "current_stage": 4,
   "science_done": true,
   "metadata_done": true,
   "data_done": true,
   "integrity_gate": {
-    "passed": false,
-    "signed_off_by": null,
-    "date": null,
-    "data_version": null,
-    "qc_report": null
+    "passed": true,
+    "signed_off_by": "Michael Riffle",
+    "date": "2026-09-23",
+    "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+    "qc_report": "reports/qc-report.md"
   },
   "figures_layout": "structured",
   "environment": {
@@ -20,5 +20,5 @@
     "declined": false,
     "updated": "2026-09-22"
   },
-  "updated": "2026-09-22"
+  "updated": "2026-09-23"
 }

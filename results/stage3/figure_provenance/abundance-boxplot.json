@@ -1,0 +1,163 @@
+{
+  "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+  "family": "abundance-boxplot",
+  "inputs_manifest": "results/qc_states/manifest.json",
+  "levels": {
+    "peptide": {
+      "artifacts": {
+        "legend_png": "figures/qc/abundance-boxplot/abundance-boxplot-peptide-raw-normalized-batchcorrected-log2.legend.png",
+        "legend_svg": "figures/qc/abundance-boxplot/abundance-boxplot-peptide-raw-normalized-batchcorrected-log2.legend.svg",
+        "png": "figures/qc/abundance-boxplot/abundance-boxplot-peptide-raw-normalized-batchcorrected-log2.png",
+        "svg": "figures/qc/abundance-boxplot/abundance-boxplot-peptide-raw-normalized-batchcorrected-log2.svg"
+      },
+      "n_features": 10229,
+      "n_samples": 8,
+      "panels": {
+        "batch_corrected_log": {
+          "median_range": 0.043961,
+          "panel_label": "batch-corrected (ComBat preview, batch only)  \u00b7  log2",
+          "per_sample_median": {
+            "AZ905": 22.750759,
+            "AZ906": 22.732836,
+            "AZ907": 22.724865,
+            "AZ908": 22.72841,
+            "AZ909": 22.734367,
+            "AZ910": 22.734238,
+            "AZ941": 22.706798,
+            "AZ942": 22.750057
+          }
+        },
+        "normalized_log": {
+          "median_range": 0.0,
+          "panel_label": "median-normalized  \u00b7  log2",
+          "per_sample_median": {
+            "AZ905": 22.743198,
+            "AZ906": 22.743198,
+            "AZ907": 22.743198,
+            "AZ908": 22.743198,
+            "AZ909": 22.743198,
+            "AZ910": 22.743198,
+            "AZ941": 22.743198,
+            "AZ942": 22.743198
+          }
+        },
+        "raw_log": {
+          "median_range": 1.339119,
+          "panel_label": "raw  \u00b7  log2",
+          "per_sample_median": {
+            "AZ905": 23.391654,
+            "AZ906": 23.276263,
+            "AZ907": 22.754756,
+            "AZ908": 22.329687,
+            "AZ909": 22.734818,
+            "AZ910": 22.53664,
+            "AZ941": 22.321019,
+            "AZ942": 22.052535
+          }
+        }
+      },
+      "sample_order": [
+        "AZ905",
+        "AZ907",
+        "AZ909",
+        "AZ906",
+        "AZ908",
+        "AZ910",
+        "AZ941",
+        "AZ942"
+      ]
+    },
+    "protein": {
+      "artifacts": {
+        "legend_png": "figures/qc/abundance-boxplot/abundance-boxplot-protein-raw-normalized-batchcorrected-log2.legend.png",
+        "legend_svg": "figures/qc/abundance-boxplot/abundance-boxplot-protein-raw-normalized-batchcorrected-log2.legend.svg",
+        "png": "figures/qc/abundance-boxplot/abundance-boxplot-protein-raw-normalized-batchcorrected-log2.png",
+        "svg": "figures/qc/abundance-boxplot/abundance-boxplot-protein-raw-normalized-batchcorrected-log2.svg"
+      },
+      "n_features": 1801,
+      "n_samples": 8,
+      "panels": {
+        "batch_corrected_log": {
+          "median_range": 0.03219,
+          "panel_label": "batch-corrected (ComBat preview, batch only)  \u00b7  log2",
+          "per_sample_median": {
+            "AZ905": 24.391678,
+            "AZ906": 24.410855,
+            "AZ907": 24.387314,
+            "AZ908": 24.384853,
+            "AZ909": 24.395679,
+            "AZ910": 24.392566,
+            "AZ941": 24.378665,
+            "AZ942": 24.385336
+          }
+        },
+        "normalized_log": {
+          "median_range": 0.0,
+          "panel_label": "median-normalized  \u00b7  log2",
+          "per_sample_median": {
+            "AZ905": 24.404745,
+            "AZ906": 24.404745,
+            "AZ907": 24.404745,
+            "AZ908": 24.404745,
+            "AZ909": 24.404745,
+            "AZ910": 24.404745,
+            "AZ941": 24.404745,
+            "AZ942": 24.404745
+          }
+        },
+        "raw_log": {
+          "median_range": 1.171919,
+          "panel_label": "raw  \u00b7  log2",
+          "per_sample_median": {
+            "AZ905": 25.027736,
+            "AZ906": 24.913323,
+            "AZ907": 24.357456,
+            "AZ908": 24.053689,
+            "AZ909": 24.35757,
+            "AZ910": 24.173469,
+            "AZ941": 24.050509,
+            "AZ942": 23.855817
+          }
+        }
+      },
+      "sample_order": [
+        "AZ905",
+        "AZ907",
+        "AZ909",
+        "AZ906",
+        "AZ908",
+        "AZ910",
+        "AZ941",
+        "AZ942"
+      ]
+    }
+  },
+  "params": {
+    "box_colormap": "cool",
+    "categorical_annotations": [
+      "condition",
+      "batch"
+    ],
+    "dpi": 300,
+    "output_dir": "figures/qc/abundance-boxplot",
+    "qc_states_dir": "results/qc_states",
+    "sample_label_column": "sample_id",
+    "show_outliers": true,
+    "states": [
+      "raw_log",
+      "normalized_log",
+      "batch_corrected_log"
+    ]
+  },
+  "scripts": {
+    "git_head": "cc249d2974e4cbf91b737f3f4ab4ad4a29372d76",
+    "module": {
+      "path": "scripts/promoted/qc_figures/abundance_boxplot.py",
+      "sha256": "sha256:515059358f53ac2833938cc83ad5b89fe217b502813ba139717f1b6954cf5a6a"
+    },
+    "runner": {
+      "path": "scripts/promoted/qc_fig_abundance_boxplot.py",
+      "sha256": "sha256:b18aeff4b139bafa49a06065cb81e0af941d467ecad5524374685400bac86a86"
+    }
+  }
+}

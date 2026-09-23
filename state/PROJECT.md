@@ -32,6 +32,8 @@ Exploratory/descriptive and methodological, at **both the protein level and the 
 3. **Differential abundance with volcano plots** — raloxifene vs. control.
 4. **Compare the LFQ quants against spectral-counting measures** — PSM counts and NSAF values (present in some of the data files) — to assess how well the MS1-intensity–based quantities agree with count-based abundance estimates.
 
+**Primary quantity (scientist, 2026-09-22):** the **FlashLFQ MS1-intensity (LFQ) quants are the quantity for all analysis** (differential abundance, PCA, etc.). NSAF and PSM counts are **comparators only**. They appear in QC as parallel views (NSAF as-is; PSM counts raw, as commonly used). In Stage 4 they get head-to-head comparisons against the LFQ-derived quants, e.g. per-protein correlation scatter plots.
+
 **Prior expectation:** the scientist expects **little or no true difference** between treated and control. An in vitro microsome incubation should not substantially change protein abundance. This dataset therefore acts approximately as a **near-null test** of the differential pipeline: a well-calibrated method should report few or no confident hits, and the p-value distribution should look roughly uniform. A large number of "significant" proteins would more likely point to a technical artifact (normalization, missing-value handling, run effects) than to biology.
 
 ## Guarding against motivated reasoning
@@ -47,3 +49,4 @@ Exploration is generous and promotion is ruthless: any finding still has to pass
 
 - 2026-09-22 — Initial framing (Stage 0).
 - 2026-09-22 — Stage 1: replication corrected from 3 vs. 3 to 4 vs. 4 (scientist-confirmed); "d0" = unlabeled raloxifene; batch/run order/pairing unknown.
+- 2026-09-22 — Stage 3: LFQ intensities fixed as the analysis quantity; NSAF/PSM counts are comparators (QC views + Stage-4 head-to-head).

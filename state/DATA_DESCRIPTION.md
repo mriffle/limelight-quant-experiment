@@ -1,6 +1,6 @@
 # Data description — verified
 
-*Stage 2, 2026-09-22. Derived from `scripts/scratch/stage2_explore.py` → `results/stage2/` plus the checks recorded below. The preprocessing decisions were confirmed by the scientist. Regenerate from those; never edit into inconsistency with the data.*
+*Stage 2, 2026-09-22. Derived from `scripts/scratch/stage2_explore.py (exploratory; superseded for verification by `scripts/promoted/verify_loaders.py`)` → `results/stage2/` plus the checks recorded below. The preprocessing decisions were confirmed by the scientist. Regenerate from those; never edit into inconsistency with the data.*
 
 **Data version:** `sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74` (same as `state/METADATA.md`).
 
@@ -35,8 +35,8 @@ All four files are features × samples (wide). They are tab-separated ASCII with
 
 ## Feature identifiers
 
-- **Protein (quants):** `psvid_<n>_sp|<accession>|<ENTRY>_HUMAN` (`psvid` = Limelight protein-sequence-version id). All 4,344 are unique, all use the `sp` database, and all are human. `Gene Name` and `Organism` are empty for every row. No row contains `;`: each row is a single protein, and the quant file splits indistinguishable groups into separate rows.
-- **Protein (dump):** `sp|<accession>|<ENTRY>` without the `psvid` prefix. 27 dump rows are **comma-joined indistinguishable groups** (e.g. `sp|P0DPH7|TBA3C_HUMAN,sp|P0DPH8|TBA3D_HUMAN`). For the PSM/NSAF join, map a group row to its member quant rows, one group → many rows. 4,317 of 4,344 rows match by exact accession.
+- **Protein (quants):** `psvid_<n>_sp|<accession>|<ENTRY>_HUMAN` (`psvid` = Limelight protein-sequence-version id). All 4,344 are unique, all use the `sp` database, and all are human. `Gene Name` and `Organism` are empty for every row. No row contains `;`. Each quant row corresponds **1:1** to a Limelight dump row (protein group) and is labelled by the group's **first member**. The other members of indistinguishable groups (28 accessions) appear in no quant row.
+- **Protein (dump):** `sp|<accession>|<ENTRY>` without the `psvid` prefix. 27 dump rows are **comma-joined indistinguishable groups** (e.g. `sp|P0DPH7|TBA3C_HUMAN,sp|P0DPH8|TBA3D_HUMAN`). Dump ↔ quant is **1:1** (4,344 ↔ 4,344): a group row joins to the quant row of its first member. 4,317 rows match by exact accession, and the 27 groups match through their first member.
 - **Peptide `Sequence`** = base sequence + **one bracketed total modification mass appended at the C-terminal end** (e.g. `…LCR[+114.042928]` = 2 × carbamidomethyl; `[+0.0]` = unmodified). This means modification *positions* are not encoded: positional isoforms are collapsed into one row. Masses present:
 
   | Mass | Rows | Composition |
@@ -55,8 +55,11 @@ All four files are features × samples (wide). They are tab-separated ASCII with
 
 - **Decoys:** none. There are no `DECOY`/`REV`/`rev_` entries (Percolator-filtered output).
 - **Contaminants:** **52 protein entries** use a no-accession form, `sp|<ENTRY>_HUMAN|` (keratins K1H2/K2C1/KRHB4, HBA, ALBU, TRFE, SODC, ANXA5, CO5, …). This looks like an appended common-contaminants FASTA, and some duplicate real accessions (`sp|ALBU_HUMAN|` alongside `sp|P02768|ALBU_HUMAN`). They account for 1.1–1.7% of summed protein intensity per run. The one plain `CON` substring hit, ACON_HUMAN (aconitase), is **not** a contaminant.
-  - **Decision (scientist-confirmed):** **flag the no-accession form as contaminant and exclude it** from normalization and all differential analysis. Keep it visible in QC as contaminant share per run. At peptide level, exclude any peptide whose `Protein Groups` includes a contaminant entry (675 peptides).
-  - Detection rule (regex on a protein id / group member): `^psvid_\d+_sp\|[^|]+\|$`.
+  - **Decision (scientist-confirmed; revised at Stage 3):**
+    - **Contaminant** = a no-accession entry (`^psvid_\d+_sp\|[^|]+\|$`) whose Limelight group contains **no** real-accession member: **33 pure contaminant-list entries** (keratins, trypsin, …). These are excluded from normalization and all differential analysis, and stay visible in QC.
+    - The other **19 no-accession entries are the first member of a group that includes the real UniProt entry** (e.g. `sp|CATD_HUMAN|,sp|P07339|CATD_HUMAN`; PRDX1, RS27A, GELS, B2MG, CRP, RETBP, ALBU, …). Their rows stand in for real proteins and are **kept**, with the flag `contaminant_grouped_with_real`.
+    - Peptides are excluded if any `Protein Groups` member is one of the 33.
+    - The original Stage-2 rule (exclude all 52 / 675 peptides) was revised after the Stage-3 code review found the grouping.
 
 ## Transformation / normalization state
 
@@ -94,9 +97,11 @@ All four files are features × samples (wide). They are tab-separated ASCII with
 
 ## Preprocessing decisions (scientist-confirmed, 2026-09-22)
 
+0. **Analysis quantity: FlashLFQ MS1 intensities** (`protein-quants.tsv`, `peptide-quants.tsv`). NSAF and PSM counts from the Limelight dump are **comparators only**: parallel QC views (NSAF as-is; PSM counts raw, with no normalization, batch correction or log) and Stage-4 head-to-head comparisons against LFQ.
+
 1. **Normalization: median.** Scale each run on the linear scale so its median matches, computed over non-contaminant features quantified in all runs. Then log2 for analysis. `lib/common/normalize`, method `median`.
 2. **Missing values: complete features only.** Normalization and differential analysis use features quantified in all 8 runs, with no imputation:
-   - **1,789 proteins** and **10,121 peptides** after contaminant exclusion (`handle_missing` with `max_missing_fraction = 0`).
+   - **1,801 proteins** and **10,229 peptides** after contaminant exclusion (revised Stage-3 rule: 33 contaminant proteins, 449 peptides) (`handle_missing` with `max_missing_fraction = 0`).
    - Revisit against the Stage-3 `missingness` MNAR diagnostic. A filter + left-censored imputation run is a candidate Stage-4 sensitivity analysis.
    - QC figures (ID depth, missingness, dynamic range) use the full raw matrices.
 3. **Batch axis: `batch`** (the acquisition-date proxy, B2021-05-06 vs B2022-03-18).
@@ -109,8 +114,8 @@ All four files are features × samples (wide). They are tab-separated ASCII with
 
 ## Known data-quality issues
 
-- The Limelight dump numbers are **display-rounded** (3 significant figures; thousands separators in PSMs). Use the dumps only for PSMs/NSAF (exact integer PSMs; NSAF to 3 significant figures). Never use them as an intensity source: `protein-quants.tsv`/`peptide-quants.tsv` are the full-precision intensities.
-- NSAF is shown to 3 significant figures (`0.018`, `2.34e-5`; `0` = no PSMs, 8,811 cells), which is adequate for rank and correlation comparisons. Column sums are 0.982–0.993 rather than 1, probably from rounding and/or rows outside the export.
-- The two indistinguishable-group representations differ: the dump uses comma-joined groups, and quants use split rows.
+- The Limelight dump numbers are **display-rounded** (3 significant figures; thousands separators in PSMs). Use the dumps only for PSMs/NSAF (exact integer PSMs; NSAF coarsely rounded — see below). Never use them as an intensity source: `protein-quants.tsv`/`peptide-quants.tsv` are the full-precision intensities.
+- **NSAF precision is coarse at the high end.** The dump prints NSAF < 0.001 in scientific notation to 3 significant figures (`2.34e-5`), but **NSAF ≥ 0.001 to only 3 decimal places** (`0.018`). The 1,629 cells ≥ 0.001 take just 24 distinct values (0.001: 827 cells, 0.002: 447, …). As a result, 10 abundant groups have *identical* NSAF in all 8 runs although their PSM counts differ (e.g. CALX, 167–247 PSMs). `0` = no PSMs (8,811 cells). Column sums are 0.982–0.993. **This affects NSAF-vs-LFQ comparisons for abundant proteins.** Options: a full-precision re-export from Limelight, or recompute NSAF from PSM counts and protein lengths.
+- The two indistinguishable-group representations differ in *form*, not in row count: the dump uses comma-joined groups (27 rows), while quants label the same row by the group's first member only (1:1; the 28 other members appear in no quant row) — corrected from an earlier, wrong "quants split rows" description (see "Feature identifiers" above).
 - Peptide modification positions are not encoded (positional isoforms are collapsed).
 - The 2022 batch is shallower (fewer IDs, higher intensity floor).

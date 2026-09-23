@@ -1,0 +1,1180 @@
+{
+  "family": "spectral (nsaf + psm) across qc families",
+  "scripts": {
+    "runner": {
+      "path": "scripts/promoted/qc_fig_spectral.py",
+      "sha256": "07ab53a8cc012e2dbf3c2f30cfbf9ebb0355764c6b2a3a3c30781999f3c2eec1"
+    },
+    "modules": {
+      "id_depth": {
+        "path": "scripts/promoted/qc_figures/id_depth.py",
+        "sha256": "74c21259d497b8c8da630ae4e8a9fabfa9b19315d5f31986e49ec0ad2cd6c1a2"
+      },
+      "missingness": {
+        "path": "scripts/promoted/qc_figures/missingness.py",
+        "sha256": "f4bbc58216557f415e271f000f325f8f4f20e2b8da0f39e22ee19a01ba544212"
+      },
+      "dynamic_range": {
+        "path": "scripts/promoted/qc_figures/dynamic_range.py",
+        "sha256": "c3ea673a14d1ee45bf6328018b5d83adef4220e8ae894d0970a155a27e59a858"
+      },
+      "abundance_boxplot": {
+        "path": "scripts/promoted/qc_figures/abundance_boxplot.py",
+        "sha256": "515059358f53ac2833938cc83ad5b89fe217b502813ba139717f1b6954cf5a6a"
+      },
+      "cv": {
+        "path": "scripts/promoted/qc_figures/cv.py",
+        "sha256": "68ef5bfc547fb28d77bdf6dae1d08c8c5aeb3689f0bad932c81d8b360c6a9830"
+      },
+      "correlation": {
+        "path": "scripts/promoted/qc_figures/correlation.py",
+        "sha256": "80e54a6550a66744577e5c27e2dba7ad6aee17d8da9020106b36b488446b209d"
+      },
+      "pca": {
+        "path": "scripts/promoted/qc_figures/pca.py",
+        "sha256": "128c677e5679d655cdc15ff0f1aabc5a24d5c50932d071adcafefe64791ba878"
+      }
+    }
+  },
+  "git_head": "cc249d2974e4cbf91b737f3f4ab4ad4a29372d76",
+  "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+  "qc_states_manifest": {
+    "path": "results/qc_states/manifest.json",
+    "sha256": "2d0bb2a17c94e5f76f16808cb8a2af70bffa0a79a91d2b854ef067caf1f31006"
+  },
+  "color_registry_sha256": "0d75c4bb87e4e85b77b36fb464fe11a4cf33a551da538592e9ab4be4dde627df",
+  "params": {
+    "processing": "as-is, no normalization or batch correction",
+    "nsaf_log_pseudocount": 1e-09,
+    "detection_rule": "finite and > 0",
+    "contaminant_highlight": "feature_metadata.is_contaminant (pure contaminant groups), detected in >= 1 run",
+    "label_top_n": 5,
+    "missingness_color_by": "batch",
+    "cv_registry_label": "NormalizationState/Raw",
+    "correlation": {
+      "method": "pearson",
+      "linkage": "average"
+    },
+    "pca": {
+      "standardize": true,
+      "svd_solver": "full",
+      "n_components": 2
+    },
+    "dpi": 300
+  },
+  "inputs": {
+    "nsaf/raw_linear": {
+      "results/qc_states/nsaf/raw_linear/abundances.npy": "96d774a0784b0eb7032a79ce042b8e9a770dfbc308c430f4e4444d4ae28e50a2",
+      "results/qc_states/nsaf/raw_linear/dataset.json": "de9a9688895396b4fa4c56a2448f289b15852645ffdddcd7c58a67685d7d846d",
+      "results/qc_states/nsaf/raw_linear/feature_metadata.parquet": "b57f138430037770b2cf37c78b9c10dfe86aa664018ee4d662e97e5d8f02afdb",
+      "results/qc_states/nsaf/raw_linear/metadata.parquet": "b324fa8fcda5b22863ddd482d737d9f3f9966b1c8b200f6f3d1d1dce61f108ad"
+    },
+    "psm/raw_linear": {
+      "results/qc_states/psm/raw_linear/abundances.npy": "2d0ffc077ddf4df6ff52793fee5f582ae062772fd05c6d52d2101f549f2a2231",
+      "results/qc_states/psm/raw_linear/dataset.json": "de9a9688895396b4fa4c56a2448f289b15852645ffdddcd7c58a67685d7d846d",
+      "results/qc_states/psm/raw_linear/feature_metadata.parquet": "b57f138430037770b2cf37c78b9c10dfe86aa664018ee4d662e97e5d8f02afdb",
+      "results/qc_states/psm/raw_linear/metadata.parquet": "b324fa8fcda5b22863ddd482d737d9f3f9966b1c8b200f6f3d1d1dce61f108ad"
+    },
+    "nsaf/raw_log": {
+      "results/qc_states/nsaf/raw_log/abundances.npy": "765f59fa3503b02050c4c64ae4a39ade405cc6ffdc7f64e7b8153805f2f6af3c",
+      "results/qc_states/nsaf/raw_log/dataset.json": "b815c20dc18bcdf25e47c0778e6905dc5b7371fed6394b05a8bc59c40d320cbf",
+      "results/qc_states/nsaf/raw_log/feature_metadata.parquet": "8afe50ed2e17eb922019195cda5bc2e245ec1deb6223adf0f34a8b21a162a952",
+      "results/qc_states/nsaf/raw_log/metadata.parquet": "b324fa8fcda5b22863ddd482d737d9f3f9966b1c8b200f6f3d1d1dce61f108ad"
+    },
+    "nsaf/raw_linear_complete": {
+      "results/qc_states/nsaf/raw_linear_complete/abundances.npy": "2ec7f9ea3443b84b42e293a7983ef7a6cddbaff0882457d925aec142f042c976",
+      "results/qc_states/nsaf/raw_linear_complete/dataset.json": "2ce6483c37076ad0df7ff9f2d455706e3eff54445233f3c9005bcb3a56558e11",
+      "results/qc_states/nsaf/raw_linear_complete/feature_metadata.parquet": "8afe50ed2e17eb922019195cda5bc2e245ec1deb6223adf0f34a8b21a162a952",
+      "results/qc_states/nsaf/raw_linear_complete/metadata.parquet": "b324fa8fcda5b22863ddd482d737d9f3f9966b1c8b200f6f3d1d1dce61f108ad"
+    },
+    "psm/raw_linear_complete": {
+      "results/qc_states/psm/raw_linear_complete/abundances.npy": "b4211501d1e8c5b00aa2764b7b7054f1f69a79b327e43ca5632038c3ee32b8ed",
+      "results/qc_states/psm/raw_linear_complete/dataset.json": "2ce6483c37076ad0df7ff9f2d455706e3eff54445233f3c9005bcb3a56558e11",
+      "results/qc_states/psm/raw_linear_complete/feature_metadata.parquet": "8afe50ed2e17eb922019195cda5bc2e245ec1deb6223adf0f34a8b21a162a952",
+      "results/qc_states/psm/raw_linear_complete/metadata.parquet": "b324fa8fcda5b22863ddd482d737d9f3f9966b1c8b200f6f3d1d1dce61f108ad"
+    }
+  },
+  "figures": {
+    "id-depth-nsaf-psm-raw-linear": {
+      "family": "id-depth",
+      "inputs": [
+        "psm/raw_linear",
+        "nsaf/raw_linear"
+      ],
+      "detection_rule": "finite and > 0 (PSM >= 1 <=> NSAF > 0; verified identical cell-by-cell over all 4,344 groups)",
+      "color_map": {
+        "control": "#0072B2",
+        "raloxifene-d0": "#D55E00"
+      },
+      "n_features": 4344,
+      "counts": {
+        "AZ905": 3600,
+        "AZ907": 3320,
+        "AZ909": 3350,
+        "AZ906": 3465,
+        "AZ908": 3121,
+        "AZ910": 3262,
+        "AZ941": 2901,
+        "AZ942": 2922
+      },
+      "counts_non_contaminant": {
+        "AZ905": 3569,
+        "AZ907": 3289,
+        "AZ909": 3320,
+        "AZ906": 3434,
+        "AZ908": 3090,
+        "AZ910": 3233,
+        "AZ941": 2878,
+        "AZ942": 2897
+      },
+      "median": 3291.0,
+      "artifacts": {
+        "svg": "figures/qc/id-depth/id-depth-nsaf-psm-raw-linear.svg",
+        "png": "figures/qc/id-depth/id-depth-nsaf-psm-raw-linear.png",
+        "legend_svg": "figures/qc/id-depth/id-depth-nsaf-psm-raw-linear.legend.svg",
+        "legend_png": "figures/qc/id-depth/id-depth-nsaf-psm-raw-linear.legend.png"
+      },
+      "warnings": []
+    },
+    "missingness-nsaf-raw-linear": {
+      "family": "missingness",
+      "inputs": [
+        "nsaf/raw_linear"
+      ],
+      "color_map": {
+        "B2021-05-06": "#009E73",
+        "B2022-03-18": "#CC79A7"
+      },
+      "n_features": 4344,
+      "n_contaminant_features_included": 33,
+      "mnar_pearson_r": 0.6631882171757973,
+      "n_mnar_features": 4344,
+      "features_retained": {
+        "all runs": {
+          "1.0": 2190,
+          "0.5": 3339
+        },
+        "B2021-05-06": {
+          "1.0": 2541,
+          "0.5": 3471
+        },
+        "B2022-03-18": {
+          "1.0": 2691,
+          "0.5": 3132
+        }
+      },
+      "artifacts": {
+        "svg": "figures/qc/missingness/missingness-nsaf-raw-linear.svg",
+        "png": "figures/qc/missingness/missingness-nsaf-raw-linear.png",
+        "legend_svg": "figures/qc/missingness/missingness-nsaf-raw-linear.legend.svg",
+        "legend_png": "figures/qc/missingness/missingness-nsaf-raw-linear.legend.png"
+      },
+      "warnings": []
+    },
+    "dynamic-range-nsaf-raw-linear": {
+      "family": "dynamic-range",
+      "inputs": [
+        "nsaf/raw_linear"
+      ],
+      "color_map": {
+        "contaminant": "#E69F00"
+      },
+      "n_features_total": 4344,
+      "n_features_detected": 4344,
+      "dynamic_range_orders": 5.054,
+      "log2_median_max": -5.796,
+      "log2_median_min": -22.584,
+      "top10": [
+        {
+          "rank": 1,
+          "entry": "EST1_HUMAN",
+          "contaminant": false,
+          "log2_median": -5.796,
+          "n_detected": 8
+        },
+        {
+          "rank": 2,
+          "entry": "RABP2_HUMAN",
+          "contaminant": false,
+          "log2_median": -5.837,
+          "n_detected": 6
+        },
+        {
+          "rank": 3,
+          "entry": "CALR_HUMAN",
+          "contaminant": false,
+          "log2_median": -6.108,
+          "n_detected": 8
+        },
+        {
+          "rank": 4,
+          "entry": "RETBP_HUMAN",
+          "contaminant": false,
+          "log2_median": -6.322,
+          "n_detected": 8
+        },
+        {
+          "rank": 5,
+          "entry": "CP3A4_HUMAN",
+          "contaminant": false,
+          "log2_median": -6.442,
+          "n_detected": 8
+        },
+        {
+          "rank": 6,
+          "entry": "CYB5_HUMAN",
+          "contaminant": true,
+          "log2_median": -6.573,
+          "n_detected": 8
+        },
+        {
+          "rank": 7,
+          "entry": "CYB5_HUMAN",
+          "contaminant": false,
+          "log2_median": -6.573,
+          "n_detected": 8
+        },
+        {
+          "rank": 8,
+          "entry": "PDIA1_HUMAN",
+          "contaminant": false,
+          "log2_median": -6.644,
+          "n_detected": 8
+        },
+        {
+          "rank": 9,
+          "entry": "ENPL_HUMAN",
+          "contaminant": false,
+          "log2_median": -6.718,
+          "n_detected": 8
+        },
+        {
+          "rank": 10,
+          "entry": "BIP_HUMAN",
+          "contaminant": false,
+          "log2_median": -6.718,
+          "n_detected": 8
+        }
+      ],
+      "contaminants": {
+        "n_flagged_is_contaminant": 33,
+        "n_marked": 33,
+        "n_in_top10": 1,
+        "n_in_top100": 2,
+        "median_rank": 1269.0,
+        "labelled": [
+          {
+            "rank": 6,
+            "entry": "CYB5_HUMAN",
+            "contaminant": true,
+            "log2_median": -6.573,
+            "n_detected": 8
+          },
+          {
+            "rank": 13,
+            "entry": "TRYP_PIG",
+            "contaminant": true,
+            "log2_median": -7.158,
+            "n_detected": 8
+          },
+          {
+            "rank": 104,
+            "entry": "TRFE_HUMAN",
+            "contaminant": true,
+            "log2_median": -9.966,
+            "n_detected": 8
+          },
+          {
+            "rank": 148,
+            "entry": "HBB_HUMAN",
+            "contaminant": true,
+            "log2_median": -9.966,
+            "n_detected": 8
+          },
+          {
+            "rank": 156,
+            "entry": "HBA_HUMAN",
+            "contaminant": true,
+            "log2_median": -9.966,
+            "n_detected": 8
+          }
+        ]
+      },
+      "artifacts": {
+        "svg": "figures/qc/dynamic-range/dynamic-range-nsaf-raw-linear.svg",
+        "png": "figures/qc/dynamic-range/dynamic-range-nsaf-raw-linear.png",
+        "legend_svg": "figures/qc/dynamic-range/dynamic-range-nsaf-raw-linear.legend.svg",
+        "legend_png": "figures/qc/dynamic-range/dynamic-range-nsaf-raw-linear.legend.png"
+      },
+      "warnings": []
+    },
+    "abundance-boxplot-nsaf-raw-log2": {
+      "family": "abundance-boxplot",
+      "inputs": [
+        "nsaf/raw_log"
+      ],
+      "panel_label": "log2",
+      "color_maps": {
+        "condition": {
+          "control": "#0072B2",
+          "raloxifene-d0": "#D55E00"
+        },
+        "batch": {
+          "B2021-05-06": "#009E73",
+          "B2022-03-18": "#CC79A7"
+        }
+      },
+      "n_features": 2168,
+      "per_sample_median": {
+        "AZ905": -12.468042,
+        "AZ907": -12.496932,
+        "AZ909": -12.431715,
+        "AZ906": -12.447745,
+        "AZ908": -12.600643,
+        "AZ910": -12.447745,
+        "AZ941": -12.565238,
+        "AZ942": -12.655435
+      },
+      "median_range": 0.22372,
+      "artifacts": {
+        "svg": "figures/qc/abundance-boxplot/abundance-boxplot-nsaf-raw-log2.svg",
+        "png": "figures/qc/abundance-boxplot/abundance-boxplot-nsaf-raw-log2.png",
+        "legend_svg": "figures/qc/abundance-boxplot/abundance-boxplot-nsaf-raw-log2.legend.svg",
+        "legend_png": "figures/qc/abundance-boxplot/abundance-boxplot-nsaf-raw-log2.legend.png"
+      },
+      "warnings": []
+    },
+    "cv-experimental-nsaf-raw-linear": {
+      "family": "cv",
+      "inputs": [
+        "nsaf/raw_linear_complete"
+      ],
+      "color_map": {
+        "Raw": "#E69F00"
+      },
+      "n_features": 2168,
+      "median_cv": 0.34475951803087174,
+      "cv_quartiles": [
+        0.2235,
+        0.4671
+      ],
+      "n_finite_cv": 2168,
+      "cv_definition": "std(ddof=1)/mean per feature over all 8 samples",
+      "artifacts": {
+        "svg": "figures/qc/cv/cv-experimental-nsaf-raw-linear.svg",
+        "png": "figures/qc/cv/cv-experimental-nsaf-raw-linear.png",
+        "legend_svg": "figures/qc/cv/cv-experimental-nsaf-raw-linear.legend.svg",
+        "legend_png": "figures/qc/cv/cv-experimental-nsaf-raw-linear.legend.png"
+      },
+      "warnings": []
+    },
+    "sample-correlation-nsaf-raw-log2": {
+      "family": "sample-correlation",
+      "inputs": [
+        "nsaf/raw_log"
+      ],
+      "color_maps": {
+        "condition": {
+          "control": "#0072B2",
+          "raloxifene-d0": "#D55E00"
+        },
+        "batch": {
+          "B2021-05-06": "#009E73",
+          "B2022-03-18": "#CC79A7"
+        },
+        "candidate_pair": {
+          "P905_906": "#E69F00",
+          "P907_908": "#56B4E9",
+          "P909_910": "#F0E442",
+          "P941_942": "#000000"
+        }
+      },
+      "n_features": 2168,
+      "clustered_order": [
+        "AZ941",
+        "AZ942",
+        "AZ905",
+        "AZ906",
+        "AZ909",
+        "AZ910",
+        "AZ907",
+        "AZ908"
+      ],
+      "off_diagonal_min": {
+        "pair": [
+          "AZ908",
+          "AZ941"
+        ],
+        "r": 0.846
+      },
+      "off_diagonal_max": {
+        "pair": [
+          "AZ905",
+          "AZ906"
+        ],
+        "r": 0.9671
+      },
+      "off_diagonal_median": 0.9019,
+      "matrix": {
+        "AZ905": {
+          "AZ905": 1.0,
+          "AZ907": 0.9056,
+          "AZ909": 0.9138,
+          "AZ906": 0.9671,
+          "AZ908": 0.9051,
+          "AZ910": 0.9012,
+          "AZ941": 0.8986,
+          "AZ942": 0.8956
+        },
+        "AZ907": {
+          "AZ905": 0.9056,
+          "AZ907": 1.0,
+          "AZ909": 0.9136,
+          "AZ906": 0.9003,
+          "AZ908": 0.9581,
+          "AZ910": 0.9033,
+          "AZ941": 0.8509,
+          "AZ942": 0.849
+        },
+        "AZ909": {
+          "AZ905": 0.9138,
+          "AZ907": 0.9136,
+          "AZ909": 1.0,
+          "AZ906": 0.9156,
+          "AZ908": 0.9095,
+          "AZ910": 0.9634,
+          "AZ941": 0.8639,
+          "AZ942": 0.8682
+        },
+        "AZ906": {
+          "AZ905": 0.9671,
+          "AZ907": 0.9003,
+          "AZ909": 0.9156,
+          "AZ906": 1.0,
+          "AZ908": 0.9026,
+          "AZ910": 0.9075,
+          "AZ941": 0.8993,
+          "AZ942": 0.898
+        },
+        "AZ908": {
+          "AZ905": 0.9051,
+          "AZ907": 0.9581,
+          "AZ909": 0.9095,
+          "AZ906": 0.9026,
+          "AZ908": 1.0,
+          "AZ910": 0.908,
+          "AZ941": 0.846,
+          "AZ942": 0.8477
+        },
+        "AZ910": {
+          "AZ905": 0.9012,
+          "AZ907": 0.9033,
+          "AZ909": 0.9634,
+          "AZ906": 0.9075,
+          "AZ908": 0.908,
+          "AZ910": 1.0,
+          "AZ941": 0.8556,
+          "AZ942": 0.8654
+        },
+        "AZ941": {
+          "AZ905": 0.8986,
+          "AZ907": 0.8509,
+          "AZ909": 0.8639,
+          "AZ906": 0.8993,
+          "AZ908": 0.846,
+          "AZ910": 0.8556,
+          "AZ941": 1.0,
+          "AZ942": 0.9643
+        },
+        "AZ942": {
+          "AZ905": 0.8956,
+          "AZ907": 0.849,
+          "AZ909": 0.8682,
+          "AZ906": 0.898,
+          "AZ908": 0.8477,
+          "AZ910": 0.8654,
+          "AZ941": 0.9643,
+          "AZ942": 1.0
+        }
+      },
+      "artifacts": {
+        "svg": "figures/qc/sample-correlation/sample-correlation-nsaf-raw-log2.svg",
+        "png": "figures/qc/sample-correlation/sample-correlation-nsaf-raw-log2.png",
+        "legend_svg": "figures/qc/sample-correlation/sample-correlation-nsaf-raw-log2.legend.svg",
+        "legend_png": "figures/qc/sample-correlation/sample-correlation-nsaf-raw-log2.legend.png"
+      },
+      "warnings": []
+    },
+    "pca-by-condition-nsaf-raw-log2": {
+      "family": "pca",
+      "inputs": [
+        "nsaf/raw_log"
+      ],
+      "color_map": {
+        "control": "#0072B2",
+        "raloxifene-d0": "#D55E00"
+      },
+      "n_features": 2158,
+      "n_complete_features": 2168,
+      "zero_variance_dropped": [
+        "sp|P27824|CALX_HUMAN",
+        "sp|ALBU_HUMAN|,sp|P02768|ALBU_HUMAN",
+        "sp|P68363|TBA1B_HUMAN",
+        "sp|Q15084|PDIA6_HUMAN",
+        "sp|Q9BQE3|TBA1C_HUMAN",
+        "sp|Q8NBS9|TXND5_HUMAN",
+        "sp|P54920|SNAA_HUMAN",
+        "sp|O75396|SC22B_HUMAN",
+        "sp|P55145|MANF_HUMAN",
+        "sp|Q6NVV1|R13P3_HUMAN"
+      ],
+      "standardize": true,
+      "pc1_pct": 36.5,
+      "pc2_pct": 19.57,
+      "scores": {
+        "AZ905": [
+          2.088,
+          0.904
+        ],
+        "AZ907": [
+          25.834,
+          26.252
+        ],
+        "AZ909": [
+          18.391,
+          -28.763
+        ],
+        "AZ906": [
+          0.989,
+          -3.358
+        ],
+        "AZ908": [
+          27.128,
+          28.616
+        ],
+        "AZ910": [
+          17.61,
+          -31.613
+        ],
+        "AZ941": [
+          -43.912,
+          3.748
+        ],
+        "AZ942": [
+          -48.129,
+          4.214
+        ]
+      },
+      "pc1_mean_by": {
+        "condition": {
+          "control": 0.6,
+          "raloxifene-d0": -0.6
+        },
+        "batch": {
+          "B2021-05-06": 15.34,
+          "B2022-03-18": -46.02
+        }
+      },
+      "artifacts": {
+        "svg": "figures/qc/pca/pca-by-condition-nsaf-raw-log2.svg",
+        "png": "figures/qc/pca/pca-by-condition-nsaf-raw-log2.png",
+        "legend_svg": "figures/qc/pca/pca-by-condition-nsaf-raw-log2.legend.svg",
+        "legend_png": "figures/qc/pca/pca-by-condition-nsaf-raw-log2.legend.png"
+      },
+      "warnings": []
+    },
+    "pca-by-batch-nsaf-raw-log2": {
+      "family": "pca",
+      "inputs": [
+        "nsaf/raw_log"
+      ],
+      "color_map": {
+        "B2021-05-06": "#009E73",
+        "B2022-03-18": "#CC79A7"
+      },
+      "n_features": 2158,
+      "n_complete_features": 2168,
+      "zero_variance_dropped": [
+        "sp|P27824|CALX_HUMAN",
+        "sp|ALBU_HUMAN|,sp|P02768|ALBU_HUMAN",
+        "sp|P68363|TBA1B_HUMAN",
+        "sp|Q15084|PDIA6_HUMAN",
+        "sp|Q9BQE3|TBA1C_HUMAN",
+        "sp|Q8NBS9|TXND5_HUMAN",
+        "sp|P54920|SNAA_HUMAN",
+        "sp|O75396|SC22B_HUMAN",
+        "sp|P55145|MANF_HUMAN",
+        "sp|Q6NVV1|R13P3_HUMAN"
+      ],
+      "standardize": true,
+      "pc1_pct": 36.5,
+      "pc2_pct": 19.57,
+      "scores": {
+        "AZ905": [
+          2.088,
+          0.904
+        ],
+        "AZ907": [
+          25.834,
+          26.252
+        ],
+        "AZ909": [
+          18.391,
+          -28.763
+        ],
+        "AZ906": [
+          0.989,
+          -3.358
+        ],
+        "AZ908": [
+          27.128,
+          28.616
+        ],
+        "AZ910": [
+          17.61,
+          -31.613
+        ],
+        "AZ941": [
+          -43.912,
+          3.748
+        ],
+        "AZ942": [
+          -48.129,
+          4.214
+        ]
+      },
+      "pc1_mean_by": {
+        "condition": {
+          "control": 0.6,
+          "raloxifene-d0": -0.6
+        },
+        "batch": {
+          "B2021-05-06": 15.34,
+          "B2022-03-18": -46.02
+        }
+      },
+      "artifacts": {
+        "svg": "figures/qc/pca/pca-by-batch-nsaf-raw-log2.svg",
+        "png": "figures/qc/pca/pca-by-batch-nsaf-raw-log2.png",
+        "legend_svg": "figures/qc/pca/pca-by-batch-nsaf-raw-log2.legend.svg",
+        "legend_png": "figures/qc/pca/pca-by-batch-nsaf-raw-log2.legend.png"
+      },
+      "warnings": []
+    },
+    "missingness-psm-raw-linear": {
+      "family": "missingness",
+      "inputs": [
+        "psm/raw_linear"
+      ],
+      "color_map": {
+        "B2021-05-06": "#009E73",
+        "B2022-03-18": "#CC79A7"
+      },
+      "n_features": 4344,
+      "n_contaminant_features_included": 33,
+      "mnar_pearson_r": 0.6663230807151924,
+      "n_mnar_features": 4344,
+      "features_retained": {
+        "all runs": {
+          "1.0": 2190,
+          "0.5": 3339
+        },
+        "B2021-05-06": {
+          "1.0": 2541,
+          "0.5": 3471
+        },
+        "B2022-03-18": {
+          "1.0": 2691,
+          "0.5": 3132
+        }
+      },
+      "artifacts": {
+        "svg": "figures/qc/missingness/missingness-psm-raw-linear.svg",
+        "png": "figures/qc/missingness/missingness-psm-raw-linear.png",
+        "legend_svg": "figures/qc/missingness/missingness-psm-raw-linear.legend.svg",
+        "legend_png": "figures/qc/missingness/missingness-psm-raw-linear.legend.png"
+      },
+      "warnings": []
+    },
+    "dynamic-range-psm-raw-linear": {
+      "family": "dynamic-range",
+      "inputs": [
+        "psm/raw_linear"
+      ],
+      "color_map": {
+        "contaminant": "#E69F00"
+      },
+      "n_features_total": 4344,
+      "n_features_detected": 4344,
+      "dynamic_range_orders": 3.287,
+      "log2_median_max": 10.921,
+      "log2_median_min": 0.0,
+      "top10": [
+        {
+          "rank": 1,
+          "entry": "EST1_HUMAN",
+          "contaminant": false,
+          "log2_median": 10.921,
+          "n_detected": 8
+        },
+        {
+          "rank": 2,
+          "entry": "ENPL_HUMAN",
+          "contaminant": false,
+          "log2_median": 10.578,
+          "n_detected": 8
+        },
+        {
+          "rank": 3,
+          "entry": "CALR_HUMAN",
+          "contaminant": false,
+          "log2_median": 10.214,
+          "n_detected": 8
+        },
+        {
+          "rank": 4,
+          "entry": "BIP_HUMAN",
+          "contaminant": false,
+          "log2_median": 10.173,
+          "n_detected": 8
+        },
+        {
+          "rank": 5,
+          "entry": "CP3A4_HUMAN",
+          "contaminant": false,
+          "log2_median": 10.12,
+          "n_detected": 8
+        },
+        {
+          "rank": 6,
+          "entry": "PDIA1_HUMAN",
+          "contaminant": false,
+          "log2_median": 9.905,
+          "n_detected": 8
+        },
+        {
+          "rank": 7,
+          "entry": "NCPR_HUMAN",
+          "contaminant": false,
+          "log2_median": 9.78,
+          "n_detected": 8
+        },
+        {
+          "rank": 8,
+          "entry": "HYEP_HUMAN",
+          "contaminant": false,
+          "log2_median": 9.43,
+          "n_detected": 8
+        },
+        {
+          "rank": 9,
+          "entry": "ACSL1_HUMAN",
+          "contaminant": false,
+          "log2_median": 9.255,
+          "n_detected": 8
+        },
+        {
+          "rank": 10,
+          "entry": "CP2A6_HUMAN",
+          "contaminant": false,
+          "log2_median": 9.132,
+          "n_detected": 8
+        }
+      ],
+      "contaminants": {
+        "n_flagged_is_contaminant": 33,
+        "n_marked": 33,
+        "n_in_top10": 0,
+        "n_in_top100": 3,
+        "median_rank": 1029.0,
+        "labelled": [
+          {
+            "rank": 24,
+            "entry": "TRYP_PIG",
+            "contaminant": true,
+            "log2_median": 8.19,
+            "n_detected": 8
+          },
+          {
+            "rank": 32,
+            "entry": "CYB5_HUMAN",
+            "contaminant": true,
+            "log2_median": 8.022,
+            "n_detected": 8
+          },
+          {
+            "rank": 67,
+            "entry": "TRFE_HUMAN",
+            "contaminant": true,
+            "log2_median": 7.358,
+            "n_detected": 8
+          },
+          {
+            "rank": 161,
+            "entry": "CATA_HUMAN",
+            "contaminant": true,
+            "log2_median": 6.322,
+            "n_detected": 8
+          },
+          {
+            "rank": 174,
+            "entry": "DHE3_BOVIN",
+            "contaminant": true,
+            "log2_median": 6.248,
+            "n_detected": 8
+          }
+        ]
+      },
+      "artifacts": {
+        "svg": "figures/qc/dynamic-range/dynamic-range-psm-raw-linear.svg",
+        "png": "figures/qc/dynamic-range/dynamic-range-psm-raw-linear.png",
+        "legend_svg": "figures/qc/dynamic-range/dynamic-range-psm-raw-linear.legend.svg",
+        "legend_png": "figures/qc/dynamic-range/dynamic-range-psm-raw-linear.legend.png"
+      },
+      "warnings": []
+    },
+    "abundance-boxplot-psm-raw-linear": {
+      "family": "abundance-boxplot",
+      "inputs": [
+        "psm/raw_linear_complete"
+      ],
+      "panel_label": "raw counts, linear",
+      "color_maps": {
+        "condition": {
+          "control": "#0072B2",
+          "raloxifene-d0": "#D55E00"
+        },
+        "batch": {
+          "B2021-05-06": "#009E73",
+          "B2022-03-18": "#CC79A7"
+        }
+      },
+      "n_features": 2168,
+      "per_sample_median": {
+        "AZ905": 13.0,
+        "AZ907": 11.0,
+        "AZ909": 11.0,
+        "AZ906": 12.0,
+        "AZ908": 9.0,
+        "AZ910": 10.0,
+        "AZ941": 10.0,
+        "AZ942": 10.0
+      },
+      "median_range": 4.0,
+      "artifacts": {
+        "svg": "figures/qc/abundance-boxplot/abundance-boxplot-psm-raw-linear.svg",
+        "png": "figures/qc/abundance-boxplot/abundance-boxplot-psm-raw-linear.png",
+        "legend_svg": "figures/qc/abundance-boxplot/abundance-boxplot-psm-raw-linear.legend.svg",
+        "legend_png": "figures/qc/abundance-boxplot/abundance-boxplot-psm-raw-linear.legend.png"
+      },
+      "warnings": [
+        "AbundanceBoxplotScaleWarning: Abundance box plot state(s) ['raw counts, linear'] are on a non-log scale (not one of ['glog2', 'ln', 'log10', 'log2', 'zscore']). Protein abundances span orders of magnitude, so on a linear scale a few abundant features stretch every box and crush the bulk; log2_transform (or VSN) first. The plot is still drawn (a box plot is defined on any scale)."
+      ]
+    },
+    "cv-experimental-psm-raw-linear": {
+      "family": "cv",
+      "inputs": [
+        "psm/raw_linear_complete"
+      ],
+      "color_map": {
+        "Raw": "#E69F00"
+      },
+      "n_features": 2168,
+      "median_cv": 0.3428373789499868,
+      "cv_quartiles": [
+        0.2293,
+        0.4697
+      ],
+      "n_finite_cv": 2168,
+      "cv_definition": "std(ddof=1)/mean per feature over all 8 samples",
+      "artifacts": {
+        "svg": "figures/qc/cv/cv-experimental-psm-raw-linear.svg",
+        "png": "figures/qc/cv/cv-experimental-psm-raw-linear.png",
+        "legend_svg": "figures/qc/cv/cv-experimental-psm-raw-linear.legend.svg",
+        "legend_png": "figures/qc/cv/cv-experimental-psm-raw-linear.legend.png"
+      },
+      "warnings": []
+    },
+    "sample-correlation-psm-raw-linear": {
+      "family": "sample-correlation",
+      "inputs": [
+        "psm/raw_linear_complete"
+      ],
+      "color_maps": {
+        "condition": {
+          "control": "#0072B2",
+          "raloxifene-d0": "#D55E00"
+        },
+        "batch": {
+          "B2021-05-06": "#009E73",
+          "B2022-03-18": "#CC79A7"
+        },
+        "candidate_pair": {
+          "P905_906": "#E69F00",
+          "P907_908": "#56B4E9",
+          "P909_910": "#F0E442",
+          "P941_942": "#000000"
+        }
+      },
+      "n_features": 2168,
+      "clustered_order": [
+        "AZ941",
+        "AZ942",
+        "AZ907",
+        "AZ908",
+        "AZ905",
+        "AZ906",
+        "AZ909",
+        "AZ910"
+      ],
+      "off_diagonal_min": {
+        "pair": [
+          "AZ908",
+          "AZ942"
+        ],
+        "r": 0.853
+      },
+      "off_diagonal_max": {
+        "pair": [
+          "AZ909",
+          "AZ910"
+        ],
+        "r": 0.9948
+      },
+      "off_diagonal_median": 0.954,
+      "matrix": {
+        "AZ905": {
+          "AZ905": 1.0,
+          "AZ907": 0.9587,
+          "AZ909": 0.9669,
+          "AZ906": 0.9904,
+          "AZ908": 0.9576,
+          "AZ910": 0.9549,
+          "AZ941": 0.924,
+          "AZ942": 0.9202
+        },
+        "AZ907": {
+          "AZ905": 0.9587,
+          "AZ907": 1.0,
+          "AZ909": 0.9531,
+          "AZ906": 0.9624,
+          "AZ908": 0.992,
+          "AZ910": 0.942,
+          "AZ941": 0.8746,
+          "AZ942": 0.8599
+        },
+        "AZ909": {
+          "AZ905": 0.9669,
+          "AZ907": 0.9531,
+          "AZ909": 1.0,
+          "AZ906": 0.9787,
+          "AZ908": 0.9592,
+          "AZ910": 0.9948,
+          "AZ941": 0.8942,
+          "AZ942": 0.8869
+        },
+        "AZ906": {
+          "AZ905": 0.9904,
+          "AZ907": 0.9624,
+          "AZ909": 0.9787,
+          "AZ906": 1.0,
+          "AZ908": 0.9685,
+          "AZ910": 0.9734,
+          "AZ941": 0.9195,
+          "AZ942": 0.9161
+        },
+        "AZ908": {
+          "AZ905": 0.9576,
+          "AZ907": 0.992,
+          "AZ909": 0.9592,
+          "AZ906": 0.9685,
+          "AZ908": 1.0,
+          "AZ910": 0.9565,
+          "AZ941": 0.8609,
+          "AZ942": 0.853
+        },
+        "AZ910": {
+          "AZ905": 0.9549,
+          "AZ907": 0.942,
+          "AZ909": 0.9948,
+          "AZ906": 0.9734,
+          "AZ908": 0.9565,
+          "AZ910": 1.0,
+          "AZ941": 0.8751,
+          "AZ942": 0.8734
+        },
+        "AZ941": {
+          "AZ905": 0.924,
+          "AZ907": 0.8746,
+          "AZ909": 0.8942,
+          "AZ906": 0.9195,
+          "AZ908": 0.8609,
+          "AZ910": 0.8751,
+          "AZ941": 1.0,
+          "AZ942": 0.992
+        },
+        "AZ942": {
+          "AZ905": 0.9202,
+          "AZ907": 0.8599,
+          "AZ909": 0.8869,
+          "AZ906": 0.9161,
+          "AZ908": 0.853,
+          "AZ910": 0.8734,
+          "AZ941": 0.992,
+          "AZ942": 1.0
+        }
+      },
+      "artifacts": {
+        "svg": "figures/qc/sample-correlation/sample-correlation-psm-raw-linear.svg",
+        "png": "figures/qc/sample-correlation/sample-correlation-psm-raw-linear.png",
+        "legend_svg": "figures/qc/sample-correlation/sample-correlation-psm-raw-linear.legend.svg",
+        "legend_png": "figures/qc/sample-correlation/sample-correlation-psm-raw-linear.legend.png"
+      },
+      "warnings": [
+        "CorrelationScaleWarning: Pearson correlation on non-log scale 'linear'; abundant features dominate. Log-transform first or use method='spearman'."
+      ]
+    },
+    "pca-by-condition-psm-raw-linear": {
+      "family": "pca",
+      "inputs": [
+        "psm/raw_linear_complete"
+      ],
+      "color_map": {
+        "control": "#0072B2",
+        "raloxifene-d0": "#D55E00"
+      },
+      "n_features": 2167,
+      "n_complete_features": 2168,
+      "zero_variance_dropped": [
+        "sp|Q9UI47|CTNA3_HUMAN"
+      ],
+      "standardize": true,
+      "pc1_pct": 34.79,
+      "pc2_pct": 22.81,
+      "scores": {
+        "AZ905": [
+          0.174,
+          44.555
+        ],
+        "AZ907": [
+          27.148,
+          -6.15
+        ],
+        "AZ909": [
+          19.919,
+          -10.584
+        ],
+        "AZ906": [
+          -0.576,
+          30.538
+        ],
+        "AZ908": [
+          24.363,
+          -17.947
+        ],
+        "AZ910": [
+          18.074,
+          -15.731
+        ],
+        "AZ941": [
+          -42.665,
+          -9.784
+        ],
+        "AZ942": [
+          -46.436,
+          -14.897
+        ]
+      },
+      "pc1_mean_by": {
+        "condition": {
+          "control": 1.144,
+          "raloxifene-d0": -1.144
+        },
+        "batch": {
+          "B2021-05-06": 14.85,
+          "B2022-03-18": -44.551
+        }
+      },
+      "artifacts": {
+        "svg": "figures/qc/pca/pca-by-condition-psm-raw-linear.svg",
+        "png": "figures/qc/pca/pca-by-condition-psm-raw-linear.png",
+        "legend_svg": "figures/qc/pca/pca-by-condition-psm-raw-linear.legend.svg",
+        "legend_png": "figures/qc/pca/pca-by-condition-psm-raw-linear.legend.png"
+      },
+      "warnings": [
+        "PCAScaleWarning: Panel 'as-is, no normalization or batch correction \u00b7 linear': PCA on scale 'linear', which is not log-ish ['glog2', 'ln', 'log10', 'log2', 'zscore']."
+      ]
+    },
+    "pca-by-batch-psm-raw-linear": {
+      "family": "pca",
+      "inputs": [
+        "psm/raw_linear_complete"
+      ],
+      "color_map": {
+        "B2021-05-06": "#009E73",
+        "B2022-03-18": "#CC79A7"
+      },
+      "n_features": 2167,
+      "n_complete_features": 2168,
+      "zero_variance_dropped": [
+        "sp|Q9UI47|CTNA3_HUMAN"
+      ],
+      "standardize": true,
+      "pc1_pct": 34.79,
+      "pc2_pct": 22.81,
+      "scores": {
+        "AZ905": [
+          0.174,
+          44.555
+        ],
+        "AZ907": [
+          27.148,
+          -6.15
+        ],
+        "AZ909": [
+          19.919,
+          -10.584
+        ],
+        "AZ906": [
+          -0.576,
+          30.538
+        ],
+        "AZ908": [
+          24.363,
+          -17.947
+        ],
+        "AZ910": [
+          18.074,
+          -15.731
+        ],
+        "AZ941": [
+          -42.665,
+          -9.784
+        ],
+        "AZ942": [
+          -46.436,
+          -14.897
+        ]
+      },
+      "pc1_mean_by": {
+        "condition": {
+          "control": 1.144,
+          "raloxifene-d0": -1.144
+        },
+        "batch": {
+          "B2021-05-06": 14.85,
+          "B2022-03-18": -44.551
+        }
+      },
+      "artifacts": {
+        "svg": "figures/qc/pca/pca-by-batch-psm-raw-linear.svg",
+        "png": "figures/qc/pca/pca-by-batch-psm-raw-linear.png",
+        "legend_svg": "figures/qc/pca/pca-by-batch-psm-raw-linear.legend.svg",
+        "legend_png": "figures/qc/pca/pca-by-batch-psm-raw-linear.legend.png"
+      },
+      "warnings": [
+        "PCAScaleWarning: Panel 'as-is, no normalization or batch correction \u00b7 linear': PCA on scale 'linear', which is not log-ish ['glog2', 'ln', 'log10', 'log2', 'zscore']."
+      ]
+    }
+  }
+}

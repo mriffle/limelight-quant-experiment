@@ -1,0 +1,77 @@
+{
+  "scripts": {
+    "scripts/promoted/qc_fig_sample_correlation.py": "2aad7127797dc6954b4a71b568213be81baf912064fa94a6b7673abb12b6e45e",
+    "scripts/promoted/qc_figures/correlation.py": "80e54a6550a66744577e5c27e2dba7ad6aee17d8da9020106b36b488446b209d"
+  },
+  "commit": null,
+  "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+  "input_state": "normalized_log",
+  "stem_prefix": "0003-",
+  "params": {
+    "method": "pearson",
+    "linkage": "average",
+    "linkage_metric": "euclidean (over correlation-matrix rows)",
+    "annotations": [
+      "condition",
+      "batch",
+      "candidate_pair"
+    ],
+    "diagonal": "masked (gray); color scale = off-diagonal min..max",
+    "cell_text_decimals": 3,
+    "dpi": 300
+  },
+  "levels": [
+    {
+      "level": "protein",
+      "n_samples": 8,
+      "n_features": 1801,
+      "clustered_order": [
+        "AZ941",
+        "AZ942",
+        "AZ905",
+        "AZ906",
+        "AZ909",
+        "AZ910",
+        "AZ907",
+        "AZ908"
+      ],
+      "off_diagonal_min": {
+        "pair": [
+          "AZ908",
+          "AZ942"
+        ],
+        "r": 0.9000896873031436
+      },
+      "off_diagonal_max": {
+        "pair": [
+          "AZ905",
+          "AZ906"
+        ],
+        "r": 0.9924426452860465
+      },
+      "off_diagonal_median": 0.9501675960273364,
+      "color_maps": {
+        "condition": {
+          "control": "#0072B2",
+          "raloxifene-d0": "#D55E00"
+        },
+        "batch": {
+          "B2021-05-06": "#009E73",
+          "B2022-03-18": "#CC79A7"
+        },
+        "candidate_pair": {
+          "P905_906": "#E69F00",
+          "P907_908": "#56B4E9",
+          "P909_910": "#F0E442",
+          "P941_942": "#000000"
+        }
+      },
+      "artifacts": {
+        "svg": "figures/qc/sample-correlation/0003-sample-correlation-protein-normalized-log2.svg",
+        "png": "figures/qc/sample-correlation/0003-sample-correlation-protein-normalized-log2.png",
+        "legend_svg": "figures/qc/sample-correlation/0003-sample-correlation-protein-normalized-log2.legend.svg",
+        "legend_png": "figures/qc/sample-correlation/0003-sample-correlation-protein-normalized-log2.legend.png"
+      }
+    }
+  ]
+}
