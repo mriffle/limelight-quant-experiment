@@ -1,0 +1,60 @@
+{
+  "format_version": 1,
+  "dataclass": "DifferentialAbundanceResult",
+  "fields": {
+    "table": {
+      "kind": "dataframe",
+      "file": "table.parquet"
+    },
+    "contrast": {
+      "kind": "scalar",
+      "value": "condition"
+    },
+    "covariates": {
+      "kind": "sequence",
+      "container": "tuple",
+      "value": []
+    },
+    "method": {
+      "kind": "scalar",
+      "value": "moderated"
+    },
+    "reference": {
+      "kind": "dict",
+      "value": {
+        "condition": "control"
+      }
+    },
+    "contrast_terms": {
+      "kind": "sequence",
+      "container": "tuple",
+      "value": [
+        "condition[raloxifene-d0 vs control]"
+      ]
+    },
+    "effect_label": {
+      "kind": "scalar",
+      "value": "log2 fold change"
+    },
+    "n_samples": {
+      "kind": "scalar",
+      "value": 8
+    },
+    "prior_variance": {
+      "kind": "scalar",
+      "value": 0.15488926912256754
+    },
+    "prior_df": {
+      "kind": "scalar",
+      "value": 3.997851686000398
+    },
+    "residual_df": {
+      "kind": "scalar",
+      "value": 6
+    },
+    "n_prior_floored": {
+      "kind": "scalar",
+      "value": 0
+    }
+  }
+}

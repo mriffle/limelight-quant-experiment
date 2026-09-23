@@ -7,6 +7,13 @@
       "Raw": "#E69F00"
     }
   },
+  "Significance": {
+    "scope": "project",
+    "values": {
+      "down": "#56B4E9",
+      "up": "#E69F00"
+    }
+  },
   "_comment": "Category -> color registry (spec doc 06.5). Keys starting with '_' are reserved metadata; every other top-level key is a category dimension with {scope, values}. Universal defaults ship with the plugin; project-specific categories are added after METADATA.md exists. Every plotting script reads this file so a given category value uses the SAME color in every figure.",
   "_palette": {
     "colors": [
@@ -54,6 +61,15 @@
     "scope": "project",
     "values": {
       "contaminant": "#E69F00"
+    }
+  },
+  "quantity": {
+    "note": "Protein-level quantity compared on the DE common feature set: LFQ = FlashLFQ protein intensity; NSAF and PSM = Limelight spectral quantities.",
+    "scope": "project",
+    "values": {
+      "LFQ": "#0072B2",
+      "NSAF": "#E69F00",
+      "PSM": "#009E73"
     }
   },
   "sex": {

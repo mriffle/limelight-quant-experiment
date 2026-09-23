@@ -1,0 +1,738 @@
+{
+  "color_registry": "state/color_registry.json",
+  "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+  "figures": {
+    "0004-pvalue-hist-nsaf-designs": {
+      "artifacts": {
+        "legend_png": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-nsaf-designs.legend.png",
+        "legend_svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-nsaf-designs.legend.svg",
+        "png": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-nsaf-designs.png",
+        "svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-nsaf-designs.svg"
+      },
+      "color_map": {
+        "batch: condition + batch": "#56B4E9",
+        "paired: condition + pair": "#E69F00",
+        "unadjusted: condition only": "#009E73"
+      },
+      "counts": {
+        "batch: condition + batch": 2158,
+        "paired: condition + pair": 2158,
+        "unadjusted: condition only": 2158
+      },
+      "designs": [
+        "paired",
+        "batch",
+        "unadjusted"
+      ],
+      "kind": "pvalue-hist overlay",
+      "linestyles": {
+        "batch: condition + batch": "--",
+        "paired: condition + pair": "-",
+        "unadjusted: condition only": "-."
+      },
+      "pi0": {
+        "batch: condition + batch": 1.0,
+        "paired: condition + pair": 0.8294717330861909,
+        "unadjusted: condition only": 1.0
+      },
+      "pi0_raw_uncapped": {
+        "batch: condition + batch": 1.231696014828545,
+        "paired: condition + pair": 0.8294717330861909,
+        "unadjusted: condition only": 1.4142724745134383
+      },
+      "quantity": "nsaf"
+    },
+    "0004-pvalue-hist-peptide-designs": {
+      "artifacts": {
+        "legend_png": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-peptide-designs.legend.png",
+        "legend_svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-peptide-designs.legend.svg",
+        "png": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-peptide-designs.png",
+        "svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-peptide-designs.svg"
+      },
+      "color_map": {
+        "batch: condition + batch": "#56B4E9",
+        "paired: condition + pair": "#E69F00",
+        "unadjusted: condition only": "#009E73"
+      },
+      "counts": {
+        "batch: condition + batch": 10229,
+        "paired: condition + pair": 10229,
+        "unadjusted: condition only": 10229
+      },
+      "designs": [
+        "paired",
+        "batch",
+        "unadjusted"
+      ],
+      "kind": "pvalue-hist overlay",
+      "linestyles": {
+        "batch: condition + batch": "--",
+        "paired: condition + pair": "-",
+        "unadjusted: condition only": "-."
+      },
+      "pi0": {
+        "batch: condition + batch": 1.0,
+        "paired: condition + pair": 0.8694887085736631,
+        "unadjusted: condition only": 1.0
+      },
+      "pi0_raw_uncapped": {
+        "batch: condition + batch": 1.3973995502981718,
+        "paired: condition + pair": 0.8694887085736631,
+        "unadjusted: condition only": 1.6150161306090527
+      },
+      "quantity": "peptide"
+    },
+    "0004-pvalue-hist-protein-designs": {
+      "artifacts": {
+        "legend_png": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-protein-designs.legend.png",
+        "legend_svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-protein-designs.legend.svg",
+        "png": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-protein-designs.png",
+        "svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-protein-designs.svg"
+      },
+      "color_map": {
+        "batch: condition + batch": "#56B4E9",
+        "paired: condition + pair": "#E69F00",
+        "unadjusted: condition only": "#009E73"
+      },
+      "counts": {
+        "batch: condition + batch": 1801,
+        "paired: condition + pair": 1801,
+        "unadjusted: condition only": 1801
+      },
+      "designs": [
+        "paired",
+        "batch",
+        "unadjusted"
+      ],
+      "kind": "pvalue-hist overlay",
+      "linestyles": {
+        "batch: condition + batch": "--",
+        "paired: condition + pair": "-",
+        "unadjusted: condition only": "-."
+      },
+      "pi0": {
+        "batch: condition + batch": 1.0,
+        "paired: condition + pair": 0.8561910049972238,
+        "unadjusted: condition only": 1.0
+      },
+      "pi0_raw_uncapped": {
+        "batch: condition + batch": 1.464741810105497,
+        "paired: condition + pair": 0.8561910049972238,
+        "unadjusted: condition only": 1.6668517490283177
+      },
+      "quantity": "protein"
+    },
+    "0004-pvalue-hist-psm-log2-designs": {
+      "artifacts": {
+        "legend_png": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-psm-log2-designs.legend.png",
+        "legend_svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-psm-log2-designs.legend.svg",
+        "png": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-psm-log2-designs.png",
+        "svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-psm-log2-designs.svg"
+      },
+      "color_map": {
+        "batch: condition + batch": "#56B4E9",
+        "paired: condition + pair": "#E69F00",
+        "unadjusted: condition only": "#009E73"
+      },
+      "counts": {
+        "batch: condition + batch": 2167,
+        "paired: condition + pair": 2167,
+        "unadjusted: condition only": 2167
+      },
+      "designs": [
+        "paired",
+        "batch",
+        "unadjusted"
+      ],
+      "kind": "pvalue-hist overlay",
+      "linestyles": {
+        "batch: condition + batch": "--",
+        "paired: condition + pair": "-",
+        "unadjusted: condition only": "-."
+      },
+      "pi0": {
+        "batch: condition + batch": 1.0,
+        "paired: condition + pair": 0.7549607752653438,
+        "unadjusted: condition only": 1.0
+      },
+      "pi0_raw_uncapped": {
+        "batch: condition + batch": 1.172127365020766,
+        "paired: condition + pair": 0.7549607752653438,
+        "unadjusted: condition only": 1.3539455468389479
+      },
+      "quantity": "psm_log2"
+    },
+    "0004-pvalue-hist-quantities-paired": {
+      "artifacts": {
+        "legend_png": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-quantities-paired.legend.png",
+        "legend_svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-quantities-paired.legend.svg",
+        "png": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-quantities-paired.png",
+        "svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-quantities-paired.svg"
+      },
+      "color_map": {
+        "paired: condition + pair": "#E69F00"
+      },
+      "counts": {
+        "NSAF \u00b7 as-is log2": 2158,
+        "PSM count \u00b7 log2, unnormalized": 2167,
+        "Peptide \u00b7 LFQ normalized log2": 10229,
+        "Protein \u00b7 LFQ normalized log2": 1801
+      },
+      "design": "paired",
+      "kind": "pvalue-hist small multiples",
+      "panels": [
+        "Protein \u00b7 LFQ normalized log2",
+        "Peptide \u00b7 LFQ normalized log2",
+        "NSAF \u00b7 as-is log2",
+        "PSM count \u00b7 log2, unnormalized"
+      ],
+      "pi0": {
+        "NSAF \u00b7 as-is log2": 0.8294717330861909,
+        "PSM count \u00b7 log2, unnormalized": 0.7549607752653438,
+        "Peptide \u00b7 LFQ normalized log2": 0.8694887085736631,
+        "Protein \u00b7 LFQ normalized log2": 0.8561910049972238
+      }
+    },
+    "0004-volcano-nsaf-paired": {
+      "artifacts": {
+        "legend_png": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-nsaf-paired.legend.png",
+        "legend_svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-nsaf-paired.legend.svg",
+        "png": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-nsaf-paired.png",
+        "svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-nsaf-paired.svg"
+      },
+      "color_map": {
+        "NS": "#d0d0d0",
+        "down": "#56B4E9",
+        "up": "#E69F00"
+      },
+      "counts": {
+        "down": 0,
+        "ns": 2158,
+        "up": 0
+      },
+      "design": "paired",
+      "effect_range": [
+        -1.4521216731816393,
+        1.581876969758241
+      ],
+      "kind": "volcano",
+      "label_groups_merged_as_coincident": [
+        [
+          "S22A1_HUMAN",
+          "ACACA_HUMAN"
+        ]
+      ],
+      "labelled": [
+        {
+          "feature": "sp|Q08722|CD47_HUMAN",
+          "label": "CD47_HUMAN",
+          "log2fc": 1.2276211217864592,
+          "p": 0.0005728059343003638,
+          "q": 0.6459553375327137
+        },
+        {
+          "feature": "sp|P61966|AP1S1_HUMAN",
+          "label": "AP1S1_HUMAN",
+          "log2fc": -1.4521216731816393,
+          "p": 0.0005986611098542296,
+          "q": 0.6459553375327137
+        },
+        {
+          "feature": "sp|Q9H0C2|ADT4_HUMAN",
+          "label": "ADT4_HUMAN",
+          "log2fc": 0.5879780877509253,
+          "p": 0.001618115748273686,
+          "q": 0.6821189646413428
+        },
+        {
+          "feature": "sp|Q02325|PLGB_HUMAN",
+          "label": "PLGB_HUMAN",
+          "log2fc": -1.1609391216334681,
+          "p": 0.001793327169169945,
+          "q": 0.6821189646413428
+        },
+        {
+          "feature": "sp|Q9P2R3|ANFY1_HUMAN",
+          "label": "ANFY1_HUMAN",
+          "log2fc": -0.78855270106805,
+          "p": 0.0020370308608800573,
+          "q": 0.6821189646413428
+        },
+        {
+          "feature": "sp|P06756|ITAV_HUMAN",
+          "label": "ITAV_HUMAN",
+          "log2fc": -0.7260417403792725,
+          "p": 0.0025649305270662756,
+          "q": 0.6821189646413428
+        },
+        {
+          "feature": "sp|Q13085|ACACA_HUMAN",
+          "label": "ACACA_HUMAN",
+          "log2fc": -0.5351306540596514,
+          "p": 0.0027135040537094785,
+          "q": 0.6821189646413428
+        },
+        {
+          "feature": "sp|O15245|S22A1_HUMAN",
+          "label": "S22A1_HUMAN",
+          "log2fc": -0.5549250252408595,
+          "p": 0.002798306126858151,
+          "q": 0.6821189646413428
+        }
+      ],
+      "max_neg_log10_q": 0.18979750883716753,
+      "n_features": 2158,
+      "n_labelled_hits": 0,
+      "quantity": "nsaf"
+    },
+    "0004-volcano-peptide-paired": {
+      "artifacts": {
+        "legend_png": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-peptide-paired.legend.png",
+        "legend_svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-peptide-paired.legend.svg",
+        "png": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-peptide-paired.png",
+        "svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-peptide-paired.svg"
+      },
+      "color_map": {
+        "NS": "#d0d0d0",
+        "down": "#56B4E9",
+        "up": "#E69F00"
+      },
+      "counts": {
+        "down": 0,
+        "ns": 10229,
+        "up": 0
+      },
+      "design": "paired",
+      "effect_range": [
+        -2.748842678980311,
+        2.381378026254221
+      ],
+      "kind": "volcano",
+      "label_groups_merged_as_coincident": [
+        [
+          "VLVVPTDGSPWLSMR \u00b7 UD14_HUMAN",
+          "GYPTLLLFR \u00b7 TXND5_HUMAN",
+          "IDGNLVVRPYTPISSDDDKGFVDLVIK \u00b7 NB5R3_HUMAN"
+        ]
+      ],
+      "labelled": [
+        {
+          "feature": "VLVVPTDGSPWLSMR[+0.0]",
+          "label": "VLVVPTDGSPWLSMR \u00b7 UD14_HUMAN",
+          "log2fc": -1.2713997480819055,
+          "p": 1.323197920253773e-05,
+          "q": 0.05207632768114131
+        },
+        {
+          "feature": "LVTLPVSFAQLK[+0.0]",
+          "label": "LVTLPVSFAQLK \u00b7 LRC59_HUMAN",
+          "log2fc": -1.1683438995279207,
+          "p": 2.3345369110889878e-05,
+          "q": 0.05207632768114131
+        },
+        {
+          "feature": "LLPVYLNCVLK[+57.021464]",
+          "label": "LLPVYLNCVLK \u00b7 SC24C_HUMAN",
+          "log2fc": 1.4574333027076047,
+          "p": 2.5676036702477852e-05,
+          "q": 0.05207632768114131
+        },
+        {
+          "feature": "ITLLSALVETR[+0.0]",
+          "label": "ITLLSALVETR \u00b7 AACT_HUMAN",
+          "log2fc": -1.4334006973158742,
+          "p": 2.6379185649723533e-05,
+          "q": 0.05207632768114131
+        },
+        {
+          "feature": "IDGNLVVRPYTPISSDDDKGFVDLVIK[+0.0]",
+          "label": "IDGNLVVRPYTPISSDDDKGFVDLVIK \u00b7 NB5R3_HUMAN",
+          "log2fc": -1.2448064856125818,
+          "p": 3.0047574879790373e-05,
+          "q": 0.05207632768114131
+        },
+        {
+          "feature": "GYPTLLLFR[+0.0]",
+          "label": "GYPTLLLFR \u00b7 TXND5_HUMAN",
+          "log2fc": -1.2672725677290497,
+          "p": 3.360394585134455e-05,
+          "q": 0.05207632768114131
+        },
+        {
+          "feature": "GFPLITITVR[+0.0]",
+          "label": "GFPLITITVR \u00b7 ERAP1_HUMAN",
+          "log2fc": 1.784642773950007,
+          "p": 3.5637334418612686e-05,
+          "q": 0.05207632768114131
+        },
+        {
+          "feature": "AIGAVPLIQGEYMIPCEK[+57.021464]",
+          "label": "AIGAVPLIQGEYMIPCEK[+57.02] \u00b7 CATD_HUMAN",
+          "log2fc": 1.016629673984884,
+          "p": 5.505643888695345e-05,
+          "q": 0.07039653917183085
+        }
+      ],
+      "max_neg_log10_q": 1.2833596489415589,
+      "n_features": 10229,
+      "n_labelled_hits": 0,
+      "quantity": "peptide"
+    },
+    "0004-volcano-protein-paired": {
+      "artifacts": {
+        "legend_png": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-protein-paired.legend.png",
+        "legend_svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-protein-paired.legend.svg",
+        "png": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-protein-paired.png",
+        "svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-protein-paired.svg"
+      },
+      "color_map": {
+        "NS": "#d0d0d0",
+        "down": "#56B4E9",
+        "up": "#E69F00"
+      },
+      "counts": {
+        "down": 0,
+        "ns": 1801,
+        "up": 0
+      },
+      "design": "paired",
+      "effect_range": [
+        -0.7401019544191048,
+        1.0395435434556353
+      ],
+      "kind": "volcano",
+      "label_groups_merged_as_coincident": [
+        [
+          "ECHD3_HUMAN",
+          "MPC1_HUMAN"
+        ]
+      ],
+      "labelled": [
+        {
+          "feature": "psvid_86283_sp|P56134|ATPK_HUMAN",
+          "label": "ATPK_HUMAN",
+          "log2fc": -0.516019408282129,
+          "p": 0.0002997529199611587,
+          "q": 0.20997525410294768
+        },
+        {
+          "feature": "psvid_99364_sp|P30046|DOPD_HUMAN",
+          "label": "DOPD_HUMAN",
+          "log2fc": -0.6590919557493438,
+          "p": 0.0003379898793012326,
+          "q": 0.20997525410294768
+        },
+        {
+          "feature": "psvid_52093_sp|Q96S06|LMF1_HUMAN",
+          "label": "LMF1_HUMAN",
+          "log2fc": 0.6177522283751227,
+          "p": 0.000349764443258658,
+          "q": 0.20997525410294768
+        },
+        {
+          "feature": "psvid_41137_sp|Q86UT6|NLRX1_HUMAN",
+          "label": "NLRX1_HUMAN",
+          "log2fc": 0.5229932164412121,
+          "p": 0.0007158549005323558,
+          "q": 0.32231366896469316
+        },
+        {
+          "feature": "psvid_59818_sp|Q96DC8|ECHD3_HUMAN",
+          "label": "ECHD3_HUMAN",
+          "log2fc": -0.40975780997486133,
+          "p": 0.0017903621237541569,
+          "q": 0.6366198099647827
+        },
+        {
+          "feature": "psvid_41564_sp|Q9Y5U8|MPC1_HUMAN",
+          "label": "MPC1_HUMAN",
+          "log2fc": -0.389451425005265,
+          "p": 0.0021208877622369217,
+          "q": 0.6366198099647827
+        },
+        {
+          "feature": "psvid_34586_sp|Q9UN36|NDRG2_HUMAN",
+          "label": "NDRG2_HUMAN",
+          "log2fc": -0.37106539788412096,
+          "p": 0.002923953470662219,
+          "q": 0.727886094873094
+        },
+        {
+          "feature": "psvid_68413_sp|P00846|ATP6_HUMAN",
+          "label": "ATP6_HUMAN",
+          "log2fc": -0.5218340571416427,
+          "p": 0.0036915362897452842,
+          "q": 0.727886094873094
+        }
+      ],
+      "max_neg_log10_q": 0.6778318845031763,
+      "n_features": 1801,
+      "n_labelled_hits": 0,
+      "quantity": "protein"
+    },
+    "0004-volcano-psm-log2-paired": {
+      "artifacts": {
+        "legend_png": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-psm-log2-paired.legend.png",
+        "legend_svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-psm-log2-paired.legend.svg",
+        "png": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-psm-log2-paired.png",
+        "svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-psm-log2-paired.svg"
+      },
+      "color_map": {
+        "NS": "#d0d0d0",
+        "down": "#56B4E9",
+        "up": "#E69F00"
+      },
+      "counts": {
+        "down": 0,
+        "ns": 2167,
+        "up": 0
+      },
+      "design": "paired",
+      "effect_range": [
+        -1.5323207542362414,
+        1.500938033715277
+      ],
+      "kind": "volcano",
+      "label_groups_merged_as_coincident": [],
+      "labelled": [
+        {
+          "feature": "sp|Q9P2R3|ANFY1_HUMAN",
+          "label": "ANFY1_HUMAN",
+          "log2fc": -0.868482797083103,
+          "p": 0.0005496593256983678,
+          "q": 0.41358037486476656
+        },
+        {
+          "feature": "sp|Q08722|CD47_HUMAN",
+          "label": "CD47_HUMAN",
+          "log2fc": 1.146240625180289,
+          "p": 0.0006548747544851826,
+          "q": 0.41358037486476656
+        },
+        {
+          "feature": "sp|P06756|ITAV_HUMAN",
+          "label": "ITAV_HUMAN",
+          "log2fc": -0.8055981053341119,
+          "p": 0.0006874243052981107,
+          "q": 0.41358037486476656
+        },
+        {
+          "feature": "sp|P61966|AP1S1_HUMAN",
+          "label": "AP1S1_HUMAN",
+          "log2fc": -1.5323207542362414,
+          "p": 0.0007634155512039991,
+          "q": 0.41358037486476656
+        },
+        {
+          "feature": "sp|Q02325|PLGB_HUMAN",
+          "label": "PLGB_HUMAN",
+          "log2fc": -1.244319980874979,
+          "p": 0.0012282479098181703,
+          "q": 0.5174616303768038
+        },
+        {
+          "feature": "sp|P46783|RS10_HUMAN",
+          "label": "RS10_HUMAN",
+          "log2fc": 0.5657586014584484,
+          "p": 0.0019517200994437563,
+          "q": 0.5174616303768038
+        },
+        {
+          "feature": "sp|Q9Y5C1|ANGL3_HUMAN",
+          "label": "ANGL3_HUMAN",
+          "log2fc": -0.7398395038756633,
+          "p": 0.001976474475933273,
+          "q": 0.5174616303768038
+        },
+        {
+          "feature": "sp|O00168|PLM_HUMAN",
+          "label": "PLM_HUMAN",
+          "log2fc": 1.1229632740824185,
+          "p": 0.0024436369466797198,
+          "q": 0.5174616303768038
+        }
+      ],
+      "max_neg_log10_q": 0.3834400774821827,
+      "n_features": 2167,
+      "n_labelled_hits": 0,
+      "quantity": "psm_log2"
+    }
+  },
+  "git_head": "ae76aa38ca0f482e19fb4212593c02b7fc56cacf",
+  "git_status_of_scripts": "?? scripts/scratch/analysis_figures/pvalue_hist.py\n?? scripts/scratch/analysis_figures/volcano.py\n?? scripts/scratch/fig_de_raloxifene_vs_control.py",
+  "inputs": {
+    "nsaf_batch": {
+      "result_dir": "results/de/raloxifene-vs-control/results/nsaf_batch",
+      "result_files_sha256": {
+        "_result.json": "c06f5fea5804601367c9e0e9c0951fec389db266b35dc8c18f13ef2a3571586b",
+        "table.parquet": "8307583bb5304666582518a60286becbabe2045148d886b2c520878f251722e8"
+      },
+      "tsv": {
+        "path": "results/de/raloxifene-vs-control/nsaf_batch.tsv",
+        "sha256": "372cb0f79fa21b4106bc9dcfcdb2b632c639009a8357e7063cf6a430323315c1"
+      }
+    },
+    "nsaf_paired": {
+      "result_dir": "results/de/raloxifene-vs-control/results/nsaf_paired",
+      "result_files_sha256": {
+        "_result.json": "561864147827ca3557b0471b327bc909e11994f64736443164b4d97268b0b21b",
+        "table.parquet": "863df70871e39eb51b0ca6d1a29b910bbffe42da6a5e766585b91dffafe5b1ac"
+      },
+      "tsv": {
+        "path": "results/de/raloxifene-vs-control/nsaf_paired.tsv",
+        "sha256": "a46b255db53e5038044c48aa938244f55a1e92b45bd0350849499c6a6e8e8ebe"
+      }
+    },
+    "nsaf_unadjusted": {
+      "result_dir": "results/de/raloxifene-vs-control/results/nsaf_unadjusted",
+      "result_files_sha256": {
+        "_result.json": "9872134648eb4ce5eba3c01f65848664b73a6696a12c685eab17791e85aca212",
+        "table.parquet": "77a2a0cb1b3c2ec1b6f96b8ae9f01991f7a1989a09d9350dd3ecec4d2fc3925a"
+      },
+      "tsv": {
+        "path": "results/de/raloxifene-vs-control/nsaf_unadjusted.tsv",
+        "sha256": "bc8ad8259177a0849a212d7823aefb10e4290105da8e99b5631927ec92eaf711"
+      }
+    },
+    "peptide_batch": {
+      "result_dir": "results/de/raloxifene-vs-control/results/peptide_batch",
+      "result_files_sha256": {
+        "_result.json": "82b4d09db1ee2ebb38f24a9694c985f92385905ee25f2ff5a91f5c95fe30922a",
+        "table.parquet": "66e295db4b14868d980aa9da226a1aa64cd3a9fdb8968cac0b31cbc8bc68994f"
+      },
+      "tsv": {
+        "path": "results/de/raloxifene-vs-control/peptide_batch.tsv",
+        "sha256": "7054fe92e5314980d9be1b4a358d9551fcb255bfba7543af592f08b16a966b96"
+      }
+    },
+    "peptide_paired": {
+      "result_dir": "results/de/raloxifene-vs-control/results/peptide_paired",
+      "result_files_sha256": {
+        "_result.json": "968f9904505b9cfe7ee3ecd5e5aca2d0a9fba8a7eff066d095a2c487e059fd29",
+        "table.parquet": "3b1b524ff249b65055a2003e824c5309ca022ce63d35bfae2bc7430b95c3d46a"
+      },
+      "tsv": {
+        "path": "results/de/raloxifene-vs-control/peptide_paired.tsv",
+        "sha256": "268ec504b65d82fd0f2365b9bfb966082165c0e88cadf9f8bbbbb30c1813d17f"
+      }
+    },
+    "peptide_unadjusted": {
+      "result_dir": "results/de/raloxifene-vs-control/results/peptide_unadjusted",
+      "result_files_sha256": {
+        "_result.json": "70e840bd78a8b6c3b1963aa7c1f2752cd75285025cbed3fae558923f1543304d",
+        "table.parquet": "4c3a2a87dfe710e8df0c20daff52e5d41c963b1f5dcbb35cabd7a46df63fe560"
+      },
+      "tsv": {
+        "path": "results/de/raloxifene-vs-control/peptide_unadjusted.tsv",
+        "sha256": "8653a42e6a44d90b682160018b338b9a8974b74f0c8175adf39b7cae88040870"
+      }
+    },
+    "protein_batch": {
+      "result_dir": "results/de/raloxifene-vs-control/results/protein_batch",
+      "result_files_sha256": {
+        "_result.json": "449844687af938240fd1eb4bd08488753665c43ec2fce0d810242e4aa0c4a9b4",
+        "table.parquet": "099354b2fba8bf7196822a4034c8e51b2aba4271933c569040167a546cac7600"
+      },
+      "tsv": {
+        "path": "results/de/raloxifene-vs-control/protein_batch.tsv",
+        "sha256": "141a8de4e80466b9d0477e49336cf21dee2cbad5e8f52fb2112a63d36bc40997"
+      }
+    },
+    "protein_paired": {
+      "result_dir": "results/de/raloxifene-vs-control/results/protein_paired",
+      "result_files_sha256": {
+        "_result.json": "976ec82c5dc231b107dc3d8ecda6fdcc1a4f4697920a4b5427476174dc9d5ac4",
+        "table.parquet": "10eca79aad644fc359f54396c61e01833080900a1d0a849aef92e67ea2cb70ed"
+      },
+      "tsv": {
+        "path": "results/de/raloxifene-vs-control/protein_paired.tsv",
+        "sha256": "927fa7c74f18c2a1e5fd3918f1fd7748418a0d4bbe79d7a88809f8b2b5e08c76"
+      }
+    },
+    "protein_unadjusted": {
+      "result_dir": "results/de/raloxifene-vs-control/results/protein_unadjusted",
+      "result_files_sha256": {
+        "_result.json": "621a250b4ce16dfaf1d6acc3dec74218458477477fc62fe28a2fa372c70ed91e",
+        "table.parquet": "b8438219f3d8e8cb85fc030b253db6181611a12c5e50428feff82df0e0b57e40"
+      },
+      "tsv": {
+        "path": "results/de/raloxifene-vs-control/protein_unadjusted.tsv",
+        "sha256": "9afa6eda385a730344d58b33499ec977778a8eb2f8b01fa193aacfe97edcc447"
+      }
+    },
+    "psm_log2_batch": {
+      "result_dir": "results/de/raloxifene-vs-control/results/psm_log2_batch",
+      "result_files_sha256": {
+        "_result.json": "91d2a6767d65d7e29bbf81ada0d2649f204a7eba0953745d246d01a4baf13e31",
+        "table.parquet": "c32fe9b5d52a25f24d3794dcce5892fe404d16f46cc922c20a303f1992d6bf06"
+      },
+      "tsv": {
+        "path": "results/de/raloxifene-vs-control/psm_log2_batch.tsv",
+        "sha256": "887759cf329bca9f14e4401e2e77b4e84fc255b842fb126975530bac8fbddd92"
+      }
+    },
+    "psm_log2_paired": {
+      "result_dir": "results/de/raloxifene-vs-control/results/psm_log2_paired",
+      "result_files_sha256": {
+        "_result.json": "52ccd2ecbaa9a68043313b8cd0618ba814b64691b73dbdd7531bd202f114171e",
+        "table.parquet": "f08d2f6a1da353c79cb130fd4e92e248a819def8df26ebb1eea88dff6c90273f"
+      },
+      "tsv": {
+        "path": "results/de/raloxifene-vs-control/psm_log2_paired.tsv",
+        "sha256": "261bab1e542e43e31dd9804380d89c2913552a0725e398c6ccd3d0a5e59a4585"
+      }
+    },
+    "psm_log2_unadjusted": {
+      "result_dir": "results/de/raloxifene-vs-control/results/psm_log2_unadjusted",
+      "result_files_sha256": {
+        "_result.json": "2487144eb3aa467b13218176bc0037b03026e197cbd9ac75c28679424f4b7383",
+        "table.parquet": "ad25757762a67166d92563ca3c81a25f408f7050e616a46198d2750fb4dc450f"
+      },
+      "tsv": {
+        "path": "results/de/raloxifene-vs-control/psm_log2_unadjusted.tsv",
+        "sha256": "52d4ba7272aa5322799d86ed55b1e782e18ffd3c2e95820e7ed73161aba139d4"
+      }
+    }
+  },
+  "modules": {
+    "pvalue_hist": {
+      "path": "scripts/scratch/analysis_figures/pvalue_hist.py",
+      "seeded_from": "pvalue-hist@0.2",
+      "sha256": "b4b769402952431338f4b35963ad7982d12588c90008e5495b81644b32d5d441"
+    },
+    "volcano": {
+      "path": "scripts/scratch/analysis_figures/volcano.py",
+      "seeded_from": "volcano@0.2",
+      "sha256": "8e147e1ba2cd62c944dc186f4e6e41cb9386575109fba6b4fd43284f6a651658"
+    }
+  },
+  "params": {
+    "annotate_scope": "all (smallest q among all tested; ties by raw p)",
+    "annotate_top": 8,
+    "contrast_term": "condition[raloxifene-d0 vs control]",
+    "fdr": 0.05,
+    "label_max_distance": {
+      "nsaf": 0.28,
+      "peptide": 0.35,
+      "protein": 0.28,
+      "psm_log2": 0.28
+    },
+    "n_bins": 20,
+    "pi0_lambda": 0.5,
+    "primary_design": "paired",
+    "pvalue_colors_persisted": false,
+    "volcano_category": "Significance"
+  },
+  "qc_states_manifest": {
+    "path": "results/qc_states/manifest.json",
+    "sha256": "2d0bb2a17c94e5f76f16808cb8a2af70bffa0a79a91d2b854ef067caf1f31006"
+  },
+  "script": {
+    "path": "scripts/scratch/fig_de_raloxifene_vs_control.py",
+    "sha256": "f76be0467b8d28a1160510db93667ca7163351b800381dc1d75f8367cb82ab7d"
+  },
+  "summary_json": {
+    "path": "results/de/raloxifene-vs-control/summary.json",
+    "sha256": "a915147bcdbbd74c2c34eae262ccbac97c0b465f9f005f4b23c99e515376cd93"
+  }
+}

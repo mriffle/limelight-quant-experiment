@@ -1,0 +1,254 @@
+{
+  "finding": "0005",
+  "scripts": {
+    "runner": {
+      "path": "scripts/scratch/fig_quant_comparison.py",
+      "sha256": "af235827eda099dc1c1497f2c2d728b1176e7b37703b22de700b6e9704ce4181"
+    },
+    "module": {
+      "path": "scripts/scratch/analysis_figures/quant_comparison.py",
+      "sha256": "f0987631405d9223891345f7e247a52e5fb29adf4406338145a7c45da464ca27"
+    },
+    "figure_io": {
+      "path": "scripts/promoted/common/figures/figure_io.py",
+      "sha256": "e32b379a8cde19457de847abe98d30d415722a22108fdf89fe67559fbaf10af1"
+    }
+  },
+  "commit": null,
+  "commit_note": "project is not a git repository; script sha256 pinned instead",
+  "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+  "inputs": {
+    "common_set_comparison.tsv": {
+      "path": "results/de/raloxifene-vs-control/common_set_comparison.tsv",
+      "sha256": "b4c472a119d7df99dad5649f6cc7d6999888f51e93e0644190b86ccf38785cca"
+    },
+    "summary.json": {
+      "path": "results/de/raloxifene-vs-control/summary.json",
+      "sha256": "a915147bcdbbd74c2c34eae262ccbac97c0b465f9f005f4b23c99e515376cd93"
+    },
+    "protein_paired.tsv": {
+      "path": "results/de/raloxifene-vs-control/protein_paired.tsv",
+      "sha256": "927fa7c74f18c2a1e5fd3918f1fd7748418a0d4bbe79d7a88809f8b2b5e08c76"
+    },
+    "protein_batch.tsv": {
+      "path": "results/de/raloxifene-vs-control/protein_batch.tsv",
+      "sha256": "141a8de4e80466b9d0477e49336cf21dee2cbad5e8f52fb2112a63d36bc40997"
+    },
+    "nsaf_paired.tsv": {
+      "path": "results/de/raloxifene-vs-control/nsaf_paired.tsv",
+      "sha256": "a46b255db53e5038044c48aa938244f55a1e92b45bd0350849499c6a6e8e8ebe"
+    },
+    "nsaf_batch.tsv": {
+      "path": "results/de/raloxifene-vs-control/nsaf_batch.tsv",
+      "sha256": "372cb0f79fa21b4106bc9dcfcdb2b632c639009a8357e7063cf6a430323315c1"
+    },
+    "psm_log2_paired.tsv": {
+      "path": "results/de/raloxifene-vs-control/psm_log2_paired.tsv",
+      "sha256": "261bab1e542e43e31dd9804380d89c2913552a0725e398c6ccd3d0a5e59a4585"
+    },
+    "psm_log2_batch.tsv": {
+      "path": "results/de/raloxifene-vs-control/psm_log2_batch.tsv",
+      "sha256": "887759cf329bca9f14e4401e2e77b4e84fc255b842fb126975530bac8fbddd92"
+    }
+  },
+  "de_script": {
+    "path": "scripts/scratch/de_raloxifene_vs_control.py",
+    "sha256": "f993c2e533552e070c08f8be8dfda0db1cc57d320dba99b7f7200f9127874f44"
+  },
+  "params": {
+    "design": "paired",
+    "design_check": "common-set log2fc + residual_sd == <q>_paired.tsv exactly and residual_sd != <q>_batch.tsv",
+    "mean_log2_abundance_source": "<q>_paired.tsv mean_log2_abundance (joined on feature / first_member_id)",
+    "ci_half_width": "(ci_high - ci_low) / 2; 95% t on moderated SE",
+    "residual_sd": "per-feature unmoderated OLS residual SD, residual df 3",
+    "n_bins": 10,
+    "binning": "equal-count bins of mean log2 abundance; median x, median y",
+    "histogram_bin_width": 0.025,
+    "registry": "state/color_registry.json",
+    "registry_category": "quantity",
+    "dpi": 300
+  },
+  "color_map": {
+    "LFQ": "#0072B2",
+    "NSAF": "#E69F00",
+    "PSM": "#009E73"
+  },
+  "key_numbers": {
+    "n_features": 1640,
+    "spearman_log2fc": {
+      "LFQ-NSAF": 0.0507,
+      "LFQ-PSM": 0.0504,
+      "NSAF-PSM": 0.9784
+    },
+    "median": {
+      "residual_sd": {
+        "LFQ": 0.1349,
+        "NSAF": 0.2419,
+        "PSM": 0.2365
+      },
+      "ci_half_width": {
+        "LFQ": 0.2299,
+        "NSAF": 0.4177,
+        "PSM": 0.405
+      }
+    },
+    "n_residual_sd_exactly_zero": {
+      "LFQ": 0,
+      "NSAF": 19,
+      "PSM": 8
+    },
+    "abundance_trend": {
+      "LFQ": {
+        "spearman_abundance_vs_sd": -0.45893709842084623,
+        "bin_median_abundance": [
+          21.8762,
+          22.8288,
+          23.4096,
+          23.8815,
+          24.3332,
+          24.8656,
+          25.4616,
+          26.1094,
+          27.0168,
+          28.4645
+        ],
+        "bin_median_residual_sd": [
+          0.2275,
+          0.1777,
+          0.1793,
+          0.1615,
+          0.1344,
+          0.1185,
+          0.1245,
+          0.1075,
+          0.0975,
+          0.0837
+        ],
+        "bin_counts": [
+          164,
+          164,
+          164,
+          164,
+          164,
+          164,
+          164,
+          164,
+          164,
+          164
+        ]
+      },
+      "NSAF": {
+        "spearman_abundance_vs_sd": -0.5362683063657552,
+        "bin_median_abundance": [
+          -15.2748,
+          -14.2288,
+          -13.5682,
+          -13.1192,
+          -12.5954,
+          -12.1458,
+          -11.6755,
+          -11.1194,
+          -10.4465,
+          -9.5908
+        ],
+        "bin_median_residual_sd": [
+          0.4735,
+          0.387,
+          0.3497,
+          0.2979,
+          0.251,
+          0.2217,
+          0.1791,
+          0.1737,
+          0.1312,
+          0.1413
+        ],
+        "bin_counts": [
+          164,
+          164,
+          164,
+          164,
+          164,
+          164,
+          164,
+          164,
+          164,
+          164
+        ]
+      },
+      "PSM": {
+        "spearman_abundance_vs_sd": -0.682606311495729,
+        "bin_median_abundance": [
+          1.1462,
+          1.9402,
+          2.4679,
+          2.9422,
+          3.3716,
+          3.8304,
+          4.3525,
+          4.793,
+          5.5269,
+          6.8453
+        ],
+        "bin_median_residual_sd": [
+          0.4897,
+          0.4189,
+          0.3767,
+          0.2729,
+          0.2718,
+          0.2332,
+          0.1809,
+          0.1508,
+          0.137,
+          0.1145
+        ],
+        "bin_counts": [
+          164,
+          164,
+          164,
+          164,
+          164,
+          164,
+          164,
+          164,
+          164,
+          164
+        ]
+      }
+    },
+    "pairs": [
+      [
+        "protein",
+        "nsaf"
+      ],
+      [
+        "protein",
+        "psm_log2"
+      ],
+      [
+        "nsaf",
+        "psm_log2"
+      ]
+    ]
+  },
+  "figures": {
+    "0005-log2fc-scatter-lfq-nsaf-psm": {
+      "svg": "figures/analysis/quant-comparison/raloxifene-vs-control/0005-log2fc-scatter-lfq-nsaf-psm.svg",
+      "png": "figures/analysis/quant-comparison/raloxifene-vs-control/0005-log2fc-scatter-lfq-nsaf-psm.png",
+      "legend_svg": "figures/analysis/quant-comparison/raloxifene-vs-control/0005-log2fc-scatter-lfq-nsaf-psm.legend.svg",
+      "legend_png": "figures/analysis/quant-comparison/raloxifene-vs-control/0005-log2fc-scatter-lfq-nsaf-psm.legend.png"
+    },
+    "0005-residual-sd-by-quantity": {
+      "svg": "figures/analysis/quant-comparison/raloxifene-vs-control/0005-residual-sd-by-quantity.svg",
+      "png": "figures/analysis/quant-comparison/raloxifene-vs-control/0005-residual-sd-by-quantity.png",
+      "legend_svg": "figures/analysis/quant-comparison/raloxifene-vs-control/0005-residual-sd-by-quantity.legend.svg",
+      "legend_png": "figures/analysis/quant-comparison/raloxifene-vs-control/0005-residual-sd-by-quantity.legend.png"
+    },
+    "0005-residual-sd-vs-abundance": {
+      "svg": "figures/analysis/quant-comparison/raloxifene-vs-control/0005-residual-sd-vs-abundance.svg",
+      "png": "figures/analysis/quant-comparison/raloxifene-vs-control/0005-residual-sd-vs-abundance.png",
+      "legend_svg": "figures/analysis/quant-comparison/raloxifene-vs-control/0005-residual-sd-vs-abundance.legend.svg",
+      "legend_png": "figures/analysis/quant-comparison/raloxifene-vs-control/0005-residual-sd-vs-abundance.legend.png"
+    }
+  }
+}
