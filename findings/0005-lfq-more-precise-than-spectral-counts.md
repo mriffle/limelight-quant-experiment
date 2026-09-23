@@ -8,7 +8,7 @@ created: 2026-09-23
 updated: 2026-09-23
 
 summary: "On the 1,640 protein groups quantified completely by all three methods, all fitted with the same paired design (residual df 3), median per-protein residual SD is 0.135 for LFQ, 0.242 for NSAF and 0.237 for PSM counts, about 1.8x lower for LFQ. LFQ is lower at every abundance decile, and the gap is largest for low-abundance proteins. Per-protein log2FC barely correlates between LFQ and the spectral quantities (Spearman 0.05), while NSAF and PSM agree almost perfectly (0.98)."
-verdict: "Exploratory methods finding, recorded as a candidate. In log2 units, LFQ gives clearly tighter replicate agreement and narrower CIs than spectral counts on the same proteins and design. This supports the scientist's aim of showing the value of LFQ, but precision in log2 units is not the same as power to detect change, because there is no ground truth here and fold-change compression may differ between MS1 intensity and counts. The near-zero LFQ-to-spectral fold-change concordance is expected when there is no real difference to detect. It does not show that the quantifications disagree: they agree on abundance level (Spearman 0.89)."
+verdict: "Exploratory methods finding, recorded as a candidate. In log2 units, LFQ gives clearly tighter replicate agreement and narrower CIs than spectral counts on the same proteins and design. This supports the scientist's aim of showing the value of LFQ, but precision in log2 units is not the same as power to detect change, because there is no ground truth here and fold-change compression may differ between MS1 intensity and counts. The near-zero LFQ-to-spectral fold-change concordance is expected when there is no real difference to detect. It does not show that the quantifications disagree: they agree on which proteins are abundant (mean-abundance Spearman LFQ-PSM 0.889, LFQ-NSAF 0.762)."
 
 entities: []
 
@@ -77,7 +77,16 @@ evidence:
     correction: null
     test: "descriptive"
     n: 1640
-    note: "On moderated t: 0.063, 0.082, 0.964. Among proteins with >= 20 mean PSMs, the LFQ-spectral rho is 0.16. Mean-abundance Spearman LFQ vs PSM is 0.89."
+    note: "On moderated t: 0.063, 0.082, 0.964. Among proteins with >= 20 mean PSMs, the LFQ-spectral rho is 0.16. Mean-abundance Spearman is LFQ-PSM 0.889 and LFQ-NSAF 0.762 (see next item)."
+  - metric: "Spearman rho of per-protein mean log2 abundance (mean over 8 runs) between quantities"
+    value: "LFQ-PSM 0.889; LFQ-NSAF 0.762; NSAF-PSM 0.822"
+    ci: null
+    p_value: null
+    p_adjusted: null
+    correction: null
+    test: "descriptive"
+    n: 1640
+    note: "Pearson LFQ-PSM 0.886, LFQ-NSAF 0.768. The quantities agree on abundance level, in contrast to the near-zero fold-change concordance; NSAF agreement is weaker and flattens below mean log2 LFQ of about 22. Source: results/de/raloxifene-vs-control/supplementary_figure_provenance.json key_numbers.mean_abundance_agreement."
 
 figures:
   - png: "figures/analysis/quant-comparison/raloxifene-vs-control/0005-residual-sd-by-quantity.png"
@@ -107,6 +116,15 @@ figures:
     data_version: "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74"
     result_id: null
     params: { module: "scripts/scratch/analysis_figures/quant_comparison.py", input: "results/de/raloxifene-vs-control/common_set_comparison.tsv", dpi: 300, provenance: "results/de/raloxifene-vs-control/quant_comparison_figure_provenance.json" }
+  - png: "figures/analysis/quant-comparison/raloxifene-vs-control/0005-mean-abundance-lfq-vs-spectral.png"
+    svg: "figures/analysis/quant-comparison/raloxifene-vs-control/0005-mean-abundance-lfq-vs-spectral.svg"
+    legend_png: "figures/analysis/quant-comparison/raloxifene-vs-control/0005-mean-abundance-lfq-vs-spectral.legend.png"
+    legend_svg: "figures/analysis/quant-comparison/raloxifene-vs-control/0005-mean-abundance-lfq-vs-spectral.legend.svg"
+    caption: "Per-protein abundance level, mean over the 8 runs of each quantity's log2 value, 1,640 common protein groups: x = mean log2 LFQ (median-normalized); y = mean log2 PSM count (unnormalized, left) or mean log2 NSAF (right); black line = LOWESS trend (frac 0.3). Spearman rho LFQ-PSM 0.889, LFQ-NSAF 0.762 (NSAF-PSM 0.822, not plotted). n = 8."
+    script: { path: "scripts/scratch/fig_de_supplementary.py", commit: "bef1efc" }
+    data_version: "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74"
+    result_id: null
+    params: { module: "scripts/scratch/analysis_figures/de_supplementary.py", input: "results/de/raloxifene-vs-control/common_set_comparison.tsv joined to <quantity>_paired.tsv mean_log2_abundance", trend: "statsmodels LOWESS, frac 0.3, it 3", dpi: 300, provenance: "results/de/raloxifene-vs-control/supplementary_figure_provenance.json" }
 
 references: []
 
@@ -158,11 +176,21 @@ Compare the black binned-median lines across the three panels, which share a y-a
 
 In the two LFQ panels the cloud is a round blob centered at the origin, with no tilt along the dashed y = x line. The spread is narrow along the LFQ axis (about ±0.5) and wider along the spectral axis (about ±1), which is the precision difference of Figure 1 seen from another angle. In the NSAF-vs-PSM panel the points lie on a tight line parallel to y = x, offset slightly below it. That offset is the unnormalized-PSM shift (median PSM log2FC −0.11, [finding 0004](0004-no-differential-abundance-raloxifene-vs-control.md)).
 
+**The quantities agree on which proteins are abundant.** The near-zero fold-change concordance is not a general disagreement between the methods. Per-protein mean abundance (mean over the 8 runs of each log2 value) correlates strongly between LFQ and PSM counts (Spearman ρ 0.889) and more weakly between LFQ and NSAF (ρ 0.762). NSAF vs PSM is 0.822 (not plotted).
+
+![Per-protein mean log2 abundance over 8 runs, 1,640 common protein groups: x = mean log2 LFQ (median-normalized); y = mean log2 PSM count (unnormalized, left) or mean log2 NSAF (right); black line = LOWESS (frac 0.3); Spearman ρ LFQ–PSM 0.889, LFQ–NSAF 0.762 (NSAF–PSM 0.822, not plotted); n = 8.](../figures/analysis/quant-comparison/raloxifene-vs-control/0005-mean-abundance-lfq-vs-spectral.png)
+
+![Legend for Figure 4 — grey points = protein groups (n = 1,640); black line = LOWESS trend (frac = 0.3).](../figures/analysis/quant-comparison/raloxifene-vs-control/0005-mean-abundance-lfq-vs-spectral.legend.png)
+
+*Figure 4. Abundance level, LFQ vs spectral quantities. Produced by `scripts/scratch/fig_de_supplementary.py` (module `scripts/scratch/analysis_figures/de_supplementary.py`, commit bef1efc) from `results/de/raloxifene-vs-control/common_set_comparison.tsv` joined to `<quantity>_paired.tsv` mean abundance, data `sha256:bc6b73d3…1ba74`; sidecar `results/de/raloxifene-vs-control/supplementary_figure_provenance.json`.*
+
+In the left panel the points form a tight, monotone band from about (20, 0.5) to (31, 9), and the LOWESS line rises steadily across the full intensity range: proteins that are intense in MS1 also collect many PSMs. The right panel shows the same upward trend with a wider scatter, and its LOWESS line flattens below mean log2 LFQ ≈ 22. Because NSAF divides counts by protein length, it reorders proteins relative to intensity, which weakens the agreement most among low-abundance proteins. Set beside Figure 3, this is the key contrast: the quantities agree on abundance level, so their near-zero fold-change concordance reflects the near-null, not a failure of either measurement.
+
 ## Methods / how to produce
 The per-protein fits are the paired-design (condition + candidate_pair) moderated fits of `scripts/scratch/de_raloxifene_vs_control.py` (module `scripts/scratch/analysis/differential_abundance.py`, seeded from `differential-abundance@0.1`, with the limma `fitFDist` zero-variance floor), at commit 416cb10 on data `sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74`. The environment is `pyproject.toml` + `uv.lock` on Python 3.12.3, and the sample set is all 8 experimental runs. The common-set table `results/de/raloxifene-vs-control/common_set_comparison.tsv` joins the 1,640 protein groups complete in LFQ protein (median-normalized log2), NSAF (log2, as exported) and PSM (log2, unnormalized). A design check confirms its log2FC and residual SD equal the `<quantity>_paired.tsv` values exactly. Residual SD is the per-feature unmoderated OLS residual SD (df 3). CI half-width is (ci_high − ci_low)/2 of the 95% t interval on the moderated SE. Abundance trends use 10 equal-count bins of mean log2 abundance. Figures come from `scripts/scratch/fig_quant_comparison.py` (module `scripts/scratch/analysis_figures/quant_comparison.py`). The stats review of the underlying fits passed, and all fits match R limma 3.58.1 to about 1e-13.
 
 ## Discussion
-This finding serves the scientist's stated goal of demonstrating the value of LFQ approaches (`state/PROJECT.md`). The support it gives is specific. On identical proteins, samples and design, LFQ intensities vary less between replicates of the same pair than spectral counts do, by roughly a factor of 1.8 in median residual SD, and the advantage is largest for low-abundance proteins where counts are sparse. Narrower per-protein CIs follow from this. The finding does **not** show that LFQ would detect more true changes. That depends on how each quantity compresses or expands real fold changes, and this near-null dataset has no known changes to calibrate against. A spike-in or known-difference dataset would be needed to make a power claim. The near-zero fold-change concordance should also not be presented as "LFQ and spectral counting disagree." When there is little real difference, each quantity's per-protein fold change is mostly its own within-pair noise, and independent noise does not correlate. The quantities do agree on abundance level (mean-abundance Spearman LFQ vs PSM 0.89). These interpretive points are general measurement reasoning and do not yet have citations.
+This finding serves the scientist's stated goal of demonstrating the value of LFQ approaches (`state/PROJECT.md`). The support it gives is specific. On identical proteins, samples and design, LFQ intensities vary less between replicates of the same pair than spectral counts do, by roughly a factor of 1.8 in median residual SD, and the advantage is largest for low-abundance proteins where counts are sparse. Narrower per-protein CIs follow from this. The finding does **not** show that LFQ would detect more true changes. That depends on how each quantity compresses or expands real fold changes, and this near-null dataset has no known changes to calibrate against. A spike-in or known-difference dataset would be needed to make a power claim. The near-zero fold-change concordance should also not be presented as "LFQ and spectral counting disagree." When there is little real difference, each quantity's per-protein fold change is mostly its own within-pair noise, and independent noise does not correlate. The quantities do agree on abundance level (mean-abundance Spearman LFQ–PSM 0.889, LFQ–NSAF 0.762; Figure 4). These interpretive points are general measurement reasoning and do not yet have citations.
 
 ## Caveats
 - **Precision in log2 units is not power to detect change.** Fold-change compression may differ between MS1 intensity and spectral counts, and there is no ground truth here.

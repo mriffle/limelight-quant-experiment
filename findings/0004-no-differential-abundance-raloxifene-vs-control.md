@@ -140,8 +140,8 @@ figures:
     svg: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-protein-paired.svg"
     legend_png: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-protein-paired.legend.png"
     legend_svg: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-protein-paired.legend.svg"
-    caption: "Volcano, LFQ protein (median-normalized log2, 1,801 proteins), paired design (condition + pair): log2FC raloxifene-d0/control vs -log10 BH q, dashed line q = 0.05, top 8 by q labelled. n = 8."
-    script: { path: "scripts/scratch/fig_de_raloxifene_vs_control.py", commit: "416cb10" }
+    caption: "Volcano, LFQ protein (median-normalized log2, 1,801 proteins), paired design (condition + pair): log2FC raloxifene-d0/control vs -log10 BH q, dashed line q = 0.05 (annotated min q = 0.21). Labels = 8 smallest q, ties broken by p. n = 8."
+    script: { path: "scripts/scratch/fig_de_raloxifene_vs_control.py", commit: "bef1efc" }
     data_version: "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74"
     result_id: null
     params: { module: "scripts/scratch/analysis_figures/volcano.py", seeded_from: "volcano@0.2", input: "results/de/raloxifene-vs-control/protein_paired.tsv", fdr: 0.05, annotate_top: 8, provenance: "results/de/raloxifene-vs-control/figure_provenance.json" }
@@ -149,8 +149,8 @@ figures:
     svg: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-peptide-paired.svg"
     legend_png: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-peptide-paired.legend.png"
     legend_svg: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-peptide-paired.legend.svg"
-    caption: "Volcano, LFQ peptide (median-normalized log2, 10,229 peptides), paired design: log2FC vs -log10 BH q, dashed line q = 0.05, top 8 by q labelled with sequence and protein. n = 8."
-    script: { path: "scripts/scratch/fig_de_raloxifene_vs_control.py", commit: "416cb10" }
+    caption: "Volcano, LFQ peptide (median-normalized log2, 10,229 peptides), paired design: log2FC vs -log10 BH q, dashed line q = 0.05 (annotated min q = 0.052). Labels = the 8 smallest-q peptides (ties broken by p), as sequence and protein; sequences longer than 15 residues are abbreviated first 7 ... last 5 (full labels in results/de/raloxifene-vs-control/figure_provenance.json); UD14, TXND5 and NB5R3 share one stacked label. All label text sits below the q = 0.05 line. n = 8."
+    script: { path: "scripts/scratch/fig_de_raloxifene_vs_control.py", commit: "bef1efc" }
     data_version: "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74"
     result_id: null
     params: { module: "scripts/scratch/analysis_figures/volcano.py", seeded_from: "volcano@0.2", input: "results/de/raloxifene-vs-control/peptide_paired.tsv", fdr: 0.05, annotate_top: 8, provenance: "results/de/raloxifene-vs-control/figure_provenance.json" }
@@ -158,8 +158,8 @@ figures:
     svg: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-nsaf-paired.svg"
     legend_png: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-nsaf-paired.legend.png"
     legend_svg: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-nsaf-paired.legend.svg"
-    caption: "Volcano, NSAF (log2 as exported, 2,158 protein groups), paired design: log2FC vs -log10 BH q, dashed line q = 0.05, top 8 by q labelled. n = 8."
-    script: { path: "scripts/scratch/fig_de_raloxifene_vs_control.py", commit: "416cb10" }
+    caption: "Volcano, NSAF (log2 as exported, 2,158 protein groups), paired design: log2FC vs -log10 BH q, dashed line q = 0.05 (annotated min q = 0.65). Labels = 8 smallest q, ties broken by p. n = 8."
+    script: { path: "scripts/scratch/fig_de_raloxifene_vs_control.py", commit: "bef1efc" }
     data_version: "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74"
     result_id: null
     params: { module: "scripts/scratch/analysis_figures/volcano.py", seeded_from: "volcano@0.2", input: "results/de/raloxifene-vs-control/nsaf_paired.tsv", fdr: 0.05, annotate_top: 8, provenance: "results/de/raloxifene-vs-control/figure_provenance.json" }
@@ -167,17 +167,26 @@ figures:
     svg: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-psm-log2-paired.svg"
     legend_png: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-psm-log2-paired.legend.png"
     legend_svg: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-psm-log2-paired.legend.svg"
-    caption: "Volcano, log2 PSM counts (unnormalized, 2,167 protein groups), paired design: log2FC vs -log10 BH q, dashed line q = 0.05, top 8 by q labelled. n = 8."
-    script: { path: "scripts/scratch/fig_de_raloxifene_vs_control.py", commit: "416cb10" }
+    caption: "Volcano, log2 PSM counts (unnormalized, 2,167 protein groups), paired design: log2FC vs -log10 BH q, dashed line q = 0.05 (annotated min q = 0.41). Labels = 8 smallest q, ties broken by p. n = 8."
+    script: { path: "scripts/scratch/fig_de_raloxifene_vs_control.py", commit: "bef1efc" }
     data_version: "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74"
     result_id: null
     params: { module: "scripts/scratch/analysis_figures/volcano.py", seeded_from: "volcano@0.2", input: "results/de/raloxifene-vs-control/psm_log2_paired.tsv", fdr: 0.05, annotate_top: 8, provenance: "results/de/raloxifene-vs-control/figure_provenance.json" }
+  - png: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-residual-sd-by-design-protein.png"
+    svg: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-residual-sd-by-design-protein.svg"
+    legend_png: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-residual-sd-by-design-protein.legend.png"
+    legend_svg: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-residual-sd-by-design-protein.legend.svg"
+    caption: "Per-protein unmoderated OLS residual SD (log2 units, log x axis), LFQ protein (1,801), by design: paired (condition + pair, residual df 3, solid orange), batch (condition + batch, df 5, dashed blue), unadjusted (condition only, df 6, dash-dot green); dotted lines = medians 0.140 / 0.326 / 0.420. n = 8."
+    script: { path: "scripts/scratch/fig_de_supplementary.py", commit: "bef1efc" }
+    data_version: "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74"
+    result_id: null
+    params: { module: "scripts/scratch/analysis_figures/de_supplementary.py", input: "results/de/raloxifene-vs-control/protein_{paired,batch,unadjusted}.tsv", histogram: "log10(SD), 20 bins per decade", dpi: 300, provenance: "results/de/raloxifene-vs-control/supplementary_figure_provenance.json" }
   - png: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-protein-designs.png"
     svg: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-protein-designs.svg"
     legend_png: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-protein-designs.legend.png"
     legend_svg: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-protein-designs.legend.svg"
     caption: "Raw p-value density (20 bins, uniform = 1), LFQ protein (1,801), three designs overlaid: paired (solid orange), batch (dashed blue), unadjusted (dash-dot green). n = 8."
-    script: { path: "scripts/scratch/fig_de_raloxifene_vs_control.py", commit: "416cb10" }
+    script: { path: "scripts/scratch/fig_de_raloxifene_vs_control.py", commit: "bef1efc" }
     data_version: "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74"
     result_id: null
     params: { module: "scripts/scratch/analysis_figures/pvalue_hist.py", seeded_from: "pvalue-hist@0.2", input: "results/de/raloxifene-vs-control/protein_{paired,batch,unadjusted}.tsv", n_bins: 20, pi0_lambda: 0.5, provenance: "results/de/raloxifene-vs-control/figure_provenance.json" }
@@ -186,7 +195,7 @@ figures:
     legend_png: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-peptide-designs.legend.png"
     legend_svg: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-peptide-designs.legend.svg"
     caption: "Raw p-value density, LFQ peptide (10,229), paired / batch / unadjusted designs overlaid. n = 8."
-    script: { path: "scripts/scratch/fig_de_raloxifene_vs_control.py", commit: "416cb10" }
+    script: { path: "scripts/scratch/fig_de_raloxifene_vs_control.py", commit: "bef1efc" }
     data_version: "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74"
     result_id: null
     params: { module: "scripts/scratch/analysis_figures/pvalue_hist.py", seeded_from: "pvalue-hist@0.2", input: "results/de/raloxifene-vs-control/peptide_{paired,batch,unadjusted}.tsv", n_bins: 20, pi0_lambda: 0.5, provenance: "results/de/raloxifene-vs-control/figure_provenance.json" }
@@ -195,7 +204,7 @@ figures:
     legend_png: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-nsaf-designs.legend.png"
     legend_svg: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-nsaf-designs.legend.svg"
     caption: "Raw p-value density, NSAF (2,158), paired / batch / unadjusted designs overlaid. n = 8."
-    script: { path: "scripts/scratch/fig_de_raloxifene_vs_control.py", commit: "416cb10" }
+    script: { path: "scripts/scratch/fig_de_raloxifene_vs_control.py", commit: "bef1efc" }
     data_version: "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74"
     result_id: null
     params: { module: "scripts/scratch/analysis_figures/pvalue_hist.py", seeded_from: "pvalue-hist@0.2", input: "results/de/raloxifene-vs-control/nsaf_{paired,batch,unadjusted}.tsv", n_bins: 20, pi0_lambda: 0.5, provenance: "results/de/raloxifene-vs-control/figure_provenance.json" }
@@ -204,7 +213,7 @@ figures:
     legend_png: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-psm-log2-designs.legend.png"
     legend_svg: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-psm-log2-designs.legend.svg"
     caption: "Raw p-value density, log2 PSM counts (2,167), paired / batch / unadjusted designs overlaid. n = 8."
-    script: { path: "scripts/scratch/fig_de_raloxifene_vs_control.py", commit: "416cb10" }
+    script: { path: "scripts/scratch/fig_de_raloxifene_vs_control.py", commit: "bef1efc" }
     data_version: "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74"
     result_id: null
     params: { module: "scripts/scratch/analysis_figures/pvalue_hist.py", seeded_from: "pvalue-hist@0.2", input: "results/de/raloxifene-vs-control/psm_log2_{paired,batch,unadjusted}.tsv", n_bins: 20, pi0_lambda: 0.5, provenance: "results/de/raloxifene-vs-control/figure_provenance.json" }
@@ -213,10 +222,19 @@ figures:
     legend_png: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-quantities-paired.legend.png"
     legend_svg: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-quantities-paired.legend.svg"
     caption: "Raw p-value density by quantity, paired design only: small multiples for LFQ protein, LFQ peptide, NSAF and log2 PSM, with dotted uniform line and dashed Storey pi0 level. n = 8."
-    script: { path: "scripts/scratch/fig_de_raloxifene_vs_control.py", commit: "416cb10" }
+    script: { path: "scripts/scratch/fig_de_raloxifene_vs_control.py", commit: "bef1efc" }
     data_version: "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74"
     result_id: null
     params: { module: "scripts/scratch/analysis_figures/pvalue_hist.py", seeded_from: "pvalue-hist@0.2", input: "results/de/raloxifene-vs-control/{protein,peptide,nsaf,psm_log2}_paired.tsv", n_bins: 20, pi0_lambda: 0.5, provenance: "results/de/raloxifene-vs-control/figure_provenance.json" }
+  - png: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-protein-paired-by-abundance-tercile.png"
+    svg: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-protein-paired-by-abundance-tercile.svg"
+    legend_png: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-protein-paired-by-abundance-tercile.legend.png"
+    legend_svg: "figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-protein-paired-by-abundance-tercile.legend.svg"
+    caption: "Raw p-value density (20 bins, uniform = 1), LFQ protein, paired design, split into equal-count terciles of mean log2 intensity: low n = 601 (19.0-23.6), mid n = 600 (23.6-25.4), high n = 600 (25.4-31.5); dotted line = uniform, dashed line = Storey pi0 (lambda = 0.5): 0.765 / 0.877 / 0.927. n = 8."
+    script: { path: "scripts/scratch/fig_de_supplementary.py", commit: "bef1efc" }
+    data_version: "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74"
+    result_id: null
+    params: { module: "scripts/scratch/analysis_figures/de_supplementary.py", input: "results/de/raloxifene-vs-control/protein_paired.tsv", n_bins: 20, pi0_lambda: 0.5, terciles: "equal-count split of mean_log2_abundance", dpi: 300, provenance: "results/de/raloxifene-vs-control/supplementary_figure_provenance.json" }
 
 references: []
 
@@ -240,73 +258,83 @@ This is an exploratory null, recorded as a candidate. The primary model is a pai
 
 **No feature reaches q < 0.05, and the protein-level effects that lead the ranking are small.** In the paired design (condition + candidate_pair), the top-ranked proteins are ATPK (log2FC −0.52 [−0.69, −0.35], q 0.21), DOPD (−0.66 [−0.88, −0.44], q 0.21) and LMF1 (+0.62 [0.41, 0.83], q 0.21). Every protein has q ≥ 0.21.
 
-![Volcano, LFQ protein (median-normalized log2, 1,801 proteins), paired design: log2FC raloxifene-d0/control vs −log10 BH q, dashed line q = 0.05, top 8 by q labelled; n = 8.](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-protein-paired.png)
+![Volcano, LFQ protein (median-normalized log2, 1,801 proteins), paired design: log2FC raloxifene-d0/control vs −log10 BH q, dashed line q = 0.05 (annotated min q = 0.21); labels = 8 smallest q, ties broken by p; n = 8.](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-protein-paired.png)
 
 ![Legend for Figure 1 — significance class (BH): q < 0.05 higher in raloxifene-d0 (orange), q < 0.05 higher in control (blue), not significant (grey); dashed BH q = 0.05 threshold; open circles = 8 smallest q (none significant).](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-protein-paired.legend.png)
 
-*Figure 1. LFQ protein volcano, paired design. Produced by `scripts/scratch/fig_de_raloxifene_vs_control.py` (module `scripts/scratch/analysis_figures/volcano.py`, seeded volcano@0.2, commit 416cb10) from `results/de/raloxifene-vs-control/protein_paired.tsv`, data `sha256:bc6b73d3…1ba74`.*
+*Figure 1. LFQ protein volcano, paired design. Produced by `scripts/scratch/fig_de_raloxifene_vs_control.py` (module `scripts/scratch/analysis_figures/volcano.py`, seeded volcano@0.2, commit bef1efc) from `results/de/raloxifene-vs-control/protein_paired.tsv`, data `sha256:bc6b73d3…1ba74`.*
 
 All 1,801 points sit well below the dashed q = 0.05 line, and the highest reaches −log10 q ≈ 0.68 (q 0.21). DOPD and ATPK on the left and LMF1 on the right are the three labelled points tied at the top. Their effects stay within about ±0.7 log2, and the bulk of the cloud lies within ±0.25.
 
 **The only q < 0.10 results are 10 LFQ peptides.** In the paired design, 10 peptides have q 0.052–0.077 and |log2FC| 1.0–1.8. They come from UD14, LRC59, SC24C, AACT, NB5R3, TXND5, ERAP1, CATD, S2513 and ECHP, and none of those proteins is a protein-level hit. None of the 7 within-pair relabellings produced any hits.
 
-![Volcano, LFQ peptide (median-normalized log2, 10,229 peptides), paired design: log2FC vs −log10 BH q, dashed line q = 0.05, top 8 by q labelled with sequence and protein; n = 8.](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-peptide-paired.png)
+![Volcano, LFQ peptide (median-normalized log2, 10,229 peptides), paired design: log2FC vs −log10 BH q, dashed line q = 0.05 (annotated min q = 0.052); labels = the 8 smallest-q peptides (ties broken by p) as sequence · protein, sequences over 15 residues abbreviated first 7…last 5 (full labels in the provenance sidecar), UD14/TXND5/NB5R3 in one stacked label; all label text sits below the q = 0.05 line; n = 8.](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-peptide-paired.png)
 
 ![Legend for Figure 2 — significance class (BH): q < 0.05 higher in raloxifene-d0 (orange), q < 0.05 higher in control (blue), not significant (grey); dashed BH q = 0.05 threshold; open circles = 8 smallest q (none significant).](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-peptide-paired.legend.png)
 
-*Figure 2. LFQ peptide volcano, paired design. Produced by `scripts/scratch/fig_de_raloxifene_vs_control.py` (module `scripts/scratch/analysis_figures/volcano.py`, commit 416cb10) from `results/de/raloxifene-vs-control/peptide_paired.tsv`, data `sha256:bc6b73d3…1ba74`.*
+*Figure 2. LFQ peptide volcano, paired design. Produced by `scripts/scratch/fig_de_raloxifene_vs_control.py` (module `scripts/scratch/analysis_figures/volcano.py`, commit bef1efc) from `results/de/raloxifene-vs-control/peptide_paired.tsv`, data `sha256:bc6b73d3…1ba74`.*
 
-A row of labelled peptides sits just under the dashed q = 0.05 line at −log10 q ≈ 1.28 (q 0.052): UD14, LRC59, AACT, NB5R3 and TXND5 on the left, SC24C and ERAP1 on the right. The CATD peptide sits slightly lower (q 0.070). These peptides have large effects (|log2FC| 1–1.8) and still do not cross the line. Figure 1 shows that the proteins they belong to do not stand out at protein level.
+A row of labelled peptides sits just under the dashed q = 0.05 line at −log10 q ≈ 1.28 (q 0.052): UD14, LRC59, AACT, NB5R3 and TXND5 on the left, SC24C and ERAP1 on the right. The CATD peptide sits slightly lower (q 0.070). The UD14, TXND5 and NB5R3 peptides have nearly identical coordinates, so they share one stacked label; the NB5R3 and CATD sequences are abbreviated (full sequences in `results/de/raloxifene-vs-control/figure_provenance.json`). All label text is placed below the dashed line so that it cannot be mistaken for a hit, and the annotation "min q = 0.052" beside the line gives the closest approach. These peptides have large effects (|log2FC| 1–1.8) and still do not cross the line. Figure 1 shows that the proteins they belong to do not stand out at protein level.
 
 **Spectral-count quantities show the same null.** NSAF and log2 PSM counts give no hit at any threshold up to q < 0.10. The highest point on the NSAF volcano reaches only −log10 q ≈ 0.19, and on the PSM volcano ≈ 0.38.
 
-![Volcano, NSAF (log2 as exported, 2,158 protein groups), paired design: log2FC vs −log10 BH q, dashed line q = 0.05; n = 8.](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-nsaf-paired.png)
+![Volcano, NSAF (log2 as exported, 2,158 protein groups), paired design: log2FC vs −log10 BH q, dashed line q = 0.05 (annotated min q = 0.65); labels = 8 smallest q, ties broken by p; n = 8.](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-nsaf-paired.png)
 
 ![Legend for Figure 3 — significance class (BH): q < 0.05 higher in raloxifene-d0 (orange), q < 0.05 higher in control (blue), not significant (grey); dashed BH q = 0.05 threshold; open circles = 8 smallest q (none significant).](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-nsaf-paired.legend.png)
 
-*Figure 3. NSAF volcano, paired design. Produced by `scripts/scratch/fig_de_raloxifene_vs_control.py` (module `scripts/scratch/analysis_figures/volcano.py`, commit 416cb10) from `results/de/raloxifene-vs-control/nsaf_paired.tsv`, data `sha256:bc6b73d3…1ba74`.*
+*Figure 3. NSAF volcano, paired design. Produced by `scripts/scratch/fig_de_raloxifene_vs_control.py` (module `scripts/scratch/analysis_figures/volcano.py`, commit bef1efc) from `results/de/raloxifene-vs-control/nsaf_paired.tsv`, data `sha256:bc6b73d3…1ba74`.*
 
 The whole NSAF cloud is flattened near the x-axis (max −log10 q ≈ 0.19). Its labelled extremes (CD47 +1.23, AP1S1 −1.45) have q ≈ 0.65, so large spectral-count fold changes here carry almost no evidence.
 
-![Volcano, log2 PSM counts (unnormalized, 2,167 protein groups), paired design: log2FC vs −log10 BH q, dashed line q = 0.05; n = 8.](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-psm-log2-paired.png)
+![Volcano, log2 PSM counts (unnormalized, 2,167 protein groups), paired design: log2FC vs −log10 BH q, dashed line q = 0.05 (annotated min q = 0.41); labels = 8 smallest q, ties broken by p; n = 8.](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-psm-log2-paired.png)
 
 ![Legend for Figure 4 — significance class (BH): q < 0.05 higher in raloxifene-d0 (orange), q < 0.05 higher in control (blue), not significant (grey); dashed BH q = 0.05 threshold; open circles = 8 smallest q (none significant).](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-volcano-psm-log2-paired.legend.png)
 
-*Figure 4. log2 PSM-count volcano, paired design. Produced by `scripts/scratch/fig_de_raloxifene_vs_control.py` (module `scripts/scratch/analysis_figures/volcano.py`, commit 416cb10) from `results/de/raloxifene-vs-control/psm_log2_paired.tsv`, data `sha256:bc6b73d3…1ba74`.*
+*Figure 4. log2 PSM-count volcano, paired design. Produced by `scripts/scratch/fig_de_raloxifene_vs_control.py` (module `scripts/scratch/analysis_figures/volcano.py`, commit bef1efc) from `results/de/raloxifene-vs-control/psm_log2_paired.tsv`, data `sha256:bc6b73d3…1ba74`.*
 
 The PSM cloud tops out at −log10 q ≈ 0.38 (AP1S1, ANFY1, ITAV, CD47), far below the line. The left arm is denser and wider than the right, which shows the unnormalized downward shift (median log2FC −0.11, 27% positive) discussed under Caveats.
 
 **Only the pair-blocked design is plausibly calibrated.** The log2FC estimates are identical across the three designs, because condition is balanced within pair and within batch. Only the SEs differ. Median protein residual SD is 0.14 in the paired design, 0.33 in the batch design and 0.42 in the unadjusted design. Paired π0 is 0.86 (protein), 0.87 (peptide), 0.83 (NSAF) and 0.76 (PSM), showing a broad excess of small p. In the batch and unadjusted designs, π0 is capped at 1.00 for every quantity (raw 1.17–1.67). These designs show a deficit near p = 0 and a hump near p = 1, meaning they are conservative: the pair variance stays in their residual.
 
+Figure 5 shows where that residual variance goes. Blocking on pair costs 3 of the 6 available residual df, yet it removes most of the residual variance; blocking on batch keeps more df but removes much less.
+
+![Per-protein unmoderated residual SD (log2 units, log x axis), LFQ protein (1,801), by design: paired (df 3), batch (df 5), unadjusted (df 6); dotted lines = medians 0.140 / 0.326 / 0.420; n = 8.](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-residual-sd-by-design-protein.png)
+
+![Legend for Figure 5 — design: paired: condition + pair (solid orange), batch: condition + batch (dashed blue), unadjusted: condition only (dash-dot green); dotted vertical lines = per-design medians.](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-residual-sd-by-design-protein.legend.png)
+
+*Figure 5. LFQ protein residual SD by design. Produced by `scripts/scratch/fig_de_supplementary.py` (module `scripts/scratch/analysis_figures/de_supplementary.py`, commit bef1efc) from `results/de/raloxifene-vs-control/protein_{paired,batch,unadjusted}.tsv`, data `sha256:bc6b73d3…1ba74`; sidecar `results/de/raloxifene-vs-control/supplementary_figure_provenance.json`.*
+
+The solid orange paired distribution peaks around 0.1–0.2 with its median line at 0.140. The dashed blue batch and dash-dot green unadjusted distributions sit well to the right, peaking around 0.35–0.5 (medians 0.326 and 0.420), and overlap each other far more than either overlaps the paired curve. So pair blocking cuts the typical residual SD by about two-thirds with only 3 residual df, while batch blocking lowers it by only about a fifth (0.420 to 0.326). The large pair component left in the batch and unadjusted residuals is what inflates their SEs and produces the conservative p-value shapes in Figures 6–9.
+
 ![Raw p-value density, LFQ protein (1,801), paired / batch / unadjusted designs overlaid; uniform = 1; n = 8.](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-protein-designs.png)
 
-![Legend for Figure 5 — design: paired: condition + pair (solid orange), batch: condition + batch (dashed blue), unadjusted: condition only (dash-dot green).](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-protein-designs.legend.png)
+![Legend for Figure 6 — design: paired: condition + pair (solid orange), batch: condition + batch (dashed blue), unadjusted: condition only (dash-dot green).](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-protein-designs.legend.png)
 
-*Figure 5. LFQ protein p-value histograms by design. Produced by `scripts/scratch/fig_de_raloxifene_vs_control.py` (module `scripts/scratch/analysis_figures/pvalue_hist.py`, seeded pvalue-hist@0.2, commit 416cb10) from `results/de/raloxifene-vs-control/protein_{paired,batch,unadjusted}.tsv`, data `sha256:bc6b73d3…1ba74`.*
+*Figure 6. LFQ protein p-value histograms by design. Produced by `scripts/scratch/fig_de_raloxifene_vs_control.py` (module `scripts/scratch/analysis_figures/pvalue_hist.py`, seeded pvalue-hist@0.2, commit bef1efc) from `results/de/raloxifene-vs-control/protein_{paired,batch,unadjusted}.tsv`, data `sha256:bc6b73d3…1ba74`.*
 
 The solid orange paired curve stays near the dotted uniform line, a little above it for p < 0.3 (density 1.2–1.6) and a little below it above 0.5. The dashed blue batch curve and the dash-dot green unadjusted curve instead rise steadily from about 0.1 at p ≈ 0 to 2.1 and 2.6 at p ≈ 1. That shape is the signature of an inflated residual variance, which pushes p-values toward 1.
 
 ![Raw p-value density, LFQ peptide (10,229), paired / batch / unadjusted designs overlaid; n = 8.](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-peptide-designs.png)
 
-![Legend for Figure 6 — design line styles and colors (paired solid orange, batch dashed blue, unadjusted dash-dot green).](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-peptide-designs.legend.png)
+![Legend for Figure 7 — design line styles and colors (paired solid orange, batch dashed blue, unadjusted dash-dot green).](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-peptide-designs.legend.png)
 
-*Figure 6. LFQ peptide p-value histograms by design. Produced by `scripts/scratch/fig_de_raloxifene_vs_control.py` (module `scripts/scratch/analysis_figures/pvalue_hist.py`, commit 416cb10) from `results/de/raloxifene-vs-control/peptide_{paired,batch,unadjusted}.tsv`, data `sha256:bc6b73d3…1ba74`.*
+*Figure 7. LFQ peptide p-value histograms by design. Produced by `scripts/scratch/fig_de_raloxifene_vs_control.py` (module `scripts/scratch/analysis_figures/pvalue_hist.py`, commit bef1efc) from `results/de/raloxifene-vs-control/peptide_{paired,batch,unadjusted}.tsv`, data `sha256:bc6b73d3…1ba74`.*
 
 The peptide level shows the same split. The paired curve (π0 0.87) is roughly flat with a mild rise at small p. The batch and unadjusted curves (raw π0 1.40 and 1.62) are depleted near 0 and piled up near 1.
 
 ![Raw p-value density, NSAF (2,158), paired / batch / unadjusted designs overlaid; n = 8.](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-nsaf-designs.png)
 
-![Legend for Figure 7 — design line styles and colors (paired solid orange, batch dashed blue, unadjusted dash-dot green).](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-nsaf-designs.legend.png)
+![Legend for Figure 8 — design line styles and colors (paired solid orange, batch dashed blue, unadjusted dash-dot green).](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-nsaf-designs.legend.png)
 
-*Figure 7. NSAF p-value histograms by design. Produced by `scripts/scratch/fig_de_raloxifene_vs_control.py` (module `scripts/scratch/analysis_figures/pvalue_hist.py`, commit 416cb10) from `results/de/raloxifene-vs-control/nsaf_{paired,batch,unadjusted}.tsv`, data `sha256:bc6b73d3…1ba74`.*
+*Figure 8. NSAF p-value histograms by design. Produced by `scripts/scratch/fig_de_raloxifene_vs_control.py` (module `scripts/scratch/analysis_figures/pvalue_hist.py`, commit bef1efc) from `results/de/raloxifene-vs-control/nsaf_{paired,batch,unadjusted}.tsv`, data `sha256:bc6b73d3…1ba74`.*
 
 For NSAF, the paired curve (π0 0.83) is near-uniform. The batch and unadjusted curves (raw π0 1.23 and 1.41) again rise toward p = 1, less steeply than for LFQ.
 
 ![Raw p-value density, log2 PSM counts (2,167), paired / batch / unadjusted designs overlaid; n = 8.](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-psm-log2-designs.png)
 
-![Legend for Figure 8 — design line styles and colors (paired solid orange, batch dashed blue, unadjusted dash-dot green).](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-psm-log2-designs.legend.png)
+![Legend for Figure 9 — design line styles and colors (paired solid orange, batch dashed blue, unadjusted dash-dot green).](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-psm-log2-designs.legend.png)
 
-*Figure 8. log2 PSM-count p-value histograms by design. Produced by `scripts/scratch/fig_de_raloxifene_vs_control.py` (module `scripts/scratch/analysis_figures/pvalue_hist.py`, commit 416cb10) from `results/de/raloxifene-vs-control/psm_log2_{paired,batch,unadjusted}.tsv`, data `sha256:bc6b73d3…1ba74`.*
+*Figure 9. log2 PSM-count p-value histograms by design. Produced by `scripts/scratch/fig_de_raloxifene_vs_control.py` (module `scripts/scratch/analysis_figures/pvalue_hist.py`, commit bef1efc) from `results/de/raloxifene-vs-control/psm_log2_{paired,batch,unadjusted}.tsv`, data `sha256:bc6b73d3…1ba74`.*
 
 For PSM counts, the paired curve has the strongest small-p excess of any quantity (π0 0.76). The batch and unadjusted curves (raw π0 1.17 and 1.35) are the least conservative of the four quantities, but they are still depleted at small p.
 
@@ -314,11 +342,21 @@ For PSM counts, the paired curve has the strongest small-p excess of any quantit
 
 ![Raw p-value density by quantity, paired design only: LFQ protein, LFQ peptide, NSAF, log2 PSM; dotted line uniform, dashed line Storey π0; n = 8.](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-quantities-paired.png)
 
-![Legend for Figure 9 — paired-design raw p bars; uniform null density 1 (dotted); Storey π0 at λ = 0.5 (dashed).](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-quantities-paired.legend.png)
+![Legend for Figure 10 — paired-design raw p bars; uniform null density 1 (dotted); Storey π0 at λ = 0.5 (dashed).](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-quantities-paired.legend.png)
 
-*Figure 9. Paired-design p-value histograms, one panel per quantity. Produced by `scripts/scratch/fig_de_raloxifene_vs_control.py` (module `scripts/scratch/analysis_figures/pvalue_hist.py`, commit 416cb10) from `results/de/raloxifene-vs-control/{protein,peptide,nsaf,psm_log2}_paired.tsv`, data `sha256:bc6b73d3…1ba74`.*
+*Figure 10. Paired-design p-value histograms, one panel per quantity. Produced by `scripts/scratch/fig_de_raloxifene_vs_control.py` (module `scripts/scratch/analysis_figures/pvalue_hist.py`, commit bef1efc) from `results/de/raloxifene-vs-control/{protein,peptide,nsaf,psm_log2}_paired.tsv`, data `sha256:bc6b73d3…1ba74`.*
 
 In each panel the bars for p < 0.25 stand above the dotted uniform line, and the rest sit near the dashed π0 level: protein 0.86, peptide 0.87, NSAF 0.83, PSM 0.75. The PSM panel is the most skewed (first bins ≈ 1.75). Caveat 6 below shows that this skew is largely caused by the missing normalization. No panel has the sharp spike at p ≈ 0 that a set of strong true effects would produce.
+
+**The paired small-p excess comes mostly from low-abundance proteins.** Splitting the 1,801 proteins into equal-count terciles of mean log2 intensity, Storey π0 is 0.765 (low), 0.877 (mid) and 0.927 (high).
+
+![Raw p-value density, LFQ protein, paired design, by equal-count tercile of mean log2 intensity: low n = 601 (19.0–23.6), mid n = 600 (23.6–25.4), high n = 600 (25.4–31.5); dotted line uniform, dashed line Storey π0 (λ = 0.5) 0.765 / 0.877 / 0.927; n = 8.](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-protein-paired-by-abundance-tercile.png)
+
+![Legend for Figure 11 — paired-design raw p bars; uniform null density 1 (dotted); Storey π0 at λ = 0.5 (dashed).](../figures/analysis/differential-abundance/raloxifene-vs-control/0004-pvalue-hist-protein-paired-by-abundance-tercile.legend.png)
+
+*Figure 11. LFQ protein paired p-value histograms by abundance tercile. Produced by `scripts/scratch/fig_de_supplementary.py` (module `scripts/scratch/analysis_figures/de_supplementary.py`, commit bef1efc) from `results/de/raloxifene-vs-control/protein_paired.tsv`, data `sha256:bc6b73d3…1ba74`; sidecar `results/de/raloxifene-vs-control/supplementary_figure_provenance.json`.*
+
+Compare the leftmost bars across the three panels. In the low tercile the bars for p < 0.2 stand well above the dotted uniform line (first-bin density 1.63), and the dashed π0 line drops to 0.765. In the high tercile the first bin is below uniform (0.83), the histogram is close to flat, and π0 is 0.927. The mid tercile lies in between. The small-p excess of the protein-level paired analysis (Figure 6) is therefore not a proteome-wide signal. It is concentrated where intensities are lowest and noisiest, which supports the technical-source reading in Caveat 4 (detection floor, drift or an unmodelled mean-variance trend) over a broad treatment effect.
 
 ## Methods / how to produce
 Run `scripts/scratch/de_raloxifene_vs_control.py` (module `scripts/scratch/analysis/differential_abundance.py`, seeded from `differential-abundance@0.1`, with the limma `fitFDist` zero-variance floor added) at commit 416cb10 on data `sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74`. The environment is `pyproject.toml` + `uv.lock` on Python 3.12.3. The sample set is all 8 experimental runs; there are no QC or pool controls. The contrast is raloxifene-d0 vs control, with positive log2FC meaning higher in raloxifene-d0. The method is a limma-style linear model with empirical-Bayes moderation (single prior, no trend). BH correction is applied per quantity × design, and CIs are 95% t intervals on the moderated SE. The designs are paired (condition + candidate_pair, primary), condition + batch, and condition only. Inputs are the complete-feature LFQ protein and peptide states (median-normalized log2), log2 NSAF as exported, and log2 PSM counts (unnormalized). Constant features were dropped, and there is no imputation. Outputs are `results/de/raloxifene-vs-control/summary.json`, `<quantity>_<design>.tsv` and `results/<quantity>_<design>/`. Figures come from `scripts/scratch/fig_de_raloxifene_vs_control.py` (provenance sidecar `results/de/raloxifene-vs-control/figure_provenance.json`). The statistical review passed, and all 12 fits match R limma 3.58.1 to about 1e-13.
@@ -332,7 +370,7 @@ The design comparison is the more solid result. Blocking on pair removes most re
 1. **Exploratory, minimal design.** There are 4 pairs and residual df 3. Pairing is inferred from consecutive sample IDs, strongly supported by [finding 0003](0003-samples-structured-by-matched-pairs.md) but not recorded in metadata. Only complete features were tested, with no imputation, so proteins that are present in one condition and absent in the other were not tested.
 2. **Run order is aliased with condition in every pair** ([finding 0001](0001-run-order-aliased-with-condition.md)). Any small-p excess, and any future hit, could reflect condition or run order (drift).
 3. **"No protein hits" depends on the model.** The primary model has no mean-variance trend, although residual SD falls with abundance (Spearman ρ −0.48, protein). Under limma-trend (paired), ATPK becomes q = 0.039 and 10 peptides reach q < 0.05.
-4. **Do not read π0 as "~14% of proteins change".** The within-pair relabelling diagnostic ranks the observed labelling 1/8 (protein, NSAF, PSM) and 2/8 (peptide). With 8 labellings the smallest attainable p is 0.125, so the observed excess cannot be distinguished from relabelling at this design's resolution. The excess is concentrated in low-intensity proteins (π0 by abundance tercile, low/mid/high: 0.77/0.88/0.93), which points to a technical source such as drift, the detection floor or an unmodelled trend.
+4. **Do not read π0 as "~14% of proteins change".** The within-pair relabelling diagnostic ranks the observed labelling 1/8 (protein, NSAF, PSM) and 2/8 (peptide). With 8 labellings the smallest attainable p is 0.125, so the observed excess cannot be distinguished from relabelling at this design's resolution. The excess is concentrated in low-intensity proteins (π0 by abundance tercile, low/mid/high: 0.77/0.88/0.93; Figure 11), which points to a technical source such as drift, the detection floor or an unmodelled trend.
 5. **The batch and unadjusted designs are misspecified sensitivity runs, not corroboration.** Their agreement with the paired null carries no extra weight, because they are conservative by construction here.
 6. **PSM results reflect the lack of normalization.** Median PSM log2FC is −0.11, and only 27% of fold changes are positive. Median-normalizing PSM counts moves π0 from 0.755 to 0.893, so much of the PSM small-p excess is a global offset.
 7. **Multiplicity context** (`findings/exploration-log.md`, 2026-09-23 entry). This finding covers 4 quantities × 3 designs = 12 analyses, plus a common-set comparison ([finding 0005](0005-lfq-more-precise-than-spectral-counts.md)) and the unrequested within-pair relabelling diagnostic. BH is applied within each quantity × design, not across the 12. The exploration log also records a post-hoc look at CYP3A4 (log2FC −0.24 [−0.53, +0.06], p 0.096), which is context only and not part of this claim.
