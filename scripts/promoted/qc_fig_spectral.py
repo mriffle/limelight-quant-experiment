@@ -447,14 +447,21 @@ class Runner:
         return self.save("dynamic-range", f"dynamic-range-{m.key}-raw-linear", build)
 
     def boxplot(self, m: Measure) -> Rendered:
+        # Both measures are drawn on log2. NSAF has a stored log state; PSM counts
+        # (scientist request, 2026-09-23) are log2-transformed here from the raw
+        # complete counts, with no pseudocount (every complete count is >= 1) and
+        # no normalization — the same transform the differential analysis used.
+        scale_tok = "raw-log2"
         if m.log_state is not None:
-            state, scale_tok, scale_txt = m.log_state, "raw-log2", "log2"
-            ylabel = f"log2 {m.log_label}"
+            state, scale_txt = m.log_state, "log2"
+            ds = self.load(m.key, state)
         else:
-            state, scale_tok = "raw_linear_complete", "raw-linear"
-            scale_txt = "raw counts, linear"
-            ylabel = f"{m.log_label} (raw counts, linear)"
-        ds = self.load(m.key, state)
+            state, scale_txt = "raw_linear_complete", "log2 raw counts (no pseudocount)"
+            linear = self.load(m.key, state)
+            if not np.all(linear.abundances >= 1):
+                raise ValueError("PSM complete counts must all be >= 1 to log2.")
+            ds = replace(linear, abundances=np.log2(linear.abundances), scale="log2")
+        ylabel = f"log2 {m.log_label}"
         n_features = ds.abundances.shape[1]
         panel = scale_txt
 
@@ -469,12 +476,7 @@ class Runner:
                 registry_path=self.registry,
                 persist_colors=False,
             )
-            old = (
-                "log2 protein abundance (a.u.)"
-                if m.log_state
-                else "protein abundance (linear)"
-            )
-            _relabel(plot.figure, old, ylabel)
+            _relabel(plot.figure, "log2 protein abundance (a.u.)", ylabel)
             # The module's GridSpec is fixed at top=0.93, which leaves no room for a
             # suptitle above a single panel: add height and lower the grid top.
             fig = plot.figure

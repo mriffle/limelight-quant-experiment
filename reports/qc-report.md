@@ -123,7 +123,7 @@ Detected features per run (raw, linear), in acquisition order, colored by condit
 
 ## 9. Spectral-count views — NSAF (as-is) and PSM counts (raw)
 
-These are **comparators only**; the LFQ intensities above are the analysis quantity. NSAF is used as delivered: already normalized, not batch-corrected, log2 for box/correlation/PCA. PSM counts are used **raw**, with no normalization, batch correction or log transform, as they are commonly used. The PSM plots are *expected* to look poor. Box, CV, correlation and PCA panels use the 2,168 non-contaminant protein groups with ≥ 1 PSM in all 8 runs.
+These are **comparators only**; the LFQ intensities above are the analysis quantity. NSAF is used as delivered: already normalized, not batch-corrected, log2 for box/correlation/PCA. PSM counts are used **raw**, with no normalization, batch correction or log transform, as they are commonly used. The PSM plots are *expected* to look poor. The box plot shows log2 PSM counts; CV, correlation and PCA use raw linear counts. Box, CV, correlation and PCA panels use the 2,168 non-contaminant protein groups with ≥ 1 PSM in all 8 runs.
 
 **Source-precision caveat:** the Limelight dump prints NSAF ≥ 0.001 to 3 decimal places. The top-abundance NSAF values are therefore coarse: 24 distinct values across 1,629 cells, and 10 groups are identical in all runs. This shows as steps at the head of the NSAF dynamic-range curve and a small spike at CV ≈ 0. The NSAF PCA drops those 10 constant groups (the PSM PCA drops 1).
 
@@ -152,11 +152,11 @@ These are **comparators only**; the LFQ intensities above are the analysis quant
 
 ![Box plot, NSAF](../figures/qc/abundance-boxplot/abundance-boxplot-nsaf-raw-log2.png)
 ![Box plot, NSAF legend](../figures/qc/abundance-boxplot/abundance-boxplot-nsaf-raw-log2.legend.png)
-![Box plot, PSM](../figures/qc/abundance-boxplot/abundance-boxplot-psm-raw-linear.png)
-![Box plot, PSM legend](../figures/qc/abundance-boxplot/abundance-boxplot-psm-raw-linear.legend.png)
+![Box plot, PSM](../figures/qc/abundance-boxplot/abundance-boxplot-psm-raw-log2.png)
+![Box plot, PSM legend](../figures/qc/abundance-boxplot/abundance-boxplot-psm-raw-log2.legend.png)
 
 - **NSAF per-sample medians** are already aligned, within 0.22 log2.
-- **Raw PSM boxes** are pressed against 0 by counts up to about 2,900, so the linear view is uninformative, as expected.
+- **PSM counts on log2** (no normalization; no pseudocount, since every complete count is ≥ 1; revised at your request from the original linear view): per-sample medians spread over 0.53 log2. AZ905/AZ906 are highest, and AZ908 and the 2022 runs have lower medians. This is the unnormalized depth/loading offset that NSAF's total-count normalization removes (NSAF spread 0.22).
 
 ![CV, NSAF](../figures/qc/cv/cv-experimental-nsaf-raw-linear.png)
 ![CV, NSAF legend](../figures/qc/cv/cv-experimental-nsaf-raw-linear.legend.png)

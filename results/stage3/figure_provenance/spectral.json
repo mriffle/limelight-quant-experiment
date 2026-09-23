@@ -3,7 +3,7 @@
   "scripts": {
     "runner": {
       "path": "scripts/promoted/qc_fig_spectral.py",
-      "sha256": "07ab53a8cc012e2dbf3c2f30cfbf9ebb0355764c6b2a3a3c30781999f3c2eec1"
+      "sha256": "2274274d1d12b8166328a5dfbb16e5a7bf78f2f5377111a01be6ab1dcbeea533"
     },
     "modules": {
       "id_depth": {
@@ -36,13 +36,13 @@
       }
     }
   },
-  "git_head": "cc249d2974e4cbf91b737f3f4ab4ad4a29372d76",
+  "git_head": "213e880a4f9586950ab0dfe5e80d07245ed46327",
   "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
   "qc_states_manifest": {
     "path": "results/qc_states/manifest.json",
     "sha256": "2d0bb2a17c94e5f76f16808cb8a2af70bffa0a79a91d2b854ef067caf1f31006"
   },
-  "color_registry_sha256": "0d75c4bb87e4e85b77b36fb464fe11a4cf33a551da538592e9ab4be4dde627df",
+  "color_registry_sha256": "7977a506637bef99ef13072698a411887339b43256b8a41772a3ccb4e94c3874",
   "params": {
     "processing": "as-is, no normalization or batch correction",
     "nsaf_log_pseudocount": 1e-09,
@@ -833,12 +833,12 @@
       },
       "warnings": []
     },
-    "abundance-boxplot-psm-raw-linear": {
+    "abundance-boxplot-psm-raw-log2": {
       "family": "abundance-boxplot",
       "inputs": [
         "psm/raw_linear_complete"
       ],
-      "panel_label": "raw counts, linear",
+      "panel_label": "log2 raw counts (no pseudocount)",
       "color_maps": {
         "condition": {
           "control": "#0072B2",
@@ -851,25 +851,23 @@
       },
       "n_features": 2168,
       "per_sample_median": {
-        "AZ905": 13.0,
-        "AZ907": 11.0,
-        "AZ909": 11.0,
-        "AZ906": 12.0,
-        "AZ908": 9.0,
-        "AZ910": 10.0,
-        "AZ941": 10.0,
-        "AZ942": 10.0
+        "AZ905": 3.70044,
+        "AZ907": 3.459432,
+        "AZ909": 3.459432,
+        "AZ906": 3.584963,
+        "AZ908": 3.169925,
+        "AZ910": 3.321928,
+        "AZ941": 3.321928,
+        "AZ942": 3.321928
       },
-      "median_range": 4.0,
+      "median_range": 0.530515,
       "artifacts": {
-        "svg": "figures/qc/abundance-boxplot/abundance-boxplot-psm-raw-linear.svg",
-        "png": "figures/qc/abundance-boxplot/abundance-boxplot-psm-raw-linear.png",
-        "legend_svg": "figures/qc/abundance-boxplot/abundance-boxplot-psm-raw-linear.legend.svg",
-        "legend_png": "figures/qc/abundance-boxplot/abundance-boxplot-psm-raw-linear.legend.png"
+        "svg": "figures/qc/abundance-boxplot/abundance-boxplot-psm-raw-log2.svg",
+        "png": "figures/qc/abundance-boxplot/abundance-boxplot-psm-raw-log2.png",
+        "legend_svg": "figures/qc/abundance-boxplot/abundance-boxplot-psm-raw-log2.legend.svg",
+        "legend_png": "figures/qc/abundance-boxplot/abundance-boxplot-psm-raw-log2.legend.png"
       },
-      "warnings": [
-        "AbundanceBoxplotScaleWarning: Abundance box plot state(s) ['raw counts, linear'] are on a non-log scale (not one of ['glog2', 'ln', 'log10', 'log2', 'zscore']). Protein abundances span orders of magnitude, so on a linear scale a few abundant features stretch every box and crush the bulk; log2_transform (or VSN) first. The plot is still drawn (a box plot is defined on any scale)."
-      ]
+      "warnings": []
     },
     "cv-experimental-psm-raw-linear": {
       "family": "cv",
