@@ -111,14 +111,14 @@ QUANTITIES: tuple[Quantity, ...] = (
         "Protein",
         "proteins",
         "LFQ median-normalized log2",
-        "Protein · LFQ normalized log2",
+        "Protein · LFQ median-normalized log2",
     ),
     Quantity(
         "peptide",
         "Peptide",
         "peptides",
         "LFQ median-normalized log2",
-        "Peptide · LFQ normalized log2",
+        "Peptide · LFQ median-normalized log2",
         0.35,
     ),
     Quantity(
@@ -146,6 +146,9 @@ DESIGNS: tuple[tuple[str, str, LineStyleType], ...] = (
 )
 DESIGN_LABEL = {k: label for k, label, _ in DESIGNS}
 
+# Peptide sequences longer than this are abbreviated on the canvas (first 7 + "…" +
+# last 5 residues) so labels fit crossing-free; the full label is kept in provenance.
+MAX_LABEL_SEQ_LEN = 15
 _MOD_RE = re.compile(r"\[([+-]?[0-9.]+)\]$")
 
 
@@ -173,7 +176,12 @@ def _group_label(group: str) -> str:
     return first + (f" +{len(members) - 1}" if len(members) > 1 else "")
 
 
-def _peptide_labels(tsv: pd.DataFrame) -> dict[str, str]:
+def _abbrev_seq(seq: str) -> str:
+    """``IDGNLVVRPYTPISSDDDKGFVDLVIK`` -> ``IDGNLVV…DLVIK`` beyond MAX_LABEL_SEQ_LEN."""
+    return seq if len(seq) <= MAX_LABEL_SEQ_LEN else f"{seq[:7]}…{seq[-5:]}"
+
+
+def _peptide_labels(tsv: pd.DataFrame, *, abbreviate: bool) -> dict[str, str]:
     """``SEQUENCE · ENTRY`` (``+k`` more groups); mod bracket iff sequence shared."""
     shared = set(tsv.loc[tsv["base_sequence"].duplicated(keep=False), "base_sequence"])
     out: dict[str, str] = {}
@@ -181,8 +189,8 @@ def _peptide_labels(tsv: pd.DataFrame) -> dict[str, str]:
         tsv["feature"], tsv["base_sequence"], tsv["protein_groups"], strict=True
     ):
         prot = _group_label(str(groups))
-        seq_text = str(seq)
-        if seq_text in shared:
+        seq_text = _abbrev_seq(str(seq)) if abbreviate else str(seq)
+        if str(seq) in shared:
             m = _MOD_RE.search(str(feature))
             if m is None:
                 raise ValueError(f"peptide {feature!r}: no trailing mod bracket.")
@@ -191,14 +199,16 @@ def _peptide_labels(tsv: pd.DataFrame) -> dict[str, str]:
     return out
 
 
-def label_map(quantity: str, tsv: pd.DataFrame) -> dict[str, str]:
-    """Feature id -> display label for one quantity."""
+def label_map(
+    quantity: str, tsv: pd.DataFrame, *, abbreviate: bool = True
+) -> dict[str, str]:
+    """Feature id -> display label for one quantity (peptides abbreviated if long)."""
     if quantity == "protein":
         return {
             str(f): str(e) for f, e in zip(tsv["feature"], tsv["entry"], strict=True)
         }
     if quantity == "peptide":
-        return _peptide_labels(tsv)
+        return _peptide_labels(tsv, abbreviate=abbreviate)
     return {str(f): _group_label(str(f)) for f in tsv["feature"]}
 
 
@@ -369,6 +379,9 @@ def run(
         for qty in QUANTITIES:
             res = results[(qty.key, PRIMARY_DESIGN)]
             lmap = label_map(qty.key, tsvs[(qty.key, PRIMARY_DESIGN)])
+            lmap_full = label_map(
+                qty.key, tsvs[(qty.key, PRIMARY_DESIGN)], abbreviate=False
+            )
             n = int((res.table["term"] == CONTRAST_TERM).sum())
             dsum = summary["quantities"][qty.key]["designs"][PRIMARY_DESIGN]
             n_hits = int(dsum["hits"][f"q<{FDR:.2f}"]["total"])
@@ -417,6 +430,7 @@ def run(
                     {
                         "feature": features[i],
                         "label": text,
+                        "label_full": lmap_full[features[i]],
                         "log2fc": float(rows.loc[i, "effect"]),
                         "p": float(rows.loc[i, "p"]),
                         "q": float(rows.loc[i, "q"]),
@@ -426,6 +440,10 @@ def run(
                     )
                 ],
                 "n_labelled_hits": plot.n_labelled_hits,
+                "q_threshold_neg_log10": float(-np.log10(FDR)),
+                "label_box_top_neg_log10_q": plot.label_box_top,
+                "label_layout_conflicts": plot.label_conflicts,
+                "min_q": float(rows["q"].min()),
                 "label_groups_merged_as_coincident": [
                     [plot.labelled_text[k] for k in g]
                     for g in plot.label_groups

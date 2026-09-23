@@ -175,22 +175,22 @@
       "counts": {
         "NSAF \u00b7 as-is log2": 2158,
         "PSM count \u00b7 log2, unnormalized": 2167,
-        "Peptide \u00b7 LFQ normalized log2": 10229,
-        "Protein \u00b7 LFQ normalized log2": 1801
+        "Peptide \u00b7 LFQ median-normalized log2": 10229,
+        "Protein \u00b7 LFQ median-normalized log2": 1801
       },
       "design": "paired",
       "kind": "pvalue-hist small multiples",
       "panels": [
-        "Protein \u00b7 LFQ normalized log2",
-        "Peptide \u00b7 LFQ normalized log2",
+        "Protein \u00b7 LFQ median-normalized log2",
+        "Peptide \u00b7 LFQ median-normalized log2",
         "NSAF \u00b7 as-is log2",
         "PSM count \u00b7 log2, unnormalized"
       ],
       "pi0": {
         "NSAF \u00b7 as-is log2": 0.8294717330861909,
         "PSM count \u00b7 log2, unnormalized": 0.7549607752653438,
-        "Peptide \u00b7 LFQ normalized log2": 0.8694887085736631,
-        "Protein \u00b7 LFQ normalized log2": 0.8561910049972238
+        "Peptide \u00b7 LFQ median-normalized log2": 0.8694887085736631,
+        "Protein \u00b7 LFQ median-normalized log2": 0.8561910049972238
       }
     },
     "0004-volcano-nsaf-paired": {
@@ -216,16 +216,19 @@
         1.581876969758241
       ],
       "kind": "volcano",
+      "label_box_top_neg_log10_q": 0.6178731540005491,
       "label_groups_merged_as_coincident": [
         [
           "S22A1_HUMAN",
           "ACACA_HUMAN"
         ]
       ],
+      "label_layout_conflicts": 0,
       "labelled": [
         {
           "feature": "sp|Q08722|CD47_HUMAN",
           "label": "CD47_HUMAN",
+          "label_full": "CD47_HUMAN",
           "log2fc": 1.2276211217864592,
           "p": 0.0005728059343003638,
           "q": 0.6459553375327137
@@ -233,6 +236,7 @@
         {
           "feature": "sp|P61966|AP1S1_HUMAN",
           "label": "AP1S1_HUMAN",
+          "label_full": "AP1S1_HUMAN",
           "log2fc": -1.4521216731816393,
           "p": 0.0005986611098542296,
           "q": 0.6459553375327137
@@ -240,6 +244,7 @@
         {
           "feature": "sp|Q9H0C2|ADT4_HUMAN",
           "label": "ADT4_HUMAN",
+          "label_full": "ADT4_HUMAN",
           "log2fc": 0.5879780877509253,
           "p": 0.001618115748273686,
           "q": 0.6821189646413428
@@ -247,6 +252,7 @@
         {
           "feature": "sp|Q02325|PLGB_HUMAN",
           "label": "PLGB_HUMAN",
+          "label_full": "PLGB_HUMAN",
           "log2fc": -1.1609391216334681,
           "p": 0.001793327169169945,
           "q": 0.6821189646413428
@@ -254,6 +260,7 @@
         {
           "feature": "sp|Q9P2R3|ANFY1_HUMAN",
           "label": "ANFY1_HUMAN",
+          "label_full": "ANFY1_HUMAN",
           "log2fc": -0.78855270106805,
           "p": 0.0020370308608800573,
           "q": 0.6821189646413428
@@ -261,6 +268,7 @@
         {
           "feature": "sp|P06756|ITAV_HUMAN",
           "label": "ITAV_HUMAN",
+          "label_full": "ITAV_HUMAN",
           "log2fc": -0.7260417403792725,
           "p": 0.0025649305270662756,
           "q": 0.6821189646413428
@@ -268,6 +276,7 @@
         {
           "feature": "sp|Q13085|ACACA_HUMAN",
           "label": "ACACA_HUMAN",
+          "label_full": "ACACA_HUMAN",
           "log2fc": -0.5351306540596514,
           "p": 0.0027135040537094785,
           "q": 0.6821189646413428
@@ -275,14 +284,17 @@
         {
           "feature": "sp|O15245|S22A1_HUMAN",
           "label": "S22A1_HUMAN",
+          "label_full": "S22A1_HUMAN",
           "log2fc": -0.5549250252408595,
           "p": 0.002798306126858151,
           "q": 0.6821189646413428
         }
       ],
       "max_neg_log10_q": 0.18979750883716753,
+      "min_q": 0.6459553375327137,
       "n_features": 2158,
       "n_labelled_hits": 0,
+      "q_threshold_neg_log10": 1.3010299956639813,
       "quantity": "nsaf"
     },
     "0004-volcano-peptide-paired": {
@@ -308,17 +320,20 @@
         2.381378026254221
       ],
       "kind": "volcano",
+      "label_box_top_neg_log10_q": 1.1553146361496154,
       "label_groups_merged_as_coincident": [
         [
           "VLVVPTDGSPWLSMR \u00b7 UD14_HUMAN",
           "GYPTLLLFR \u00b7 TXND5_HUMAN",
-          "IDGNLVVRPYTPISSDDDKGFVDLVIK \u00b7 NB5R3_HUMAN"
+          "IDGNLVV\u2026DLVIK \u00b7 NB5R3_HUMAN"
         ]
       ],
+      "label_layout_conflicts": 0,
       "labelled": [
         {
           "feature": "VLVVPTDGSPWLSMR[+0.0]",
           "label": "VLVVPTDGSPWLSMR \u00b7 UD14_HUMAN",
+          "label_full": "VLVVPTDGSPWLSMR \u00b7 UD14_HUMAN",
           "log2fc": -1.2713997480819055,
           "p": 1.323197920253773e-05,
           "q": 0.05207632768114131
@@ -326,6 +341,7 @@
         {
           "feature": "LVTLPVSFAQLK[+0.0]",
           "label": "LVTLPVSFAQLK \u00b7 LRC59_HUMAN",
+          "label_full": "LVTLPVSFAQLK \u00b7 LRC59_HUMAN",
           "log2fc": -1.1683438995279207,
           "p": 2.3345369110889878e-05,
           "q": 0.05207632768114131
@@ -333,6 +349,7 @@
         {
           "feature": "LLPVYLNCVLK[+57.021464]",
           "label": "LLPVYLNCVLK \u00b7 SC24C_HUMAN",
+          "label_full": "LLPVYLNCVLK \u00b7 SC24C_HUMAN",
           "log2fc": 1.4574333027076047,
           "p": 2.5676036702477852e-05,
           "q": 0.05207632768114131
@@ -340,13 +357,15 @@
         {
           "feature": "ITLLSALVETR[+0.0]",
           "label": "ITLLSALVETR \u00b7 AACT_HUMAN",
+          "label_full": "ITLLSALVETR \u00b7 AACT_HUMAN",
           "log2fc": -1.4334006973158742,
           "p": 2.6379185649723533e-05,
           "q": 0.05207632768114131
         },
         {
           "feature": "IDGNLVVRPYTPISSDDDKGFVDLVIK[+0.0]",
-          "label": "IDGNLVVRPYTPISSDDDKGFVDLVIK \u00b7 NB5R3_HUMAN",
+          "label": "IDGNLVV\u2026DLVIK \u00b7 NB5R3_HUMAN",
+          "label_full": "IDGNLVVRPYTPISSDDDKGFVDLVIK \u00b7 NB5R3_HUMAN",
           "log2fc": -1.2448064856125818,
           "p": 3.0047574879790373e-05,
           "q": 0.05207632768114131
@@ -354,6 +373,7 @@
         {
           "feature": "GYPTLLLFR[+0.0]",
           "label": "GYPTLLLFR \u00b7 TXND5_HUMAN",
+          "label_full": "GYPTLLLFR \u00b7 TXND5_HUMAN",
           "log2fc": -1.2672725677290497,
           "p": 3.360394585134455e-05,
           "q": 0.05207632768114131
@@ -361,21 +381,25 @@
         {
           "feature": "GFPLITITVR[+0.0]",
           "label": "GFPLITITVR \u00b7 ERAP1_HUMAN",
+          "label_full": "GFPLITITVR \u00b7 ERAP1_HUMAN",
           "log2fc": 1.784642773950007,
           "p": 3.5637334418612686e-05,
           "q": 0.05207632768114131
         },
         {
           "feature": "AIGAVPLIQGEYMIPCEK[+57.021464]",
-          "label": "AIGAVPLIQGEYMIPCEK[+57.02] \u00b7 CATD_HUMAN",
+          "label": "AIGAVPL\u2026IPCEK[+57.02] \u00b7 CATD_HUMAN",
+          "label_full": "AIGAVPLIQGEYMIPCEK[+57.02] \u00b7 CATD_HUMAN",
           "log2fc": 1.016629673984884,
           "p": 5.505643888695345e-05,
           "q": 0.07039653917183085
         }
       ],
       "max_neg_log10_q": 1.2833596489415589,
+      "min_q": 0.05207632768114131,
       "n_features": 10229,
       "n_labelled_hits": 0,
+      "q_threshold_neg_log10": 1.3010299956639813,
       "quantity": "peptide"
     },
     "0004-volcano-protein-paired": {
@@ -401,16 +425,19 @@
         1.0395435434556353
       ],
       "kind": "volcano",
+      "label_box_top_neg_log10_q": 0.7296181633226908,
       "label_groups_merged_as_coincident": [
         [
           "ECHD3_HUMAN",
           "MPC1_HUMAN"
         ]
       ],
+      "label_layout_conflicts": 0,
       "labelled": [
         {
           "feature": "psvid_86283_sp|P56134|ATPK_HUMAN",
           "label": "ATPK_HUMAN",
+          "label_full": "ATPK_HUMAN",
           "log2fc": -0.516019408282129,
           "p": 0.0002997529199611587,
           "q": 0.20997525410294768
@@ -418,6 +445,7 @@
         {
           "feature": "psvid_99364_sp|P30046|DOPD_HUMAN",
           "label": "DOPD_HUMAN",
+          "label_full": "DOPD_HUMAN",
           "log2fc": -0.6590919557493438,
           "p": 0.0003379898793012326,
           "q": 0.20997525410294768
@@ -425,6 +453,7 @@
         {
           "feature": "psvid_52093_sp|Q96S06|LMF1_HUMAN",
           "label": "LMF1_HUMAN",
+          "label_full": "LMF1_HUMAN",
           "log2fc": 0.6177522283751227,
           "p": 0.000349764443258658,
           "q": 0.20997525410294768
@@ -432,6 +461,7 @@
         {
           "feature": "psvid_41137_sp|Q86UT6|NLRX1_HUMAN",
           "label": "NLRX1_HUMAN",
+          "label_full": "NLRX1_HUMAN",
           "log2fc": 0.5229932164412121,
           "p": 0.0007158549005323558,
           "q": 0.32231366896469316
@@ -439,6 +469,7 @@
         {
           "feature": "psvid_59818_sp|Q96DC8|ECHD3_HUMAN",
           "label": "ECHD3_HUMAN",
+          "label_full": "ECHD3_HUMAN",
           "log2fc": -0.40975780997486133,
           "p": 0.0017903621237541569,
           "q": 0.6366198099647827
@@ -446,6 +477,7 @@
         {
           "feature": "psvid_41564_sp|Q9Y5U8|MPC1_HUMAN",
           "label": "MPC1_HUMAN",
+          "label_full": "MPC1_HUMAN",
           "log2fc": -0.389451425005265,
           "p": 0.0021208877622369217,
           "q": 0.6366198099647827
@@ -453,6 +485,7 @@
         {
           "feature": "psvid_34586_sp|Q9UN36|NDRG2_HUMAN",
           "label": "NDRG2_HUMAN",
+          "label_full": "NDRG2_HUMAN",
           "log2fc": -0.37106539788412096,
           "p": 0.002923953470662219,
           "q": 0.727886094873094
@@ -460,14 +493,17 @@
         {
           "feature": "psvid_68413_sp|P00846|ATP6_HUMAN",
           "label": "ATP6_HUMAN",
+          "label_full": "ATP6_HUMAN",
           "log2fc": -0.5218340571416427,
           "p": 0.0036915362897452842,
           "q": 0.727886094873094
         }
       ],
       "max_neg_log10_q": 0.6778318845031763,
+      "min_q": 0.20997525410294768,
       "n_features": 1801,
       "n_labelled_hits": 0,
+      "q_threshold_neg_log10": 1.3010299956639813,
       "quantity": "protein"
     },
     "0004-volcano-psm-log2-paired": {
@@ -493,11 +529,14 @@
         1.500938033715277
       ],
       "kind": "volcano",
+      "label_box_top_neg_log10_q": 0.43522635630169715,
       "label_groups_merged_as_coincident": [],
+      "label_layout_conflicts": 0,
       "labelled": [
         {
           "feature": "sp|Q9P2R3|ANFY1_HUMAN",
           "label": "ANFY1_HUMAN",
+          "label_full": "ANFY1_HUMAN",
           "log2fc": -0.868482797083103,
           "p": 0.0005496593256983678,
           "q": 0.41358037486476656
@@ -505,6 +544,7 @@
         {
           "feature": "sp|Q08722|CD47_HUMAN",
           "label": "CD47_HUMAN",
+          "label_full": "CD47_HUMAN",
           "log2fc": 1.146240625180289,
           "p": 0.0006548747544851826,
           "q": 0.41358037486476656
@@ -512,6 +552,7 @@
         {
           "feature": "sp|P06756|ITAV_HUMAN",
           "label": "ITAV_HUMAN",
+          "label_full": "ITAV_HUMAN",
           "log2fc": -0.8055981053341119,
           "p": 0.0006874243052981107,
           "q": 0.41358037486476656
@@ -519,6 +560,7 @@
         {
           "feature": "sp|P61966|AP1S1_HUMAN",
           "label": "AP1S1_HUMAN",
+          "label_full": "AP1S1_HUMAN",
           "log2fc": -1.5323207542362414,
           "p": 0.0007634155512039991,
           "q": 0.41358037486476656
@@ -526,6 +568,7 @@
         {
           "feature": "sp|Q02325|PLGB_HUMAN",
           "label": "PLGB_HUMAN",
+          "label_full": "PLGB_HUMAN",
           "log2fc": -1.244319980874979,
           "p": 0.0012282479098181703,
           "q": 0.5174616303768038
@@ -533,6 +576,7 @@
         {
           "feature": "sp|P46783|RS10_HUMAN",
           "label": "RS10_HUMAN",
+          "label_full": "RS10_HUMAN",
           "log2fc": 0.5657586014584484,
           "p": 0.0019517200994437563,
           "q": 0.5174616303768038
@@ -540,6 +584,7 @@
         {
           "feature": "sp|Q9Y5C1|ANGL3_HUMAN",
           "label": "ANGL3_HUMAN",
+          "label_full": "ANGL3_HUMAN",
           "log2fc": -0.7398395038756633,
           "p": 0.001976474475933273,
           "q": 0.5174616303768038
@@ -547,19 +592,22 @@
         {
           "feature": "sp|O00168|PLM_HUMAN",
           "label": "PLM_HUMAN",
+          "label_full": "PLM_HUMAN",
           "log2fc": 1.1229632740824185,
           "p": 0.0024436369466797198,
           "q": 0.5174616303768038
         }
       ],
       "max_neg_log10_q": 0.3834400774821827,
+      "min_q": 0.41358037486476656,
       "n_features": 2167,
       "n_labelled_hits": 0,
+      "q_threshold_neg_log10": 1.3010299956639813,
       "quantity": "psm_log2"
     }
   },
-  "git_head": "ae76aa38ca0f482e19fb4212593c02b7fc56cacf",
-  "git_status_of_scripts": "?? scripts/scratch/analysis_figures/pvalue_hist.py\n?? scripts/scratch/analysis_figures/volcano.py\n?? scripts/scratch/fig_de_raloxifene_vs_control.py",
+  "git_head": "416cb10a1efea791cd96649149eaf122edfac6f8",
+  "git_status_of_scripts": "M scripts/scratch/analysis_figures/pvalue_hist.py\n M scripts/scratch/analysis_figures/volcano.py\n M scripts/scratch/fig_de_raloxifene_vs_control.py",
   "inputs": {
     "nsaf_batch": {
       "result_dir": "results/de/raloxifene-vs-control/results/nsaf_batch",
@@ -698,12 +746,12 @@
     "pvalue_hist": {
       "path": "scripts/scratch/analysis_figures/pvalue_hist.py",
       "seeded_from": "pvalue-hist@0.2",
-      "sha256": "b4b769402952431338f4b35963ad7982d12588c90008e5495b81644b32d5d441"
+      "sha256": "b06b331cdeacdef253fdaa03c7c49d7da391d1ffff0abe570c4e534507d60cb8"
     },
     "volcano": {
       "path": "scripts/scratch/analysis_figures/volcano.py",
       "seeded_from": "volcano@0.2",
-      "sha256": "8e147e1ba2cd62c944dc186f4e6e41cb9386575109fba6b4fd43284f6a651658"
+      "sha256": "cd738f290b067ae2f462ba315030142968e2ee388066abf49e86002b3336f8d1"
     }
   },
   "params": {
@@ -729,7 +777,7 @@
   },
   "script": {
     "path": "scripts/scratch/fig_de_raloxifene_vs_control.py",
-    "sha256": "f76be0467b8d28a1160510db93667ca7163351b800381dc1d75f8367cb82ab7d"
+    "sha256": "e76cf43a5d6e241a56e2b5107dd1048002b87a93416cdc7c4b86855ac027d25f"
   },
   "summary_json": {
     "path": "results/de/raloxifene-vs-control/summary.json",

@@ -202,11 +202,12 @@ def plot_pvalue_histogram(
                 category, labels, registry_path=registry_path, persist=persist_colors
             )
             for label in labels:
-                ax.hist(
-                    finite[label],
-                    bins=bins,
-                    density=True,
-                    histtype="step",
+                # stairs with no baseline: no vertical drop lines at p = 0 / p = 1.
+                density, edges = np.histogram(finite[label], bins=bins, density=True)
+                ax.stairs(
+                    density,
+                    edges,
+                    baseline=None,
                     color=color_map[label],
                     linewidth=2.0,
                     linestyle=styles[label],
