@@ -1,0 +1,4 @@
+mod_class	effect	n_forms	mean	ci_low	ci_high	median	t_test_p	wilcoxon_p	pair_level_mean	pair_level_ci_low	pair_level_ci_high	pair_level_p	pair_level_per_pair	t_test_q_BH	wilcoxon_q_BH	pair_level_q_BH
+CAM-only	mean over forms of (modified - reference) paired log2FC	0											P905_906:nan;P907_908:nan;P909_910:nan;P941_942:nan			
+oxidized	mean over forms of (modified - reference) paired log2FC	123	0.12080526138169179	0.05679179500908689	0.1848187277542967	0.09526394176496122	0.0002858433333664348	1.8416534467918055e-05	0.1208052613816918	0.023523711507002498	0.2180868112563811	0.028906293657904876	P905_906:0.0543;P907_908:0.1875;P909_910:0.0865;P941_942:0.1549	0.0002858433333664348	1.8416534467918055e-05	0.028906293657904876
+raloxifene-adduct	mean over forms of (modified - reference) paired log2FC	0											P905_906:nan;P907_908:nan;P909_910:nan;P941_942:nan			

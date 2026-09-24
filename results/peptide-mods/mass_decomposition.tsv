@@ -1,0 +1,17 @@
+total_mod_mass	composition	mod_class	mass_error	n_solutions	n_features	n_non_contaminant	n_cam_exceeds_cys
+0.0	none	unmodified	0.0	1	26267	25934	0
+15.9949	1Ox	oxidized	-1.5000000001208491e-05	1	802	783	0
+31.9898	2Ox	oxidized	-3.0000000002416982e-05	1	37	37	0
+47.9847	3Ox	oxidized	-4.500000000717819e-05	1	1	1	0
+57.021464	1CAM	CAM-only	0.0	1	4946	4873	0
+73.016364	1CAM+1Ox	oxidized	-1.5000000004761205e-05	1	113	111	0
+89.011264	1CAM+2Ox	oxidized	-3.000000000952241e-05	1	3	3	0
+114.042928	2CAM	CAM-only	0.0	1	914	898	0
+130.037828	2CAM+1Ox	oxidized	-1.500000001897206e-05	1	26	26	0
+171.064392	3CAM	CAM-only	0.0	1	189	183	0
+471.1504	1Ralox	raloxifene-adduct	-2.9284790002748196e-05	1	48	48	0
+487.14529999999996	1Ox+1Ralox	raloxifene-adduct	-4.4284790021720255e-05	1	3	3	0
+528.171864	1CAM+1Ralox	raloxifene-adduct	-2.9284790002748196e-05	1	5	5	0
+544.166764	1CAM+1Ox+1Ralox	raloxifene-adduct	-4.4284790078563674e-05	1	1	1	0
+585.193328	2CAM+1Ralox	raloxifene-adduct	-2.9284790002748196e-05	1	1	1	0
+942.3008	2Ralox	raloxifene-adduct	-5.856958000549639e-05	1	2	2	0

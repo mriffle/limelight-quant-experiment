@@ -21,3 +21,17 @@ Append-only record of what was looked at and discarded — the multiplicity cont
   - The batch and unadjusted designs are conservative (π0 = 1.00).
 - **Post-hoc look, not a claim:** CYP3A4 protein log2FC −0.24 [−0.53, +0.06], p 0.096. This is context only (raloxifene inactivates CYP3A4) and was not pre-specified.
 - **Discarded / not pursued:** none yet. The designs other than paired are kept as sensitivity analyses.
+
+## 2026-09-24 — limma-trend sensitivity + ATPK case study
+
+- **Model choice was post hoc.** limma-trend was chosen *after* ATPK was seen near the top of the no-trend ranking. That adds multiplicity on top of the 12 quantity × design fits.
+- **What was run:** trend=TRUE on all 4 quantities × 3 designs (`scripts/scratch/de_trend_sensitivity.py`), matching R limma 3.58.1 to about 1e-12.
+- **Results:**
+  - LFQ protein, paired: 1 hit (ATPK, q 0.040).
+  - LFQ peptide, paired: 10 hits at q < 0.05, the same 10 peptides as no-trend q < 0.10.
+  - Every other quantity × design: 0 hits.
+- **Within-pair relabelling:** the observed labelling ranks first, but the floor is p = 1/8, and it is the only labelling aligned with run order.
+- **ATPK case study** (`scripts/scratch/atpk_case_study.py`):
+  - The protein was examined because it was the top hit, so its effect size is selection-optimistic.
+  - The LFQ-vs-spectral disagreement comes from a single Met-oxidized peptide whose PSM count and MS1 intensity move in opposite directions.
+- **Running in parallel:** the abundance-agreement analysis (LFQ vs NSAF / PSM) and the peptide/modification analysis (raloxifene adducts, presence/absence, modification classes).
