@@ -1,0 +1,92 @@
+{
+  "format_version": 1,
+  "dataclass": "DifferentialAbundanceTrendResult",
+  "fields": {
+    "table": {
+      "kind": "dataframe",
+      "file": "table.parquet"
+    },
+    "contrast": {
+      "kind": "scalar",
+      "value": "condition"
+    },
+    "covariates": {
+      "kind": "sequence",
+      "container": "tuple",
+      "value": [
+        "candidate_pair"
+      ]
+    },
+    "method": {
+      "kind": "scalar",
+      "value": "moderated"
+    },
+    "reference": {
+      "kind": "dict",
+      "value": {
+        "condition": "control",
+        "candidate_pair": "P905_906"
+      }
+    },
+    "contrast_terms": {
+      "kind": "sequence",
+      "container": "tuple",
+      "value": [
+        "condition[raloxifene-d0 vs control]"
+      ]
+    },
+    "effect_label": {
+      "kind": "scalar",
+      "value": "log2 fold change"
+    },
+    "n_samples": {
+      "kind": "scalar",
+      "value": 8
+    },
+    "prior_variance": {
+      "kind": "none"
+    },
+    "prior_df": {
+      "kind": "scalar",
+      "value": 3.725919305557465
+    },
+    "residual_df": {
+      "kind": "scalar",
+      "value": 3
+    },
+    "n_prior_floored": {
+      "kind": "scalar",
+      "value": 0
+    },
+    "trend": {
+      "kind": "scalar",
+      "value": true
+    },
+    "trend_covariate": {
+      "kind": "scalar",
+      "value": "mean_abundance"
+    },
+    "trend_spline_df": {
+      "kind": "scalar",
+      "value": 4
+    },
+    "trend_knots": {
+      "kind": "sequence",
+      "container": "tuple",
+      "value": [
+        17.334361953388452,
+        21.973813195409914,
+        23.582621568850854,
+        30.915742386247093
+      ]
+    },
+    "prior_variance_min": {
+      "kind": "scalar",
+      "value": 0.02261910752790266
+    },
+    "prior_variance_max": {
+      "kind": "scalar",
+      "value": 0.18725482953843658
+    }
+  }
+}

@@ -1,0 +1,97 @@
+quantity	feature	sample_id	value	raw_intensity	detection_type	mbr_flag	dump_quant	condition	candidate_pair	batch	seq_number
+lfq_peptide_norm_log2	DFSPSGIFGAFQR[+0.0]	AZ905	25.47365466927101	73036279.0	MSMS			control	P905_906	B2021-05-06	34
+lfq_peptide_norm_log2	DFSPSGIFGAFQR[+0.0]	AZ907	25.671909412464238	53888213.25	MSMS			control	P907_908	B2021-05-06	39
+lfq_peptide_norm_log2	DFSPSGIFGAFQR[+0.0]	AZ909	24.93290098332729	31844040.125	MSMS			control	P909_910	B2021-05-06	41
+lfq_peptide_norm_log2	DFSPSGIFGAFQR[+0.0]	AZ906	25.313592154629156	60341869.75	MSMS			raloxifene-d0	P905_906	B2021-05-06	45
+lfq_peptide_norm_log2	DFSPSGIFGAFQR[+0.0]	AZ908	25.45931685812224	34636874.0	MSMS			raloxifene-d0	P907_908	B2021-05-06	47
+lfq_peptide_norm_log2	DFSPSGIFGAFQR[+0.0]	AZ910	25.202991560437244	33471569.5	MSMS			raloxifene-d0	P909_910	B2021-05-06	49
+lfq_peptide_norm_log2	DFSPSGIFGAFQR[+0.0]	AZ941	24.58244726642039	18748445.75	MSMS			control	P941_942	B2022-03-18	17
+lfq_peptide_norm_log2	DFSPSGIFGAFQR[+0.0]	AZ942	24.492865101663956	14627712.5	MSMS			raloxifene-d0	P941_942	B2022-03-18	19
+lfq_peptide_norm_log2	LGELPSWILMR[+0.0]	AZ905			MSMSAmbiguousPeakfinding			control	P905_906	B2021-05-06	34
+lfq_peptide_norm_log2	LGELPSWILMR[+0.0]	AZ907			MSMSAmbiguousPeakfinding			control	P907_908	B2021-05-06	39
+lfq_peptide_norm_log2	LGELPSWILMR[+0.0]	AZ909			MSMSAmbiguousPeakfinding			control	P909_910	B2021-05-06	41
+lfq_peptide_norm_log2	LGELPSWILMR[+0.0]	AZ906			MSMSAmbiguousPeakfinding			raloxifene-d0	P905_906	B2021-05-06	45
+lfq_peptide_norm_log2	LGELPSWILMR[+0.0]	AZ908			MSMSAmbiguousPeakfinding			raloxifene-d0	P907_908	B2021-05-06	47
+lfq_peptide_norm_log2	LGELPSWILMR[+0.0]	AZ910	25.01188589915343	29318891.125	MSMS			raloxifene-d0	P909_910	B2021-05-06	49
+lfq_peptide_norm_log2	LGELPSWILMR[+0.0]	AZ941	25.97323021827942	49162352.5	MSMS			control	P941_942	B2022-03-18	17
+lfq_peptide_norm_log2	LGELPSWILMR[+0.0]	AZ942			MSMSAmbiguousPeakfinding			raloxifene-d0	P941_942	B2022-03-18	19
+lfq_peptide_norm_log2	LGELPSWILMR[+15.9949]	AZ905	23.219007968096694	15304613.0	MSMS			control	P905_906	B2021-05-06	34
+lfq_peptide_norm_log2	LGELPSWILMR[+15.9949]	AZ907	25.01441169187703	34163884.75	MSMS			control	P907_908	B2021-05-06	39
+lfq_peptide_norm_log2	LGELPSWILMR[+15.9949]	AZ909	24.904392981877983	31220970.5	MSMS			control	P909_910	B2021-05-06	41
+lfq_peptide_norm_log2	LGELPSWILMR[+15.9949]	AZ906	22.373437964366556	7862201.315114843	MSMS			raloxifene-d0	P905_906	B2021-05-06	45
+lfq_peptide_norm_log2	LGELPSWILMR[+15.9949]	AZ908	24.367474717191662	16250302.6875	MSMS			raloxifene-d0	P907_908	B2021-05-06	47
+lfq_peptide_norm_log2	LGELPSWILMR[+15.9949]	AZ910	24.08775436683527	15450987.08751968	MSMS			raloxifene-d0	P909_910	B2021-05-06	49
+lfq_peptide_norm_log2	LGELPSWILMR[+15.9949]	AZ941	22.578013716601184	4672729.573146754	MSMS			control	P941_942	B2022-03-18	17
+lfq_peptide_norm_log2	LGELPSWILMR[+15.9949]	AZ942	22.260254869794856	3112388.2530027395	MSMS			raloxifene-d0	P941_942	B2022-03-18	19
+psm_count_peptide_dump	DFSPSGIFGAFQR	AZ905	2.0			False	7.30e+7	control	P905_906	B2021-05-06	34
+psm_count_peptide_dump	DFSPSGIFGAFQR	AZ907	2.0			False	5.39e+7	control	P907_908	B2021-05-06	39
+psm_count_peptide_dump	DFSPSGIFGAFQR	AZ909	2.0			False	3.18e+7	control	P909_910	B2021-05-06	41
+psm_count_peptide_dump	DFSPSGIFGAFQR	AZ906	1.0			False	6.03e+7	raloxifene-d0	P905_906	B2021-05-06	45
+psm_count_peptide_dump	DFSPSGIFGAFQR	AZ908	1.0			False	3.46e+7	raloxifene-d0	P907_908	B2021-05-06	47
+psm_count_peptide_dump	DFSPSGIFGAFQR	AZ910	1.0			False	3.35e+7	raloxifene-d0	P909_910	B2021-05-06	49
+psm_count_peptide_dump	DFSPSGIFGAFQR	AZ941	3.0			False	1.87e+7	control	P941_942	B2022-03-18	17
+psm_count_peptide_dump	DFSPSGIFGAFQR	AZ942	1.0			False	1.46e+7	raloxifene-d0	P941_942	B2022-03-18	19
+psm_count_peptide_dump	LGELPSWILMR	AZ905	1.0			False	overlapping signal	control	P905_906	B2021-05-06	34
+psm_count_peptide_dump	LGELPSWILMR	AZ907	1.0			False	overlapping signal	control	P907_908	B2021-05-06	39
+psm_count_peptide_dump	LGELPSWILMR	AZ909	1.0			False	overlapping signal	control	P909_910	B2021-05-06	41
+psm_count_peptide_dump	LGELPSWILMR	AZ906	1.0			False	overlapping signal	raloxifene-d0	P905_906	B2021-05-06	45
+psm_count_peptide_dump	LGELPSWILMR	AZ908	2.0			False	overlapping signal	raloxifene-d0	P907_908	B2021-05-06	47
+psm_count_peptide_dump	LGELPSWILMR	AZ910	1.0			False	2.93e+7	raloxifene-d0	P909_910	B2021-05-06	49
+psm_count_peptide_dump	LGELPSWILMR	AZ941	2.0			False	4.92e+7	control	P941_942	B2022-03-18	17
+psm_count_peptide_dump	LGELPSWILMR	AZ942	3.0			False	overlapping signal	raloxifene-d0	P941_942	B2022-03-18	19
+psm_count_peptide_dump	LGELPSWILM[15.99]R	AZ905	3.0			False	1.53e+7	control	P905_906	B2021-05-06	34
+psm_count_peptide_dump	LGELPSWILM[15.99]R	AZ907	3.0			False	3.42e+7	control	P907_908	B2021-05-06	39
+psm_count_peptide_dump	LGELPSWILM[15.99]R	AZ909	3.0			False	3.12e+7	control	P909_910	B2021-05-06	41
+psm_count_peptide_dump	LGELPSWILM[15.99]R	AZ906	10.0			False	7.86e+6	raloxifene-d0	P905_906	B2021-05-06	45
+psm_count_peptide_dump	LGELPSWILM[15.99]R	AZ908	10.0			False	1.63e+7	raloxifene-d0	P907_908	B2021-05-06	47
+psm_count_peptide_dump	LGELPSWILM[15.99]R	AZ910	10.0			False	1.55e+7	raloxifene-d0	P909_910	B2021-05-06	49
+psm_count_peptide_dump	LGELPSWILM[15.99]R	AZ941	2.0			False	4.67e+6	control	P941_942	B2022-03-18	17
+psm_count_peptide_dump	LGELPSWILM[15.99]R	AZ942	3.0			False	3.11e+6	raloxifene-d0	P941_942	B2022-03-18	19
+lfq_protein_raw_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ905	27.357843096994294					control	P905_906	B2021-05-06	34
+lfq_protein_raw_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ907	27.71777407414288					control	P907_908	B2021-05-06	39
+lfq_protein_raw_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ909	27.273322566514167					control	P909_910	B2021-05-06	41
+lfq_protein_raw_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ906	26.739635487098564					raloxifene-d0	P905_906	B2021-05-06	45
+lfq_protein_raw_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ908	26.862940843105704					raloxifene-d0	P907_908	B2021-05-06	47
+lfq_protein_raw_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ910	26.581598138678185					raloxifene-d0	P909_910	B2021-05-06	49
+lfq_protein_raw_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ941	25.745236053457255					control	P941_942	B2022-03-18	17
+lfq_protein_raw_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ942	25.048952242503407					raloxifene-d0	P941_942	B2022-03-18	19
+lfq_protein_norm_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ905	26.734851277307403					control	P905_906	B2021-05-06	34
+lfq_protein_norm_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ907	27.765062951508412					control	P907_908	B2021-05-06	39
+lfq_protein_norm_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ909	27.32049766028706					control	P909_910	B2021-05-06	41
+lfq_protein_norm_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ906	26.2310566916105					raloxifene-d0	P905_906	B2021-05-06	45
+lfq_protein_norm_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ908	27.213996654522386					raloxifene-d0	P907_908	B2021-05-06	47
+lfq_protein_norm_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ910	26.81287343315766					raloxifene-d0	P909_910	B2021-05-06	49
+lfq_protein_norm_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ941	26.099472208531388					control	P941_942	B2022-03-18	17
+lfq_protein_norm_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ942	25.597879685215194					raloxifene-d0	P941_942	B2022-03-18	19
+lfq_protein_norm_offset	psvid_86283_sp|P56134|ATPK_HUMAN	AZ905	-0.6229917676492427					control	P905_906	B2021-05-06	34
+lfq_protein_norm_offset	psvid_86283_sp|P56134|ATPK_HUMAN	AZ907	0.04728893599584083					control	P907_908	B2021-05-06	39
+lfq_protein_norm_offset	psvid_86283_sp|P56134|ATPK_HUMAN	AZ909	0.04717515012049489					control	P909_910	B2021-05-06	41
+lfq_protein_norm_offset	psvid_86283_sp|P56134|ATPK_HUMAN	AZ906	-0.5085787488491782					raloxifene-d0	P905_906	B2021-05-06	45
+lfq_protein_norm_offset	psvid_86283_sp|P56134|ATPK_HUMAN	AZ908	0.35105586710481873					raloxifene-d0	P907_908	B2021-05-06	47
+lfq_protein_norm_offset	psvid_86283_sp|P56134|ATPK_HUMAN	AZ910	0.23127534719716536					raloxifene-d0	P909_910	B2021-05-06	49
+lfq_protein_norm_offset	psvid_86283_sp|P56134|ATPK_HUMAN	AZ941	0.354236199963875					control	P941_942	B2022-03-18	17
+lfq_protein_norm_offset	psvid_86283_sp|P56134|ATPK_HUMAN	AZ942	0.5489274792587722					raloxifene-d0	P941_942	B2022-03-18	19
+nsaf_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ905	-11.702745069852838					control	P905_906	B2021-05-06	34
+nsaf_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ907	-11.578417331921397					control	P907_908	B2021-05-06	39
+nsaf_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ909	-11.43971146551384					control	P909_910	B2021-05-06	41
+nsaf_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ906	-10.569622603044944					raloxifene-d0	P905_906	B2021-05-06	45
+nsaf_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ908	-10.293130845177949					raloxifene-d0	P907_908	B2021-05-06	47
+nsaf_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ910	-10.37889755077917					raloxifene-d0	P909_910	B2021-05-06	49
+nsaf_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ941	-11.220758692442676					control	P941_942	B2022-03-18	17
+nsaf_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ942	-11.266229098707313					raloxifene-d0	P941_942	B2022-03-18	19
+psm_count	psvid_86283_sp|P56134|ATPK_HUMAN	AZ905	6.0					control	P905_906	B2021-05-06	34
+psm_count	psvid_86283_sp|P56134|ATPK_HUMAN	AZ907	6.0					control	P907_908	B2021-05-06	39
+psm_count	psvid_86283_sp|P56134|ATPK_HUMAN	AZ909	6.0					control	P909_910	B2021-05-06	41
+psm_count	psvid_86283_sp|P56134|ATPK_HUMAN	AZ906	12.0					raloxifene-d0	P905_906	B2021-05-06	45
+psm_count	psvid_86283_sp|P56134|ATPK_HUMAN	AZ908	13.0					raloxifene-d0	P907_908	B2021-05-06	47
+psm_count	psvid_86283_sp|P56134|ATPK_HUMAN	AZ910	12.0					raloxifene-d0	P909_910	B2021-05-06	49
+psm_count	psvid_86283_sp|P56134|ATPK_HUMAN	AZ941	7.0					control	P941_942	B2022-03-18	17
+psm_count	psvid_86283_sp|P56134|ATPK_HUMAN	AZ942	7.0					raloxifene-d0	P941_942	B2022-03-18	19
+psm_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ905	2.584962500721156					control	P905_906	B2021-05-06	34
+psm_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ907	2.584962500721156					control	P907_908	B2021-05-06	39
+psm_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ909	2.584962500721156					control	P909_910	B2021-05-06	41
+psm_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ906	3.584962500721156					raloxifene-d0	P905_906	B2021-05-06	45
+psm_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ908	3.700439718141092					raloxifene-d0	P907_908	B2021-05-06	47
+psm_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ910	3.584962500721156					raloxifene-d0	P909_910	B2021-05-06	49
+psm_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ941	2.807354922057604					control	P941_942	B2022-03-18	17
+psm_log2	psvid_86283_sp|P56134|ATPK_HUMAN	AZ942	2.807354922057604					raloxifene-d0	P941_942	B2022-03-18	19

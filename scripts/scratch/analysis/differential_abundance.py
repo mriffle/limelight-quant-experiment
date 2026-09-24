@@ -60,6 +60,26 @@ lib template unchanged:
      variance** before the log, and a :class:`ZeroResidualVarianceWarning` reports
      how many were floored. The floor is inactive (identical numbers to the
      template) whenever no variance falls below it.
+  5. **Optional mean-variance trend in the prior (limma ``eBayes(trend=TRUE)``).**
+     ``trend=True`` (``method="moderated"`` only; default ``False`` leaves every number
+     and every saved result byte-identical) makes the prior variance a smooth function
+     of each feature's mean log-abundance, exactly as limma 3.58's
+     ``fitFDist(sigma^2, df, covariate=Amean)``: ``e_i = log(s_i^2) + log(df/2) -
+     digamma(df/2)`` (after the same zero-variance floor) is regressed by least squares
+     on a natural cubic spline in ``Amean`` with ``splinedf = min(1 + [n>=3] + [n>=6] +
+     [n>=30], #unique Amean)`` columns including the intercept (so 4 for any omics
+     scope: two interior knots at the 1/3 and 2/3 quantiles, boundary knots at the
+     range — ``splines::ns(Amean, df=splinedf, intercept=TRUE)``); the residual mean
+     square of that fit, less ``trigamma(df/2)``, gives one ``d0`` via trigamma
+     inversion, and ``s0_i^2 = exp(fitted_i + digamma(d0/2) - log(d0/2))``
+     (``exp(fitted_i)`` when ``d0 = inf``). ``Amean`` is the per-feature mean over all
+     analyzed samples (limma ``lmFit``'s ``Amean`` for complete data). The spline is
+     built from the ESL truncated-power natural-spline basis, which spans the same
+     function space as R's ``ns`` basis, so fitted values are identical (the
+     coefficients differ, but only the fitted values are used). Non-robust only
+     (``robust=FALSE``, limma's default). The result is a
+     :class:`DifferentialAbundanceTrendResult` whose tables carry a per-feature
+     ``prior_variance`` column; the scalar ``prior_variance`` field is ``None``.
 """
 
 from __future__ import annotations
@@ -104,6 +124,7 @@ __script_meta__: dict[str, object] = {
         "LowCardinalityNumericWarning",
         "ZeroResidualVarianceWarning",
         "DifferentialAbundanceResult",
+        "DifferentialAbundanceTrendResult",
         "differential_abundance",
     ],
     "uses": ["loaders.data_loading"],
@@ -204,6 +225,40 @@ class DifferentialAbundanceResult:
         return sub.sort_values("q", kind="stable", na_position="last").reset_index(
             drop=True
         )
+
+
+@dataclass(frozen=True)
+class DifferentialAbundanceTrendResult(DifferentialAbundanceResult):
+    """A moderated result whose prior variance follows mean abundance (limma-trend).
+
+    Project adaptation 5. Returned only for ``method="moderated", trend=True`` (a
+    subclass, so no-trend results keep their exact on-disk schema). The per-feature
+    prior variance ``s0_i^2`` is the ``prior_variance`` column of :attr:`table`; the
+    inherited scalar ``prior_variance`` is ``None``. ``prior_df`` is the single fitted
+    ``d0`` (as in limma).
+
+    Attributes
+    ----------
+    trend:
+        Always ``True`` (the saved result states it explicitly).
+    trend_covariate:
+        What the prior trend is a function of: ``"mean_abundance"`` (limma's
+        ``Amean``, mean over all analyzed samples).
+    trend_spline_df:
+        Number of natural-spline basis columns including the intercept (limma
+        ``splinedf``); 1 would mean no trend (never returned here).
+    trend_knots:
+        All spline knots, boundary knots included, in ascending order.
+    prior_variance_min, prior_variance_max:
+        Range of the per-feature prior variance over the features in the fit.
+    """
+
+    trend: bool = True
+    trend_covariate: str = "mean_abundance"
+    trend_spline_df: int | None = None
+    trend_knots: tuple[float, ...] = ()
+    prior_variance_min: float | None = None
+    prior_variance_max: float | None = None
 
 
 # --------------------------------------------------------------------------- #
@@ -466,6 +521,144 @@ def _fit_f_distribution_prior(sigma2: np.ndarray, df: int) -> tuple[float, float
     return float(np.exp(log_s0_sq)), d0, n_floored
 
 
+# limma fitFDist: spline df for the covariate trend = 1 + [n>=3] + [n>=6] + [n>=30].
+_SPLINE_DF_THRESHOLDS: tuple[int, ...] = (3, 6, 30)
+
+
+@dataclass(frozen=True)
+class _TrendPrior:
+    """The fitted limma-trend prior: per-feature ``s0_i^2``, one ``d0``, the spline."""
+
+    s0_sq: np.ndarray  # (n_features,) prior variance at each feature's covariate
+    d0: float
+    n_floored: int
+    spline_df: int
+    knots: tuple[float, ...]
+
+
+def _natural_spline_basis(x: np.ndarray, knots: tuple[float, ...]) -> np.ndarray:
+    """Natural cubic spline basis with an intercept (ESL eqs. 5.4-5.5), one column/knot.
+
+    ``knots`` are all ``K`` knots, boundary knots first and last. Columns: ``1``, ``u``,
+    ``d_j(u) - d_{K-1}(u)`` for ``j = 1..K-2`` with ``d_j(u) = ((u - k_j)_+^3 -
+    (u - k_K)_+^3) / (k_K - k_j)``; cubic between the boundary knots and linear
+    outside them. It spans the same space as R ``splines::ns(x, knots=interior,
+    Boundary.knots=boundary, intercept=TRUE)``, so least-squares fitted values are
+    identical. ``x`` is mapped affinely to ``[0, 1]`` over the boundary knots first
+    (a reparameterization that leaves the span unchanged; improves conditioning).
+    """
+    k = np.asarray(knots, dtype=float)
+    if k.size < 2 or not np.all(np.diff(k) > 0):
+        raise ValueError(f"knots must be >= 2 strictly increasing values; got {knots}.")
+    lo, hi = float(k[0]), float(k[-1])
+    u = (np.asarray(x, dtype=float) - lo) / (hi - lo)
+    kk = (k - lo) / (hi - lo)
+
+    def _d(j: int) -> np.ndarray:
+        num = np.maximum(u - kk[j], 0.0) ** 3 - np.maximum(u - kk[-1], 0.0) ** 3
+        return np.asarray(num / (kk[-1] - kk[j]), dtype=float)
+
+    columns = [np.ones_like(u), u]
+    if k.size > 2:
+        d_last = _d(k.size - 2)
+        columns.extend(_d(j) - d_last for j in range(k.size - 2))
+    return np.column_stack(columns)
+
+
+def _fit_f_distribution_prior_trend(
+    sigma2: np.ndarray, df: int, covariate: np.ndarray
+) -> _TrendPrior:
+    """limma ``fitFDist(sigma2, df, covariate)``: the prior variance trends with Amean.
+
+    Same floor and log-moment identities as :func:`_fit_f_distribution_prior`, but the
+    mean of ``e = log(s^2) + log(df/2) - digamma(df/2)`` is a least-squares natural
+    cubic spline in ``covariate`` (limma's ``splinedf`` rule and quantile knots), and
+    the spread uses that fit's residual mean square (``RSS / (n - rank)``). One ``d0``
+    is fitted; ``s0_i^2 = exp(fitted_i + digamma(d0/2) - log(d0/2))``, or
+    ``exp(fitted_i)`` when ``d0 = inf``. Features excluded from the fit (non-finite
+    variance) still get a prior from the spline at their covariate, as in limma.
+    """
+    sigma2 = np.asarray(sigma2, dtype=float)
+    covariate = np.asarray(covariate, dtype=float)
+    if covariate.shape != sigma2.shape:
+        raise ValueError(
+            f"covariate shape {covariate.shape} != sigma2 shape {sigma2.shape}."
+        )
+    if not np.all(np.isfinite(covariate)):
+        raise ValueError("Trend covariate (mean abundance) has non-finite values.")
+    if df <= 0:
+        raise ValueError(f"df must be positive; got {df}.")
+    valid = np.isfinite(sigma2) & (sigma2 > -_NEGATIVE_VARIANCE_TOLERANCE)
+    n_valid = int(valid.sum())
+    if n_valid < _MIN_FEATURES_FOR_PRIOR_FIT:
+        raise ValueError(
+            f"Variance moderation needs {_MIN_FEATURES_FOR_PRIOR_FIT} features "
+            f"with finite residual variance; got {n_valid}. Use method='ols' "
+            f"for a small feature set."
+        )
+    cov_ok = covariate[valid]
+    spline_df = min(
+        1 + sum(n_valid >= t for t in _SPLINE_DF_THRESHOLDS),
+        int(np.unique(cov_ok).size),
+    )
+    if spline_df < 2:
+        raise ValueError(
+            "The trend covariate takes a single value; a mean-variance trend cannot "
+            "be fitted (use trend=False)."
+        )
+
+    floored, n_floored = _floor_variances(sigma2[valid])
+    if n_floored:
+        warnings.warn(
+            f"{n_floored} feature(s) have (numerically) zero residual variance; "
+            f"floored at {_ZERO_VARIANCE_FLOOR_FRACTION:g} x the median variance for "
+            f"the prior fit (limma fitFDist rule).",
+            ZeroResidualVarianceWarning,
+            stacklevel=4,
+        )
+
+    # R splines::ns(df=spline_df, intercept=TRUE): spline_df - 2 interior knots at
+    # equally spaced quantiles (R type 7 == numpy "linear"), boundary knots = range.
+    n_interior = spline_df - 2
+    probs = np.linspace(0.0, 1.0, n_interior + 2)[1:-1]
+    interior = np.quantile(cov_ok, probs) if n_interior else np.array([])
+    knots = (
+        float(cov_ok.min()),
+        *(float(v) for v in interior),
+        float(cov_ok.max()),
+    )
+    basis = _natural_spline_basis(cov_ok, knots)
+    e = np.log(floored) + float(np.log(df / 2)) - float(special.digamma(df / 2))
+    coef, _, rank, _ = np.linalg.lstsq(basis, e, rcond=None)
+    residual = e - basis @ coef
+    if n_valid <= rank:
+        raise ValueError("Too few features for the trend spline fit.")
+    e_var = float(residual @ residual) / (n_valid - int(rank))
+    emean = _natural_spline_basis(covariate, knots) @ coef
+    target = e_var - float(special.polygamma(1, df / 2))
+
+    def f(x: float) -> float:
+        return float(special.polygamma(1, x / 2)) - target
+
+    if target <= 0 or f(1e6) > 0:
+        return _TrendPrior(
+            s0_sq=np.exp(emean),
+            d0=float("inf"),
+            n_floored=n_floored,
+            spline_df=spline_df,
+            knots=knots,
+        )
+    d0 = float(optimize.brentq(f, 1e-6, 1e6))
+    s0_sq = np.exp(emean + float(special.digamma(d0 / 2)) - float(np.log(d0 / 2)))
+    return _TrendPrior(
+        s0_sq=np.asarray(s0_sq, dtype=float),
+        d0=d0,
+        n_floored=n_floored,
+        spline_df=spline_df,
+        knots=knots,
+    )
+
+
 @dataclass(frozen=True)
 class _TermStats:
     """Per-feature statistics for one design term."""
@@ -600,6 +793,7 @@ def differential_abundance(
     method: Method = "moderated",
     categorical: tuple[str, ...] | list[str] = (),
     alpha: float = 0.05,
+    trend: bool = False,
 ) -> DifferentialAbundanceResult:
     """Test every feature for differential abundance across ``contrast``.
 
@@ -629,10 +823,16 @@ def differential_abundance(
     alpha:
         Two-sided significance level for the confidence intervals (default ``0.05`` →
         95% CI). Does not affect the BH-q values.
+    trend:
+        (Project adaptation 5.) ``method="moderated"`` only. ``True`` fits the
+        empirical-Bayes prior variance as a smooth function of mean abundance (limma
+        ``eBayes(trend=TRUE)``) and returns a :class:`DifferentialAbundanceTrendResult`.
+        Default ``False`` (a constant prior; unchanged behaviour).
 
     Returns
     -------
     DifferentialAbundanceResult
+        (:class:`DifferentialAbundanceTrendResult` when ``trend=True``.)
     """
     if method not in ("ols", "moderated", "welch", "mannwhitney"):
         raise ValueError(
@@ -640,6 +840,11 @@ def differential_abundance(
         )
     if not 0.0 < alpha < 1.0:
         raise ValueError(f"alpha must be in (0, 1); got {alpha}.")
+    if trend and method != "moderated":
+        raise ValueError(
+            f"trend=True applies only to method='moderated' (the empirical-Bayes "
+            f"prior); got method={method!r}."
+        )
 
     covariates = tuple(covariates)
     categorical_set = frozenset(categorical)
@@ -706,6 +911,7 @@ def differential_abundance(
         mean_abundance_all=mean_abundance_all,
         effect_label=effect_label,
         alpha=alpha,
+        trend=trend,
     )
 
 
@@ -766,8 +972,9 @@ def _term_rows(
     mean_abundance: np.ndarray,
     n: int,
     sigma: np.ndarray,
+    prior_variance: np.ndarray | None = None,
 ) -> pd.DataFrame:
-    return pd.DataFrame(
+    frame = pd.DataFrame(
         {
             "feature": feature_names,
             "term": term_name,
@@ -784,6 +991,9 @@ def _term_rows(
             "n": n,
         }
     )
+    if prior_variance is not None:  # trend=True only (no-trend schema unchanged)
+        frame["prior_variance"] = prior_variance
+    return frame
 
 
 def _run_linear_model(
@@ -799,6 +1009,7 @@ def _run_linear_model(
     mean_abundance_all: np.ndarray,
     effect_label: str,
     alpha: float,
+    trend: bool = False,
 ) -> DifferentialAbundanceResult:
     terms, used_reference = _resolve_terms(
         contrast=contrast,
@@ -816,12 +1027,27 @@ def _run_linear_model(
     prior_variance: float | None = None
     prior_df: float | None = None
     n_prior_floored: int | None = None
-    if method == "moderated":
+    trend_prior: _TrendPrior | None = None
+    sigma2_eff: np.ndarray
+    df_eff: float
+    if method == "moderated" and trend:
+        trend_prior = _fit_f_distribution_prior_trend(
+            fit.sigma2, fit.df, mean_abundance_all
+        )
+        prior_df, n_prior_floored = trend_prior.d0, trend_prior.n_floored
+        if np.isinf(trend_prior.d0):
+            sigma2_eff = trend_prior.s0_sq.copy()
+            df_eff = float("inf")
+        else:
+            d0 = trend_prior.d0
+            sigma2_eff = (d0 * trend_prior.s0_sq + fit.df * fit.sigma2) / (d0 + fit.df)
+            df_eff = float(d0 + fit.df)
+    elif method == "moderated":
         s0_sq, d0, n_prior_floored = _fit_f_distribution_prior(fit.sigma2, fit.df)
         prior_variance, prior_df = s0_sq, d0
         if np.isinf(d0):
             sigma2_eff = np.full_like(fit.sigma2, s0_sq)
-            df_eff: float = float("inf")
+            df_eff = float("inf")
         else:
             sigma2_eff = (d0 * s0_sq + fit.df * fit.sigma2) / (d0 + fit.df)
             df_eff = float(d0 + fit.df)
@@ -846,10 +1072,32 @@ def _run_linear_model(
                 mean_abundance=mean_abundance_all,
                 n=n_samples,
                 sigma=np.sqrt(np.maximum(fit.sigma2, 0.0)),
+                prior_variance=None if trend_prior is None else trend_prior.s0_sq,
             )
         )
 
     table = _assemble_table(pd.concat(frames, ignore_index=True).to_dict("records"))
+    if trend_prior is not None:
+        return DifferentialAbundanceTrendResult(
+            table=table,
+            contrast=contrast,
+            covariates=covariates,
+            method=method,
+            reference=used_reference,
+            contrast_terms=tuple(contrast_terms),
+            effect_label=effect_label,
+            n_samples=n_samples,
+            prior_variance=None,
+            prior_df=prior_df,
+            residual_df=fit.df,
+            n_prior_floored=n_prior_floored,
+            trend=True,
+            trend_covariate="mean_abundance",
+            trend_spline_df=trend_prior.spline_df,
+            trend_knots=trend_prior.knots,
+            prior_variance_min=float(np.min(trend_prior.s0_sq)),
+            prior_variance_max=float(np.max(trend_prior.s0_sq)),
+        )
     return DifferentialAbundanceResult(
         table=table,
         contrast=contrast,

@@ -1,0 +1,578 @@
+{
+  "question": "Why does ATPK (P56134) go down in LFQ (log2FC -0.52, trend q 0.04) but up in NSAF / PSM counts?",
+  "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+  "script": "scripts/scratch/atpk_case_study.py",
+  "script_sha256": "2d51afe5794c843b59c57dd1aea17d58324902b2c4ee673137dedb1051b140da",
+  "protein_group": "psvid_86283_sp|P56134|ATPK_HUMAN",
+  "gene": "ATP5MF (ATP synthase F(0) complex subunit f, mitochondrial)",
+  "difference_convention": "raloxifene-d0 minus control within candidate_pair (log2 units; counts as log2 ratio)",
+  "samples": {
+    "AZ905": {
+      "condition": "control",
+      "candidate_pair": "P905_906",
+      "batch": "B2021-05-06",
+      "seq_number": "34"
+    },
+    "AZ907": {
+      "condition": "control",
+      "candidate_pair": "P907_908",
+      "batch": "B2021-05-06",
+      "seq_number": "39"
+    },
+    "AZ909": {
+      "condition": "control",
+      "candidate_pair": "P909_910",
+      "batch": "B2021-05-06",
+      "seq_number": "41"
+    },
+    "AZ906": {
+      "condition": "raloxifene-d0",
+      "candidate_pair": "P905_906",
+      "batch": "B2021-05-06",
+      "seq_number": "45"
+    },
+    "AZ908": {
+      "condition": "raloxifene-d0",
+      "candidate_pair": "P907_908",
+      "batch": "B2021-05-06",
+      "seq_number": "47"
+    },
+    "AZ910": {
+      "condition": "raloxifene-d0",
+      "candidate_pair": "P909_910",
+      "batch": "B2021-05-06",
+      "seq_number": "49"
+    },
+    "AZ941": {
+      "condition": "control",
+      "candidate_pair": "P941_942",
+      "batch": "B2022-03-18",
+      "seq_number": "17"
+    },
+    "AZ942": {
+      "condition": "raloxifene-d0",
+      "candidate_pair": "P941_942",
+      "batch": "B2022-03-18",
+      "seq_number": "19"
+    }
+  },
+  "protein_per_sample": {
+    "lfq_protein_raw_log2": {
+      "AZ905": 27.35784,
+      "AZ907": 27.71777,
+      "AZ909": 27.27332,
+      "AZ906": 26.73964,
+      "AZ908": 26.86294,
+      "AZ910": 26.5816,
+      "AZ941": 25.74524,
+      "AZ942": 25.04895
+    },
+    "lfq_protein_norm_log2": {
+      "AZ905": 26.73485,
+      "AZ907": 27.76506,
+      "AZ909": 27.3205,
+      "AZ906": 26.23106,
+      "AZ908": 27.214,
+      "AZ910": 26.81287,
+      "AZ941": 26.09947,
+      "AZ942": 25.59788
+    },
+    "lfq_protein_norm_offset": {
+      "AZ905": -0.62299,
+      "AZ907": 0.04729,
+      "AZ909": 0.04718,
+      "AZ906": -0.50858,
+      "AZ908": 0.35106,
+      "AZ910": 0.23128,
+      "AZ941": 0.35424,
+      "AZ942": 0.54893
+    },
+    "nsaf_log2": {
+      "AZ905": -11.70275,
+      "AZ907": -11.57842,
+      "AZ909": -11.43971,
+      "AZ906": -10.56962,
+      "AZ908": -10.29313,
+      "AZ910": -10.3789,
+      "AZ941": -11.22076,
+      "AZ942": -11.26623
+    },
+    "psm_count": {
+      "AZ905": 6.0,
+      "AZ907": 6.0,
+      "AZ909": 6.0,
+      "AZ906": 12.0,
+      "AZ908": 13.0,
+      "AZ910": 12.0,
+      "AZ941": 7.0,
+      "AZ942": 7.0
+    },
+    "psm_log2": {
+      "AZ905": 2.58496,
+      "AZ907": 2.58496,
+      "AZ909": 2.58496,
+      "AZ906": 3.58496,
+      "AZ908": 3.70044,
+      "AZ910": 3.58496,
+      "AZ941": 2.80735,
+      "AZ942": 2.80735
+    }
+  },
+  "protein_within_pair": {
+    "lfq_protein_raw_log2": {
+      "per_pair": {
+        "P905_906": -0.6182,
+        "P907_908": -0.8548,
+        "P909_910": -0.6917,
+        "P941_942": -0.6963
+      },
+      "mean": -0.7153,
+      "sd": 0.0997,
+      "n_pairs": 4,
+      "n_pairs_negative": 4,
+      "n_pairs_positive": 0
+    },
+    "lfq_protein_norm_log2": {
+      "per_pair": {
+        "P905_906": -0.5038,
+        "P907_908": -0.5511,
+        "P909_910": -0.5076,
+        "P941_942": -0.5016
+      },
+      "mean": -0.516,
+      "sd": 0.0235,
+      "n_pairs": 4,
+      "n_pairs_negative": 4,
+      "n_pairs_positive": 0
+    },
+    "lfq_protein_norm_offset": {
+      "per_pair": {
+        "P905_906": 0.1144,
+        "P907_908": 0.3038,
+        "P909_910": 0.1841,
+        "P941_942": 0.1947
+      },
+      "mean": 0.1992,
+      "sd": 0.0783,
+      "n_pairs": 4,
+      "n_pairs_negative": 0,
+      "n_pairs_positive": 4
+    },
+    "nsaf_log2": {
+      "per_pair": {
+        "P905_906": 1.1331,
+        "P907_908": 1.2853,
+        "P909_910": 1.0608,
+        "P941_942": -0.0455
+      },
+      "mean": 0.8584,
+      "sd": 0.6098,
+      "n_pairs": 4,
+      "n_pairs_negative": 1,
+      "n_pairs_positive": 3
+    },
+    "psm_count": {
+      "per_pair": {
+        "P905_906": 1.0,
+        "P907_908": 1.1155,
+        "P909_910": 1.0,
+        "P941_942": 0.0
+      },
+      "mean": 0.7789,
+      "sd": 0.5221,
+      "n_pairs": 4,
+      "n_pairs_negative": 0,
+      "n_pairs_positive": 3
+    },
+    "psm_log2": {
+      "per_pair": {
+        "P905_906": 1.0,
+        "P907_908": 1.1155,
+        "P909_910": 1.0,
+        "P941_942": 0.0
+      },
+      "mean": 0.7789,
+      "sd": 0.5221,
+      "n_pairs": 4,
+      "n_pairs_negative": 0,
+      "n_pairs_positive": 3
+    }
+  },
+  "mean_psms_per_run": 8.625,
+  "poisson_sd_log2_psm_ratio_per_pair": [
+    0.721,
+    0.712,
+    0.721,
+    0.771
+  ],
+  "de_results": {
+    "lfq_protein": {
+      "paired": {
+        "log2fc": -0.516,
+        "ci95": [
+          -0.6488,
+          -0.3833
+        ],
+        "p": 2.19151368543164e-05,
+        "q": 0.0395,
+        "residual_sd": 0.0166,
+        "rank_by_p": 1,
+        "n_features": 1801,
+        "p_notrend": 0.0002997529199611,
+        "q_notrend": 0.21,
+        "prior_sd_trend": 0.1025
+      },
+      "batch": {
+        "log2fc": -0.516,
+        "ci95": [
+          -1.1401,
+          0.108
+        ],
+        "p": 0.0937869614400385,
+        "q": 0.9999,
+        "residual_sd": 0.4523,
+        "rank_by_p": 23,
+        "n_features": 1801,
+        "p_notrend": 0.1006107350112643,
+        "q_notrend": 0.9999,
+        "prior_sd_trend": 0.2742
+      },
+      "unadjusted": {
+        "log2fc": -0.516,
+        "ci95": [
+          -1.4622,
+          0.4301
+        ],
+        "p": 0.252301553517015,
+        "q": 0.9999,
+        "residual_sd": 0.7137,
+        "rank_by_p": 45,
+        "n_features": 1801,
+        "p_notrend": 0.2564771849066332,
+        "q_notrend": 0.9999,
+        "prior_sd_trend": 0.3742
+      }
+    },
+    "nsaf_paired": {
+      "log2fc": 0.8584,
+      "ci95": [
+        0.231,
+        1.4859
+      ],
+      "p": 0.0170070252720076,
+      "q": 0.7026,
+      "residual_sd": 0.4312,
+      "rank_by_p": 41,
+      "n_features": 2158,
+      "p_notrend": 0.0253836438929399,
+      "q_notrend": 0.7207,
+      "prior_sd_trend": 0.1321
+    },
+    "psm_log2_paired": {
+      "log2fc": 0.7789,
+      "ci95": [
+        0.1891,
+        1.3687
+      ],
+      "p": 0.0184901578405018,
+      "q": 0.4876,
+      "residual_sd": 0.3692,
+      "rank_by_p": 74,
+      "n_features": 2167,
+      "p_notrend": 0.0194580253824103,
+      "q_notrend": 0.5405,
+      "prior_sd_trend": 0.2877
+    }
+  },
+  "lfq_peptides": [
+    {
+      "peptide": "DFSPSGIFGAFQR[+0.0]",
+      "base_sequence": "DFSPSGIFGAFQR",
+      "total_mod_mass": 0.0,
+      "protein_groups": "psvid_86283_sp|P56134|ATPK_HUMAN",
+      "shared": false,
+      "in_complete_de_set": true,
+      "detection_type_counts": {
+        "MSMS": 8
+      },
+      "detection_type_by_sample": {
+        "AZ905": "MSMS",
+        "AZ907": "MSMS",
+        "AZ909": "MSMS",
+        "AZ906": "MSMS",
+        "AZ908": "MSMS",
+        "AZ910": "MSMS",
+        "AZ941": "MSMS",
+        "AZ942": "MSMS"
+      },
+      "n_mbr": 0,
+      "within_pair_norm_log2_difference": {
+        "per_pair": {
+          "P905_906": -0.1601,
+          "P907_908": -0.2126,
+          "P909_910": 0.2701,
+          "P941_942": -0.0896
+        },
+        "mean": -0.048,
+        "sd": 0.218,
+        "n_pairs": 4,
+        "n_pairs_negative": 3,
+        "n_pairs_positive": 1
+      },
+      "peptide_de_paired": {
+        "log2fc": -0.048,
+        "ci95": [
+          -0.3233,
+          0.2272
+        ],
+        "q_trend": 0.9366,
+        "q_notrend": 0.9459
+      }
+    },
+    {
+      "peptide": "LGELPSWILMR[+0.0]",
+      "base_sequence": "LGELPSWILMR",
+      "total_mod_mass": 0.0,
+      "protein_groups": "psvid_86283_sp|P56134|ATPK_HUMAN",
+      "shared": false,
+      "in_complete_de_set": false,
+      "detection_type_counts": {
+        "MSMSAmbiguousPeakfinding": 6,
+        "MSMS": 2
+      },
+      "detection_type_by_sample": {
+        "AZ905": "MSMSAmbiguousPeakfinding",
+        "AZ907": "MSMSAmbiguousPeakfinding",
+        "AZ909": "MSMSAmbiguousPeakfinding",
+        "AZ906": "MSMSAmbiguousPeakfinding",
+        "AZ908": "MSMSAmbiguousPeakfinding",
+        "AZ910": "MSMS",
+        "AZ941": "MSMS",
+        "AZ942": "MSMSAmbiguousPeakfinding"
+      },
+      "n_mbr": 0,
+      "within_pair_norm_log2_difference": {
+        "per_pair": {
+          "P905_906": null,
+          "P907_908": null,
+          "P909_910": null,
+          "P941_942": null
+        },
+        "mean": null,
+        "sd": null,
+        "n_pairs": 0,
+        "n_pairs_negative": 0,
+        "n_pairs_positive": 0
+      },
+      "peptide_de_paired": null
+    },
+    {
+      "peptide": "LGELPSWILMR[+15.9949]",
+      "base_sequence": "LGELPSWILMR",
+      "total_mod_mass": 15.9949,
+      "protein_groups": "psvid_86283_sp|P56134|ATPK_HUMAN",
+      "shared": false,
+      "in_complete_de_set": true,
+      "detection_type_counts": {
+        "MSMS": 8
+      },
+      "detection_type_by_sample": {
+        "AZ905": "MSMS",
+        "AZ907": "MSMS",
+        "AZ909": "MSMS",
+        "AZ906": "MSMS",
+        "AZ908": "MSMS",
+        "AZ910": "MSMS",
+        "AZ941": "MSMS",
+        "AZ942": "MSMS"
+      },
+      "n_mbr": 0,
+      "within_pair_norm_log2_difference": {
+        "per_pair": {
+          "P905_906": -0.8456,
+          "P907_908": -0.6469,
+          "P909_910": -0.8166,
+          "P941_942": -0.3178
+        },
+        "mean": -0.6567,
+        "sd": 0.2424,
+        "n_pairs": 4,
+        "n_pairs_negative": 4,
+        "n_pairs_positive": 0
+      },
+      "peptide_de_paired": {
+        "log2fc": -0.6567,
+        "ci95": [
+          -0.9586,
+          -0.3548
+        ],
+        "q_trend": 0.2131,
+        "q_notrend": 0.276
+      }
+    }
+  ],
+  "peptide_dump_psms": [
+    {
+      "dump_sequence": "DFSPSGIFGAFQR",
+      "psms_by_sample": {
+        "AZ905": 2,
+        "AZ907": 2,
+        "AZ909": 2,
+        "AZ906": 1,
+        "AZ908": 1,
+        "AZ910": 1,
+        "AZ941": 3,
+        "AZ942": 1
+      },
+      "psms_total_control": 9,
+      "psms_total_raloxifene": 4,
+      "n_runs_mbr": 0,
+      "dump_quant_by_sample": {
+        "AZ910": "3.35e+7",
+        "AZ909": "3.18e+7",
+        "AZ907": "5.39e+7",
+        "AZ908": "3.46e+7",
+        "AZ906": "6.03e+7",
+        "AZ905": "7.30e+7",
+        "AZ941": "1.87e+7",
+        "AZ942": "1.46e+7"
+      },
+      "within_pair_log2_psm_ratio": {
+        "per_pair": {
+          "P905_906": -1.0,
+          "P907_908": -1.0,
+          "P909_910": -1.0,
+          "P941_942": -1.585
+        },
+        "mean": -1.1462,
+        "sd": 0.2925,
+        "n_pairs": 4,
+        "n_pairs_negative": 4,
+        "n_pairs_positive": 0
+      }
+    },
+    {
+      "dump_sequence": "LGELPSWILMR",
+      "psms_by_sample": {
+        "AZ905": 1,
+        "AZ907": 1,
+        "AZ909": 1,
+        "AZ906": 1,
+        "AZ908": 2,
+        "AZ910": 1,
+        "AZ941": 2,
+        "AZ942": 3
+      },
+      "psms_total_control": 5,
+      "psms_total_raloxifene": 7,
+      "n_runs_mbr": 0,
+      "dump_quant_by_sample": {
+        "AZ910": "2.93e+7",
+        "AZ909": "overlapping signal",
+        "AZ907": "overlapping signal",
+        "AZ908": "overlapping signal",
+        "AZ906": "overlapping signal",
+        "AZ905": "overlapping signal",
+        "AZ941": "4.92e+7",
+        "AZ942": "overlapping signal"
+      },
+      "within_pair_log2_psm_ratio": {
+        "per_pair": {
+          "P905_906": 0.0,
+          "P907_908": 1.0,
+          "P909_910": 0.0,
+          "P941_942": 0.585
+        },
+        "mean": 0.3962,
+        "sd": 0.4879,
+        "n_pairs": 4,
+        "n_pairs_negative": 0,
+        "n_pairs_positive": 2
+      }
+    },
+    {
+      "dump_sequence": "LGELPSWILM[15.99]R",
+      "psms_by_sample": {
+        "AZ905": 3,
+        "AZ907": 3,
+        "AZ909": 3,
+        "AZ906": 10,
+        "AZ908": 10,
+        "AZ910": 10,
+        "AZ941": 2,
+        "AZ942": 3
+      },
+      "psms_total_control": 11,
+      "psms_total_raloxifene": 33,
+      "n_runs_mbr": 0,
+      "dump_quant_by_sample": {
+        "AZ910": "1.55e+7",
+        "AZ909": "3.12e+7",
+        "AZ907": "3.42e+7",
+        "AZ908": "1.63e+7",
+        "AZ906": "7.86e+6",
+        "AZ905": "1.53e+7",
+        "AZ941": "4.67e+6",
+        "AZ942": "3.11e+6"
+      },
+      "within_pair_log2_psm_ratio": {
+        "per_pair": {
+          "P905_906": 1.737,
+          "P907_908": 1.737,
+          "P909_910": 1.737,
+          "P941_942": 0.585
+        },
+        "mean": 1.449,
+        "sd": 0.576,
+        "n_pairs": 4,
+        "n_pairs_negative": 0,
+        "n_pairs_positive": 4
+      }
+    }
+  ],
+  "oxidized_peptide_dump_rows": [
+    "LGELPSWILM[15.99]R"
+  ],
+  "protein_vs_peptide_sum": {
+    "peptide_intensity_sum_by_sample": {
+      "AZ905": 88340892.0,
+      "AZ907": 88052098.0,
+      "AZ909": 63065010.625,
+      "AZ906": 68204071.06511484,
+      "AZ908": 50887176.6875,
+      "AZ910": 78241447.71251968,
+      "AZ941": 72583527.82314676,
+      "AZ942": 17740100.75300274
+    },
+    "ratio_protein_over_peptide_sum": {
+      "AZ905": 1.947,
+      "AZ907": 2.5069,
+      "AZ909": 2.5722,
+      "AZ906": 1.6429,
+      "AZ908": 2.3985,
+      "AZ910": 1.2836,
+      "AZ941": 0.7749,
+      "AZ942": 1.9567
+    },
+    "note": "Across all proteins only ~11% of protein x run cells equal the sum of their unique reported peptide intensities (checked 2026-09-24); the FlashLFQ protein roll-up is not reconstructable from peptide-quants."
+  },
+  "interpretation": [
+    "LFQ protein: normalized log2 within-pair differences {'P905_906': -0.5038, 'P907_908': -0.5511, 'P909_910': -0.5076, 'P941_942': -0.5016} (mean -0.516, SD 0.0235); 4 of 4 pairs negative and nearly identical, so the residual SD is tiny; the trend prior (lower at high abundance) then moderates it less towards a larger variance and it passes q < 0.05.",
+    "Normalization does not create the LFQ decrease: raw log2 differences {'P905_906': -0.6182, 'P907_908': -0.8548, 'P909_910': -0.6917, 'P941_942': -0.6963} (mean -0.7153); the median-normalization offsets add {'P905_906': 0.1144, 'P907_908': 0.3038, 'P909_910': 0.1841, 'P941_942': 0.1947} per pair (raloxifene runs scaled up), shrinking the effect and making it more uniform across pairs.",
+    "LFQ peptide evidence (FlashLFQ peptide table): DFSPSGIFGAFQR[+0.0]: mean within-pair normalized log2 difference -0.048 (per pair {'P905_906': -0.1601, 'P907_908': -0.2126, 'P909_910': 0.2701, 'P941_942': -0.0896}; detection types {'MSMS': 8}); LGELPSWILMR[+0.0]: mean within-pair normalized log2 difference None (per pair {'P905_906': None, 'P907_908': None, 'P909_910': None, 'P941_942': None}; detection types {'MSMSAmbiguousPeakfinding': 6, 'MSMS': 2}); LGELPSWILMR[+15.9949]: mean within-pair normalized log2 difference -0.6567 (per pair {'P905_906': -0.8456, 'P907_908': -0.6469, 'P909_910': -0.8166, 'P941_942': -0.3178}; detection types {'MSMS': 8}).",
+    "Spectral counts are small: protein PSMs per run {'AZ905': 6, 'AZ907': 6, 'AZ909': 6, 'AZ906': 12, 'AZ908': 13, 'AZ910': 12, 'AZ941': 7, 'AZ942': 7} (mean 8.62); within-pair log2 PSM ratios {'P905_906': 1.0, 'P907_908': 1.1155, 'P909_910': 1.0, 'P941_942': 0.0}. Poisson noise alone gives a per-pair log2-ratio SD of about 0.72.",
+    "Per-peptide PSMs (Limelight dump), control vs raloxifene totals: DFSPSGIFGAFQR 9 vs 4; LGELPSWILMR 5 vs 7; LGELPSWILM[15.99]R 11 vs 33 (all peptides 25 vs 44). LGELPSWILM[15.99]R gains +22 PSMs (all other ATPK peptides together -3); the modified LFQ peptide (LGELPSWILMR[+15.9949]) MS1 intensity falls in the same pairs.",
+    "MBR / shared peptides: 0 MBR values among the ATPK peptides (FlashLFQ detection types + dump MBR flags) and 0 shared peptides.",
+    "The FlashLFQ protein intensity is not the sum of the reported peptide intensities (ratio protein / peptide sum per sample {'AZ905': 1.947, 'AZ907': 2.507, 'AZ909': 2.572, 'AZ906': 1.643, 'AZ908': 2.399, 'AZ910': 1.284, 'AZ941': 0.775, 'AZ942': 1.957}): the protein roll-up uses signal not visible in the peptide table (e.g. peaks reported as MSMSAmbiguousPeakfinding, intensity 0 in the peptide table).",
+    "Run order is aliased with condition (control first in every pair, finding 0001), so a run-order effect (e.g. Met oxidation or chromatographic drift along the queue) cannot be separated from treatment for any of these directions."
+  ],
+  "caveats": [
+    "Descriptive; no test beyond the existing DE tables. One protein chosen because it is the top hit: selection makes its effect size optimistic.",
+    "Dump numbers are display-rounded (3 s.f.); PSM counts are exact integers.",
+    "Four pairs; the 2022 pair (P941_942) is a different acquisition batch."
+  ],
+  "outputs": {
+    "samples_tsv": "atpk_case_samples.tsv",
+    "pairs_tsv": "atpk_case_pairs.tsv"
+  }
+}
