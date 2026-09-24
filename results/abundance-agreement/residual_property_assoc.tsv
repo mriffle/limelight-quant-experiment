@@ -1,0 +1,11 @@
+residual	property	scope	p_value	method	n_cells	n_proteins	r	ci_low	ci_high	q_bh	correction
+log2_psm	log2_length_rel	protein_mean_complete8	1.36978e-21	spearman	1648	1648	0.232067	0.183528	0.279123	1.71222e-21	BH over the 10 residual x property Spearman tests
+log2_psm	log2_n_unique_peptides	protein_mean_complete8	2.26198e-11	spearman	1648	1648	0.163759	0.116111	0.210922	2.51331e-11	BH over the 10 residual x property Spearman tests
+log2_psm	mbr_intensity_frac_mean	protein_mean_complete8	0.000245836	spearman	1648	1648	-0.0902035	-0.138944	-0.0386992	0.000245836	BH over the 10 residual x property Spearman tests
+log2_psm	log2_shared_psm_inflation	protein_mean_complete8	3.07101e-89	spearman	1648	1648	0.465135	0.421734	0.506864	7.67751e-89	BH over the 10 residual x property Spearman tests
+log2_psm	mbr_intensity_frac_run	cell_within_protein_centered	3.97745e-172	spearman	13184	1648	-0.240032	-0.261588	-0.218886	1.32582e-171	BH over the 10 residual x property Spearman tests
+log2_nsaf	log2_length_rel	protein_mean_complete8	1.69427e-281	spearman	1648	1648	-0.736285	-0.763412	-0.706808	1.69427e-280	BH over the 10 residual x property Spearman tests
+log2_nsaf	log2_n_unique_peptides	protein_mean_complete8	2.1922e-29	spearman	1648	1648	-0.272198	-0.321837	-0.222877	3.65367e-29	BH over the 10 residual x property Spearman tests
+log2_nsaf	mbr_intensity_frac_mean	protein_mean_complete8	1.75436e-69	spearman	1648	1648	-0.414644	-0.458155	-0.369788	3.50873e-69	BH over the 10 residual x property Spearman tests
+log2_nsaf	log2_shared_psm_inflation	protein_mean_complete8	3.72989e-26	spearman	1648	1648	0.25642	0.205942	0.304976	5.32842e-26	BH over the 10 residual x property Spearman tests
+log2_nsaf	mbr_intensity_frac_run	cell_within_protein_centered	3.54651e-179	spearman	13184	1648	-0.244807	-0.265577	-0.22254	1.77326e-178	BH over the 10 residual x property Spearman tests

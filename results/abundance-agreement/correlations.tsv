@@ -1,0 +1,165 @@
+comparison	subset	scope	sample_id	method	n_cells	n_proteins	r	ci_low	ci_high	batch
+lfq_vs_psm	all_common	pooled_cells	all	spearman	20114	3414	0.862741	0.850217	0.874479	
+lfq_vs_psm	all_common	per_sample	AZ905	spearman	2814	2814	0.877594	0.864451	0.889604	B2021-05-06
+lfq_vs_psm	all_common	per_sample	AZ907	spearman	2601	2601	0.866687	0.851726	0.880309	B2021-05-06
+lfq_vs_psm	all_common	per_sample	AZ909	spearman	2623	2623	0.864731	0.850037	0.877535	B2021-05-06
+lfq_vs_psm	all_common	per_sample	AZ906	spearman	2696	2696	0.874601	0.861322	0.887158	B2021-05-06
+lfq_vs_psm	all_common	per_sample	AZ908	spearman	2406	2406	0.86152	0.845323	0.875625	B2021-05-06
+lfq_vs_psm	all_common	per_sample	AZ910	spearman	2542	2542	0.861343	0.845948	0.876187	B2021-05-06
+lfq_vs_psm	all_common	per_sample	AZ941	spearman	2233	2233	0.865538	0.850374	0.879752	B2022-03-18
+lfq_vs_psm	all_common	per_sample	AZ942	spearman	2199	2199	0.858338	0.841354	0.872503	B2022-03-18
+lfq_vs_psm	all_common	protein_mean	mean_over_runs	spearman	3414	3414	0.873378	0.860286	0.885169	
+lfq_vs_psm	all_common	pooled_cells	all	pearson	20114	3414	0.862376	0.850181	0.873799	
+lfq_vs_psm	all_common	per_sample	AZ905	pearson	2814	2814	0.873982	0.861192	0.886334	B2021-05-06
+lfq_vs_psm	all_common	per_sample	AZ907	pearson	2601	2601	0.863737	0.847588	0.877915	B2021-05-06
+lfq_vs_psm	all_common	per_sample	AZ909	pearson	2623	2623	0.865304	0.85096	0.878326	B2021-05-06
+lfq_vs_psm	all_common	per_sample	AZ906	pearson	2696	2696	0.87023	0.856287	0.882939	B2021-05-06
+lfq_vs_psm	all_common	per_sample	AZ908	pearson	2406	2406	0.861413	0.8462	0.874972	B2021-05-06
+lfq_vs_psm	all_common	per_sample	AZ910	pearson	2542	2542	0.863225	0.848576	0.875941	B2021-05-06
+lfq_vs_psm	all_common	per_sample	AZ941	pearson	2233	2233	0.86918	0.855091	0.882271	B2022-03-18
+lfq_vs_psm	all_common	per_sample	AZ942	pearson	2199	2199	0.863028	0.847386	0.876302	B2022-03-18
+lfq_vs_psm	all_common	protein_mean	mean_over_runs	pearson	3414	3414	0.877299	0.863818	0.888346	
+lfq_vs_nsaf	all_common	pooled_cells	all	spearman	20114	3414	0.786358	0.7719	0.80092	
+lfq_vs_nsaf	all_common	per_sample	AZ905	spearman	2814	2814	0.811507	0.794474	0.826501	B2021-05-06
+lfq_vs_nsaf	all_common	per_sample	AZ907	spearman	2601	2601	0.793917	0.77589	0.811212	B2021-05-06
+lfq_vs_nsaf	all_common	per_sample	AZ909	spearman	2623	2623	0.790011	0.770977	0.807424	B2021-05-06
+lfq_vs_nsaf	all_common	per_sample	AZ906	spearman	2696	2696	0.798541	0.780817	0.815367	B2021-05-06
+lfq_vs_nsaf	all_common	per_sample	AZ908	spearman	2406	2406	0.774416	0.753345	0.792844	B2021-05-06
+lfq_vs_nsaf	all_common	per_sample	AZ910	spearman	2542	2542	0.780063	0.760802	0.798821	B2021-05-06
+lfq_vs_nsaf	all_common	per_sample	AZ941	spearman	2233	2233	0.773819	0.752632	0.793397	B2022-03-18
+lfq_vs_nsaf	all_common	per_sample	AZ942	spearman	2199	2199	0.763384	0.741491	0.782604	B2022-03-18
+lfq_vs_nsaf	all_common	protein_mean	mean_over_runs	spearman	3414	3414	0.783151	0.766866	0.79918	
+lfq_vs_nsaf	all_common	pooled_cells	all	pearson	20114	3414	0.781248	0.76699	0.795181	
+lfq_vs_nsaf	all_common	per_sample	AZ905	pearson	2814	2814	0.803851	0.78748	0.819054	B2021-05-06
+lfq_vs_nsaf	all_common	per_sample	AZ907	pearson	2601	2601	0.781605	0.761869	0.800703	B2021-05-06
+lfq_vs_nsaf	all_common	per_sample	AZ909	pearson	2623	2623	0.786054	0.767663	0.802901	B2021-05-06
+lfq_vs_nsaf	all_common	per_sample	AZ906	pearson	2696	2696	0.790097	0.772688	0.806648	B2021-05-06
+lfq_vs_nsaf	all_common	per_sample	AZ908	pearson	2406	2406	0.768474	0.748643	0.786599	B2021-05-06
+lfq_vs_nsaf	all_common	per_sample	AZ910	pearson	2542	2542	0.779214	0.760585	0.798221	B2021-05-06
+lfq_vs_nsaf	all_common	per_sample	AZ941	pearson	2233	2233	0.77083	0.751946	0.788694	B2022-03-18
+lfq_vs_nsaf	all_common	per_sample	AZ942	pearson	2199	2199	0.762541	0.743025	0.780086	B2022-03-18
+lfq_vs_nsaf	all_common	protein_mean	mean_over_runs	pearson	3414	3414	0.793575	0.777926	0.808679	
+lfq_vs_psm_runnorm	all_common	pooled_cells	all	spearman	20114	3414	0.866393	0.855069	0.877215	
+lfq_vs_psm_runnorm	all_common	pooled_cells	all	pearson	20114	3414	0.865867	0.854273	0.876131	
+psm_vs_nsaf	all_common	pooled_cells	all	spearman	20114	3414	0.887503	0.879364	0.895548	
+psm_vs_nsaf	all_common	per_sample	AZ905	spearman	2814	2814	0.889486	0.880655	0.897856	B2021-05-06
+psm_vs_nsaf	all_common	per_sample	AZ907	spearman	2601	2601	0.892115	0.883132	0.900141	B2021-05-06
+psm_vs_nsaf	all_common	per_sample	AZ909	spearman	2623	2623	0.883931	0.87407	0.893725	B2021-05-06
+psm_vs_nsaf	all_common	per_sample	AZ906	spearman	2696	2696	0.886528	0.877284	0.894984	B2021-05-06
+psm_vs_nsaf	all_common	per_sample	AZ908	spearman	2406	2406	0.889601	0.879853	0.898294	B2021-05-06
+psm_vs_nsaf	all_common	per_sample	AZ910	spearman	2542	2542	0.884075	0.874505	0.892976	B2021-05-06
+psm_vs_nsaf	all_common	per_sample	AZ941	spearman	2233	2233	0.891696	0.882229	0.900344	B2022-03-18
+psm_vs_nsaf	all_common	per_sample	AZ942	spearman	2199	2199	0.892302	0.882533	0.901078	B2022-03-18
+psm_vs_nsaf	all_common	protein_mean	mean_over_runs	spearman	3414	3414	0.874628	0.865239	0.883328	
+psm_vs_nsaf	all_common	pooled_cells	all	pearson	20114	3414	0.883003	0.87471	0.890733	
+psm_vs_nsaf	all_common	per_sample	AZ905	pearson	2814	2814	0.886351	0.878221	0.894433	B2021-05-06
+psm_vs_nsaf	all_common	per_sample	AZ907	pearson	2601	2601	0.886671	0.878382	0.894501	B2021-05-06
+psm_vs_nsaf	all_common	per_sample	AZ909	pearson	2623	2623	0.87943	0.870387	0.888149	B2021-05-06
+psm_vs_nsaf	all_common	per_sample	AZ906	pearson	2696	2696	0.881143	0.872118	0.889192	B2021-05-06
+psm_vs_nsaf	all_common	per_sample	AZ908	pearson	2406	2406	0.885925	0.877037	0.894671	B2021-05-06
+psm_vs_nsaf	all_common	per_sample	AZ910	pearson	2542	2542	0.878963	0.869802	0.887941	B2021-05-06
+psm_vs_nsaf	all_common	per_sample	AZ941	pearson	2233	2233	0.886956	0.878045	0.895328	B2022-03-18
+psm_vs_nsaf	all_common	per_sample	AZ942	pearson	2199	2199	0.887082	0.877557	0.896079	B2022-03-18
+psm_vs_nsaf	all_common	protein_mean	mean_over_runs	pearson	3414	3414	0.880185	0.872263	0.887801	
+lfq_per_length_vs_nsaf	all_common	pooled_cells	all	spearman	20114	3414	0.891481	0.881191	0.900613	
+lfq_per_length_vs_nsaf	all_common	per_sample	AZ905	spearman	2814	2814	0.900631	0.889821	0.911322	B2021-05-06
+lfq_per_length_vs_nsaf	all_common	per_sample	AZ907	spearman	2601	2601	0.893765	0.88033	0.90519	B2021-05-06
+lfq_per_length_vs_nsaf	all_common	per_sample	AZ909	spearman	2623	2623	0.889889	0.876543	0.901412	B2021-05-06
+lfq_per_length_vs_nsaf	all_common	per_sample	AZ906	spearman	2696	2696	0.896587	0.884675	0.907619	B2021-05-06
+lfq_per_length_vs_nsaf	all_common	per_sample	AZ908	spearman	2406	2406	0.889493	0.876372	0.901555	B2021-05-06
+lfq_per_length_vs_nsaf	all_common	per_sample	AZ910	spearman	2542	2542	0.888894	0.876545	0.900977	B2021-05-06
+lfq_per_length_vs_nsaf	all_common	per_sample	AZ941	spearman	2233	2233	0.892333	0.878669	0.904843	B2022-03-18
+lfq_per_length_vs_nsaf	all_common	per_sample	AZ942	spearman	2199	2199	0.886585	0.872165	0.898846	B2022-03-18
+lfq_per_length_vs_nsaf	all_common	protein_mean	mean_over_runs	spearman	3414	3414	0.903437	0.892899	0.913111	
+lfq_per_length_vs_nsaf	all_common	pooled_cells	all	pearson	20114	3414	0.883001	0.873185	0.891927	
+lfq_per_length_vs_nsaf	all_common	per_sample	AZ905	pearson	2814	2814	0.892168	0.879604	0.902596	B2021-05-06
+lfq_per_length_vs_nsaf	all_common	per_sample	AZ907	pearson	2601	2601	0.881331	0.867254	0.894076	B2021-05-06
+lfq_per_length_vs_nsaf	all_common	per_sample	AZ909	pearson	2623	2623	0.884961	0.872355	0.895975	B2021-05-06
+lfq_per_length_vs_nsaf	all_common	per_sample	AZ906	pearson	2696	2696	0.888884	0.877172	0.899972	B2021-05-06
+lfq_per_length_vs_nsaf	all_common	per_sample	AZ908	pearson	2406	2406	0.87729	0.863959	0.88976	B2021-05-06
+lfq_per_length_vs_nsaf	all_common	per_sample	AZ910	pearson	2542	2542	0.882625	0.871014	0.894474	B2021-05-06
+lfq_per_length_vs_nsaf	all_common	per_sample	AZ941	pearson	2233	2233	0.883685	0.871953	0.894721	B2022-03-18
+lfq_per_length_vs_nsaf	all_common	per_sample	AZ942	pearson	2199	2199	0.88017	0.86767	0.891556	B2022-03-18
+lfq_per_length_vs_nsaf	all_common	protein_mean	mean_over_runs	pearson	3414	3414	0.900194	0.889859	0.9096	
+lfq_vs_psm	complete8	pooled_cells	all	spearman	13184	1648	0.864545	0.847609	0.879952	
+lfq_vs_psm	complete8	per_sample	AZ905	spearman	1648	1648	0.865237	0.84642	0.881947	B2021-05-06
+lfq_vs_psm	complete8	per_sample	AZ907	spearman	1648	1648	0.879592	0.862532	0.894415	B2021-05-06
+lfq_vs_psm	complete8	per_sample	AZ909	spearman	1648	1648	0.865667	0.846737	0.882746	B2021-05-06
+lfq_vs_psm	complete8	per_sample	AZ906	spearman	1648	1648	0.870541	0.852159	0.886346	B2021-05-06
+lfq_vs_psm	complete8	per_sample	AZ908	spearman	1648	1648	0.875664	0.857577	0.890767	B2021-05-06
+lfq_vs_psm	complete8	per_sample	AZ910	spearman	1648	1648	0.86594	0.846583	0.882619	B2021-05-06
+lfq_vs_psm	complete8	per_sample	AZ941	spearman	1648	1648	0.861309	0.842556	0.878194	B2022-03-18
+lfq_vs_psm	complete8	per_sample	AZ942	spearman	1648	1648	0.85544	0.836291	0.873047	B2022-03-18
+lfq_vs_psm	complete8	protein_mean	mean_over_runs	spearman	1648	1648	0.887807	0.870471	0.903461	
+lfq_vs_psm	complete8	pooled_cells	all	pearson	13184	1648	0.858572	0.841028	0.874139	
+lfq_vs_psm	complete8	per_sample	AZ905	pearson	1648	1648	0.858705	0.838839	0.876182	B2021-05-06
+lfq_vs_psm	complete8	per_sample	AZ907	pearson	1648	1648	0.870364	0.853062	0.886072	B2021-05-06
+lfq_vs_psm	complete8	per_sample	AZ909	pearson	1648	1648	0.860752	0.841741	0.87818	B2021-05-06
+lfq_vs_psm	complete8	per_sample	AZ906	pearson	1648	1648	0.862841	0.843954	0.879735	B2021-05-06
+lfq_vs_psm	complete8	per_sample	AZ908	pearson	1648	1648	0.866058	0.848084	0.882113	B2021-05-06
+lfq_vs_psm	complete8	per_sample	AZ910	pearson	1648	1648	0.86198	0.842145	0.879361	B2021-05-06
+lfq_vs_psm	complete8	per_sample	AZ941	pearson	1648	1648	0.858675	0.840498	0.875151	B2022-03-18
+lfq_vs_psm	complete8	per_sample	AZ942	pearson	1648	1648	0.854426	0.834907	0.871858	B2022-03-18
+lfq_vs_psm	complete8	protein_mean	mean_over_runs	pearson	1648	1648	0.885127	0.867538	0.901022	
+lfq_vs_nsaf	complete8	pooled_cells	all	spearman	13184	1648	0.75786	0.733814	0.780814	
+lfq_vs_nsaf	complete8	per_sample	AZ905	spearman	1648	1648	0.763072	0.736806	0.786224	B2021-05-06
+lfq_vs_nsaf	complete8	per_sample	AZ907	spearman	1648	1648	0.767845	0.743937	0.789828	B2021-05-06
+lfq_vs_nsaf	complete8	per_sample	AZ909	spearman	1648	1648	0.751224	0.725042	0.776231	B2021-05-06
+lfq_vs_nsaf	complete8	per_sample	AZ906	spearman	1648	1648	0.763492	0.738031	0.787792	B2021-05-06
+lfq_vs_nsaf	complete8	per_sample	AZ908	spearman	1648	1648	0.756595	0.732336	0.779924	B2021-05-06
+lfq_vs_nsaf	complete8	per_sample	AZ910	spearman	1648	1648	0.748734	0.722046	0.774477	B2021-05-06
+lfq_vs_nsaf	complete8	per_sample	AZ941	spearman	1648	1648	0.761869	0.737964	0.785361	B2022-03-18
+lfq_vs_nsaf	complete8	per_sample	AZ942	spearman	1648	1648	0.752527	0.726332	0.776102	B2022-03-18
+lfq_vs_nsaf	complete8	protein_mean	mean_over_runs	spearman	1648	1648	0.762537	0.736885	0.786827	
+lfq_vs_nsaf	complete8	pooled_cells	all	pearson	13184	1648	0.75292	0.730909	0.774092	
+lfq_vs_nsaf	complete8	per_sample	AZ905	pearson	1648	1648	0.764574	0.740919	0.787073	B2021-05-06
+lfq_vs_nsaf	complete8	per_sample	AZ907	pearson	1648	1648	0.756793	0.733497	0.777963	B2021-05-06
+lfq_vs_nsaf	complete8	per_sample	AZ909	pearson	1648	1648	0.752025	0.727625	0.776135	B2021-05-06
+lfq_vs_nsaf	complete8	per_sample	AZ906	pearson	1648	1648	0.765268	0.741101	0.788949	B2021-05-06
+lfq_vs_nsaf	complete8	per_sample	AZ908	pearson	1648	1648	0.748107	0.724841	0.770256	B2021-05-06
+lfq_vs_nsaf	complete8	per_sample	AZ910	pearson	1648	1648	0.750215	0.727138	0.772988	B2021-05-06
+lfq_vs_nsaf	complete8	per_sample	AZ941	pearson	1648	1648	0.753044	0.729527	0.775321	B2022-03-18
+lfq_vs_nsaf	complete8	per_sample	AZ942	pearson	1648	1648	0.746313	0.72098	0.770139	B2022-03-18
+lfq_vs_nsaf	complete8	protein_mean	mean_over_runs	pearson	1648	1648	0.768296	0.744754	0.790068	
+lfq_vs_psm_runnorm	complete8	pooled_cells	all	spearman	13184	1648	0.86733	0.850068	0.882922	
+lfq_vs_psm_runnorm	complete8	pooled_cells	all	pearson	13184	1648	0.861085	0.843358	0.87665	
+psm_vs_nsaf	complete8	pooled_cells	all	spearman	13184	1648	0.835911	0.8195	0.851101	
+psm_vs_nsaf	complete8	per_sample	AZ905	spearman	1648	1648	0.809272	0.789194	0.829121	B2021-05-06
+psm_vs_nsaf	complete8	per_sample	AZ907	spearman	1648	1648	0.829903	0.810875	0.846958	B2021-05-06
+psm_vs_nsaf	complete8	per_sample	AZ909	spearman	1648	1648	0.819546	0.79975	0.837104	B2021-05-06
+psm_vs_nsaf	complete8	per_sample	AZ906	spearman	1648	1648	0.818975	0.799239	0.836702	B2021-05-06
+psm_vs_nsaf	complete8	per_sample	AZ908	spearman	1648	1648	0.847676	0.82989	0.863278	B2021-05-06
+psm_vs_nsaf	complete8	per_sample	AZ910	spearman	1648	1648	0.83721	0.818965	0.853885	B2021-05-06
+psm_vs_nsaf	complete8	per_sample	AZ941	spearman	1648	1648	0.860462	0.845256	0.874574	B2022-03-18
+psm_vs_nsaf	complete8	per_sample	AZ942	spearman	1648	1648	0.866743	0.851397	0.880091	B2022-03-18
+psm_vs_nsaf	complete8	protein_mean	mean_over_runs	spearman	1648	1648	0.824606	0.807056	0.841177	
+psm_vs_nsaf	complete8	pooled_cells	all	pearson	13184	1648	0.851133	0.837043	0.86483	
+psm_vs_nsaf	complete8	per_sample	AZ905	pearson	1648	1648	0.83153	0.813883	0.848002	B2021-05-06
+psm_vs_nsaf	complete8	per_sample	AZ907	pearson	1648	1648	0.848598	0.833403	0.86217	B2021-05-06
+psm_vs_nsaf	complete8	per_sample	AZ909	pearson	1648	1648	0.840989	0.823744	0.85609	B2021-05-06
+psm_vs_nsaf	complete8	per_sample	AZ906	pearson	1648	1648	0.838593	0.821555	0.853381	B2021-05-06
+psm_vs_nsaf	complete8	per_sample	AZ908	pearson	1648	1648	0.861588	0.846727	0.874477	B2021-05-06
+psm_vs_nsaf	complete8	per_sample	AZ910	pearson	1648	1648	0.84986	0.835076	0.864352	B2021-05-06
+psm_vs_nsaf	complete8	per_sample	AZ941	pearson	1648	1648	0.865238	0.851789	0.877967	B2022-03-18
+psm_vs_nsaf	complete8	per_sample	AZ942	pearson	1648	1648	0.872528	0.859608	0.884524	B2022-03-18
+psm_vs_nsaf	complete8	protein_mean	mean_over_runs	pearson	1648	1648	0.836533	0.819331	0.851886	
+lfq_per_length_vs_nsaf	complete8	pooled_cells	all	spearman	13184	1648	0.88628	0.86922	0.900045	
+lfq_per_length_vs_nsaf	complete8	per_sample	AZ905	spearman	1648	1648	0.886653	0.867378	0.90227	B2021-05-06
+lfq_per_length_vs_nsaf	complete8	per_sample	AZ907	spearman	1648	1648	0.893456	0.877007	0.907957	B2021-05-06
+lfq_per_length_vs_nsaf	complete8	per_sample	AZ909	spearman	1648	1648	0.879026	0.860217	0.895032	B2021-05-06
+lfq_per_length_vs_nsaf	complete8	per_sample	AZ906	spearman	1648	1648	0.887335	0.869477	0.902384	B2021-05-06
+lfq_per_length_vs_nsaf	complete8	per_sample	AZ908	spearman	1648	1648	0.887869	0.870748	0.902601	B2021-05-06
+lfq_per_length_vs_nsaf	complete8	per_sample	AZ910	spearman	1648	1648	0.877241	0.857483	0.894736	B2021-05-06
+lfq_per_length_vs_nsaf	complete8	per_sample	AZ941	spearman	1648	1648	0.89358	0.876467	0.90756	B2022-03-18
+lfq_per_length_vs_nsaf	complete8	per_sample	AZ942	spearman	1648	1648	0.887231	0.870536	0.9023	B2022-03-18
+lfq_per_length_vs_nsaf	complete8	protein_mean	mean_over_runs	spearman	1648	1648	0.904146	0.887628	0.918375	
+lfq_per_length_vs_nsaf	complete8	pooled_cells	all	pearson	13184	1648	0.870082	0.854351	0.884427	
+lfq_per_length_vs_nsaf	complete8	per_sample	AZ905	pearson	1648	1648	0.872705	0.853207	0.889246	B2021-05-06
+lfq_per_length_vs_nsaf	complete8	per_sample	AZ907	pearson	1648	1648	0.875139	0.858321	0.890413	B2021-05-06
+lfq_per_length_vs_nsaf	complete8	per_sample	AZ909	pearson	1648	1648	0.866629	0.848727	0.882956	B2021-05-06
+lfq_per_length_vs_nsaf	complete8	per_sample	AZ906	pearson	1648	1648	0.875811	0.858527	0.890186	B2021-05-06
+lfq_per_length_vs_nsaf	complete8	per_sample	AZ908	pearson	1648	1648	0.871168	0.85315	0.886427	B2021-05-06
+lfq_per_length_vs_nsaf	complete8	per_sample	AZ910	pearson	1648	1648	0.866652	0.848167	0.883907	B2021-05-06
+lfq_per_length_vs_nsaf	complete8	per_sample	AZ941	pearson	1648	1648	0.874507	0.858153	0.889179	B2022-03-18
+lfq_per_length_vs_nsaf	complete8	per_sample	AZ942	pearson	1648	1648	0.8693	0.852536	0.884592	B2022-03-18
+lfq_per_length_vs_nsaf	complete8	protein_mean	mean_over_runs	pearson	1648	1648	0.894902	0.877424	0.910019	

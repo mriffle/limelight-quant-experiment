@@ -1,0 +1,9 @@
+residual	term	coef_per_sd	coef_per_unit	ci_low_per_unit	ci_high_per_unit	ci_low	ci_high	p_value_hc3	delta_r2_drop	r2_alone	n	model_r2	residual_sd	q_bh	correction
+log2_psm	log2_length_rel	0.121633	0.119661	0.0701707	0.169588	0.0713274	0.172383	2.55346e-06	0.013562	0.0413298	1648	0.522908	0.806105	2.91824e-06	BH over the 8 regression coefficients (HC3 SEs)
+log2_psm	log2_n_unique_peptides	0.117169	0.0938688	0.0536231	0.134982	0.0669336	0.168487	5.89391e-06	0.0131078	0.00637713	1648	0.522908	0.806105	5.89391e-06	BH over the 8 regression coefficients (HC3 SEs)
+log2_psm	mbr_intensity_frac_mean	-0.0974358	-0.943163	-1.24899	-0.64264	-0.12903	-0.0663896	5.69268e-09	0.0124434	0.00875661	1648	0.522908	0.806105	7.59025e-09	BH over the 8 regression coefficients (HC3 SEs)
+log2_psm	log2_shared_psm_inflation	0.563329	0.918383	0.842446	0.989344	0.51675	0.606856	2.89032e-126	0.450186	0.451009	1648	0.522908	0.806105	7.70752e-126	BH over the 8 regression coefficients (HC3 SEs)
+log2_nsaf	log2_length_rel	-0.940128	-0.924883	-0.965364	-0.880067	-0.981277	-0.894574	0	0.411293	0.507938	1648	0.794243	1.13139	0	BH over the 8 regression coefficients (HC3 SEs)
+log2_nsaf	log2_n_unique_peptides	0.311177	0.249296	0.215096	0.281713	0.268488	0.351641	3.40932e-44	0.0469329	0.0753649	1648	0.794243	1.13139	6.81865e-44	BH over the 8 regression coefficients (HC3 SEs)
+log2_nsaf	mbr_intensity_frac_mean	-0.139108	-1.34654	-1.63547	-1.07754	-0.168957	-0.111318	1.70355e-21	0.0128754	0.149383	1648	0.794243	1.13139	2.72567e-21	BH over the 8 regression coefficients (HC3 SEs)
+log2_nsaf	log2_shared_psm_inflation	0.583542	0.951336	0.878965	1.01061	0.539151	0.619902	5.10398e-175	0.245228	0.198873	1648	0.794243	1.13139	2.04159e-174	BH over the 8 regression coefficients (HC3 SEs)

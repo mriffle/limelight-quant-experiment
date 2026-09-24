@@ -1,0 +1,1728 @@
+{
+  "question": "Agreement of FlashLFQ protein intensity (median-normalized log2) with Limelight NSAF and PSM counts (log2), per run and averaged over runs.",
+  "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+  "script": "scripts/scratch/abundance_agreement.py",
+  "module": "scripts/scratch/analysis/abundance_agreement.py",
+  "script_sha256": "d88485078b2773a5e76fa4b12994c4456a95767e02f83aa2ef0c03da6951f4dc",
+  "module_sha256": "f5df9f9a856e3a66a4be73a49c690a1cfb0f9d6fdb30a277820bf5763a0e66e4",
+  "seeded_from": null,
+  "params": {
+    "seed": 20260924,
+    "n_boot": 2000,
+    "n_perm_independent": 2000,
+    "lowess_frac": 0.3,
+    "lowess_it": 3,
+    "psm_bin_edges": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32
+    ],
+    "n_lfq_bins": 10,
+    "slope_min_mean_psm": 8.0
+  },
+  "sample_set": "experimental (8 of 8; no QC/pool controls exist)",
+  "samples": [
+    "AZ905",
+    "AZ907",
+    "AZ909",
+    "AZ906",
+    "AZ908",
+    "AZ910",
+    "AZ941",
+    "AZ942"
+  ],
+  "inputs": {
+    "n_protein_rows": 4344,
+    "n_contaminants_excluded": 33,
+    "join": "Limelight rows -> protein-quants rows via feature_metadata first_member_id; verified bijection (4,344 <-> 4,344), identical NSAF/PSM row order and missingness, identical contaminant flags",
+    "lfq_normalization_factors": {
+      "AZ905": 0.6493229773064244,
+      "AZ907": 1.0333212690414275,
+      "AZ909": 1.033239773836125,
+      "AZ906": 0.7029145318480238,
+      "AZ908": 1.275493725677163,
+      "AZ910": 1.1738721447597693,
+      "AZ941": 1.2783085749186327,
+      "AZ942": 1.4629976116815882
+    },
+    "lfq_matches_normalized_log_max_abs_dev": 4.6167431904109435e-06,
+    "n_flashlfq_nan_token_proteins": 7,
+    "n_analysis_proteins": 4311,
+    "shared_psm_members_unmatched": 0
+  },
+  "ci_method": "percentile bootstrap resampling proteins (clusters of cells for pooled statistics), n_boot as in params",
+  "corrections": {
+    "residual_property_assoc": "BH over all residual x property Spearman tests",
+    "residual_regression": "BH over regression coefficients (HC3 p)",
+    "detection_per_sample": "BH over the 8 per-sample Mann-Whitney tests",
+    "within_protein": "exact per-protein permutation p (8! relabelings), BH over proteins per comparison x method",
+    "correlations": "no tests (descriptive correlations with CIs)"
+  },
+  "1_agreement": {
+    "n_common_cells": 20114,
+    "n_complete8_proteins": 1648,
+    "psm_run_offsets_log2": {
+      "AZ905": 0.269657,
+      "AZ907": 0.05467,
+      "AZ909": 0.0,
+      "AZ906": 0.140365,
+      "AZ908": -0.181531,
+      "AZ910": -0.070601,
+      "AZ941": 0.018456,
+      "AZ942": -0.053032
+    },
+    "correlations": {
+      "lfq_per_length_vs_nsaf|all_common|pearson": {
+        "pooled": [
+          0.883001,
+          0.873185,
+          0.891927
+        ],
+        "pooled_n_cells": 20114,
+        "pooled_n_proteins": 3414,
+        "per_sample_min_max": [
+          0.87729,
+          0.892168
+        ],
+        "per_sample_mean_by_batch": {
+          "B2021-05-06": 0.884543,
+          "B2022-03-18": 0.881927
+        },
+        "per_sample_n_cells_min_max": [
+          2199,
+          2814
+        ],
+        "protein_mean": [
+          0.900194,
+          0.889859,
+          0.9096
+        ],
+        "protein_mean_n": 3414
+      },
+      "lfq_per_length_vs_nsaf|all_common|spearman": {
+        "pooled": [
+          0.891481,
+          0.881191,
+          0.900613
+        ],
+        "pooled_n_cells": 20114,
+        "pooled_n_proteins": 3414,
+        "per_sample_min_max": [
+          0.886585,
+          0.900631
+        ],
+        "per_sample_mean_by_batch": {
+          "B2021-05-06": 0.89321,
+          "B2022-03-18": 0.889459
+        },
+        "per_sample_n_cells_min_max": [
+          2199,
+          2814
+        ],
+        "protein_mean": [
+          0.903437,
+          0.892899,
+          0.913111
+        ],
+        "protein_mean_n": 3414
+      },
+      "lfq_per_length_vs_nsaf|complete8|pearson": {
+        "pooled": [
+          0.870082,
+          0.854351,
+          0.884427
+        ],
+        "pooled_n_cells": 13184,
+        "pooled_n_proteins": 1648,
+        "per_sample_min_max": [
+          0.866629,
+          0.875811
+        ],
+        "per_sample_mean_by_batch": {
+          "B2021-05-06": 0.871351,
+          "B2022-03-18": 0.871904
+        },
+        "per_sample_n_cells_min_max": [
+          1648,
+          1648
+        ],
+        "protein_mean": [
+          0.894902,
+          0.877424,
+          0.910019
+        ],
+        "protein_mean_n": 1648
+      },
+      "lfq_per_length_vs_nsaf|complete8|spearman": {
+        "pooled": [
+          0.88628,
+          0.86922,
+          0.900045
+        ],
+        "pooled_n_cells": 13184,
+        "pooled_n_proteins": 1648,
+        "per_sample_min_max": [
+          0.877241,
+          0.89358
+        ],
+        "per_sample_mean_by_batch": {
+          "B2021-05-06": 0.885263,
+          "B2022-03-18": 0.890405
+        },
+        "per_sample_n_cells_min_max": [
+          1648,
+          1648
+        ],
+        "protein_mean": [
+          0.904146,
+          0.887628,
+          0.918375
+        ],
+        "protein_mean_n": 1648
+      },
+      "lfq_vs_nsaf|all_common|pearson": {
+        "pooled": [
+          0.781248,
+          0.76699,
+          0.795181
+        ],
+        "pooled_n_cells": 20114,
+        "pooled_n_proteins": 3414,
+        "per_sample_min_max": [
+          0.762541,
+          0.803851
+        ],
+        "per_sample_mean_by_batch": {
+          "B2021-05-06": 0.784883,
+          "B2022-03-18": 0.766686
+        },
+        "per_sample_n_cells_min_max": [
+          2199,
+          2814
+        ],
+        "protein_mean": [
+          0.793575,
+          0.777926,
+          0.808679
+        ],
+        "protein_mean_n": 3414
+      },
+      "lfq_vs_nsaf|all_common|spearman": {
+        "pooled": [
+          0.786358,
+          0.7719,
+          0.80092
+        ],
+        "pooled_n_cells": 20114,
+        "pooled_n_proteins": 3414,
+        "per_sample_min_max": [
+          0.763384,
+          0.811507
+        ],
+        "per_sample_mean_by_batch": {
+          "B2021-05-06": 0.791409,
+          "B2022-03-18": 0.768602
+        },
+        "per_sample_n_cells_min_max": [
+          2199,
+          2814
+        ],
+        "protein_mean": [
+          0.783151,
+          0.766866,
+          0.79918
+        ],
+        "protein_mean_n": 3414
+      },
+      "lfq_vs_nsaf|complete8|pearson": {
+        "pooled": [
+          0.75292,
+          0.730909,
+          0.774092
+        ],
+        "pooled_n_cells": 13184,
+        "pooled_n_proteins": 1648,
+        "per_sample_min_max": [
+          0.746313,
+          0.765268
+        ],
+        "per_sample_mean_by_batch": {
+          "B2021-05-06": 0.756164,
+          "B2022-03-18": 0.749679
+        },
+        "per_sample_n_cells_min_max": [
+          1648,
+          1648
+        ],
+        "protein_mean": [
+          0.768296,
+          0.744754,
+          0.790068
+        ],
+        "protein_mean_n": 1648
+      },
+      "lfq_vs_nsaf|complete8|spearman": {
+        "pooled": [
+          0.75786,
+          0.733814,
+          0.780814
+        ],
+        "pooled_n_cells": 13184,
+        "pooled_n_proteins": 1648,
+        "per_sample_min_max": [
+          0.748734,
+          0.767845
+        ],
+        "per_sample_mean_by_batch": {
+          "B2021-05-06": 0.758494,
+          "B2022-03-18": 0.757198
+        },
+        "per_sample_n_cells_min_max": [
+          1648,
+          1648
+        ],
+        "protein_mean": [
+          0.762537,
+          0.736885,
+          0.786827
+        ],
+        "protein_mean_n": 1648
+      },
+      "lfq_vs_psm|all_common|pearson": {
+        "pooled": [
+          0.862376,
+          0.850181,
+          0.873799
+        ],
+        "pooled_n_cells": 20114,
+        "pooled_n_proteins": 3414,
+        "per_sample_min_max": [
+          0.861413,
+          0.873982
+        ],
+        "per_sample_mean_by_batch": {
+          "B2021-05-06": 0.866315,
+          "B2022-03-18": 0.866104
+        },
+        "per_sample_n_cells_min_max": [
+          2199,
+          2814
+        ],
+        "protein_mean": [
+          0.877299,
+          0.863818,
+          0.888346
+        ],
+        "protein_mean_n": 3414
+      },
+      "lfq_vs_psm|all_common|spearman": {
+        "pooled": [
+          0.862741,
+          0.850217,
+          0.874479
+        ],
+        "pooled_n_cells": 20114,
+        "pooled_n_proteins": 3414,
+        "per_sample_min_max": [
+          0.858338,
+          0.877594
+        ],
+        "per_sample_mean_by_batch": {
+          "B2021-05-06": 0.867746,
+          "B2022-03-18": 0.861938
+        },
+        "per_sample_n_cells_min_max": [
+          2199,
+          2814
+        ],
+        "protein_mean": [
+          0.873378,
+          0.860286,
+          0.885169
+        ],
+        "protein_mean_n": 3414
+      },
+      "lfq_vs_psm|complete8|pearson": {
+        "pooled": [
+          0.858572,
+          0.841028,
+          0.874139
+        ],
+        "pooled_n_cells": 13184,
+        "pooled_n_proteins": 1648,
+        "per_sample_min_max": [
+          0.854426,
+          0.870364
+        ],
+        "per_sample_mean_by_batch": {
+          "B2021-05-06": 0.86345,
+          "B2022-03-18": 0.856551
+        },
+        "per_sample_n_cells_min_max": [
+          1648,
+          1648
+        ],
+        "protein_mean": [
+          0.885127,
+          0.867538,
+          0.901022
+        ],
+        "protein_mean_n": 1648
+      },
+      "lfq_vs_psm|complete8|spearman": {
+        "pooled": [
+          0.864545,
+          0.847609,
+          0.879952
+        ],
+        "pooled_n_cells": 13184,
+        "pooled_n_proteins": 1648,
+        "per_sample_min_max": [
+          0.85544,
+          0.879592
+        ],
+        "per_sample_mean_by_batch": {
+          "B2021-05-06": 0.87044,
+          "B2022-03-18": 0.858374
+        },
+        "per_sample_n_cells_min_max": [
+          1648,
+          1648
+        ],
+        "protein_mean": [
+          0.887807,
+          0.870471,
+          0.903461
+        ],
+        "protein_mean_n": 1648
+      },
+      "lfq_vs_psm_runnorm|all_common|pearson": {
+        "pooled": [
+          0.865867,
+          0.854273,
+          0.876131
+        ],
+        "pooled_n_cells": 20114,
+        "pooled_n_proteins": 3414
+      },
+      "lfq_vs_psm_runnorm|all_common|spearman": {
+        "pooled": [
+          0.866393,
+          0.855069,
+          0.877215
+        ],
+        "pooled_n_cells": 20114,
+        "pooled_n_proteins": 3414
+      },
+      "lfq_vs_psm_runnorm|complete8|pearson": {
+        "pooled": [
+          0.861085,
+          0.843358,
+          0.87665
+        ],
+        "pooled_n_cells": 13184,
+        "pooled_n_proteins": 1648
+      },
+      "lfq_vs_psm_runnorm|complete8|spearman": {
+        "pooled": [
+          0.86733,
+          0.850068,
+          0.882922
+        ],
+        "pooled_n_cells": 13184,
+        "pooled_n_proteins": 1648
+      },
+      "psm_vs_nsaf|all_common|pearson": {
+        "pooled": [
+          0.883003,
+          0.87471,
+          0.890733
+        ],
+        "pooled_n_cells": 20114,
+        "pooled_n_proteins": 3414,
+        "per_sample_min_max": [
+          0.878963,
+          0.887082
+        ],
+        "per_sample_mean_by_batch": {
+          "B2021-05-06": 0.88308,
+          "B2022-03-18": 0.887019
+        },
+        "per_sample_n_cells_min_max": [
+          2199,
+          2814
+        ],
+        "protein_mean": [
+          0.880185,
+          0.872263,
+          0.887801
+        ],
+        "protein_mean_n": 3414
+      },
+      "psm_vs_nsaf|all_common|spearman": {
+        "pooled": [
+          0.887503,
+          0.879364,
+          0.895548
+        ],
+        "pooled_n_cells": 20114,
+        "pooled_n_proteins": 3414,
+        "per_sample_min_max": [
+          0.883931,
+          0.892302
+        ],
+        "per_sample_mean_by_batch": {
+          "B2021-05-06": 0.887623,
+          "B2022-03-18": 0.891999
+        },
+        "per_sample_n_cells_min_max": [
+          2199,
+          2814
+        ],
+        "protein_mean": [
+          0.874628,
+          0.865239,
+          0.883328
+        ],
+        "protein_mean_n": 3414
+      },
+      "psm_vs_nsaf|complete8|pearson": {
+        "pooled": [
+          0.851133,
+          0.837043,
+          0.86483
+        ],
+        "pooled_n_cells": 13184,
+        "pooled_n_proteins": 1648,
+        "per_sample_min_max": [
+          0.83153,
+          0.872528
+        ],
+        "per_sample_mean_by_batch": {
+          "B2021-05-06": 0.845193,
+          "B2022-03-18": 0.868883
+        },
+        "per_sample_n_cells_min_max": [
+          1648,
+          1648
+        ],
+        "protein_mean": [
+          0.836533,
+          0.819331,
+          0.851886
+        ],
+        "protein_mean_n": 1648
+      },
+      "psm_vs_nsaf|complete8|spearman": {
+        "pooled": [
+          0.835911,
+          0.8195,
+          0.851101
+        ],
+        "pooled_n_cells": 13184,
+        "pooled_n_proteins": 1648,
+        "per_sample_min_max": [
+          0.809272,
+          0.866743
+        ],
+        "per_sample_mean_by_batch": {
+          "B2021-05-06": 0.827097,
+          "B2022-03-18": 0.863603
+        },
+        "per_sample_n_cells_min_max": [
+          1648,
+          1648
+        ],
+        "protein_mean": [
+          0.824606,
+          0.807056,
+          0.841177
+        ],
+        "protein_mean_n": 1648
+      }
+    }
+  },
+  "2_trend": {
+    "lowess": {
+      "frac": 0.3,
+      "it": 3
+    },
+    "within_protein_var_log2": {
+      "lfq": 0.242912,
+      "psm": 0.417412,
+      "nsaf": 0.401829
+    },
+    "reliability_of_protein_means": {
+      "lfq": 0.992522,
+      "psm": 0.982991,
+      "nsaf": 0.98431
+    },
+    "slopes": {
+      "lfq_vs_psm|protein_mean_complete8": {
+        "ols_y_on_x": [
+          0.769333,
+          0.74681,
+          0.790545
+        ],
+        "inverse_ols_x_on_y": [
+          0.981981,
+          0.950267,
+          1.016208
+        ],
+        "sma": [
+          0.869178,
+          0.848236,
+          0.889884
+        ],
+        "orthogonal": [
+          0.853626,
+          0.830858,
+          0.876287
+        ],
+        "deming": [
+          0.826781,
+          0.804918,
+          0.847509
+        ],
+        "ols_attenuation_corrected": [
+          0.775129,
+          0.752437,
+          0.796502
+        ]
+      },
+      "lfq_vs_psm|protein_mean_complete8_meanpsm_ge8": {
+        "ols_y_on_x": [
+          0.653828,
+          0.614972,
+          0.693411
+        ],
+        "inverse_ols_x_on_y": [
+          0.994011,
+          0.942431,
+          1.052444
+        ],
+        "sma": [
+          0.806171,
+          0.77714,
+          0.837613
+        ],
+        "orthogonal": [
+          0.767496,
+          0.730872,
+          0.806157
+        ],
+        "deming": [
+          0.727586,
+          0.690715,
+          0.765928
+        ],
+        "ols_attenuation_corrected": [
+          0.660681,
+          0.621418,
+          0.700679
+        ]
+      },
+      "lfq_vs_psm|pooled_cells_all_common": {
+        "ols_y_on_x": [
+          0.726386,
+          0.713933,
+          0.739638
+        ],
+        "inverse_ols_x_on_y": [
+          0.976729,
+          0.955083,
+          1.000206
+        ],
+        "sma": [
+          0.842308,
+          0.829183,
+          0.855874
+        ],
+        "orthogonal": [
+          0.819824,
+          0.805682,
+          0.834348
+        ],
+        "deming": [
+          0.788999,
+          0.776063,
+          0.802698
+        ],
+        "ols_attenuation_corrected": [
+          0.756445,
+          0.743476,
+          0.770246
+        ]
+      },
+      "lfq_vs_nsaf|protein_mean_complete8": {
+        "ols_y_on_x": [
+          0.682193,
+          0.655527,
+          0.711059
+        ],
+        "inverse_ols_x_on_y": [
+          1.155713,
+          1.106721,
+          1.212363
+        ],
+        "sma": [
+          0.88793,
+          0.861283,
+          0.917579
+        ],
+        "orthogonal": [
+          0.856878,
+          0.823962,
+          0.893308
+        ],
+        "deming": [
+          0.799618,
+          0.768397,
+          0.832672
+        ],
+        "ols_attenuation_corrected": [
+          0.687333,
+          0.660466,
+          0.716416
+        ]
+      },
+      "lfq_vs_nsaf|protein_mean_complete8_meanpsm_ge8": {
+        "ols_y_on_x": [
+          0.601312,
+          0.556642,
+          0.646188
+        ],
+        "inverse_ols_x_on_y": [
+          1.295497,
+          1.211089,
+          1.396404
+        ],
+        "sma": [
+          0.882609,
+          0.842242,
+          0.926725
+        ],
+        "orthogonal": [
+          0.832979,
+          0.778116,
+          0.89515
+        ],
+        "deming": [
+          0.750028,
+          0.698836,
+          0.804959
+        ],
+        "ols_attenuation_corrected": [
+          0.607615,
+          0.562477,
+          0.652962
+        ]
+      },
+      "lfq_vs_nsaf|pooled_cells_all_common": {
+        "ols_y_on_x": [
+          0.708018,
+          0.692018,
+          0.723839
+        ],
+        "inverse_ols_x_on_y": [
+          1.160022,
+          1.125514,
+          1.196201
+        ],
+        "sma": [
+          0.906265,
+          0.889295,
+          0.924074
+        ],
+        "orthogonal": [
+          0.881745,
+          0.861193,
+          0.903392
+        ],
+        "deming": [
+          0.826088,
+          0.807576,
+          0.844832
+        ],
+        "ols_attenuation_corrected": [
+          0.737317,
+          0.720655,
+          0.753793
+        ]
+      }
+    },
+    "dynamic_range_protein_mean_complete8": {
+      "lfq": {
+        "range_log2": 11.983173,
+        "span_q01_q99_log2": 9.521089,
+        "sd_log2": 2.015047,
+        "range_log10": 3.607295
+      },
+      "log2_psm": {
+        "range_log2": 10.789943,
+        "span_q01_q99_log2": 7.78571,
+        "sd_log2": 1.751434,
+        "range_log10": 3.248097
+      },
+      "log2_nsaf": {
+        "range_log2": 12.187591,
+        "span_q01_q99_log2": 8.314698,
+        "sd_log2": 1.78922,
+        "range_log10": 3.668831
+      }
+    },
+    "lowess_local_slope_mean_psm_by_lfq": {
+      "10%": 0.666013,
+      "25%": 0.962707,
+      "50%": 0.879302,
+      "75%": 0.822768,
+      "90%": 0.703908
+    }
+  },
+  "3_breakdown": {
+    "psm_bins": [
+      "1",
+      "2-3",
+      "4-7",
+      "8-15",
+      "16-31",
+      ">=32"
+    ],
+    "pooled_resid_sd": {
+      "log2_psm_given_lfq": 1.017453,
+      "log2_nsaf_given_lfq": 1.383142,
+      "lfq_given_log2_psm": 1.250267
+    },
+    "poisson_floor_share_of_pooled_psm_resid_var": 0.290697,
+    "residual_variance_partition_complete8": {
+      "psm": {
+        "total_var": 0.897702,
+        "between_protein_var": 0.662556,
+        "within_protein_var": 0.269119,
+        "between_share": 0.711145
+      },
+      "nsaf": {
+        "total_var": 1.556088,
+        "between_protein_var": 1.333965,
+        "within_protein_var": 0.254645,
+        "between_share": 0.839706
+      }
+    },
+    "frac_common_cells_psm_eq1": 0.166153,
+    "frac_common_cells_psm_le3": 0.345332
+  },
+  "4_residuals": {
+    "n_complete8": 1648,
+    "length_estimate": {
+      "method_counts": {
+        "precise": 4202,
+        "interval": 109
+      },
+      "run_offsets_log2_S": {
+        "AZ905": 0.202759,
+        "AZ907": 0.078475,
+        "AZ909": -0.061454,
+        "AZ906": 0.067759,
+        "AZ908": -0.093043,
+        "AZ910": -0.122967,
+        "AZ941": -0.05767,
+        "AZ942": -0.013858
+      },
+      "precise_max_abs_dev_quantiles_50_99_100": [
+        0.002388,
+        0.006861,
+        0.009767
+      ],
+      "interval_width_log2_quantiles_50_90_100": [
+        0.103212,
+        0.276034,
+        0.472064
+      ],
+      "relative_length_spread_log2_q05_q95": [
+        -1.830006,
+        1.909126
+      ]
+    },
+    "property_spearman_matrix_complete8": {
+      "log2_length_rel": {
+        "log2_length_rel": 1.0,
+        "log2_n_unique_peptides": 0.523354,
+        "mbr_intensity_frac_mean": 0.31719,
+        "log2_shared_psm_inflation": 0.097582
+      },
+      "log2_n_unique_peptides": {
+        "log2_length_rel": 0.523354,
+        "log2_n_unique_peptides": 1.0,
+        "mbr_intensity_frac_mean": -0.01258,
+        "log2_shared_psm_inflation": 0.007104
+      },
+      "mbr_intensity_frac_mean": {
+        "log2_length_rel": 0.31719,
+        "log2_n_unique_peptides": -0.01258,
+        "mbr_intensity_frac_mean": 1.0,
+        "log2_shared_psm_inflation": -0.056127
+      },
+      "log2_shared_psm_inflation": {
+        "log2_length_rel": 0.097582,
+        "log2_n_unique_peptides": 0.007104,
+        "mbr_intensity_frac_mean": -0.056127,
+        "log2_shared_psm_inflation": 1.0
+      }
+    },
+    "spearman_resid_vs_property": {
+      "log2_psm|log2_length_rel|protein_mean_complete8": [
+        0.232067,
+        0.183528,
+        0.279123,
+        0.0
+      ],
+      "log2_psm|log2_n_unique_peptides|protein_mean_complete8": [
+        0.163759,
+        0.116111,
+        0.210922,
+        0.0
+      ],
+      "log2_psm|mbr_intensity_frac_mean|protein_mean_complete8": [
+        -0.090203,
+        -0.138944,
+        -0.038699,
+        0.000246
+      ],
+      "log2_psm|log2_shared_psm_inflation|protein_mean_complete8": [
+        0.465135,
+        0.421734,
+        0.506864,
+        0.0
+      ],
+      "log2_psm|mbr_intensity_frac_run|cell_within_protein_centered": [
+        -0.240032,
+        -0.261588,
+        -0.218886,
+        0.0
+      ],
+      "log2_nsaf|log2_length_rel|protein_mean_complete8": [
+        -0.736285,
+        -0.763412,
+        -0.706808,
+        0.0
+      ],
+      "log2_nsaf|log2_n_unique_peptides|protein_mean_complete8": [
+        -0.272198,
+        -0.321837,
+        -0.222877,
+        0.0
+      ],
+      "log2_nsaf|mbr_intensity_frac_mean|protein_mean_complete8": [
+        -0.414644,
+        -0.458155,
+        -0.369788,
+        0.0
+      ],
+      "log2_nsaf|log2_shared_psm_inflation|protein_mean_complete8": [
+        0.25642,
+        0.205942,
+        0.304976,
+        0.0
+      ],
+      "log2_nsaf|mbr_intensity_frac_run|cell_within_protein_centered": [
+        -0.244807,
+        -0.265577,
+        -0.22254,
+        0.0
+      ]
+    },
+    "regression": {
+      "log2_psm": {
+        "r2": 0.522908,
+        "delta_r2_drop": {
+          "log2_length_rel": 0.013562,
+          "log2_n_unique_peptides": 0.013108,
+          "mbr_intensity_frac_mean": 0.012443,
+          "log2_shared_psm_inflation": 0.450186
+        },
+        "r2_alone": {
+          "log2_length_rel": 0.04133,
+          "log2_n_unique_peptides": 0.006377,
+          "mbr_intensity_frac_mean": 0.008757,
+          "log2_shared_psm_inflation": 0.451009
+        }
+      },
+      "log2_nsaf": {
+        "r2": 0.794243,
+        "delta_r2_drop": {
+          "log2_length_rel": 0.411293,
+          "log2_n_unique_peptides": 0.046933,
+          "mbr_intensity_frac_mean": 0.012875,
+          "log2_shared_psm_inflation": 0.245228
+        },
+        "r2_alone": {
+          "log2_length_rel": 0.507938,
+          "log2_n_unique_peptides": 0.075365,
+          "mbr_intensity_frac_mean": 0.149383,
+          "log2_shared_psm_inflation": 0.198873
+        }
+      }
+    }
+  },
+  "5_detection": {
+    "n_proteins_psm_never_lfq": 897,
+    "reason_counts": {
+      "shared_peptides_only": 671,
+      "unique_peptides_never_quantified": 220,
+      "flashlfq_nan_not_quantifiable": 6
+    },
+    "unique_never_quantified_shared_psm_frac_median_q10": [
+      0.0,
+      0.0
+    ],
+    "unique_never_quantified_n_unique_rows_median": 1.0,
+    "n_shared_only_sharing_with_contaminant_entry": 68,
+    "psm_of_shared_only_sharing_with_contaminant_entry": 8424,
+    "never_lfq_total_psm_median_max": [
+      8.0,
+      2719.0
+    ],
+    "lfq_any_total_psm_median": 29.0,
+    "auc_total_psm_lfq_any_gt_never": [
+      0.665897,
+      0.645751,
+      0.685386
+    ],
+    "auc_total_psm_mannwhitney_p": 0.0,
+    "per_sample_psm_only_range": [
+      645,
+      755
+    ],
+    "per_sample_lfq_only_range": [
+      23,
+      277
+    ],
+    "lfq_only_cells_total": 1491,
+    "lfq_only_cells_mbr_only": 1491,
+    "top_never_lfq": [
+      {
+        "entry": "CES1P_HUMAN",
+        "total_psm": 2719,
+        "reason": "shared_peptides_only",
+        "partners": "EST1_HUMAN(14)"
+      },
+      {
+        "entry": "CYB5_HUMAN",
+        "total_psm": 2033,
+        "reason": "shared_peptides_only",
+        "partners": "CYB5_HUMAN[contaminant](11)"
+      },
+      {
+        "entry": "UD17_HUMAN",
+        "total_psm": 1826,
+        "reason": "shared_peptides_only",
+        "partners": "UD19_HUMAN(28);UD18_HUMAN(27);UD110_HUMAN(24)"
+      },
+      {
+        "entry": "UD18_HUMAN",
+        "total_psm": 1785,
+        "reason": "shared_peptides_only",
+        "partners": "UD19_HUMAN(28);UD17_HUMAN(27);UD110_HUMAN(24)"
+      },
+      {
+        "entry": "UD110_HUMAN",
+        "total_psm": 1662,
+        "reason": "shared_peptides_only",
+        "partners": "UD17_HUMAN(24);UD18_HUMAN(24);UD19_HUMAN(24)"
+      },
+      {
+        "entry": "TBB4A_HUMAN",
+        "total_psm": 1450,
+        "reason": "unique_peptides_never_quantified",
+        "partners": "TBB4B_HUMAN(31);TBB5_HUMAN(28);TBB2B_HUMAN(22)"
+      },
+      {
+        "entry": "TBB2B_HUMAN",
+        "total_psm": 1349,
+        "reason": "shared_peptides_only",
+        "partners": "TBB2A_HUMAN(36);TBB4B_HUMAN(30);TBB5_HUMAN(30)"
+      },
+      {
+        "entry": "TBA1B_HUMAN",
+        "total_psm": 1336,
+        "reason": "shared_peptides_only",
+        "partners": "TBA1A_HUMAN(35);TBA1C_HUMAN(30);TBA4A_HUMAN(27)"
+      },
+      {
+        "entry": "ACTG_HUMAN",
+        "total_psm": 1294,
+        "reason": "shared_peptides_only",
+        "partners": "ACTB_HUMAN(32);ACTC_HUMAN(15);ACTS_HUMAN(15)"
+      },
+      {
+        "entry": "ACTB_HUMAN",
+        "total_psm": 1294,
+        "reason": "shared_peptides_only",
+        "partners": "ACTG_HUMAN(32);ACTC_HUMAN(15);ACTS_HUMAN(15)"
+      },
+      {
+        "entry": "TRFE_HUMAN",
+        "total_psm": 1198,
+        "reason": "shared_peptides_only",
+        "partners": "TRFE_HUMAN[contaminant](65)"
+      },
+      {
+        "entry": "TBA1A_HUMAN",
+        "total_psm": 1158,
+        "reason": "shared_peptides_only",
+        "partners": "TBA1B_HUMAN(35);TBA1C_HUMAN(32);TBA3C_HUMAN(27)"
+      },
+      {
+        "entry": "TBA3C_HUMAN",
+        "total_psm": 942,
+        "reason": "shared_peptides_only",
+        "partners": "TBA1A_HUMAN(27);TBA1B_HUMAN(23);TBA1C_HUMAN(22)"
+      },
+      {
+        "entry": "TBB8_HUMAN",
+        "total_psm": 815,
+        "reason": "shared_peptides_only",
+        "partners": "TBB8B_HUMAN(17);TBB4B_HUMAN(16);TBB4A_HUMAN(15)"
+      },
+      {
+        "entry": "TBB8B_HUMAN",
+        "total_psm": 776,
+        "reason": "shared_peptides_only",
+        "partners": "TBB8_HUMAN(17);TBB4B_HUMAN(15);TBB5_HUMAN(15)"
+      },
+      {
+        "entry": "TBA3E_HUMAN",
+        "total_psm": 773,
+        "reason": "shared_peptides_only",
+        "partners": "TBA1A_HUMAN(20);TBA3C_HUMAN(20);TBA1B_HUMAN(16)"
+      },
+      {
+        "entry": "TBA8_HUMAN",
+        "total_psm": 670,
+        "reason": "shared_peptides_only",
+        "partners": "TBA1A_HUMAN(16);TBA1C_HUMAN(16);TBA3C_HUMAN(16)"
+      },
+      {
+        "entry": "CATA_HUMAN",
+        "total_psm": 640,
+        "reason": "shared_peptides_only",
+        "partners": "CATA_HUMAN[contaminant](38)"
+      },
+      {
+        "entry": "ACTC_HUMAN",
+        "total_psm": 612,
+        "reason": "shared_peptides_only",
+        "partners": "ACTA_HUMAN(24);ACTS_HUMAN(24);ACTH_HUMAN(23)"
+      },
+      {
+        "entry": "ACTS_HUMAN",
+        "total_psm": 600,
+        "reason": "shared_peptides_only",
+        "partners": "ACTC_HUMAN(24);ACTA_HUMAN(22);ACTH_HUMAN(21)"
+      },
+      {
+        "entry": "ACTA_HUMAN",
+        "total_psm": 588,
+        "reason": "shared_peptides_only",
+        "partners": "ACTC_HUMAN(24);ACTH_HUMAN(24);ACTS_HUMAN(22)"
+      },
+      {
+        "entry": "ACTH_HUMAN",
+        "total_psm": 580,
+        "reason": "shared_peptides_only",
+        "partners": "ACTA_HUMAN(24);ACTC_HUMAN(23);ACTS_HUMAN(21)"
+      },
+      {
+        "entry": "DHE4_HUMAN",
+        "total_psm": 564,
+        "reason": "shared_peptides_only",
+        "partners": "DHE3_HUMAN(22);DHE3_BOVIN[contaminant](18)"
+      },
+      {
+        "entry": "POTEE_HUMAN",
+        "total_psm": 563,
+        "reason": "shared_peptides_only",
+        "partners": "ACTB_HUMAN(8);ACTG_HUMAN(8);POTEF_HUMAN(7)"
+      },
+      {
+        "entry": "EF1A3_HUMAN",
+        "total_psm": 479,
+        "reason": "shared_peptides_only",
+        "partners": "EF1A1_HUMAN(25);EF1A2_HUMAN(9)"
+      }
+    ],
+    "flashlfq_rollup_check": {
+      "n_proteins": 1801,
+      "profile_dev_sd_quantiles_50_90_99": [
+        0.010455,
+        0.031267,
+        0.160088
+      ],
+      "offset_vs_log2_n_peptides_spearman": 0.983246,
+      "offset_minus_log2_n_peptides_median_iqr": [
+        -0.004617,
+        0.00495,
+        0.057876
+      ],
+      "note": "Tukey median polish on unique-peptide log2 intensities (MSMS+MBR) per LFQ-complete protein; profile_dev = SD over runs of the difference between the protein's log2 LFQ profile and the polish column effects."
+    }
+  },
+  "6_within_protein": {
+    "psm_raw_spearman": {
+      "n_proteins": 1648,
+      "n_constant_dropped": 0,
+      "mean_r": 0.536296,
+      "median_r": 0.642857,
+      "frac_r_positive": 0.897451,
+      "global_null_mean": 0.0,
+      "global_null_q025": -0.203161,
+      "global_null_q975": 0.254989,
+      "global_perm_p_one_sided": 5e-05,
+      "global_perm_p_two_sided": 5e-05,
+      "global_n_perm": 40320,
+      "indep_null_mean_q025": -0.01825,
+      "indep_null_mean_q975": 0.018193,
+      "indep_null_median_q025": -0.024098,
+      "indep_null_median_q975": 0.024098,
+      "indep_perm_p_two_sided": 0.0005,
+      "indep_n_perm": 2000,
+      "n_protein_q_lt_0.05": 267,
+      "n_protein_q_lt_0.10": 543,
+      "n_protein_p_lt_0.05": 672
+    },
+    "psm_raw_pearson": {
+      "n_proteins": 1648,
+      "n_constant_dropped": 0,
+      "mean_r": 0.584959,
+      "median_r": 0.714141,
+      "frac_r_positive": 0.910801,
+      "global_null_mean": 0.0,
+      "global_null_q025": -0.218805,
+      "global_null_q975": 0.279632,
+      "global_perm_p_one_sided": 2.5e-05,
+      "global_perm_p_two_sided": 2.5e-05,
+      "global_n_perm": 40320,
+      "indep_null_mean_q025": -0.01766,
+      "indep_null_mean_q975": 0.018271,
+      "indep_null_median_q025": -0.029533,
+      "indep_null_median_q975": 0.020442,
+      "indep_perm_p_two_sided": 0.0005,
+      "indep_n_perm": 2000,
+      "n_protein_q_lt_0.05": 603,
+      "n_protein_q_lt_0.10": 845,
+      "n_protein_p_lt_0.05": 842
+    },
+    "psm_runnorm_spearman": {
+      "n_proteins": 1648,
+      "n_constant_dropped": 0,
+      "mean_r": 0.538663,
+      "median_r": 0.619048,
+      "frac_r_positive": 0.898058,
+      "global_null_mean": 0.0,
+      "global_null_q025": -0.208782,
+      "global_null_q975": 0.259157,
+      "global_perm_p_one_sided": 5e-05,
+      "global_perm_p_two_sided": 5e-05,
+      "global_n_perm": 40320,
+      "indep_null_mean_q025": -0.018022,
+      "indep_null_mean_q975": 0.018755,
+      "indep_null_median_q025": -0.02381,
+      "indep_null_median_q975": 0.02381,
+      "indep_perm_p_two_sided": 0.0005,
+      "indep_n_perm": 2000,
+      "n_protein_q_lt_0.05": 277,
+      "n_protein_q_lt_0.10": 607,
+      "n_protein_p_lt_0.05": 664
+    },
+    "psm_runnorm_pearson": {
+      "n_proteins": 1648,
+      "n_constant_dropped": 0,
+      "mean_r": 0.588868,
+      "median_r": 0.714406,
+      "frac_r_positive": 0.906553,
+      "global_null_mean": -0.0,
+      "global_null_q025": -0.224286,
+      "global_null_q975": 0.2853,
+      "global_perm_p_one_sided": 2.5e-05,
+      "global_perm_p_two_sided": 2.5e-05,
+      "global_n_perm": 40320,
+      "indep_null_mean_q025": -0.018448,
+      "indep_null_mean_q975": 0.018762,
+      "indep_null_median_q025": -0.03116,
+      "indep_null_median_q975": 0.021565,
+      "indep_perm_p_two_sided": 0.0005,
+      "indep_n_perm": 2000,
+      "n_protein_q_lt_0.05": 618,
+      "n_protein_q_lt_0.10": 854,
+      "n_protein_p_lt_0.05": 846
+    },
+    "nsaf_spearman": {
+      "n_proteins": 1640,
+      "n_constant_dropped": 8,
+      "mean_r": 0.543338,
+      "median_r": 0.642857,
+      "frac_r_positive": 0.901829,
+      "global_null_mean": 0.0,
+      "global_null_q025": -0.207351,
+      "global_null_q975": 0.258801,
+      "global_perm_p_one_sided": 5e-05,
+      "global_perm_p_two_sided": 5e-05,
+      "global_n_perm": 40320,
+      "indep_null_mean_q025": -0.01758,
+      "indep_null_mean_q975": 0.018731,
+      "indep_null_median_q025": -0.02381,
+      "indep_null_median_q975": 0.02381,
+      "indep_perm_p_two_sided": 0.0005,
+      "indep_n_perm": 2000,
+      "n_protein_q_lt_0.05": 287,
+      "n_protein_q_lt_0.10": 529,
+      "n_protein_p_lt_0.05": 673
+    },
+    "nsaf_pearson": {
+      "n_proteins": 1640,
+      "n_constant_dropped": 8,
+      "mean_r": 0.584947,
+      "median_r": 0.709024,
+      "frac_r_positive": 0.907927,
+      "global_null_mean": 0.0,
+      "global_null_q025": -0.220253,
+      "global_null_q975": 0.280898,
+      "global_perm_p_one_sided": 2.5e-05,
+      "global_perm_p_two_sided": 2.5e-05,
+      "global_n_perm": 40320,
+      "indep_null_mean_q025": -0.018443,
+      "indep_null_mean_q975": 0.01874,
+      "indep_null_median_q025": -0.031482,
+      "indep_null_median_q975": 0.019388,
+      "indep_perm_p_two_sided": 0.0005,
+      "indep_n_perm": 2000,
+      "n_protein_q_lt_0.05": 548,
+      "n_protein_q_lt_0.10": 833,
+      "n_protein_p_lt_0.05": 830
+    },
+    "psm_raw_pearson_within_pair": {
+      "n_proteins": 1640,
+      "n_constant_dropped": 8,
+      "mean_r": 0.118923,
+      "median_r": 0.163593,
+      "frac_r_positive": 0.584146,
+      "global_null_mean": 0.0,
+      "global_null_q025": -0.115626,
+      "global_null_q975": 0.115626,
+      "global_perm_p_one_sided": 0.0625,
+      "global_perm_p_two_sided": 0.125,
+      "global_n_perm": 16
+    },
+    "psm_raw_pearson_between_pair_means": {
+      "n_proteins": 1648,
+      "n_constant_dropped": 0,
+      "mean_r": 0.669096,
+      "median_r": 0.852795,
+      "frac_r_positive": 0.908374,
+      "global_null_mean": -0.0,
+      "global_null_q025": -0.325015,
+      "global_null_q975": 0.474848,
+      "global_perm_p_one_sided": 0.041667,
+      "global_perm_p_two_sided": 0.041667,
+      "global_n_perm": 24
+    },
+    "psm_runnorm_pearson_within_pair": {
+      "n_proteins": 1648,
+      "n_constant_dropped": 0,
+      "mean_r": 0.07669,
+      "median_r": 0.105717,
+      "frac_r_positive": 0.567354,
+      "global_null_mean": 0.0,
+      "global_null_q025": -0.073691,
+      "global_null_q975": 0.073691,
+      "global_perm_p_one_sided": 0.0625,
+      "global_perm_p_two_sided": 0.125,
+      "global_n_perm": 16
+    },
+    "psm_runnorm_pearson_between_pair_means": {
+      "n_proteins": 1648,
+      "n_constant_dropped": 0,
+      "mean_r": 0.684291,
+      "median_r": 0.862856,
+      "frac_r_positive": 0.913228,
+      "global_null_mean": -0.0,
+      "global_null_q025": -0.330019,
+      "global_null_q975": 0.487459,
+      "global_perm_p_one_sided": 0.041667,
+      "global_perm_p_two_sided": 0.041667,
+      "global_n_perm": 24
+    },
+    "nsaf_pearson_within_pair": {
+      "n_proteins": 1621,
+      "n_constant_dropped": 27,
+      "mean_r": 0.096606,
+      "median_r": 0.131359,
+      "frac_r_positive": 0.58359,
+      "global_null_mean": 0.0,
+      "global_null_q025": -0.092629,
+      "global_null_q975": 0.092629,
+      "global_perm_p_one_sided": 0.0625,
+      "global_perm_p_two_sided": 0.125,
+      "global_n_perm": 16
+    },
+    "nsaf_pearson_between_pair_means": {
+      "n_proteins": 1640,
+      "n_constant_dropped": 8,
+      "mean_r": 0.680594,
+      "median_r": 0.867208,
+      "frac_r_positive": 0.912805,
+      "global_null_mean": 0.0,
+      "global_null_q025": -0.326094,
+      "global_null_q975": 0.479588,
+      "global_perm_p_one_sided": 0.041667,
+      "global_perm_p_two_sided": 0.041667,
+      "global_n_perm": 24
+    },
+    "between_pair_ss_share_median": {
+      "lfq": 0.911948,
+      "log2_psm": 0.810233,
+      "log2_nsaf": 0.804368
+    },
+    "between_pair_ss_share_expected_if_exchangeable": 0.428571
+  },
+  "tables": {
+    "correlations.tsv": [
+      "comparison",
+      "subset",
+      "scope",
+      "sample_id",
+      "method",
+      "n_cells",
+      "n_proteins",
+      "r",
+      "ci_low",
+      "ci_high",
+      "batch"
+    ],
+    "trend_lowess.tsv": [
+      "trend",
+      "scope",
+      "x_quantity",
+      "y_quantity",
+      "x",
+      "fitted",
+      "local_slope"
+    ],
+    "slopes.tsv": [
+      "comparison",
+      "set",
+      "estimator",
+      "slope",
+      "ci_low",
+      "ci_high",
+      "intercept",
+      "n_points",
+      "n_proteins",
+      "deming_lambda",
+      "reliability_x",
+      "r_pearson"
+    ],
+    "dynamic_range.tsv": [
+      "scope",
+      "sample_id",
+      "quantity",
+      "n",
+      "min",
+      "max",
+      "range",
+      "span_q01_q99",
+      "span_q05_q95",
+      "sd",
+      "range_log10",
+      "span_q01_q99_log10",
+      "span_q05_q95_log10"
+    ],
+    "binned_by_psm.tsv": [
+      "psm_bin",
+      "n_cells",
+      "n_proteins",
+      "median_psm",
+      "median_lfq",
+      "lfq_q10",
+      "lfq_q90",
+      "lfq_resid_sd",
+      "lfq_resid_sd_ci_low",
+      "lfq_resid_sd_ci_high",
+      "lfq_resid_robust_sd",
+      "spearman_lfq_psm_within_bin",
+      "spearman_ci_low",
+      "spearman_ci_high"
+    ],
+    "binned_by_lfq_decile.tsv": [
+      "lfq_decile",
+      "lfq_low",
+      "lfq_high",
+      "n_cells",
+      "n_proteins",
+      "median_psm",
+      "frac_psm_eq1",
+      "frac_psm_le3",
+      "psm_resid_sd",
+      "psm_resid_sd_ci_low",
+      "psm_resid_sd_ci_high",
+      "psm_poisson_floor_sd",
+      "psm_poisson_floor_var_share",
+      "nsaf_resid_sd",
+      "nsaf_resid_sd_ci_low",
+      "nsaf_resid_sd_ci_high",
+      "spearman_lfq_psm",
+      "spearman_lfq_psm_ci_low",
+      "spearman_lfq_psm_ci_high",
+      "spearman_lfq_nsaf",
+      "spearman_lfq_nsaf_ci_low",
+      "spearman_lfq_nsaf_ci_high"
+    ],
+    "count_noise_replicates.tsv": [
+      "mean_psm_bin",
+      "n_proteins",
+      "psm_sd_median",
+      "psm_rms_sd",
+      "poisson_expected_rms_sd",
+      "psm_overdispersion_var_ratio",
+      "nsaf_sd_median",
+      "nsaf_rms_sd",
+      "lfq_sd_median",
+      "lfq_rms_sd"
+    ],
+    "protein_properties.tsv": [
+      "protein_id",
+      "entry",
+      "complete8",
+      "n_common_runs",
+      "mean_lfq",
+      "mean_log2_psm",
+      "mean_log2_nsaf",
+      "mean_psm",
+      "log2_length_rel",
+      "length_method",
+      "length_n_precise_cells",
+      "length_max_abs_dev_precise",
+      "length_interval_low",
+      "length_interval_high",
+      "n_unique_peptides",
+      "log2_n_unique_peptides",
+      "n_shared_peptides",
+      "mbr_intensity_frac_mean",
+      "shared_psm_frac",
+      "log2_shared_psm_inflation",
+      "resid_log2_psm",
+      "resid_log2_nsaf"
+    ],
+    "residual_property_assoc.tsv": [
+      "residual",
+      "property",
+      "scope",
+      "p_value",
+      "method",
+      "n_cells",
+      "n_proteins",
+      "r",
+      "ci_low",
+      "ci_high",
+      "q_bh",
+      "correction"
+    ],
+    "residual_regression.tsv": [
+      "residual",
+      "term",
+      "coef_per_sd",
+      "coef_per_unit",
+      "ci_low_per_unit",
+      "ci_high_per_unit",
+      "ci_low",
+      "ci_high",
+      "p_value_hc3",
+      "delta_r2_drop",
+      "r2_alone",
+      "n",
+      "model_r2",
+      "residual_sd",
+      "q_bh",
+      "correction"
+    ],
+    "detection_per_sample.tsv": [
+      "sample_id",
+      "batch",
+      "condition",
+      "n_proteins",
+      "n_both",
+      "n_psm_only",
+      "n_psm_only_never_lfq",
+      "n_psm_only_lfq_other_runs",
+      "n_lfq_only",
+      "n_lfq_only_mbr_only",
+      "n_neither",
+      "median_psm_both",
+      "median_psm_psm_only",
+      "frac_psm_only_eq1",
+      "frac_both_eq1",
+      "auc_psm_both_gt_psm_only",
+      "auc_ci_low",
+      "auc_ci_high",
+      "mannwhitney_p",
+      "median_lfq_both",
+      "median_lfq_lfq_only",
+      "mannwhitney_q_bh",
+      "correction"
+    ],
+    "detection_psm_distribution.tsv": [
+      "sample_id",
+      "class",
+      "psm_bin",
+      "n_proteins"
+    ],
+    "no_lfq_proteins.tsv": [
+      "protein_id",
+      "entry",
+      "accession",
+      "total_psm",
+      "max_psm_run",
+      "n_runs_with_psm",
+      "mean_nsaf",
+      "reason",
+      "n_unique_peptide_rows",
+      "n_unique_quantified",
+      "n_shared_peptide_rows",
+      "n_shared_quantified",
+      "det_MSMS",
+      "det_MBR",
+      "det_NotDetected",
+      "det_MSMSIdentifiedButNotQuantified",
+      "det_MSMSAmbiguousPeakfinding",
+      "shared_psm_frac",
+      "sharing_partners",
+      "shares_with_contaminant_entry",
+      "flashlfq_nan_token"
+    ],
+    "lfq_without_psm_cells.tsv": [
+      "protein_id",
+      "entry",
+      "sample_id",
+      "batch",
+      "lfq",
+      "n_unique_peptides_msms_run",
+      "n_unique_peptides_mbr_run",
+      "mbr_intensity_frac_run",
+      "n_runs_with_psm_any"
+    ],
+    "within_protein_correlation.tsv": [
+      "protein_id",
+      "entry",
+      "mean_psm",
+      "mean_psm_bin",
+      "lfq_sd_runs",
+      "log2_psm_sd_runs",
+      "r_psm_raw_spearman",
+      "p_psm_raw_spearman",
+      "q_psm_raw_spearman",
+      "r_psm_raw_pearson",
+      "p_psm_raw_pearson",
+      "q_psm_raw_pearson",
+      "r_psm_runnorm_spearman",
+      "p_psm_runnorm_spearman",
+      "q_psm_runnorm_spearman",
+      "r_psm_runnorm_pearson",
+      "p_psm_runnorm_pearson",
+      "q_psm_runnorm_pearson",
+      "r_nsaf_spearman",
+      "p_nsaf_spearman",
+      "q_nsaf_spearman",
+      "r_nsaf_pearson",
+      "p_nsaf_pearson",
+      "q_nsaf_pearson",
+      "r_psm_raw_within_pair",
+      "r_psm_raw_pair_means",
+      "r_psm_runnorm_within_pair",
+      "r_psm_runnorm_pair_means",
+      "r_nsaf_within_pair",
+      "r_nsaf_pair_means",
+      "lfq_between_pair_ss_share",
+      "log2_psm_between_pair_ss_share"
+    ],
+    "within_protein_null.tsv": [
+      "comparison",
+      "method",
+      "n_proteins",
+      "n_constant_dropped",
+      "mean_r",
+      "median_r",
+      "frac_r_positive",
+      "global_null_mean",
+      "global_null_q025",
+      "global_null_q975",
+      "global_perm_p_one_sided",
+      "global_perm_p_two_sided",
+      "global_n_perm",
+      "indep_null_mean_q025",
+      "indep_null_mean_q975",
+      "indep_null_median_q025",
+      "indep_null_median_q975",
+      "indep_perm_p_two_sided",
+      "indep_n_perm",
+      "n_protein_q_lt_0.05",
+      "n_protein_q_lt_0.10",
+      "n_protein_p_lt_0.05",
+      "correction_per_protein"
+    ],
+    "within_protein_by_psm_bin.tsv": [
+      "comparison",
+      "method",
+      "mean_psm_bin",
+      "n_proteins",
+      "median_r",
+      "mean_r",
+      "indep_null_median_q025",
+      "indep_null_median_q975",
+      "median_lfq_sd_runs",
+      "median_log2_psm_sd_runs"
+    ],
+    "cells.tsv": [
+      "protein_id",
+      "entry",
+      "sample_id",
+      "batch",
+      "condition",
+      "has_lfq",
+      "has_psm",
+      "in_common",
+      "complete8",
+      "lfq",
+      "psm",
+      "log2_psm",
+      "log2_psm_runnorm",
+      "nsaf",
+      "log2_nsaf",
+      "nsaf_precise",
+      "log2_length_rel",
+      "psm_bin",
+      "resid_log2_psm",
+      "resid_log2_nsaf",
+      "resid_lfq_given_psm",
+      "lfq_decile",
+      "n_unique_peptides_msms_run",
+      "n_unique_peptides_mbr_run",
+      "mbr_intensity_frac_run",
+      "shared_psm_frac_run",
+      "fit_log2_psm_given_lfq",
+      "fit_log2_nsaf_given_lfq"
+    ],
+    "contaminants.tsv": [
+      "protein_id",
+      "entry",
+      "n_runs_lfq",
+      "n_runs_psm",
+      "total_psm",
+      "mean_lfq",
+      "mean_log2_psm"
+    ]
+  },
+  "runtime_s": 196.5
+}

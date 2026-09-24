@@ -1,0 +1,9 @@
+sample_id	batch	condition	n_proteins	n_both	n_psm_only	n_psm_only_never_lfq	n_psm_only_lfq_other_runs	n_lfq_only	n_lfq_only_mbr_only	n_neither	median_psm_both	median_psm_psm_only	frac_psm_only_eq1	frac_both_eq1	auc_psm_both_gt_psm_only	auc_ci_low	auc_ci_high	mannwhitney_p	median_lfq_both	median_lfq_lfq_only	mannwhitney_q_bh	correction
+AZ905	B2021-05-06	control	4311	2814	755	653	102	151	151	591	7	2	0.409272	0.163468	0.680492	0.658877	0.70156	3.707e-53	23.2287	20.178	2.9656e-52	BH over the 8 per-sample Mann-Whitney tests
+AZ907	B2021-05-06	control	4311	2601	688	573	115	277	277	745	7	2	0.372093	0.170319	0.660381	0.638386	0.682671	7.72762e-39	23.4444	20.6165	1.23642e-38	BH over the 8 per-sample Mann-Whitney tests
+AZ909	B2021-05-06	control	4311	2623	697	577	120	267	267	724	6	2	0.341463	0.169653	0.655252	0.631675	0.677597	6.64343e-37	23.5136	20.4509	6.64343e-37	BH over the 8 per-sample Mann-Whitney tests
+AZ906	B2021-05-06	raloxifene-d0	4311	2696	738	606	132	207	207	670	7	2	0.379404	0.161721	0.672988	0.651248	0.693765	1.09603e-47	23.357	20.3132	2.92275e-47	BH over the 8 per-sample Mann-Whitney tests
+AZ908	B2021-05-06	raloxifene-d0	4311	2406	684	527	157	268	268	953	6	2	0.399123	0.183292	0.660372	0.638432	0.682062	3.79323e-38	23.6907	21.0779	5.05763e-38	BH over the 8 per-sample Mann-Whitney tests
+AZ910	B2021-05-06	raloxifene-d0	4311	2542	691	571	120	251	251	827	6	2	0.373372	0.168765	0.657815	0.634703	0.680138	1.29427e-37	23.6227	20.8396	1.47917e-37	BH over the 8 per-sample Mann-Whitney tests
+AZ941	B2022-03-18	control	4311	2233	645	462	183	23	23	1410	7	2	0.327132	0.153605	0.673422	0.650806	0.695766	1.51476e-41	23.8583	21.1335	3.02952e-41	BH over the 8 per-sample Mann-Whitney tests
+AZ942	B2022-03-18	raloxifene-d0	4311	2199	698	493	205	47	47	1367	7	2	0.376791	0.156889	0.682224	0.660087	0.703136	2.31804e-48	23.8658	21.0489	9.27218e-48	BH over the 8 per-sample Mann-Whitney tests
