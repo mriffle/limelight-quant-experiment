@@ -1,7 +1,7 @@
 ---
 schema_version: 1
-generated: 2026-09-23
-next_id: 6
+generated: 2026-09-24
+next_id: 10
 engine_version: 0.5.1
 ---
 
@@ -16,3 +16,7 @@ Derived index of the findings graph — regenerable from the finding files. One 
 | 3 | samples-structured-by-matched-pairs | Control/raloxifene sample pairs are the dominant structure in the data: pair should be a blocking factor | candidate | exploratory | caveat | — | relates_to:2, relates_to:1 | 2026-09-23 | sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74 |
 | 4 | no-differential-abundance-raloxifene-vs-control | No differential abundance between raloxifene-d0 and control; only the pair-blocked model is plausibly calibrated | candidate | exploratory | discovery | uniprot:P56134, uniprot:P30046, uniprot:Q96S06, uniprot:P22310, uniprot:Q96AG4, uniprot:P53992, uniprot:P01011, uniprot:P00387, uniprot:Q8NBS9, uniprot:Q9NZ08, uniprot:P07339, uniprot:Q9UJS0, uniprot:Q08426 | relates_to:1, relates_to:2, relates_to:3 | 2026-09-23 | sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74 |
 | 5 | lfq-more-precise-than-spectral-counts | LFQ intensities are ~1.8x more precise per protein than NSAF or PSM counts, and their per-protein fold changes do not agree with spectral counts under this near-null | candidate | exploratory | discovery | — | relates_to:4, relates_to:3 | 2026-09-23 | sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74 |
+| 6 | limma-trend-sensitivity | Adding a mean-variance trend to the moderated prior yields at most one protein hit (ATPK) and 10 peptide hits, none distinguishable from within-pair relabelling | candidate | exploratory | discovery | uniprot:P56134 | refines:4, relates_to:1, relates_to:3 | 2026-09-24 | sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74 |
+| 7 | atpk-direction-disagreement-artifact | ATPK's LFQ-vs-spectral direction disagreement is an artifact of one Met-oxidized peptide, not a protein abundance change | candidate | exploratory | discovery | uniprot:P56134 | relates_to:6, relates_to:5, relates_to:1 | 2026-09-24 | sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74 |
+| 8 | raloxifene-cys-adducts-treatment-specific | Cysteine raloxifene-adduct peptides, including on CYP3A4 (Cys58) and CYP2C, are detected almost exclusively in treated samples; Tyr/Trp adduct IDs show no detectable treatment specificity | candidate | exploratory | discovery | uniprot:P08684, uniprot:P10632, uniprot:P11712, uniprot:P33260, uniprot:P33261, uniprot:P11509, uniprot:P10620, uniprot:P33121, uniprot:Q9H8H3, uniprot:P13667, pubchem:CID5035, chebi:CHEBI:8772 | relates_to:1 | 2026-09-24 | sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74 |
+| 9 | modification-class-shifts-treatment | Small, consistent modification-class shifts with treatment (CAM/Cys peptides lower, oxidized forms higher), all confounded with run order; oxidation evidence is mixed | candidate | exploratory | discovery | — | relates_to:1, relates_to:3, relates_to:4 | 2026-09-24 | sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74 |
