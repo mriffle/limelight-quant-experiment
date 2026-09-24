@@ -17,6 +17,7 @@ relationships:
   - { type: relates_to, target: 6, note: "ATPK is the single protein hit surfaced by the trend model in 0006; this dissects why its direction disagrees across quantities." }
   - { type: relates_to, target: 5, note: "A concrete, worked instance of the LFQ-vs-spectral fold-change discordance reported at the dataset level in 0005." }
   - { type: relates_to, target: 1, note: "Run order is aliased with condition, so the count/intensity divergence has an untested run-order-confounded explanation." }
+  - { type: relates_to, target: 2, note: "The 2022 pair (P941_942) is a different acquisition batch; the case rests on 4 pairs spanning both batches." }
 
 provenance:
   data_version: "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74"
@@ -175,6 +176,7 @@ This is a caution for spectral-count differential analysis: a **modified-peptide
 - Relates to [finding 0006](0006-limma-trend-sensitivity.md): ATPK is the single protein hit the trend model surfaces; this finding explains why its direction disagrees across quantities.
 - Relates to [finding 0005](0005-lfq-more-precise-than-spectral-counts.md): a concrete, worked instance of the LFQ-vs-spectral fold-change discordance reported there at the dataset level.
 - Relates to [finding 0001](0001-run-order-aliased-with-condition.md): run order is aliased with condition, so the count/intensity divergence has an untested run-order-confounded explanation.
+- Relates to [finding 0002](0002-two-acquisition-batches-6-vs-2.md): the 2022 pair (P941_942) belongs to the second acquisition batch, so the four-pair case study spans both batches.
 
 ## References
 None.

@@ -16,6 +16,7 @@ relationships:
   - { type: relates_to, target: 1, note: "Every class/detection shift is fully confounded with run order (control run first in every pair); the run-order aliasing of 0001 is why none of these can be attributed to treatment mechanism." }
   - { type: relates_to, target: 3, note: "The analysis is paired on candidate pair (0003); the class shifts are per-pair paired differences." }
   - { type: relates_to, target: 4, note: "Same complete-case paired peptide set (10,229) and paired design as the near-null differential-abundance analysis; these are small within-peptide class effects beneath that null." }
+  - { type: relates_to, target: 8, note: "The Cys/CAM-only decrease is directionally suggestive of the raloxifene Cys adducts of 0008 but is NOT attributable to them — only 39 adduct features at ~2.5% fraction, far too few to move the 1,801-peptide CAM-only class." }
 
 provenance:
   data_version: "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74"
@@ -232,7 +233,7 @@ What cannot be said is *why*. Because control was run first in every pair, run o
 - [Finding 0001 (run order aliased with condition)](0001-run-order-aliased-with-condition.md) — `relates_to`. Control was run first in every pair, so all class and detection shifts are confounded with run position; this is why the mechanism is undetermined.
 - [Finding 0003 (samples structured by matched pairs)](0003-samples-structured-by-matched-pairs.md) — `relates_to`. The analysis is paired on candidate pair, and the shifts are per-pair paired differences.
 - [Finding 0004 (no differential abundance)](0004-no-differential-abundance-raloxifene-vs-control.md) — `relates_to`. Same complete-case paired peptide set (10,229) and design; these are small within-peptide class effects sitting beneath that protein-level null.
-- [Finding 0008 (raloxifene Cys adducts, treatment-specific)](0008-raloxifene-cys-adducts-treatment-specific.md) — mentioned as a candidate but rejected explanation for the CAM-only shift (too few adduct features). No edge asserted; surfaced for the scientist to type if wanted.
+- [Finding 0008 (raloxifene Cys adducts, treatment-specific)](0008-raloxifene-cys-adducts-treatment-specific.md) — `relates_to`. Directionally suggestive but rejected as the explanation for the CAM-only shift (only 39 adduct features, ~2.5% fraction — far too few to move the 1,801-peptide CAM-only class).
 
 ## References
 None. All statements are about this dataset or are general statistical background (blocking, BH, run-order aliasing); no external-knowledge claim is made here.

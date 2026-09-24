@@ -1,0 +1,867 @@
+{
+  "findings": [
+    "0010",
+    "0011"
+  ],
+  "scripts": {
+    "runner": {
+      "path": "scripts/scratch/fig_abundance_agreement.py",
+      "sha256": "eda58b6b9f0f1025626a3a6d5684dece043dab071017937caf95006f84df81c0"
+    },
+    "module": {
+      "path": "scripts/scratch/analysis_figures/abundance_agreement_figs.py",
+      "sha256": "ea9f7f73f7789c5c75634ad7309d9697e82d3c7625ae06ec735e674d1d8df6f4"
+    },
+    "figure_io": {
+      "path": "scripts/promoted/common/figures/figure_io.py",
+      "sha256": "e32b379a8cde19457de847abe98d30d415722a22108fdf89fe67559fbaf10af1"
+    },
+    "colors": {
+      "path": "scripts/promoted/common/figures/colors.py",
+      "sha256": "86831758f035b5f1d8184a0f26787bf7de7860b011509e1cd003ef76e0a93199"
+    }
+  },
+  "commit": "fc32cbc88cd58b3d1b83e857c33283540aa723b3",
+  "scripts_committed": {
+    "scripts/scratch/fig_abundance_agreement.py": false,
+    "scripts/scratch/analysis_figures/abundance_agreement_figs.py": false
+  },
+  "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+  "analysis_script": {
+    "path": "scripts/scratch/abundance_agreement.py",
+    "sha256": "d88485078b2773a5e76fa4b12994c4456a95767e02f83aa2ef0c03da6951f4dc",
+    "module": "scripts/scratch/analysis/abundance_agreement.py",
+    "module_sha256": "f5df9f9a856e3a66a4be73a49c690a1cfb0f9d6fdb30a277820bf5763a0e66e4"
+  },
+  "inputs": {
+    "summary.json": {
+      "path": "results/abundance-agreement/summary.json",
+      "sha256": "fe20e82f7d877d31013c52e0ffc389c2323016f3a1b0a454a5d348115248d73d"
+    },
+    "correlations.tsv": {
+      "path": "results/abundance-agreement/correlations.tsv",
+      "sha256": "6323b6d2135f157a1568b2fe4f81fc6d1c91f2f6d9e93c372f0ea2f1a4e82cde"
+    },
+    "trend_lowess.tsv": {
+      "path": "results/abundance-agreement/trend_lowess.tsv",
+      "sha256": "934cbe6ea6827592d5666351c04ae9c31cdfce22a1f43773db01d944880a3fcd"
+    },
+    "slopes.tsv": {
+      "path": "results/abundance-agreement/slopes.tsv",
+      "sha256": "4f5a377bb585139ea8f0d53ac2997b5df1f3497678c5e0688f32d2786f2f4e38"
+    },
+    "dynamic_range.tsv": {
+      "path": "results/abundance-agreement/dynamic_range.tsv",
+      "sha256": "81a4f135e4201e50d8bebeed6e608e4129ad35dbafa2ddc68a387c017590ce11"
+    },
+    "binned_by_psm.tsv": {
+      "path": "results/abundance-agreement/binned_by_psm.tsv",
+      "sha256": "52ed8091597472fb3b688897017a286600dc3a9182daad7a2649a0f183212267"
+    },
+    "binned_by_lfq_decile.tsv": {
+      "path": "results/abundance-agreement/binned_by_lfq_decile.tsv",
+      "sha256": "2efd448c2398b821b35ab2dbbcbed4c0bee4d78b283a4f1f2c54e02fd0047fdc"
+    },
+    "count_noise_replicates.tsv": {
+      "path": "results/abundance-agreement/count_noise_replicates.tsv",
+      "sha256": "99acea190c466938b6142017893035b7c5b608a3404f9839c0a10290b7897f8d"
+    },
+    "protein_properties.tsv": {
+      "path": "results/abundance-agreement/protein_properties.tsv",
+      "sha256": "78c64e902faf1205c60f926939677f135fb56b194b02cb9a8e4a789265a99268"
+    },
+    "residual_property_assoc.tsv": {
+      "path": "results/abundance-agreement/residual_property_assoc.tsv",
+      "sha256": "121bb0aba9669416cc1e5be4ffc73de66ec8103741e5fcf3f950f49fe39ec070"
+    },
+    "residual_regression.tsv": {
+      "path": "results/abundance-agreement/residual_regression.tsv",
+      "sha256": "7be3bb17894dd44a1c21975dc2344aa117ae2e8200a5df8583f733e6a809c860"
+    },
+    "detection_per_sample.tsv": {
+      "path": "results/abundance-agreement/detection_per_sample.tsv",
+      "sha256": "1015ca8f077914a575d8cb1ba2ae78d7f35a78c1d7d2b185251350d6a5bf9d01"
+    },
+    "detection_psm_distribution.tsv": {
+      "path": "results/abundance-agreement/detection_psm_distribution.tsv",
+      "sha256": "7b875f38738e989baad6800fbd1618031c54213e269211766351fd1dc05e9971"
+    },
+    "no_lfq_proteins.tsv": {
+      "path": "results/abundance-agreement/no_lfq_proteins.tsv",
+      "sha256": "221d58ddb7b40db78a568c715867b5c8116b8d6d8f9e8a87e854d40fcaf333c5"
+    },
+    "lfq_without_psm_cells.tsv": {
+      "path": "results/abundance-agreement/lfq_without_psm_cells.tsv",
+      "sha256": "6b8344c3988abb6a68fa3e85010552545f3afc0b1ec618d77a6f20f453958020"
+    },
+    "within_protein_correlation.tsv": {
+      "path": "results/abundance-agreement/within_protein_correlation.tsv",
+      "sha256": "b31a201f92c8438494d2a7e797994f3d2021850f029a51c93fab64f6c591130e"
+    },
+    "within_protein_null.tsv": {
+      "path": "results/abundance-agreement/within_protein_null.tsv",
+      "sha256": "79d447089461a70e1c5437f8d61fcef2dbdbf73d7f6fd8467d5e94485a13051f"
+    },
+    "within_protein_by_psm_bin.tsv": {
+      "path": "results/abundance-agreement/within_protein_by_psm_bin.tsv",
+      "sha256": "21af63156d49d9526ceaf1b9ebdfad8a2922d9ef5bb07bfc03b5d89f93766b49"
+    },
+    "cells.tsv": {
+      "path": "results/abundance-agreement/cells.tsv",
+      "sha256": "79b4c3c535d06a06ae5c91cea69593fd0e0aa97d7c2175e6e15f6244404fd0b6"
+    },
+    "contaminants.tsv": {
+      "path": "results/abundance-agreement/contaminants.tsv",
+      "sha256": "7357d07fdb6d0884a8bccec2f19552f80860635f4d6296378ba75d60043d3c8e"
+    },
+    "data/protein-quants.tsv": {
+      "path": "data/protein-quants.tsv",
+      "sha256": "ca604c844d85fbf46c63c22fd8b79dadee20dfe050b7c67b41cd4ad49585531a"
+    },
+    "data/peptide-quants.tsv": {
+      "path": "data/peptide-quants.tsv",
+      "sha256": "9528b45ea79a6dbe6171be1abcc9419d1da6a3cc5a2a2c1ee211dbd888682041"
+    },
+    "data/protein-limelight-table-dump.txt": {
+      "path": "data/protein-limelight-table-dump.txt",
+      "sha256": "22e0c0efc905cc987fc8742994871e6fcc435084a1dd2703526365dd4b001b60"
+    }
+  },
+  "outputs": {
+    "contaminant_table": {
+      "path": "results/abundance-agreement/contaminant_sharing_corrected.tsv",
+      "sha256": "40b0b212019c45682e3f10579c269e49e9913f3735012a04ca176d4162378402"
+    }
+  },
+  "params": {
+    "result_dir": "results/abundance-agreement",
+    "samples": "results/metadata/samples.tsv",
+    "registry": "state/color_registry.json",
+    "top_no_lfq": 20,
+    "dpi": 300,
+    "contaminant_rule": "refined 33-entry set (protein_loader.refine_contaminants); a peptide row becomes unique to real protein P if P is its only non-contaminant member and it has >= 1 contaminant member",
+    "registry_read": [
+      "quantity",
+      "batch"
+    ],
+    "figure_local_colors_not_persisted": [
+      "detection_class",
+      "no_lfq_reason"
+    ],
+    "fit_line_colors": {
+      "LOWESS": "#D55E00",
+      "SMA": "#56B4E9",
+      "partial_fit": "#000000"
+    },
+    "density": "hexbin gridsize (60, 42), log color, shared norm across panels",
+    "residual_drivers": "component-plus-residual: residual minus the other 3 terms' fitted contributions (centered); 4-term OLS refit here and matched to residual_regression.tsv",
+    "acquisition_order": [
+      "AZ905",
+      "AZ907",
+      "AZ909",
+      "AZ906",
+      "AZ908",
+      "AZ910",
+      "AZ941",
+      "AZ942"
+    ]
+  },
+  "color_map": {
+    "quantity": {
+      "LFQ": "#0072B2",
+      "NSAF": "#E69F00",
+      "PSM": "#009E73"
+    },
+    "batch": {
+      "B2021-05-06": "#009E73",
+      "B2022-03-18": "#CC79A7"
+    }
+  },
+  "key_numbers": {
+    "0010-density-lfq-vs-psm-nsaf": {
+      "n_cells": 20114,
+      "n_proteins": 3414,
+      "PSM": {
+        "spearman": [
+          0.8627,
+          0.850217,
+          0.874479
+        ],
+        "sma_slope": [
+          0.8423,
+          0.8292,
+          0.8559
+        ],
+        "sma_intercept": -17.1173
+      },
+      "NSAF": {
+        "spearman": [
+          0.7864,
+          0.7719,
+          0.80092
+        ],
+        "sma_slope": [
+          0.9063,
+          0.8893,
+          0.9241
+        ],
+        "sma_intercept": -34.7953
+      },
+      "max_cells_per_hexagon": 251
+    },
+    "0010-per-sample-correlations": {
+      "PSM": {
+        "pooled": [
+          0.8627,
+          0.8502,
+          0.8745
+        ],
+        "per_sample": {
+          "AZ905": 0.8776,
+          "AZ907": 0.8667,
+          "AZ909": 0.8647,
+          "AZ906": 0.8746,
+          "AZ908": 0.8615,
+          "AZ910": 0.8613,
+          "AZ941": 0.8655,
+          "AZ942": 0.8583
+        },
+        "n_cells_min_max": [
+          2199,
+          2814
+        ]
+      },
+      "NSAF": {
+        "pooled": [
+          0.7864,
+          0.7719,
+          0.8009
+        ],
+        "per_sample": {
+          "AZ905": 0.8115,
+          "AZ907": 0.7939,
+          "AZ909": 0.79,
+          "AZ906": 0.7985,
+          "AZ908": 0.7744,
+          "AZ910": 0.7801,
+          "AZ941": 0.7738,
+          "AZ942": 0.7634
+        },
+        "n_cells_min_max": [
+          2199,
+          2814
+        ]
+      }
+    },
+    "0010-slope-estimators": {
+      "n_proteins": 1648,
+      "PSM": {
+        "protein": {
+          "ols_y_on_x": 0.7693,
+          "sma": 0.8692,
+          "orthogonal": 0.8536,
+          "inverse_ols_x_on_y": 0.982,
+          "r_pearson": 0.8851
+        },
+        "per_peptide": {
+          "ols_y_on_x": 0.8714,
+          "sma": 1.3344,
+          "orthogonal": 1.5436,
+          "inverse_ols_x_on_y": 2.0433,
+          "r_pearson": 0.6531
+        }
+      },
+      "NSAF": {
+        "protein": {
+          "ols_y_on_x": 0.6822,
+          "sma": 0.8879,
+          "orthogonal": 0.8569,
+          "inverse_ols_x_on_y": 1.1557,
+          "r_pearson": 0.7683
+        },
+        "per_peptide": {
+          "ols_y_on_x": 1.0633,
+          "sma": 1.3632,
+          "orthogonal": 1.4819,
+          "inverse_ols_x_on_y": 1.7476,
+          "r_pearson": 0.78
+        }
+      },
+      "local_slope_psm_by_pct": {
+        "10%": 0.666013,
+        "25%": 0.962707,
+        "50%": 0.879302,
+        "75%": 0.822768,
+        "90%": 0.703908
+      }
+    },
+    "0010-agreement-by-psm-count": {
+      "lfq_q10_q90_width_by_bin": {
+        "1": 3.76,
+        "2-3": 3.11,
+        "4-7": 2.54,
+        "8-15": 2.49,
+        "16-31": 2.66,
+        ">=32": 3.8
+      },
+      "lfq_resid_sd_by_bin": {
+        "1": 1.531,
+        "2-3": 1.233,
+        "4-7": 1.03,
+        "8-15": 1.056,
+        "16-31": 1.064,
+        ">=32": 1.466
+      },
+      "within_bin_spearman": {
+        "1": null,
+        "2-3": 0.234,
+        "4-7": 0.296,
+        "8-15": 0.36,
+        "16-31": 0.423,
+        ">=32": 0.591
+      },
+      "decile": {
+        "psm_resid_sd": [
+          0.843,
+          1.132,
+          1.129,
+          1.091,
+          1.112,
+          1.054,
+          1.0,
+          0.867,
+          0.874,
+          0.983
+        ],
+        "nsaf_resid_sd": [
+          1.394,
+          1.578,
+          1.536,
+          1.545,
+          1.526,
+          1.457,
+          1.354,
+          1.132,
+          1.043,
+          1.128
+        ],
+        "poisson_floor_sd": [
+          0.475,
+          0.663,
+          0.721,
+          0.716,
+          0.67,
+          0.586,
+          0.489,
+          0.393,
+          0.291,
+          0.2
+        ],
+        "floor_var_share": [
+          0.318,
+          0.343,
+          0.408,
+          0.431,
+          0.363,
+          0.309,
+          0.24,
+          0.206,
+          0.111,
+          0.041
+        ],
+        "overall_floor_share": 0.290697
+      }
+    },
+    "0010-residual-drivers": {
+      "n_proteins": 1648,
+      "PSM": {
+        "term": "log2_shared_psm_inflation",
+        "slope": 0.9184,
+        "ci": [
+          0.8424,
+          0.9893
+        ],
+        "theory": 1.0,
+        "delta_r2_drop": 0.4502,
+        "model_r2": 0.5229,
+        "n_x_zero": 1240
+      },
+      "NSAF": {
+        "term": "log2_length_rel",
+        "slope": -0.9249,
+        "ci": [
+          -0.9654,
+          -0.8801
+        ],
+        "theory": -1.0,
+        "delta_r2_drop": 0.4113,
+        "model_r2": 0.7942,
+        "n_x_zero": 0
+      }
+    },
+    "0010-detection-classes": {
+      "per_run": {
+        "AZ905": {
+          "both": 2814,
+          "PSM only, no LFQ in any run": 653,
+          "PSM only, LFQ in other runs": 102,
+          "LFQ only (all MBR)": 151
+        },
+        "AZ907": {
+          "both": 2601,
+          "PSM only, no LFQ in any run": 573,
+          "PSM only, LFQ in other runs": 115,
+          "LFQ only (all MBR)": 277
+        },
+        "AZ909": {
+          "both": 2623,
+          "PSM only, no LFQ in any run": 577,
+          "PSM only, LFQ in other runs": 120,
+          "LFQ only (all MBR)": 267
+        },
+        "AZ906": {
+          "both": 2696,
+          "PSM only, no LFQ in any run": 606,
+          "PSM only, LFQ in other runs": 132,
+          "LFQ only (all MBR)": 207
+        },
+        "AZ908": {
+          "both": 2406,
+          "PSM only, no LFQ in any run": 527,
+          "PSM only, LFQ in other runs": 157,
+          "LFQ only (all MBR)": 268
+        },
+        "AZ910": {
+          "both": 2542,
+          "PSM only, no LFQ in any run": 571,
+          "PSM only, LFQ in other runs": 120,
+          "LFQ only (all MBR)": 251
+        },
+        "AZ941": {
+          "both": 2233,
+          "PSM only, no LFQ in any run": 462,
+          "PSM only, LFQ in other runs": 183,
+          "LFQ only (all MBR)": 23
+        },
+        "AZ942": {
+          "both": 2199,
+          "PSM only, no LFQ in any run": 493,
+          "PSM only, LFQ in other runs": 205,
+          "LFQ only (all MBR)": 47
+        }
+      },
+      "pooled_median_psm": {
+        "both": 7.0,
+        "PSM only, no LFQ in any run": 3.0,
+        "PSM only, LFQ in other runs": 1.0
+      },
+      "auc_range": [
+        0.655,
+        0.682
+      ],
+      "colors": {
+        "both": "#E69F00",
+        "PSM only, no LFQ in any run": "#56B4E9",
+        "PSM only, LFQ in other runs": "#009E73",
+        "LFQ only (all MBR)": "#F0E442"
+      }
+    },
+    "0010-no-lfq-reasons": {
+      "reason_counts": {
+        "shared_peptides_only": 671,
+        "unique_peptides_never_quantified": 220,
+        "flashlfq_nan_not_quantifiable": 6
+      },
+      "reason_psm_totals": {
+        "shared_peptides_only": 51669,
+        "unique_peptides_never_quantified": 2965,
+        "flashlfq_nan_not_quantifiable": 43
+      },
+      "median_total_psm": {
+        "shared_peptides_only": 15.0,
+        "unique_peptides_never_quantified": 1.0,
+        "flashlfq_nan_not_quantifiable": 6.0,
+        "lfq_any_reference": 29.0
+      },
+      "n_lfq_any_reference": 3414,
+      "top": [
+        [
+          "CES1P",
+          2719,
+          "shared_peptides_only"
+        ],
+        [
+          "CYB5",
+          2033,
+          "shared_peptides_only"
+        ],
+        [
+          "UD17",
+          1826,
+          "shared_peptides_only"
+        ],
+        [
+          "UD18",
+          1785,
+          "shared_peptides_only"
+        ],
+        [
+          "UD110",
+          1662,
+          "shared_peptides_only"
+        ],
+        [
+          "TBB4A",
+          1450,
+          "unique_peptides_never_quantified"
+        ],
+        [
+          "TBB2B",
+          1349,
+          "shared_peptides_only"
+        ],
+        [
+          "TBA1B",
+          1336,
+          "shared_peptides_only"
+        ],
+        [
+          "ACTB",
+          1294,
+          "shared_peptides_only"
+        ],
+        [
+          "ACTG",
+          1294,
+          "shared_peptides_only"
+        ],
+        [
+          "TRFE",
+          1198,
+          "shared_peptides_only"
+        ],
+        [
+          "TBA1A",
+          1158,
+          "shared_peptides_only"
+        ],
+        [
+          "TBA3C",
+          942,
+          "shared_peptides_only"
+        ],
+        [
+          "TBB8",
+          815,
+          "shared_peptides_only"
+        ],
+        [
+          "TBB8B",
+          776,
+          "shared_peptides_only"
+        ],
+        [
+          "TBA3E",
+          773,
+          "shared_peptides_only"
+        ],
+        [
+          "TBA8",
+          670,
+          "shared_peptides_only"
+        ],
+        [
+          "CATA",
+          640,
+          "shared_peptides_only"
+        ],
+        [
+          "ACTC",
+          612,
+          "shared_peptides_only"
+        ],
+        [
+          "ACTS",
+          600,
+          "shared_peptides_only"
+        ]
+      ],
+      "colors": {
+        "shared peptides only": "#E69F00",
+        "unique peptides, never quantified": "#56B4E9",
+        "FlashLFQ NaN token": "#009E73"
+      }
+    },
+    "0010-within-protein-tracking": {
+      "r_psm_raw_pearson": {
+        "n": 1648,
+        "median": 0.7141,
+        "mean": 0.585,
+        "frac_pos": 0.9108
+      },
+      "r_psm_raw_pair_means": {
+        "n": 1648,
+        "median": 0.8528,
+        "mean": 0.6691,
+        "frac_pos": 0.9084,
+        "null_95_of_mean_r": [
+          -0.325,
+          0.4748
+        ],
+        "p_two_sided": 0.0417,
+        "n_perm": 24,
+        "min_attainable_p": 0.0417
+      },
+      "r_psm_raw_within_pair": {
+        "n": 1640,
+        "median": 0.1636,
+        "mean": 0.1189,
+        "frac_pos": 0.5841,
+        "null_95_of_mean_r": [
+          -0.1156,
+          0.1156
+        ],
+        "p_two_sided": 0.125,
+        "n_perm": 16,
+        "min_attainable_p": 0.125
+      },
+      "median_r_by_mean_psm_bin": {
+        "1": 0.21,
+        "2-3": 0.389,
+        "4-7": 0.598,
+        "8-15": 0.691,
+        "16-31": 0.79,
+        ">=32": 0.852
+      }
+    },
+    "0011-contaminant-sharing": {
+      "n_proteins": 18,
+      "n_exclusive": 11,
+      "total_psm": 6257,
+      "total_psm_exclusive": 4713,
+      "n_sharing_any_contaminant_entry_68": 68,
+      "n_carrier_lfq_any_run": 7,
+      "n_carrier_lfq_all_8": 4,
+      "rows": [
+        [
+          "CYB5",
+          2033,
+          11,
+          11,
+          true,
+          "CYB5",
+          3
+        ],
+        [
+          "TRFE",
+          1198,
+          65,
+          65,
+          true,
+          "TRFE",
+          8
+        ],
+        [
+          "CATA",
+          640,
+          38,
+          38,
+          true,
+          "CATA",
+          0
+        ],
+        [
+          "GSTA1",
+          369,
+          2,
+          16,
+          false,
+          "GSTA1",
+          0
+        ],
+        [
+          "HBB",
+          357,
+          9,
+          15,
+          false,
+          "HBB",
+          8
+        ],
+        [
+          "HBA",
+          330,
+          12,
+          13,
+          false,
+          "HBA",
+          3
+        ],
+        [
+          "SODC",
+          320,
+          12,
+          12,
+          true,
+          "SODC",
+          0
+        ],
+        [
+          "PPIA",
+          292,
+          9,
+          11,
+          false,
+          "PPIA",
+          8
+        ],
+        [
+          "ANXA5",
+          183,
+          22,
+          22,
+          true,
+          "ANXA5",
+          0
+        ],
+        [
+          "CAH2",
+          135,
+          15,
+          15,
+          true,
+          "CAH2",
+          0
+        ],
+        [
+          "K1C10",
+          126,
+          15,
+          20,
+          false,
+          "K1C10",
+          0
+        ],
+        [
+          "THIO",
+          90,
+          9,
+          9,
+          true,
+          "THIO",
+          0
+        ],
+        [
+          "CYC",
+          80,
+          7,
+          7,
+          true,
+          "CYC",
+          0
+        ],
+        [
+          "ALDOA",
+          48,
+          8,
+          9,
+          false,
+          "ALDOA_RABIT",
+          0
+        ],
+        [
+          "GSTP1",
+          24,
+          3,
+          3,
+          true,
+          "GSTP1",
+          6
+        ],
+        [
+          "TRY6",
+          22,
+          1,
+          2,
+          false,
+          "TRYP_PIG",
+          8
+        ],
+        [
+          "NQO2",
+          9,
+          4,
+          4,
+          true,
+          "NQO2",
+          0
+        ],
+        [
+          "CAH1",
+          1,
+          1,
+          1,
+          true,
+          "CAH1",
+          0
+        ]
+      ]
+    }
+  },
+  "figures": {
+    "0010-density-lfq-vs-psm-nsaf": {
+      "svg": "figures/analysis/quant-comparison/abundance-agreement/0010-density-lfq-vs-psm-nsaf.svg",
+      "png": "figures/analysis/quant-comparison/abundance-agreement/0010-density-lfq-vs-psm-nsaf.png",
+      "legend_svg": "figures/analysis/quant-comparison/abundance-agreement/0010-density-lfq-vs-psm-nsaf.legend.svg",
+      "legend_png": "figures/analysis/quant-comparison/abundance-agreement/0010-density-lfq-vs-psm-nsaf.legend.png"
+    },
+    "0010-per-sample-correlations": {
+      "svg": "figures/analysis/quant-comparison/abundance-agreement/0010-per-sample-correlations.svg",
+      "png": "figures/analysis/quant-comparison/abundance-agreement/0010-per-sample-correlations.png",
+      "legend_svg": "figures/analysis/quant-comparison/abundance-agreement/0010-per-sample-correlations.legend.svg",
+      "legend_png": "figures/analysis/quant-comparison/abundance-agreement/0010-per-sample-correlations.legend.png"
+    },
+    "0010-slope-estimators": {
+      "svg": "figures/analysis/quant-comparison/abundance-agreement/0010-slope-estimators.svg",
+      "png": "figures/analysis/quant-comparison/abundance-agreement/0010-slope-estimators.png",
+      "legend_svg": "figures/analysis/quant-comparison/abundance-agreement/0010-slope-estimators.legend.svg",
+      "legend_png": "figures/analysis/quant-comparison/abundance-agreement/0010-slope-estimators.legend.png"
+    },
+    "0010-agreement-by-psm-count": {
+      "svg": "figures/analysis/quant-comparison/abundance-agreement/0010-agreement-by-psm-count.svg",
+      "png": "figures/analysis/quant-comparison/abundance-agreement/0010-agreement-by-psm-count.png",
+      "legend_svg": "figures/analysis/quant-comparison/abundance-agreement/0010-agreement-by-psm-count.legend.svg",
+      "legend_png": "figures/analysis/quant-comparison/abundance-agreement/0010-agreement-by-psm-count.legend.png"
+    },
+    "0010-residual-drivers": {
+      "svg": "figures/analysis/quant-comparison/abundance-agreement/0010-residual-drivers.svg",
+      "png": "figures/analysis/quant-comparison/abundance-agreement/0010-residual-drivers.png",
+      "legend_svg": "figures/analysis/quant-comparison/abundance-agreement/0010-residual-drivers.legend.svg",
+      "legend_png": "figures/analysis/quant-comparison/abundance-agreement/0010-residual-drivers.legend.png"
+    },
+    "0010-detection-classes": {
+      "svg": "figures/analysis/quant-comparison/abundance-agreement/0010-detection-classes.svg",
+      "png": "figures/analysis/quant-comparison/abundance-agreement/0010-detection-classes.png",
+      "legend_svg": "figures/analysis/quant-comparison/abundance-agreement/0010-detection-classes.legend.svg",
+      "legend_png": "figures/analysis/quant-comparison/abundance-agreement/0010-detection-classes.legend.png"
+    },
+    "0010-no-lfq-reasons": {
+      "svg": "figures/analysis/quant-comparison/abundance-agreement/0010-no-lfq-reasons.svg",
+      "png": "figures/analysis/quant-comparison/abundance-agreement/0010-no-lfq-reasons.png",
+      "legend_svg": "figures/analysis/quant-comparison/abundance-agreement/0010-no-lfq-reasons.legend.svg",
+      "legend_png": "figures/analysis/quant-comparison/abundance-agreement/0010-no-lfq-reasons.legend.png"
+    },
+    "0010-within-protein-tracking": {
+      "svg": "figures/analysis/quant-comparison/abundance-agreement/0010-within-protein-tracking.svg",
+      "png": "figures/analysis/quant-comparison/abundance-agreement/0010-within-protein-tracking.png",
+      "legend_svg": "figures/analysis/quant-comparison/abundance-agreement/0010-within-protein-tracking.legend.svg",
+      "legend_png": "figures/analysis/quant-comparison/abundance-agreement/0010-within-protein-tracking.legend.png"
+    },
+    "0011-contaminant-sharing": {
+      "svg": "figures/analysis/quant-comparison/contaminant-sharing/0011-contaminant-sharing.svg",
+      "png": "figures/analysis/quant-comparison/contaminant-sharing/0011-contaminant-sharing.png",
+      "legend_svg": "figures/analysis/quant-comparison/contaminant-sharing/0011-contaminant-sharing.legend.svg",
+      "legend_png": "figures/analysis/quant-comparison/contaminant-sharing/0011-contaminant-sharing.legend.png"
+    }
+  }
+}

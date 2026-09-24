@@ -26,6 +26,7 @@ entities:
 
 relationships:
   - { type: relates_to, target: 1, note: "Run order is aliased with condition (control run first in every pair). This detection asymmetry is robust to that confound because drift, MBR and carry-over would all bias AGAINST treated-only specificity, not toward it — so 0001 does not undermine this result." }
+  - { type: relates_to, target: 4, note: "A working positive control: recovering treatment-specific covalent chemistry corroborates that the near-null abundance result of 0004 is a calibrated null, not an insensitive pipeline." }
 
 provenance:
   data_version: "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74"
@@ -275,7 +276,7 @@ Two positioning points are important and must not be overstated. First, this is 
 
 ## Related findings
 - [Finding 0001 (run order aliased with condition)](0001-run-order-aliased-with-condition.md) — `relates_to`. The control was run first in every pair, so detection is confounded with run order; but every drift/MBR/carry-over mechanism biases against this treated-only asymmetry, so the confound cannot explain it.
-- [Finding 0004 (no differential abundance)](0004-no-differential-abundance-raloxifene-vs-control.md) — this positive control corroborates that the near-null abundance result there is a calibrated null, not an insensitive pipeline. (No edge asserted; surfaced for the scientist to type if wanted.)
+- [Finding 0004 (no differential abundance)](0004-no-differential-abundance-raloxifene-vs-control.md) — `relates_to`. This positive control corroborates that the near-null abundance result there is a calibrated null, not an insensitive pipeline.
 
 ## References
 - Zelter A, Riffle M, … MacCoss MJ, Isoherranen N. Detection and Quantification of Drug-Protein Adducts in Human Liver. J Proteome Res. 2024;23(11):5143-5152. doi:10.1021/acs.jproteome.4c00663. PMID 39442081. — Prior art: proteome-wide raloxifene HLM adductome; shared SPCMQDR; adducts can be benign.
