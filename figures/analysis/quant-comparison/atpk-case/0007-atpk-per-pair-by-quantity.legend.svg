@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="178.115625pt" height="93.403984pt" viewBox="0 0 178.115625 93.403984" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 93.403984 
+L 178.115625 93.403984 
+L 178.115625 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="legend_1">
+   <g id="text_1">
+    <text style="font-size: 11px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start" x="48.54" y="19.558281" transform="rotate(-0 48.54 19.558281)">Candidate pair</text>
+   </g>
+   <g id="line2d_1">
+    <path d="M 11.2 31.299297 
+L 23.2 31.299297 
+L 35.2 31.299297 
+" style="fill: none; stroke: #404040; stroke-width: 3.6; stroke-linecap: square"/>
+    <path d="M 11.2 31.299297 
+L 23.2 31.299297 
+L 35.2 31.299297 
+" style="fill: none; stroke: #e69f00; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 23.2 34.299297 
+C 23.995609 34.299297 24.75874 33.983198 25.32132 33.420617 
+C 25.883901 32.858036 26.2 32.094906 26.2 31.299297 
+C 26.2 30.503688 25.883901 29.740557 25.32132 29.177977 
+C 24.75874 28.615396 23.995609 28.299297 23.2 28.299297 
+C 22.404391 28.299297 21.64126 28.615396 21.07868 29.177977 
+C 20.516099 29.740557 20.2 30.503688 20.2 31.299297 
+C 20.2 32.094906 20.516099 32.858036 21.07868 33.420617 
+C 21.64126 33.983198 22.404391 34.299297 23.2 34.299297 
+z
+" style="fill: #e69f00; stroke: #404040; stroke-width: 3.6"/>
+    <path d="M 23.2 34.299297 
+C 23.995609 34.299297 24.75874 33.983198 25.32132 33.420617 
+C 25.883901 32.858036 26.2 32.094906 26.2 31.299297 
+C 26.2 30.503688 25.883901 29.740557 25.32132 29.177977 
+C 24.75874 28.615396 23.995609 28.299297 23.2 28.299297 
+C 22.404391 28.299297 21.64126 28.615396 21.07868 29.177977 
+C 20.516099 29.740557 20.2 30.503688 20.2 31.299297 
+C 20.2 32.094906 20.516099 32.858036 21.07868 33.420617 
+C 21.64126 33.983198 22.404391 34.299297 23.2 34.299297 
+z
+" style="fill: #e69f00; stroke: #262626"/>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start" x="43.2" y="34.799297" transform="rotate(-0 43.2 34.799297)">P905_906 · B2021-05-06</text>
+   </g>
+   <g id="line2d_2">
+    <path d="M 11.2 46.300078 
+L 23.2 46.300078 
+L 35.2 46.300078 
+" style="fill: none; stroke: #404040; stroke-width: 3.6; stroke-linecap: square"/>
+    <path d="M 11.2 46.300078 
+L 23.2 46.300078 
+L 35.2 46.300078 
+" style="fill: none; stroke: #56b4e9; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 23.2 49.300078 
+C 23.995609 49.300078 24.75874 48.983979 25.32132 48.421398 
+C 25.883901 47.858818 26.2 47.095687 26.2 46.300078 
+C 26.2 45.504469 25.883901 44.741339 25.32132 44.178758 
+C 24.75874 43.616177 23.995609 43.300078 23.2 43.300078 
+C 22.404391 43.300078 21.64126 43.616177 21.07868 44.178758 
+C 20.516099 44.741339 20.2 45.504469 20.2 46.300078 
+C 20.2 47.095687 20.516099 47.858818 21.07868 48.421398 
+C 21.64126 48.983979 22.404391 49.300078 23.2 49.300078 
+z
+" style="fill: #56b4e9; stroke: #404040; stroke-width: 3.6"/>
+    <path d="M 23.2 49.300078 
+C 23.995609 49.300078 24.75874 48.983979 25.32132 48.421398 
+C 25.883901 47.858818 26.2 47.095687 26.2 46.300078 
+C 26.2 45.504469 25.883901 44.741339 25.32132 44.178758 
+C 24.75874 43.616177 23.995609 43.300078 23.2 43.300078 
+C 22.404391 43.300078 21.64126 43.616177 21.07868 44.178758 
+C 20.516099 44.741339 20.2 45.504469 20.2 46.300078 
+C 20.2 47.095687 20.516099 47.858818 21.07868 48.421398 
+C 21.64126 48.983979 22.404391 49.300078 23.2 49.300078 
+z
+" style="fill: #56b4e9; stroke: #262626"/>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start" x="43.2" y="49.800078" transform="rotate(-0 43.2 49.800078)">P907_908 · B2021-05-06</text>
+   </g>
+   <g id="line2d_3">
+    <path d="M 11.2 61.300859 
+L 23.2 61.300859 
+L 35.2 61.300859 
+" style="fill: none; stroke: #404040; stroke-width: 3.6; stroke-linecap: square"/>
+    <path d="M 11.2 61.300859 
+L 23.2 61.300859 
+L 35.2 61.300859 
+" style="fill: none; stroke: #f0e442; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 23.2 64.300859 
+C 23.995609 64.300859 24.75874 63.98476 25.32132 63.42218 
+C 25.883901 62.859599 26.2 62.096469 26.2 61.300859 
+C 26.2 60.50525 25.883901 59.74212 25.32132 59.179539 
+C 24.75874 58.616958 23.995609 58.300859 23.2 58.300859 
+C 22.404391 58.300859 21.64126 58.616958 21.07868 59.179539 
+C 20.516099 59.74212 20.2 60.50525 20.2 61.300859 
+C 20.2 62.096469 20.516099 62.859599 21.07868 63.42218 
+C 21.64126 63.98476 22.404391 64.300859 23.2 64.300859 
+z
+" style="fill: #f0e442; stroke: #404040; stroke-width: 3.6"/>
+    <path d="M 23.2 64.300859 
+C 23.995609 64.300859 24.75874 63.98476 25.32132 63.42218 
+C 25.883901 62.859599 26.2 62.096469 26.2 61.300859 
+C 26.2 60.50525 25.883901 59.74212 25.32132 59.179539 
+C 24.75874 58.616958 23.995609 58.300859 23.2 58.300859 
+C 22.404391 58.300859 21.64126 58.616958 21.07868 59.179539 
+C 20.516099 59.74212 20.2 60.50525 20.2 61.300859 
+C 20.2 62.096469 20.516099 62.859599 21.07868 63.42218 
+C 21.64126 63.98476 22.404391 64.300859 23.2 64.300859 
+z
+" style="fill: #f0e442; stroke: #262626"/>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start" x="43.2" y="64.800859" transform="rotate(-0 43.2 64.800859)">P909_910 · B2021-05-06</text>
+   </g>
+   <g id="line2d_4">
+    <path d="M 11.2 76.301641 
+L 23.2 76.301641 
+L 35.2 76.301641 
+" style="fill: none; stroke: #404040; stroke-width: 3.6; stroke-linecap: square"/>
+    <path d="M 11.2 76.301641 
+L 23.2 76.301641 
+L 35.2 76.301641 
+" style="fill: none; stroke: #000000; stroke-width: 2.2; stroke-linecap: square"/>
+    <path d="M 23.2 79.301641 
+C 23.995609 79.301641 24.75874 78.985542 25.32132 78.422961 
+C 25.883901 77.86038 26.2 77.09725 26.2 76.301641 
+C 26.2 75.506031 25.883901 74.742901 25.32132 74.18032 
+C 24.75874 73.61774 23.995609 73.301641 23.2 73.301641 
+C 22.404391 73.301641 21.64126 73.61774 21.07868 74.18032 
+C 20.516099 74.742901 20.2 75.506031 20.2 76.301641 
+C 20.2 77.09725 20.516099 77.86038 21.07868 78.422961 
+C 21.64126 78.985542 22.404391 79.301641 23.2 79.301641 
+z
+" style="stroke: #404040; stroke-width: 3.6"/>
+    <path d="M 23.2 79.301641 
+C 23.995609 79.301641 24.75874 78.985542 25.32132 78.422961 
+C 25.883901 77.86038 26.2 77.09725 26.2 76.301641 
+C 26.2 75.506031 25.883901 74.742901 25.32132 74.18032 
+C 24.75874 73.61774 23.995609 73.301641 23.2 73.301641 
+C 22.404391 73.301641 21.64126 73.61774 21.07868 74.18032 
+C 20.516099 74.742901 20.2 75.506031 20.2 76.301641 
+C 20.2 77.09725 20.516099 77.86038 21.07868 78.422961 
+C 21.64126 78.985542 22.404391 79.301641 23.2 79.301641 
+z
+" style="stroke: #262626"/>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 10px; font-family: 'DejaVu Sans', 'Bitstream Vera Sans', 'Computer Modern Sans Serif', 'Lucida Grande', 'Verdana', 'Geneva', 'Lucid', 'Arial', 'Helvetica', 'Avant Garde', sans-serif; text-anchor: start" x="43.2" y="79.801641" transform="rotate(-0 43.2 79.801641)">P941_942 · B2022-03-18</text>
+   </g>
+  </g>
+ </g>
+</svg>

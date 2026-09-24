@@ -35,3 +35,18 @@ Append-only record of what was looked at and discarded — the multiplicity cont
   - The protein was examined because it was the top hit, so its effect size is selection-optimistic.
   - The LFQ-vs-spectral disagreement comes from a single Met-oxidized peptide whose PSM count and MS1 intensity move in opposite directions.
 - **Running in parallel:** the abundance-agreement analysis (LFQ vs NSAF / PSM) and the peptide/modification analysis (raloxifene adducts, presence/absence, modification classes).
+
+## 2026-09-24 — Peptide/modification analysis and LFQ-vs-spectral abundance agreement
+
+- **Peptide/modification analysis** (`scripts/scratch/peptide_mod_analysis.py`). Mass decomposition, the adduct class, presence/absence under 3 detection definitions × 5 classes, intensity by class, protein-adjusted peptide changes, modified-minus-reference forms, and the oxidation index.
+  - **Stats review:** passed after wording fixes.
+    - The detection asymmetry must not be attributed to drift.
+    - The oxidation shift must be reported together with its non-significant related tests: protein-adjusted p = 0.072, global index p = 0.55/0.10, 0/64 proteins.
+  - **Multiplicity:** many pair-level class tests. BH was applied only within small families; a BH over all of them is still owed.
+- **Abundance-agreement analysis** (`scripts/scratch/abundance_agreement.py`). Correlations, slopes, the count floor, residual drivers, detection, and within-protein tracking.
+  - **Stats review:** failed on interpretation only.
+    - The "~13% compression" slope claim was **withdrawn**: the slope is not identified, and it is 1.33 on a per-peptide LFQ scale.
+    - The "68 proteins lose LFQ to contaminant copies" count was **corrected to 18** (11 share exclusively with contaminant copies). 68 is only "share ≥1 peptide".
+    - LFQ − log2 L vs NSAF agreement was **dropped**: it is circular.
+    - Per-protein permutation p-values over 8 runs assume run exchangeability, which the pairs violate.
+- **Scientist decision:** handle contaminant peptide sharing as a caveat now, with the fix made upstream later (a contaminant FASTA without human proteins).

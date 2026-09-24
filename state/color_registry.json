@@ -57,10 +57,39 @@
       "raloxifene-d0": "#D55E00"
     }
   },
+  "detection_type": {
+    "scope": "project",
+    "values": {
+      "MBR": "#56B4E9",
+      "MSMS": "#E69F00",
+      "MSMSIdentifiedButNotQuantified": "#009E73"
+    }
+  },
+  "eb_prior": {
+    "scope": "project",
+    "values": {
+      "limma-trend": "#56B4E9",
+      "no-trend": "#E69F00"
+    }
+  },
   "highlight_group": {
     "scope": "project",
     "values": {
       "contaminant": "#E69F00"
+    }
+  },
+  "mod_class": {
+    "scope": "project",
+    "values": {
+      "CAM-only": "#56B4E9",
+      "oxidized": "#009E73",
+      "unmodified": "#E69F00"
+    }
+  },
+  "pair_labelling": {
+    "scope": "project",
+    "values": {
+      "observed": "#E69F00"
     }
   },
   "quantity": {

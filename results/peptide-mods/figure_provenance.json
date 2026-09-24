@@ -1,0 +1,506 @@
+{
+  "findings": [
+    "0008",
+    "0009"
+  ],
+  "scripts": {
+    "runner": {
+      "path": "scripts/scratch/fig_peptide_mods.py",
+      "sha256": "84c73424e349df94842af3047ad717ed691cde2001cf0032263a0e72e621fd42"
+    },
+    "module": {
+      "path": "scripts/scratch/analysis_figures/peptide_mods_figs.py",
+      "sha256": "ee4d94e7c30dbbfb932cb6df979f75a5a7f0da44bd0c75e2daea6aa1c93cb47e"
+    },
+    "figure_io": {
+      "path": "scripts/promoted/common/figures/figure_io.py",
+      "sha256": "e32b379a8cde19457de847abe98d30d415722a22108fdf89fe67559fbaf10af1"
+    },
+    "colors": {
+      "path": "scripts/promoted/common/figures/colors.py",
+      "sha256": "86831758f035b5f1d8184a0f26787bf7de7860b011509e1cd003ef76e0a93199"
+    }
+  },
+  "commit": "9d4aeaa",
+  "commit_note": "figure scripts uncommitted at render time; script sha256 pinned",
+  "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+  "analysis_script": {
+    "path": "scripts/scratch/peptide_mod_analysis.py",
+    "sha256": "cab135925b9699661a71208bab857c2e0b169d0c8501fd0b8d773e6a2c87511d"
+  },
+  "inputs": {
+    "summary.json": {
+      "path": "results/peptide-mods/summary.json",
+      "sha256": "0d686a99753eaaa2a28f425c23334aabfec89949dde7f72ab8a1fafe7910a0ed"
+    },
+    "adduct_peptides_long.tsv": {
+      "path": "results/peptide-mods/adduct_peptides_long.tsv",
+      "sha256": "804273d587f43f9cc479ffa6f0e1f82166accaee6d305d8584019553894d5e86"
+    },
+    "adduct_peptides.tsv": {
+      "path": "results/peptide-mods/adduct_peptides.tsv",
+      "sha256": "0d9b4090de012f32afead120afbdb4ed8ccf2864c30424728481efeadb47d88a"
+    },
+    "adduct_pair_summary.tsv": {
+      "path": "results/peptide-mods/adduct_pair_summary.tsv",
+      "sha256": "752257c962291bda18f9bd8e7d7747ee0d769ae5b7ee9824b287ae2b90244704"
+    },
+    "adduct_proteins.tsv": {
+      "path": "results/peptide-mods/adduct_proteins.tsv",
+      "sha256": "2c76bce598897a170c5b0f47b6d446fb581aa49ed2b99daa4d6b9f9761d8eaac"
+    },
+    "discordance_class_tests.tsv": {
+      "path": "results/peptide-mods/discordance_class_tests.tsv",
+      "sha256": "9cb47049394862a96f4b246fdf86efc49b179667d40eb4a5279d02d5db78166d"
+    },
+    "discordance_by_pair.tsv": {
+      "path": "results/peptide-mods/discordance_by_pair.tsv",
+      "sha256": "b34bf8e735c0ef93cb52343f13e59fc9727e9a54799718dcdb9e884ffb596772"
+    },
+    "class_log2fc.tsv": {
+      "path": "results/peptide-mods/class_log2fc.tsv",
+      "sha256": "2ff7d0c1c93e9f0fc567ea58d1e83c5094da068724b7d7841e194a8cea77d0d6"
+    },
+    "class_log2fc_tests.tsv": {
+      "path": "results/peptide-mods/class_log2fc_tests.tsv",
+      "sha256": "4070ea77686117935c55020929d58cf122def77ca8f0742b9c75eeaed002eed7"
+    },
+    "modified_vs_reference.tsv": {
+      "path": "results/peptide-mods/modified_vs_reference.tsv",
+      "sha256": "1613619606a6a0db7f7b9460d08947b68c6722f82f9557b1774a11069e1f9d79"
+    },
+    "modified_vs_reference_class_tests.tsv": {
+      "path": "results/peptide-mods/modified_vs_reference_class_tests.tsv",
+      "sha256": "2c88045414751731406b7adf7c4cddd58e0f8e49dafc3311239c35a05906e301"
+    }
+  },
+  "params": {
+    "detection_categories": "FlashLFQ MSMS; MBR; MSMSIdentifiedButNotQuantified + MSMSAmbiguousPeakfinding merged as 'MS/MS ID, not quantified'; NotDetected blank",
+    "heatmap_row_order": "Cys first, then Tyr/Trp; n_treated_quantified desc, n_control_quantified asc, treated_psms_total desc, feature asc",
+    "discordance_ci": "Clopper-Pearson 95% (recomputed; equals analysis CI)",
+    "pair_level_or": "discordance_class_tests pair_level_or (raloxifene-adduct vs unmodified, all residues)",
+    "class_shift": "pair_shift_* of class_log2fc_tests (mean(class) - mean(unmodified) paired diff per pair; t CI df 3; BH over classes); per-pair values parsed from 4-dp strings",
+    "modified_minus_reference": "per-pair mean over 123 oxidized forms of diff_<pair> in modified_vs_reference.tsv; CI/q from class tests",
+    "distribution": "scipy gaussian_kde (Scott bandwidth) per class, x view +/-1.25",
+    "detection_counts": "discordance_by_pair quantified/unmodified n_detected_control/treated",
+    "registry": "state/color_registry.json",
+    "dpi": 300
+  },
+  "color_map": {
+    "condition": {
+      "control": "#0072B2",
+      "raloxifene-d0": "#D55E00"
+    },
+    "candidate_pair": {
+      "P905_906": "#E69F00",
+      "P907_908": "#56B4E9",
+      "P909_910": "#F0E442",
+      "P941_942": "#000000"
+    },
+    "detection_type": {
+      "MSMS": "#E69F00",
+      "MBR": "#56B4E9",
+      "MSMSIdentifiedButNotQuantified": "#009E73"
+    },
+    "mod_class": {
+      "unmodified": "#E69F00",
+      "CAM-only": "#56B4E9",
+      "oxidized": "#009E73"
+    },
+    "discordance_groups": {
+      "Cys adducts": "#000000",
+      "Tyr/Trp adducts": "#000000",
+      "unmodified peptides": "#E69F00"
+    }
+  },
+  "key_numbers": {
+    "heatmap": {
+      "n_rows": 60,
+      "n_cys": 39,
+      "n_tyr_trp": 21,
+      "cell_counts": {
+        "MS/MS (quantified)": 94,
+        "MBR transfer (quantified)": 48,
+        "MS/MS ID, not quantified": 26,
+        "not detected": 312
+      },
+      "n_cyp_rows": 3
+    },
+    "heatmap_row_order": [
+      "GCTATLGNFAK[+471.1504]",
+      "CPFTGNVSIR[+471.1504]",
+      "GCGTVLLSGPR[+471.1504]",
+      "TYAICGAIR[+471.1504]",
+      "VFANPEDCVAFGK[+471.1504]",
+      "KVFANPEDCVAFGK[+471.1504]",
+      "KDVLIEFYAPWCGHCK[+528.171864]",
+      "CTQDLSLVTNCMEHALIACHPR[+585.193328]",
+      "WPISYCR[+471.1504]",
+      "ECADLWPR[+471.1504]",
+      "AQCPIVER[+471.1504]",
+      "GLCAIAQAESLR[+471.1504]",
+      "GFCMFDMECHK[+528.171864]",
+      "NIVSDCSAFVK[+471.1504]",
+      "SGQGAFGNMCR[+471.1504]",
+      "SPCMQDR[+471.1504]",
+      "NMSVHLSPCFR[+471.1504]",
+      "VIPLFTPQCGK[+471.1504]",
+      "NCMTDLLAK[+471.1504]",
+      "KPLLCTK[+471.1504]",
+      "TSAVPSPCGK[+471.1504]",
+      "LGMFNIQHCK[+471.1504]",
+      "FYPPGCR[+471.1504]",
+      "LSLLEVGCGTGANFK[+471.1504]",
+      "NHGLSDEHVFEVICPSIPGYGFSEASSK[+471.1504]",
+      "SACGVCPGR[+528.171864]",
+      "VACIGAWHPAR[+471.1504]",
+      "VCADLIR[+471.1504]",
+      "GIQVSNNGPCLGSR[+471.1504]",
+      "LPECEADDGCPKPPEIAHGYVEHSVR[+528.171864]",
+      "ALGATDCLNPR[+471.1504]",
+      "AVLVTGGDCGLGHALCK[+528.171864]",
+      "LSEDCLYLNIYTPADLTK[+471.1504]",
+      "TGSQGQCTQVR[+471.1504]",
+      "VVAVDCGIK[+471.1504]",
+      "YVAAAFPSACGK[+471.1504]",
+      "GCGEQTMIYLAPTLAASR[+471.1504]",
+      "LTESPCALVASQYGWSGNMER[+471.1504]",
+      "QCEINYVK[+471.1504]",
+      "LYTLNDK[+471.1504]",
+      "GTEVYPMLGSVLR[+471.1504]",
+      "FLSSSPHLPPSSYFNASGRAYPDVAALSDGYWVVSNR[+942.3008]",
+      "DGFSESYGSRR[+471.1504]",
+      "ADSGRYQLR[+471.1504]",
+      "EWAKSMTSVLEPVLDLTYPVTSMFTGSAFNR[+471.1504]",
+      "DNGPNYVQR[+471.1504]",
+      "WIISEIYAVWK[+471.1504]",
+      "GTLKGHNGWVTQIATTPQFPDMILSASR[+471.1504]",
+      "NCVPMEFEEYLLRMFQQTFYLLQK[+544.166764]",
+      "QYSDMPPLTLEGIQDR[+487.14529999999996]",
+      "YLGLPGSLK[+471.1504]",
+      "GNWGHLDQVAALR[+471.1504]",
+      "GSTTSLGSDFSLVMESSPGATGSFTYEAVELVPAGAPTQAAWR[+487.14529999999996]",
+      "MKVYVPTGFSAFPFELLHTPEK[+487.14529999999996]",
+      "NYLEDSLLK[+471.1504]",
+      "SGVYQHVTGEMMGGHAIR[+471.1504]",
+      "YYVTIIDAPGHR[+471.1504]",
+      "LKLWEFFQVDVNK[+471.1504]",
+      "EWKLWEPLVEEPPADQWK[+471.1504]",
+      "KFSLDDLLTNVMLYWTTGTIISSQR[+942.3008]"
+    ],
+    "discordance": {
+      "quantified": {
+        "points": {
+          "Cys adducts": {
+            "k": 90,
+            "n": 92,
+            "prop": 0.9783,
+            "ci": [
+              0.9237,
+              0.9974
+            ]
+          },
+          "Tyr/Trp adducts": {
+            "k": 7,
+            "n": 12,
+            "prop": 0.5833,
+            "ci": [
+              0.2767,
+              0.8483
+            ]
+          },
+          "unmodified peptides": {
+            "k": 6312,
+            "n": 16124,
+            "prop": 0.3915,
+            "ci": [
+              0.3839,
+              0.399
+            ]
+          }
+        },
+        "adduct_vs_unmodified_pair_level_or": [
+          23.978,
+          11.9,
+          48.314
+        ],
+        "pairs_or_gt1": 4
+      },
+      "msms": {
+        "points": {
+          "Cys adducts": {
+            "k": 70,
+            "n": 71,
+            "prop": 0.9859,
+            "ci": [
+              0.924,
+              0.9996
+            ]
+          },
+          "Tyr/Trp adducts": {
+            "k": 11,
+            "n": 17,
+            "prop": 0.6471,
+            "ci": [
+              0.3833,
+              0.8579
+            ]
+          },
+          "unmodified peptides": {
+            "k": 7533,
+            "n": 19811,
+            "prop": 0.3802,
+            "ci": [
+              0.3735,
+              0.387
+            ]
+          }
+        },
+        "adduct_vs_unmodified_pair_level_or": [
+          18.585,
+          8.729,
+          39.568
+        ],
+        "pairs_or_gt1": 4
+      },
+      "psm": {
+        "points": {
+          "Cys adducts": {
+            "k": 76,
+            "n": 78,
+            "prop": 0.9744,
+            "ci": [
+              0.9104,
+              0.9969
+            ]
+          },
+          "Tyr/Trp adducts": {
+            "k": 15,
+            "n": 23,
+            "prop": 0.6522,
+            "ci": [
+              0.4273,
+              0.8362
+            ]
+          },
+          "unmodified peptides": {
+            "k": 7555,
+            "n": 19683,
+            "prop": 0.3838,
+            "ci": [
+              0.377,
+              0.3907
+            ]
+          }
+        },
+        "adduct_vs_unmodified_pair_level_or": [
+          15.84,
+          8.538,
+          29.385
+        ],
+        "pairs_or_gt1": 4
+      }
+    },
+    "cyp3a4": {
+      "feature": "GFCMFDMECHK[+528.171864]",
+      "per_sample": {
+        "AZ905": {
+          "detection_type": "NotDetected",
+          "log2_intensity": null,
+          "psms": 0
+        },
+        "AZ906": {
+          "detection_type": "MSMS",
+          "log2_intensity": 20.0096,
+          "psms": 1
+        },
+        "AZ907": {
+          "detection_type": "NotDetected",
+          "log2_intensity": null,
+          "psms": 0
+        },
+        "AZ908": {
+          "detection_type": "MSMS",
+          "log2_intensity": 18.4367,
+          "psms": 1
+        },
+        "AZ909": {
+          "detection_type": "NotDetected",
+          "log2_intensity": null,
+          "psms": 0
+        },
+        "AZ910": {
+          "detection_type": "NotDetected",
+          "log2_intensity": null,
+          "psms": 0
+        },
+        "AZ941": {
+          "detection_type": "NotDetected",
+          "log2_intensity": null,
+          "psms": 0
+        },
+        "AZ942": {
+          "detection_type": "MSMS",
+          "log2_intensity": 20.1282,
+          "psms": 3
+        }
+      }
+    },
+    "class_shift": {
+      "CAM-only": {
+        "per_pair": {
+          "P905_906": -0.0449,
+          "P907_908": -0.0682,
+          "P909_910": -0.0568,
+          "P941_942": -0.0956
+        },
+        "mean": -0.0664,
+        "ci": [
+          -0.1009,
+          -0.0319
+        ],
+        "q_BH": 0.0087
+      },
+      "oxidized": {
+        "per_pair": {
+          "P905_906": 0.0658,
+          "P907_908": 0.0484,
+          "P909_910": 0.083,
+          "P941_942": 0.0962
+        },
+        "mean": 0.0733,
+        "ci": [
+          0.0403,
+          0.1064
+        ],
+        "q_BH": 0.0087
+      },
+      "oxidized_modified_minus_reference": {
+        "per_pair": {
+          "P905_906": 0.0543,
+          "P907_908": 0.1875,
+          "P909_910": 0.0865,
+          "P941_942": 0.1549
+        },
+        "mean": 0.1208,
+        "ci": [
+          0.0235,
+          0.2181
+        ],
+        "n_forms": 123,
+        "q_BH": 0.0289
+      }
+    },
+    "distributions": {
+      "unmodified": {
+        "n": 8284,
+        "median": 0.0165,
+        "q25": -0.1056,
+        "q75": 0.1361,
+        "n_outside_view": 33
+      },
+      "CAM-only": {
+        "n": 1801,
+        "median": -0.049,
+        "q25": -0.1757,
+        "q75": 0.0681,
+        "n_outside_view": 6
+      },
+      "oxidized": {
+        "n": 144,
+        "median": 0.0918,
+        "q25": -0.133,
+        "q75": 0.2653,
+        "n_outside_view": 0
+      }
+    },
+    "detection_by_run": {
+      "counts": {
+        "AZ905": 20020,
+        "AZ906": 19324,
+        "AZ907": 19156,
+        "AZ908": 17309,
+        "AZ909": 19214,
+        "AZ910": 18131,
+        "AZ941": 13665,
+        "AZ942": 13791
+      },
+      "shares": {
+        "P905_906": {
+          "k": 1585,
+          "n": 3866,
+          "prop": 0.41,
+          "ci": [
+            0.3944,
+            0.4257
+          ]
+        },
+        "P907_908": {
+          "k": 1311,
+          "n": 4469,
+          "prop": 0.2934,
+          "ci": [
+            0.28,
+            0.3069
+          ]
+        },
+        "P909_910": {
+          "k": 1366,
+          "n": 3815,
+          "prop": 0.3581,
+          "ci": [
+            0.3428,
+            0.3735
+          ]
+        },
+        "P941_942": {
+          "k": 2050,
+          "n": 3974,
+          "prop": 0.5159,
+          "ci": [
+            0.5002,
+            0.5315
+          ]
+        }
+      }
+    }
+  },
+  "figures": {
+    "0008-adduct-detection-heatmap": {
+      "svg": "figures/analysis/peptide-mods/raloxifene-adducts/0008-adduct-detection-heatmap.svg",
+      "png": "figures/analysis/peptide-mods/raloxifene-adducts/0008-adduct-detection-heatmap.png",
+      "legend_svg": "figures/analysis/peptide-mods/raloxifene-adducts/0008-adduct-detection-heatmap.legend.svg",
+      "legend_png": "figures/analysis/peptide-mods/raloxifene-adducts/0008-adduct-detection-heatmap.legend.png"
+    },
+    "0008-adduct-discordance-by-residue": {
+      "svg": "figures/analysis/peptide-mods/raloxifene-adducts/0008-adduct-discordance-by-residue.svg",
+      "png": "figures/analysis/peptide-mods/raloxifene-adducts/0008-adduct-discordance-by-residue.png",
+      "legend_svg": "figures/analysis/peptide-mods/raloxifene-adducts/0008-adduct-discordance-by-residue.legend.svg",
+      "legend_png": "figures/analysis/peptide-mods/raloxifene-adducts/0008-adduct-discordance-by-residue.legend.png"
+    },
+    "0008-cyp3a4-adduct-peptide": {
+      "svg": "figures/analysis/peptide-mods/raloxifene-adducts/0008-cyp3a4-adduct-peptide.svg",
+      "png": "figures/analysis/peptide-mods/raloxifene-adducts/0008-cyp3a4-adduct-peptide.png",
+      "legend_svg": "figures/analysis/peptide-mods/raloxifene-adducts/0008-cyp3a4-adduct-peptide.legend.svg",
+      "legend_png": "figures/analysis/peptide-mods/raloxifene-adducts/0008-cyp3a4-adduct-peptide.legend.png"
+    },
+    "0009-class-log2fc-by-pair": {
+      "svg": "figures/analysis/peptide-mods/class-shifts/0009-class-log2fc-by-pair.svg",
+      "png": "figures/analysis/peptide-mods/class-shifts/0009-class-log2fc-by-pair.png",
+      "legend_svg": "figures/analysis/peptide-mods/class-shifts/0009-class-log2fc-by-pair.legend.svg",
+      "legend_png": "figures/analysis/peptide-mods/class-shifts/0009-class-log2fc-by-pair.legend.png"
+    },
+    "0009-class-log2fc-distributions": {
+      "svg": "figures/analysis/peptide-mods/class-shifts/0009-class-log2fc-distributions.svg",
+      "png": "figures/analysis/peptide-mods/class-shifts/0009-class-log2fc-distributions.png",
+      "legend_svg": "figures/analysis/peptide-mods/class-shifts/0009-class-log2fc-distributions.legend.svg",
+      "legend_png": "figures/analysis/peptide-mods/class-shifts/0009-class-log2fc-distributions.legend.png"
+    },
+    "0009-detection-by-run-position": {
+      "svg": "figures/analysis/peptide-mods/class-shifts/0009-detection-by-run-position.svg",
+      "png": "figures/analysis/peptide-mods/class-shifts/0009-detection-by-run-position.png",
+      "legend_svg": "figures/analysis/peptide-mods/class-shifts/0009-detection-by-run-position.legend.svg",
+      "legend_png": "figures/analysis/peptide-mods/class-shifts/0009-detection-by-run-position.legend.png"
+    }
+  }
+}

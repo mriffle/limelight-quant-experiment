@@ -1,0 +1,1283 @@
+{
+  "color_registry": "state/color_registry.json",
+  "colors": {
+    "candidate_pair": {
+      "P905_906": "#E69F00",
+      "P907_908": "#56B4E9",
+      "P909_910": "#F0E442",
+      "P941_942": "#000000"
+    },
+    "eb_prior": {
+      "limma-trend": "#56B4E9",
+      "no-trend": "#E69F00"
+    },
+    "pair_labelling": {
+      "observed": "#E69F00",
+      "within-pair relabelling": "#d0d0d0"
+    },
+    "q_scatter": "sequential viridis by mean log2 abundance",
+    "significance": "registry category 'Significance' (volcano module)"
+  },
+  "data_version": "sha256:bc6b73d30e40d6ec190f8cd4494ec58d984a475f670d5aab5d8b238974d1ba74",
+  "figures": {
+    "0006-prior-sd-trend-protein-paired": {
+      "artifacts": {
+        "legend_png": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-prior-sd-trend-protein-paired.legend.png",
+        "legend_svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-prior-sd-trend-protein-paired.legend.svg",
+        "png": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-prior-sd-trend-protein-paired.png",
+        "svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-prior-sd-trend-protein-paired.svg"
+      },
+      "kind": "residual SD vs abundance + priors",
+      "quantity": "protein",
+      "stats": {
+        "highlighted": {
+          "ATPK_HUMAN": {
+            "mean_log2_abundance": 26.721961320267503,
+            "residual_sd": 0.0166149770361508,
+            "trend_prior_sd": 0.1025018521645746
+          }
+        },
+        "n_features": 1801,
+        "notrend_prior_sd": 0.1374,
+        "residual_sd_range": [
+          0.0062120600426945,
+          1.4463670533420936
+        ],
+        "trend_prior_sd_at_max_abundance": 0.0786501080484239,
+        "trend_prior_sd_at_min_abundance": 0.3686297657520508,
+        "trend_prior_sd_range": [
+          0.0786501080484239,
+          0.3686297657520508
+        ],
+        "y_limits": [
+          0.005623413251903491,
+          1.7782794100389228
+        ]
+      }
+    },
+    "0006-q-trend-vs-notrend-peptide-paired": {
+      "artifacts": {
+        "legend_png": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-q-trend-vs-notrend-peptide-paired.legend.png",
+        "legend_svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-q-trend-vs-notrend-peptide-paired.legend.svg",
+        "png": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-q-trend-vs-notrend-peptide-paired.png",
+        "svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-q-trend-vs-notrend-peptide-paired.svg"
+      },
+      "kind": "q trend vs q no-trend",
+      "labelled": [
+        {
+          "feature": "VLVVPTDGSPWLSMR[+0.0]",
+          "label": "VLVVPTDGSPWLSMR \u00b7 UD14_HUMAN",
+          "label_full": "VLVVPTDGSPWLSMR \u00b7 UD14_HUMAN",
+          "log2fc": -1.2713997480819057,
+          "mean_log2_abundance": 26.71660700220583,
+          "q_notrend": 0.0520763276811413,
+          "q_trend": 0.0284968443878584
+        },
+        {
+          "feature": "LVTLPVSFAQLK[+0.0]",
+          "label": "LVTLPVSFAQLK \u00b7 LRC59_HUMAN",
+          "label_full": "LVTLPVSFAQLK \u00b7 LRC59_HUMAN",
+          "log2fc": -1.1683438995279207,
+          "mean_log2_abundance": 24.20867777926464,
+          "q_notrend": 0.0520763276811413,
+          "q_trend": 0.0284968443878584
+        },
+        {
+          "feature": "IDGNLVVRPYTPISSDDDKGFVDLVIK[+0.0]",
+          "label": "IDGNLVV\u2026DLVIK \u00b7 NB5R3_HUMAN",
+          "label_full": "IDGNLVVRPYTPISSDDDKGFVDLVIK \u00b7 NB5R3_HUMAN",
+          "log2fc": -1.2448064856125818,
+          "mean_log2_abundance": 25.237505855220046,
+          "q_notrend": 0.0520763276811413,
+          "q_trend": 0.0284968443878584
+        },
+        {
+          "feature": "GYPTLLLFR[+0.0]",
+          "label": "GYPTLLLFR \u00b7 TXND5_HUMAN",
+          "label_full": "GYPTLLLFR \u00b7 TXND5_HUMAN",
+          "log2fc": -1.2672725677290495,
+          "mean_log2_abundance": 25.205931355392188,
+          "q_notrend": 0.0520763276811413,
+          "q_trend": 0.0284968443878584
+        },
+        {
+          "feature": "ITLLSALVETR[+0.0]",
+          "label": "ITLLSALVETR \u00b7 AACT_HUMAN",
+          "label_full": "ITLLSALVETR \u00b7 AACT_HUMAN",
+          "log2fc": -1.4334006973158742,
+          "mean_log2_abundance": 24.05940699302728,
+          "q_notrend": 0.0520763276811413,
+          "q_trend": 0.0284968443878584
+        },
+        {
+          "feature": "LLPVYLNCVLK[+57.021464]",
+          "label": "LLPVYLNCVLK \u00b7 SC24C_HUMAN",
+          "label_full": "LLPVYLNCVLK \u00b7 SC24C_HUMAN",
+          "log2fc": 1.4574333027076047,
+          "mean_log2_abundance": 22.7283292371403,
+          "q_notrend": 0.0520763276811413,
+          "q_trend": 0.029782873920061
+        },
+        {
+          "feature": "AIGAVPLIQGEYMIPCEK[+57.021464]",
+          "label": "AIGAVPL\u2026IPCEK[+57.02] \u00b7 CATD_HUMAN",
+          "label_full": "AIGAVPLIQGEYMIPCEK[+57.02] \u00b7 CATD_HUMAN",
+          "log2fc": 1.016629673984884,
+          "mean_log2_abundance": 24.627127078225897,
+          "q_notrend": 0.0703965391718308,
+          "q_trend": 0.029782873920061
+        },
+        {
+          "feature": "GFPLITITVR[+0.0]",
+          "label": "GFPLITITVR \u00b7 ERAP1_HUMAN",
+          "label_full": "GFPLITITVR \u00b7 ERAP1_HUMAN",
+          "log2fc": 1.784642773950007,
+          "mean_log2_abundance": 23.11885320164186,
+          "q_notrend": 0.0520763276811413,
+          "q_trend": 0.029782873920061
+        },
+        {
+          "feature": "IAPLEEGTLPFNLAEAQR[+0.0]",
+          "label": "IAPLEEG\u2026AEAQR \u00b7 S2513_HUMAN",
+          "label_full": "IAPLEEGTLPFNLAEAQR \u00b7 S2513_HUMAN",
+          "log2fc": -0.9897442202276112,
+          "mean_log2_abundance": 24.394164359320374,
+          "q_notrend": 0.0774984006828939,
+          "q_trend": 0.0358503598081742
+        },
+        {
+          "feature": "IAHAEAQVGLPEVTLGLLPGAR[+0.0]",
+          "label": "IAHAEAQ\u2026LPGAR \u00b7 ECHP_HUMAN",
+          "label_full": "IAHAEAQVGLPEVTLGLLPGAR \u00b7 ECHP_HUMAN",
+          "log2fc": -1.17233027182648,
+          "mean_log2_abundance": 24.12698954046865,
+          "q_notrend": 0.0774984006828939,
+          "q_trend": 0.0421446199631933
+        }
+      ],
+      "quantity": "peptide",
+      "stats": {
+        "abundance_color_range": [
+          17.334361953388452,
+          30.915742386247093
+        ],
+        "axis_limit_neg_log10": 2.1,
+        "label_groups": [
+          [
+            "LLPVYLNCVLK \u00b7 SC24C_HUMAN",
+            "GFPLITITVR \u00b7 ERAP1_HUMAN",
+            "VLVVPTDGSPWLSMR \u00b7 UD14_HUMAN",
+            "LVTLPVSFAQLK \u00b7 LRC59_HUMAN",
+            "IDGNLVV\u2026DLVIK \u00b7 NB5R3_HUMAN",
+            "GYPTLLLFR \u00b7 TXND5_HUMAN",
+            "ITLLSALVETR \u00b7 AACT_HUMAN"
+          ],
+          [
+            "AIGAVPL\u2026IPCEK[+57.02] \u00b7 CATD_HUMAN"
+          ],
+          [
+            "IAPLEEG\u2026AEAQR \u00b7 S2513_HUMAN"
+          ],
+          [
+            "IAHAEAQ\u2026LPGAR \u00b7 ECHP_HUMAN"
+          ]
+        ],
+        "label_layout_conflicts": 0,
+        "n_above_diagonal": 5722,
+        "n_below_diagonal": 4507,
+        "n_features": 10229,
+        "n_notrend_q_lt": {
+          "0.05": 0,
+          "0.1": 10
+        },
+        "n_trend_q_lt": {
+          "0.05": 10,
+          "0.1": 19
+        }
+      }
+    },
+    "0006-q-trend-vs-notrend-protein-paired": {
+      "artifacts": {
+        "legend_png": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-q-trend-vs-notrend-protein-paired.legend.png",
+        "legend_svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-q-trend-vs-notrend-protein-paired.legend.svg",
+        "png": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-q-trend-vs-notrend-protein-paired.png",
+        "svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-q-trend-vs-notrend-protein-paired.svg"
+      },
+      "kind": "q trend vs q no-trend",
+      "labelled": [
+        {
+          "feature": "psvid_86283_sp|P56134|ATPK_HUMAN",
+          "label": "ATPK_HUMAN",
+          "label_full": "ATPK_HUMAN",
+          "log2fc": -0.516019408282129,
+          "mean_log2_abundance": 26.721961320267503,
+          "q_notrend": 0.2099752541029476,
+          "q_trend": 0.0394691614746238
+        }
+      ],
+      "quantity": "protein",
+      "stats": {
+        "abundance_color_range": [
+          18.986734892124534,
+          31.50633201939968
+        ],
+        "axis_limit_neg_log10": 1.9,
+        "label_groups": [
+          [
+            "ATPK_HUMAN"
+          ]
+        ],
+        "label_layout_conflicts": 0,
+        "n_above_diagonal": 1167,
+        "n_below_diagonal": 634,
+        "n_features": 1801,
+        "n_notrend_q_lt": {
+          "0.05": 0,
+          "0.1": 0
+        },
+        "n_trend_q_lt": {
+          "0.05": 1,
+          "0.1": 1
+        }
+      }
+    },
+    "0006-relabel-diagnostic-trend": {
+      "artifacts": {
+        "legend_png": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-relabel-diagnostic-trend.legend.png",
+        "legend_svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-relabel-diagnostic-trend.legend.svg",
+        "png": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-relabel-diagnostic-trend.png",
+        "svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-relabel-diagnostic-trend.svg"
+      },
+      "kind": "pair-relabel diagnostic",
+      "labellings": {
+        "nsaf": [
+          {
+            "flipped_pairs": [],
+            "hits": 0,
+            "pi0": 0.8452
+          },
+          {
+            "flipped_pairs": [
+              "P941_942"
+            ],
+            "hits": 0,
+            "pi0": 0.9055
+          },
+          {
+            "flipped_pairs": [
+              "P909_910"
+            ],
+            "hits": 0,
+            "pi0": 1.0
+          },
+          {
+            "flipped_pairs": [
+              "P909_910",
+              "P941_942"
+            ],
+            "hits": 0,
+            "pi0": 0.9407
+          },
+          {
+            "flipped_pairs": [
+              "P907_908"
+            ],
+            "hits": 0,
+            "pi0": 0.9629
+          },
+          {
+            "flipped_pairs": [
+              "P907_908",
+              "P941_942"
+            ],
+            "hits": 0,
+            "pi0": 0.9314
+          },
+          {
+            "flipped_pairs": [
+              "P907_908",
+              "P909_910"
+            ],
+            "hits": 0,
+            "pi0": 0.9333
+          },
+          {
+            "flipped_pairs": [
+              "P907_908",
+              "P909_910",
+              "P941_942"
+            ],
+            "hits": 0,
+            "pi0": 0.8397
+          }
+        ],
+        "peptide": [
+          {
+            "flipped_pairs": [],
+            "hits": 10,
+            "pi0": 0.8697
+          },
+          {
+            "flipped_pairs": [
+              "P941_942"
+            ],
+            "hits": 0,
+            "pi0": 1.0
+          },
+          {
+            "flipped_pairs": [
+              "P909_910"
+            ],
+            "hits": 1,
+            "pi0": 1.0
+          },
+          {
+            "flipped_pairs": [
+              "P909_910",
+              "P941_942"
+            ],
+            "hits": 0,
+            "pi0": 1.0
+          },
+          {
+            "flipped_pairs": [
+              "P907_908"
+            ],
+            "hits": 0,
+            "pi0": 0.9301
+          },
+          {
+            "flipped_pairs": [
+              "P907_908",
+              "P941_942"
+            ],
+            "hits": 0,
+            "pi0": 0.8881
+          },
+          {
+            "flipped_pairs": [
+              "P907_908",
+              "P909_910"
+            ],
+            "hits": 0,
+            "pi0": 0.9497
+          },
+          {
+            "flipped_pairs": [
+              "P907_908",
+              "P909_910",
+              "P941_942"
+            ],
+            "hits": 0,
+            "pi0": 0.8351
+          }
+        ],
+        "protein": [
+          {
+            "flipped_pairs": [],
+            "hits": 1,
+            "pi0": 0.8684
+          },
+          {
+            "flipped_pairs": [
+              "P941_942"
+            ],
+            "hits": 0,
+            "pi0": 0.9628
+          },
+          {
+            "flipped_pairs": [
+              "P909_910"
+            ],
+            "hits": 0,
+            "pi0": 0.9972
+          },
+          {
+            "flipped_pairs": [
+              "P909_910",
+              "P941_942"
+            ],
+            "hits": 0,
+            "pi0": 1.0
+          },
+          {
+            "flipped_pairs": [
+              "P907_908"
+            ],
+            "hits": 0,
+            "pi0": 0.9606
+          },
+          {
+            "flipped_pairs": [
+              "P907_908",
+              "P941_942"
+            ],
+            "hits": 0,
+            "pi0": 0.9484
+          },
+          {
+            "flipped_pairs": [
+              "P907_908",
+              "P909_910"
+            ],
+            "hits": 0,
+            "pi0": 0.955
+          },
+          {
+            "flipped_pairs": [
+              "P907_908",
+              "P909_910",
+              "P941_942"
+            ],
+            "hits": 0,
+            "pi0": 0.8751
+          }
+        ],
+        "psm_log2": [
+          {
+            "flipped_pairs": [],
+            "hits": 0,
+            "pi0": 0.7393
+          },
+          {
+            "flipped_pairs": [
+              "P941_942"
+            ],
+            "hits": 0,
+            "pi0": 0.8168
+          },
+          {
+            "flipped_pairs": [
+              "P909_910"
+            ],
+            "hits": 0,
+            "pi0": 0.958
+          },
+          {
+            "flipped_pairs": [
+              "P909_910",
+              "P941_942"
+            ],
+            "hits": 0,
+            "pi0": 0.9423
+          },
+          {
+            "flipped_pairs": [
+              "P907_908"
+            ],
+            "hits": 0,
+            "pi0": 1.0
+          },
+          {
+            "flipped_pairs": [
+              "P907_908",
+              "P941_942"
+            ],
+            "hits": 0,
+            "pi0": 1.0
+          },
+          {
+            "flipped_pairs": [
+              "P907_908",
+              "P909_910"
+            ],
+            "hits": 0,
+            "pi0": 1.0
+          },
+          {
+            "flipped_pairs": [
+              "P907_908",
+              "P909_910",
+              "P941_942"
+            ],
+            "hits": 0,
+            "pi0": 0.8952
+          }
+        ]
+      },
+      "stats": {
+        "NSAF": {
+          "hits": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "n_hits_ge_observed": 8,
+          "observed": 0,
+          "pi0": [
+            0.8452,
+            0.9055,
+            1.0,
+            0.9407,
+            0.9629,
+            0.9314,
+            0.9333,
+            0.8397
+          ],
+          "pi0_rank_lowest_first": 2
+        },
+        "PSM count\n(log2)": {
+          "hits": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "n_hits_ge_observed": 8,
+          "observed": 0,
+          "pi0": [
+            0.7393,
+            0.8168,
+            0.958,
+            0.9423,
+            1.0,
+            1.0,
+            1.0,
+            0.8952
+          ],
+          "pi0_rank_lowest_first": 1
+        },
+        "Peptide\n(LFQ)": {
+          "hits": [
+            10,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "n_hits_ge_observed": 1,
+          "observed": 0,
+          "pi0": [
+            0.8697,
+            1.0,
+            1.0,
+            1.0,
+            0.9301,
+            0.8881,
+            0.9497,
+            0.8351
+          ],
+          "pi0_rank_lowest_first": 2
+        },
+        "Protein\n(LFQ)": {
+          "hits": [
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "n_hits_ge_observed": 1,
+          "observed": 0,
+          "pi0": [
+            0.8684,
+            0.9628,
+            0.9972,
+            1.0,
+            0.9606,
+            0.9484,
+            0.955,
+            0.8751
+          ],
+          "pi0_rank_lowest_first": 1
+        }
+      }
+    },
+    "0006-volcano-peptide-trend-paired": {
+      "artifacts": {
+        "legend_png": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-volcano-peptide-trend-paired.legend.png",
+        "legend_svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-volcano-peptide-trend-paired.legend.svg",
+        "png": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-volcano-peptide-trend-paired.png",
+        "svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-volcano-peptide-trend-paired.svg"
+      },
+      "color_map": {
+        "NS": "#d0d0d0",
+        "down": "#56B4E9",
+        "up": "#E69F00"
+      },
+      "kind": "volcano (limma-trend)",
+      "labelled": [
+        {
+          "feature": "VLVVPTDGSPWLSMR[+0.0]",
+          "label": "VLVVPTDGSPWLSMR \u00b7 UD14_HUMAN",
+          "log2fc": -1.2713997480819055,
+          "q": 0.028496844387858433
+        },
+        {
+          "feature": "LVTLPVSFAQLK[+0.0]",
+          "label": "LVTLPVSFAQLK \u00b7 LRC59_HUMAN",
+          "log2fc": -1.1683438995279207,
+          "q": 0.028496844387858433
+        },
+        {
+          "feature": "IDGNLVVRPYTPISSDDDKGFVDLVIK[+0.0]",
+          "label": "IDGNLVV\u2026DLVIK \u00b7 NB5R3_HUMAN",
+          "log2fc": -1.2448064856125818,
+          "q": 0.028496844387858433
+        },
+        {
+          "feature": "GYPTLLLFR[+0.0]",
+          "label": "GYPTLLLFR \u00b7 TXND5_HUMAN",
+          "log2fc": -1.2672725677290497,
+          "q": 0.028496844387858433
+        },
+        {
+          "feature": "ITLLSALVETR[+0.0]",
+          "label": "ITLLSALVETR \u00b7 AACT_HUMAN",
+          "log2fc": -1.4334006973158742,
+          "q": 0.028496844387858433
+        },
+        {
+          "feature": "LLPVYLNCVLK[+57.021464]",
+          "label": "LLPVYLNCVLK \u00b7 SC24C_HUMAN",
+          "log2fc": 1.4574333027076047,
+          "q": 0.029782873920061098
+        },
+        {
+          "feature": "AIGAVPLIQGEYMIPCEK[+57.021464]",
+          "label": "AIGAVPL\u2026IPCEK[+57.02] \u00b7 CATD_HUMAN",
+          "log2fc": 1.016629673984884,
+          "q": 0.029782873920061098
+        },
+        {
+          "feature": "GFPLITITVR[+0.0]",
+          "label": "GFPLITITVR \u00b7 ERAP1_HUMAN",
+          "log2fc": 1.784642773950007,
+          "q": 0.029782873920061098
+        },
+        {
+          "feature": "IAPLEEGTLPFNLAEAQR[+0.0]",
+          "label": "IAPLEEG\u2026AEAQR \u00b7 S2513_HUMAN",
+          "log2fc": -0.9897442202276112,
+          "q": 0.0358503598081742
+        },
+        {
+          "feature": "IAHAEAQVGLPEVTLGLLPGAR[+0.0]",
+          "label": "IAHAEAQ\u2026LPGAR \u00b7 ECHP_HUMAN",
+          "log2fc": -1.17233027182648,
+          "q": 0.042144619963193346
+        }
+      ],
+      "quantity": "peptide",
+      "stats": {
+        "counts": {
+          "down": 7,
+          "ns": 10219,
+          "up": 3
+        },
+        "effect_range": [
+          -2.748842678980311,
+          2.381378026254221
+        ],
+        "label_groups": [
+          "VLVVPTDGSPWLSMR \u00b7 UD14_HUMAN\nGYPTLLLFR \u00b7 TXND5_HUMAN\nIDGNLVV\u2026DLVIK \u00b7 NB5R3_HUMAN",
+          "ITLLSALVETR \u00b7 AACT_HUMAN",
+          "LVTLPVSFAQLK \u00b7 LRC59_HUMAN",
+          "IAPLEEG\u2026AEAQR \u00b7 S2513_HUMAN",
+          "IAHAEAQ\u2026LPGAR \u00b7 ECHP_HUMAN",
+          "LLPVYLNCVLK \u00b7 SC24C_HUMAN",
+          "AIGAVPL\u2026IPCEK[+57.02] \u00b7 CATD_HUMAN",
+          "GFPLITITVR \u00b7 ERAP1_HUMAN"
+        ],
+        "leader_near_misses_lt_12px": 3,
+        "lowest_label_box_bottom_neg_log10_q": 1.3227105227157996,
+        "min_q": 0.028496844387858433,
+        "q_line_neg_log10": 1.3010299956639813,
+        "x_limits": [
+          -2.968750093298736,
+          2.968750093298736
+        ]
+      }
+    },
+    "0006-volcano-protein-trend-paired": {
+      "artifacts": {
+        "legend_png": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-volcano-protein-trend-paired.legend.png",
+        "legend_svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-volcano-protein-trend-paired.legend.svg",
+        "png": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-volcano-protein-trend-paired.png",
+        "svg": "figures/analysis/differential-abundance/raloxifene-vs-control/0006-volcano-protein-trend-paired.svg"
+      },
+      "color_map": {
+        "NS": "#d0d0d0",
+        "down": "#56B4E9",
+        "up": "#E69F00"
+      },
+      "kind": "volcano (limma-trend)",
+      "labelled": [
+        {
+          "feature": "psvid_86283_sp|P56134|ATPK_HUMAN",
+          "label": "ATPK_HUMAN",
+          "log2fc": -0.516019408282129,
+          "q": 0.03946916147462384
+        }
+      ],
+      "quantity": "protein",
+      "stats": {
+        "counts": {
+          "down": 1,
+          "ns": 1800,
+          "up": 0
+        },
+        "effect_range": [
+          -0.7401019544191048,
+          1.0395435434556353
+        ],
+        "label_groups": [
+          "ATPK_HUMAN"
+        ],
+        "leader_near_misses_lt_12px": 0,
+        "lowest_label_box_bottom_neg_log10_q": 1.3857713108665235,
+        "min_q": 0.03946916147462384,
+        "q_line_neg_log10": 1.3010299956639813,
+        "x_limits": [
+          -1.1227070269320862,
+          1.1227070269320862
+        ]
+      }
+    },
+    "0007-atpk-peptides": {
+      "artifacts": {
+        "legend_png": "figures/analysis/quant-comparison/atpk-case/0007-atpk-peptides.legend.png",
+        "legend_svg": "figures/analysis/quant-comparison/atpk-case/0007-atpk-peptides.legend.svg",
+        "png": "figures/analysis/quant-comparison/atpk-case/0007-atpk-peptides.png",
+        "svg": "figures/analysis/quant-comparison/atpk-case/0007-atpk-peptides.svg"
+      },
+      "kind": "per-peptide LFQ vs PSM per pair",
+      "peptides": {
+        "DFSPSGIFGAFQR": {
+          "dump_sequence": "DFSPSGIFGAFQR",
+          "lfq_control": {
+            "P905_906": 25.47365466927101,
+            "P907_908": 25.67190941246424,
+            "P909_910": 24.93290098332729,
+            "P941_942": 24.58244726642039
+          },
+          "lfq_detection_types": {
+            "MSMS": 8
+          },
+          "lfq_feature": "DFSPSGIFGAFQR[+0.0]",
+          "lfq_raloxifene": {
+            "P905_906": 25.31359215462916,
+            "P907_908": 25.45931685812224,
+            "P909_910": 25.202991560437244,
+            "P941_942": 24.49286510166396
+          },
+          "psm_control": {
+            "P905_906": 2,
+            "P907_908": 2,
+            "P909_910": 2,
+            "P941_942": 3
+          },
+          "psm_raloxifene": {
+            "P905_906": 1,
+            "P907_908": 1,
+            "P909_910": 1,
+            "P941_942": 1
+          },
+          "psm_totals": [
+            9,
+            4
+          ]
+        },
+        "LGELPSWILM(ox)R": {
+          "dump_sequence": "LGELPSWILM[15.99]R",
+          "lfq_control": {
+            "P905_906": 23.21900796809669,
+            "P907_908": 25.01441169187703,
+            "P909_910": 24.904392981877983,
+            "P941_942": 22.578013716601184
+          },
+          "lfq_detection_types": {
+            "MSMS": 8
+          },
+          "lfq_feature": "LGELPSWILMR[+15.9949]",
+          "lfq_raloxifene": {
+            "P905_906": 22.37343796436656,
+            "P907_908": 24.367474717191666,
+            "P909_910": 24.08775436683527,
+            "P941_942": 22.260254869794856
+          },
+          "psm_control": {
+            "P905_906": 3,
+            "P907_908": 3,
+            "P909_910": 3,
+            "P941_942": 2
+          },
+          "psm_raloxifene": {
+            "P905_906": 10,
+            "P907_908": 10,
+            "P909_910": 10,
+            "P941_942": 3
+          },
+          "psm_totals": [
+            11,
+            33
+          ]
+        },
+        "LGELPSWILMR": {
+          "dump_sequence": "LGELPSWILMR",
+          "lfq_control": {
+            "P905_906": null,
+            "P907_908": null,
+            "P909_910": null,
+            "P941_942": 25.97323021827942
+          },
+          "lfq_detection_types": {
+            "MSMS": 2,
+            "MSMSAmbiguousPeakfinding": 6
+          },
+          "lfq_feature": "LGELPSWILMR[+0.0]",
+          "lfq_raloxifene": {
+            "P905_906": null,
+            "P907_908": null,
+            "P909_910": 25.01188589915343,
+            "P941_942": null
+          },
+          "psm_control": {
+            "P905_906": 1,
+            "P907_908": 1,
+            "P909_910": 1,
+            "P941_942": 2
+          },
+          "psm_raloxifene": {
+            "P905_906": 1,
+            "P907_908": 2,
+            "P909_910": 1,
+            "P941_942": 3
+          },
+          "psm_totals": [
+            5,
+            7
+          ]
+        }
+      },
+      "stats": {
+        "panels": {
+          "r0c0:DFSPSGIFGAFQR": {
+            "control_log2": [
+              25.47365466927101,
+              25.67190941246424,
+              24.93290098332729,
+              24.58244726642039
+            ],
+            "treated_log2": [
+              25.31359215462916,
+              25.45931685812224,
+              25.202991560437244,
+              24.49286510166396
+            ],
+            "ylim_log2": [
+              22.010254869794856,
+              26.22323021827942
+            ]
+          },
+          "r0c1:LGELPSWILM(ox)R": {
+            "control_log2": [
+              23.21900796809669,
+              25.01441169187703,
+              24.904392981877983,
+              22.578013716601184
+            ],
+            "treated_log2": [
+              22.37343796436656,
+              24.367474717191666,
+              24.08775436683527,
+              22.260254869794856
+            ],
+            "ylim_log2": [
+              22.010254869794856,
+              26.22323021827942
+            ]
+          },
+          "r0c2:LGELPSWILMR": {
+            "control_log2": [
+              null,
+              null,
+              null,
+              25.97323021827942
+            ],
+            "treated_log2": [
+              null,
+              null,
+              25.01188589915343,
+              null
+            ],
+            "ylim_log2": [
+              22.010254869794856,
+              26.22323021827942
+            ]
+          },
+          "r1c0:DFSPSGIFGAFQR": {
+            "control_log2": [
+              1.0,
+              1.0,
+              1.0,
+              1.584962500721156
+            ],
+            "treated_log2": [
+              0.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "ylim_log2": [
+              -0.4455236267986,
+              3.767451721685962
+            ]
+          },
+          "r1c1:LGELPSWILM(ox)R": {
+            "control_log2": [
+              1.584962500721156,
+              1.584962500721156,
+              1.584962500721156,
+              1.0
+            ],
+            "treated_log2": [
+              3.321928094887362,
+              3.321928094887362,
+              3.321928094887362,
+              1.584962500721156
+            ],
+            "ylim_log2": [
+              -0.4455236267986,
+              3.767451721685962
+            ]
+          },
+          "r1c2:LGELPSWILMR": {
+            "control_log2": [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "treated_log2": [
+              0.0,
+              1.0,
+              0.0,
+              1.584962500721156
+            ],
+            "ylim_log2": [
+              -0.4455236267986,
+              3.767451721685962
+            ]
+          }
+        },
+        "x_dodge": [
+          -0.07500000000000001,
+          -0.025,
+          0.025,
+          0.07500000000000001
+        ]
+      }
+    },
+    "0007-atpk-per-pair-by-quantity": {
+      "artifacts": {
+        "legend_png": "figures/analysis/quant-comparison/atpk-case/0007-atpk-per-pair-by-quantity.legend.png",
+        "legend_svg": "figures/analysis/quant-comparison/atpk-case/0007-atpk-per-pair-by-quantity.legend.svg",
+        "png": "figures/analysis/quant-comparison/atpk-case/0007-atpk-per-pair-by-quantity.png",
+        "svg": "figures/analysis/quant-comparison/atpk-case/0007-atpk-per-pair-by-quantity.svg"
+      },
+      "kind": "per-pair segments by quantity",
+      "per_pair": {
+        "lfq_protein_norm_log2": {
+          "control": {
+            "P905_906": 26.734851277307403,
+            "P907_908": 27.76506295150841,
+            "P909_910": 27.32049766028706,
+            "P941_942": 26.099472208531388
+          },
+          "de_paired_limma_trend": {
+            "ci95": [
+              -0.6488,
+              -0.3833
+            ],
+            "log2fc": -0.516,
+            "n_features": 1801,
+            "p": 2.19151368543164e-05,
+            "p_notrend": 0.0002997529199611,
+            "prior_sd_trend": 0.1025,
+            "q": 0.0395,
+            "q_notrend": 0.21,
+            "rank_by_p": 1,
+            "residual_sd": 0.0166
+          },
+          "raloxifene": {
+            "P905_906": 26.2310566916105,
+            "P907_908": 27.213996654522383,
+            "P909_910": 26.81287343315766,
+            "P941_942": 25.597879685215197
+          },
+          "within_pair_log2_difference": {
+            "P905_906": -0.5037945856969017,
+            "P907_908": -0.5510662969860256,
+            "P909_910": -0.5076242271294014,
+            "P941_942": -0.5015925233161909
+          }
+        },
+        "nsaf_log2": {
+          "control": {
+            "P905_906": -11.702745069852838,
+            "P907_908": -11.578417331921395,
+            "P909_910": -11.43971146551384,
+            "P941_942": -11.220758692442676
+          },
+          "de_paired_limma_trend": {
+            "ci95": [
+              0.231,
+              1.4859
+            ],
+            "log2fc": 0.8584,
+            "n_features": 2158,
+            "p": 0.0170070252720076,
+            "p_notrend": 0.0253836438929399,
+            "prior_sd_trend": 0.1321,
+            "q": 0.7026,
+            "q_notrend": 0.7207,
+            "rank_by_p": 41,
+            "residual_sd": 0.4312
+          },
+          "raloxifene": {
+            "P905_906": -10.569622603044944,
+            "P907_908": -10.293130845177949,
+            "P909_910": -10.37889755077917,
+            "P941_942": -11.266229098707312
+          },
+          "within_pair_log2_difference": {
+            "P905_906": 1.1331224668078939,
+            "P907_908": 1.2852864867434466,
+            "P909_910": 1.0608139147346698,
+            "P941_942": -0.045470406264636054
+          }
+        },
+        "psm_count": {
+          "control": {
+            "P905_906": 6.0,
+            "P907_908": 6.0,
+            "P909_910": 6.0,
+            "P941_942": 7.0
+          },
+          "de_paired_limma_trend": {
+            "ci95": [
+              0.1891,
+              1.3687
+            ],
+            "log2fc": 0.7789,
+            "n_features": 2167,
+            "p": 0.0184901578405018,
+            "p_notrend": 0.0194580253824103,
+            "prior_sd_trend": 0.2877,
+            "q": 0.4876,
+            "q_notrend": 0.5405,
+            "rank_by_p": 74,
+            "residual_sd": 0.3692
+          },
+          "raloxifene": {
+            "P905_906": 12.0,
+            "P907_908": 13.0,
+            "P909_910": 12.0,
+            "P941_942": 7.0
+          },
+          "within_pair_log2_difference": {
+            "P905_906": 1.0,
+            "P907_908": 1.1154772174199359,
+            "P909_910": 1.0,
+            "P941_942": 0.0
+          }
+        }
+      },
+      "stats": {
+        "panels": {
+          "r0c0:LFQ protein": {
+            "control_log2": [
+              26.734851277307403,
+              27.76506295150841,
+              27.32049766028706,
+              26.099472208531388
+            ],
+            "treated_log2": [
+              26.2310566916105,
+              27.213996654522383,
+              26.81287343315766,
+              25.597879685215197
+            ],
+            "ylim_log2": [
+              25.347879685215197,
+              28.015062951508405
+            ]
+          },
+          "r0c1:NSAF": {
+            "control_log2": [
+              -11.702745069852838,
+              -11.578417331921395,
+              -11.43971146551384,
+              -11.220758692442676
+            ],
+            "treated_log2": [
+              -10.569622603044944,
+              -10.293130845177949,
+              -10.37889755077917,
+              -11.266229098707312
+            ],
+            "ylim_log2": [
+              -12.331529590661999,
+              -9.664346324368788
+            ]
+          },
+          "r0c2:PSM count": {
+            "control_log2": [
+              2.584962500721156,
+              2.584962500721156,
+              2.584962500721156,
+              2.807354922057604
+            ],
+            "treated_log2": [
+              3.584962500721156,
+              3.700439718141092,
+              3.584962500721156,
+              2.807354922057604
+            ],
+            "ylim_log2": [
+              1.8091094762845188,
+              4.47629274257773
+            ]
+          }
+        },
+        "x_dodge": [
+          -0.07500000000000001,
+          -0.025,
+          0.025,
+          0.07500000000000001
+        ]
+      }
+    }
+  },
+  "git_head": "3e3f1fee41adb828a922d3d5c92e05605d7e456b",
+  "inputs": {
+    "atpk_case.json": {
+      "path": "results/de/raloxifene-vs-control/trend/atpk_case.json",
+      "sha256": "d9d14e367d2dc5d8b1458eb1f30c0511e356beef02264d176eff30c19cd5df40"
+    },
+    "atpk_case_pairs.tsv": {
+      "path": "results/de/raloxifene-vs-control/trend/atpk_case_pairs.tsv",
+      "sha256": "fbbf495557cd34e3887f11e7962798e45a55e2b6b99efc6c86730cccca831b30"
+    },
+    "atpk_case_samples.tsv": {
+      "path": "results/de/raloxifene-vs-control/trend/atpk_case_samples.tsv",
+      "sha256": "b880c9efa49f84ff6e744e8c49d6bd2149e2ea1df7f8c195bd11d1676a8e0c46"
+    },
+    "base/nsaf_paired.tsv": {
+      "path": "results/de/raloxifene-vs-control/nsaf_paired.tsv",
+      "sha256": "a46b255db53e5038044c48aa938244f55a1e92b45bd0350849499c6a6e8e8ebe"
+    },
+    "base/peptide_paired.tsv": {
+      "path": "results/de/raloxifene-vs-control/peptide_paired.tsv",
+      "sha256": "268ec504b65d82fd0f2365b9bfb966082165c0e88cadf9f8bbbbb30c1813d17f"
+    },
+    "base/protein_paired.tsv": {
+      "path": "results/de/raloxifene-vs-control/protein_paired.tsv",
+      "sha256": "927fa7c74f18c2a1e5fd3918f1fd7748418a0d4bbe79d7a88809f8b2b5e08c76"
+    },
+    "base/psm_log2_paired.tsv": {
+      "path": "results/de/raloxifene-vs-control/psm_log2_paired.tsv",
+      "sha256": "261bab1e542e43e31dd9804380d89c2913552a0725e398c6ccd3d0a5e59a4585"
+    },
+    "nsaf_paired.tsv": {
+      "path": "results/de/raloxifene-vs-control/trend/nsaf_paired.tsv",
+      "sha256": "06180804fc9f2d4f6d450c1d2c0ad2407b4e0559603a4145f01ed84421fb155d"
+    },
+    "peptide_paired.tsv": {
+      "path": "results/de/raloxifene-vs-control/trend/peptide_paired.tsv",
+      "sha256": "7c8a7ce671295b8510fd1a85ad29b6a5d5630ff287d78fba64ec757149597da6"
+    },
+    "protein_paired.tsv": {
+      "path": "results/de/raloxifene-vs-control/trend/protein_paired.tsv",
+      "sha256": "7460f8b24ac4c8fd5e8927ab74320dd9d7a5b69d76917f8421e5e3dc05bf5f4c"
+    },
+    "psm_log2_paired.tsv": {
+      "path": "results/de/raloxifene-vs-control/trend/psm_log2_paired.tsv",
+      "sha256": "cbd0940672a92e7aa5e0f96f07467a014ec262ad7cf8c9aa4a10ae9fbd03a560"
+    },
+    "result/nsaf_paired": {
+      "files_sha256": {
+        "_result.json": "00eaa384b53e14740b67c1eb4a8cb3214dd583ad0169e76eb6f2981b9a8a2b07",
+        "table.parquet": "e8fe006792fd767b2467e944dcd759bdf9f7287ea5fc497b81b3116cd6938fec"
+      },
+      "result_dir": "results/de/raloxifene-vs-control/trend/results/nsaf_paired"
+    },
+    "result/peptide_paired": {
+      "files_sha256": {
+        "_result.json": "eba915d71b54a457ccec0b81254e3734e8e2227b5ddaa59d637d31f159d12f28",
+        "table.parquet": "5a0cc62ab663c62efb6e93ac3c2d07b465b02dc255a71a56338c7b1681394a30"
+      },
+      "result_dir": "results/de/raloxifene-vs-control/trend/results/peptide_paired"
+    },
+    "result/protein_paired": {
+      "files_sha256": {
+        "_result.json": "157ec2b8347cf065a14ca2386faab625632fa05ce15ed8d1f6194308376caa15",
+        "table.parquet": "719e318fb90a251aefb87b9a2849899fd9367270d86099594bce714e05d74714"
+      },
+      "result_dir": "results/de/raloxifene-vs-control/trend/results/protein_paired"
+    },
+    "result/psm_log2_paired": {
+      "files_sha256": {
+        "_result.json": "077187ed0ea051759e66bf9239e3253a3a7a59eee2d7955f59ec9f6fac3834b1",
+        "table.parquet": "be1427315d6b4af688c9c439d1b39f761e2f219815d482a8afa783198d2d1ebf"
+      },
+      "result_dir": "results/de/raloxifene-vs-control/trend/results/psm_log2_paired"
+    },
+    "summary.json": {
+      "path": "results/de/raloxifene-vs-control/trend/summary.json",
+      "sha256": "9ba1bc26a4bd722df2b2ddc474624605741db5c22dd84aa8184b124bdf1d435b"
+    }
+  },
+  "modules": {
+    "fig_de_raloxifene_vs_control(label_map)": {
+      "path": "scripts/scratch/fig_de_raloxifene_vs_control.py",
+      "sha256": "e76cf43a5d6e241a56e2b5107dd1048002b87a93416cdc7c4b86855ac027d25f"
+    },
+    "pvalue_hist": {
+      "path": "scripts/scratch/analysis_figures/pvalue_hist.py",
+      "sha256": "b06b331cdeacdef253fdaa03c7c49d7da391d1ffff0abe570c4e534507d60cb8"
+    },
+    "trend_atpk": {
+      "path": "scripts/scratch/analysis_figures/trend_atpk.py",
+      "sha256": "64cbbbff0c0bcd7a8d78c7989077ca3d9b702c60774972428685ad0c9b4db0f4"
+    },
+    "volcano": {
+      "path": "scripts/scratch/analysis_figures/volcano.py",
+      "sha256": "cd738f290b067ae2f462ba315030142968e2ee388066abf49e86002b3336f8d1"
+    }
+  },
+  "params": {
+    "contrast_term": "condition[raloxifene-d0 vs control]",
+    "design": "paired",
+    "fdr": 0.05,
+    "fdr_guide_lines": [
+      0.05,
+      0.1
+    ],
+    "hit_rule": "q < fdr (strict)",
+    "paired_panels_equal_log2_span": true,
+    "paired_panels_x_dodge": 0.05,
+    "pi0_lambda": 0.5,
+    "volcano_labels": "all q < 0.05 hits; deterministic side-column layout (trend_atpk.label_hits_in_columns), boxes above the q line; figure resized to VOLCANO_SIZE"
+  },
+  "script": {
+    "path": "scripts/scratch/fig_trend_atpk.py",
+    "sha256": "41d674cc3e789c37f81fa6394aad991b89865b60ad6f7d8e32b08d226dc47416"
+  }
+}
